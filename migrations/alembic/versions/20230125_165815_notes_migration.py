@@ -28,6 +28,9 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
 
+    if environment == "production":
+        op.execute(f"ALTER TABLE notes SET SCHEMA {SCHEMA};")
+
 
 def downgrade():
     op.drop_table('notes')
