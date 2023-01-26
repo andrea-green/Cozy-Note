@@ -5,9 +5,12 @@ def seed_notes():
     note_1= Note(
         title="brain dump",
         author_id=1,
-        notebook_id= 'null',
+        notebook_id=None,
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
     )
+    db.session.add(note_1)
+
+    db.session.commit()
 
 # fake=Faker()
 
@@ -20,17 +23,14 @@ def seed_notes():
 
 
 
-db.session.add(seed_notes)
 
-db.session.commit()
-
-def undo_channels():
+def undo_notes():
 
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.note RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table {SCHEMA}.notes RESTART IDENTITY CASCADE;")
 
     else:
-        db.session.execute("DELETE FROM note")
+        db.session.execute("DELETE FROM notes")
 
     db.session.commit()
