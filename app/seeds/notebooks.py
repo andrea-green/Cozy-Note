@@ -4,15 +4,15 @@ def seed_notebooks():
     notebook_1= Notebook(
         owner_id=1,
         name="My Notebook"
-    ),
+    )
     notebook_2= Notebook(
         owner_id=2,
         name="Biology notes"
-    ),
+    )
     notebook_3= Notebook(
         owner_id=3,
         name="Chem notes"
-    ),
+    )
     # notebook_4= Notebook(
     #     owner_id=3,
     #     name="Math notes"
