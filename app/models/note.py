@@ -10,10 +10,10 @@ class Note(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     author_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    notebook_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('notebooks.id')), nullable=True)
+    notebook_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('notebook.id')), nullable=True)
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.String(2000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
-    # associations here 
+    # associations here
     # author = db.relationship('User')
