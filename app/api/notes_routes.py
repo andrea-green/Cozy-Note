@@ -35,3 +35,20 @@ def get_single_note(note_id):
             "updated_at": self.updated_at,
         }
     return jsonify({"Note": note.to_dict()})
+
+# create a new note
+@notes_routes.route('/', methods=['POST'])
+@login_required
+def create_note():
+    form = Note_Form()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        note = Note(
+            title=form.data['title'],
+            body=form.data['body'],
+            author_id=current_user.id,
+        )
+        db.session.add(note)
+        db.session.commit()
+        return note.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
