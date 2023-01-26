@@ -71,3 +71,16 @@ def update_note(note_id):
         db.session.commit()
         return note.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+# delete a note
+@notes_routes.route('/<int:note_id>', methods=['DELETE'])
+@login_required
+def delete_note(note_id):
+    note = Note.query.get(note_id)
+    if note is None:
+        return jsonify({"error": "Note not found"}), 404
+    if note.owner_id != current_user.id:
+        return jsonify({"error": "Unauthorized"}), 401
+    db.session.delete(note)
+    db.session.commit()
+    return jsonify({"message": "Note deleted"}), 200
