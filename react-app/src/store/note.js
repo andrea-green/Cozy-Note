@@ -1,6 +1,7 @@
 
 const GET_NOTES = 'notes/GET_NOTES';
 const ADD_NOTE = 'notes/ADD_NOTE';
+const EDIT_NOTE = 'notes/EDIT_NOTE';
 
 
 
@@ -15,6 +16,12 @@ const addNoteAc = (note) => ({
     type: ADD_NOTE,
     payload: note
 });
+
+const editNoteAc = (note) => ({
+    type: EDIT_NOTE,
+    payload: note
+});
+
 
 
 
@@ -62,6 +69,31 @@ export const addNoteThunk = (note) => async (dispatch) => {
 
 }
 
+export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
+    async (dispatch) =>{
+        const response = await fetch(`/api/notes/${noteId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedNote)
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            dispatch(editNoteAc(data));
+        } else if (response.status < 500) {
+            const data = await response.json();
+            if (data.errors) {
+                return data.errors;
+            }
+        } else {
+            return ['An error occurred. Please try again.']
+        }
+    }
+};
+
+
 
 
 
@@ -98,6 +130,17 @@ export default function noteReducer(state = initialState, action) {
             };
             newNoteState.allNotes.byId[newNote.id] = newNote;
             return newNoteState;
+        case EDIT_NOTE:
+            const editedNote = action.payload;
+            const editedNoteState = {
+                ...state,
+                allNotes: {
+                    byId: {...state.allNotes.byId},
+                    allIds: [...state.allNotes.allIds,newNote.id],
+                },
+            };
+            editedNoteState.allNotes.byId[editedNote.id] = editedNote;
+            return editedNoteState;
 
         default:
             return state;
