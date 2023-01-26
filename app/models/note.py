@@ -4,7 +4,7 @@ from datetime import datetime
 class Note(db.Model):
     __tablename__="note"
 
-     if environment == "production":
+    if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
 
@@ -15,5 +15,5 @@ class Note(db.Model):
     content = db.Column(db.String(2000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
-
+    # associations here 
     # author = db.relationship('User')
