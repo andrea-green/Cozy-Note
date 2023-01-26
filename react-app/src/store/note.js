@@ -2,6 +2,7 @@
 const GET_NOTES = 'notes/GET_NOTES';
 const ADD_NOTE = 'notes/ADD_NOTE';
 const EDIT_NOTE = 'notes/EDIT_NOTE';
+const DELETE_NOTE = 'notes/DELETE_NOTE';
 
 
 
@@ -21,6 +22,12 @@ const editNoteAc = (note) => ({
     type: EDIT_NOTE,
     payload: note
 });
+
+const deleteNoteAc = (noteId) => ({
+    type: DELETE_NOTE,
+    payload: noteId
+});
+
 
 
 
@@ -93,6 +100,29 @@ export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
     }
 };
 
+export const deleteNoteThunk = (noteId) => async (dispatch) => {
+    async (dispatch) =>{
+        const response = await fetch(`/api/notes/${noteId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            dispatch(deleteNoteAc(data));
+        } else if (response.status < 500) {
+            const data = await response.json();
+            if (data.errors) {
+                return data.errors;
+            }
+        } else {
+            return ['An error occurred. Please try again.']
+        }
+    }
+};
+
 
 
 
@@ -141,6 +171,18 @@ export default function noteReducer(state = initialState, action) {
             };
             editedNoteState.allNotes.byId[editedNote.id] = editedNote;
             return editedNoteState;
+        case DELETE_NOTE:
+            const deletedNote = action.payload;
+            const deletedNoteState = {
+                ...state,
+                allNotes: {
+                    byId: {...state.allNotes.byId},
+                    allIds: state.allNotes.allIds.filter(id => id !== deletedNote.id),
+                },
+            };
+            delete deletedNoteState.allNotes.byId[deletedNote.id];
+            return deletedNoteState;
+
 
         default:
             return state;
