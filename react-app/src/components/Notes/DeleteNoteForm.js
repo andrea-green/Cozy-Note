@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { deleteNoteThunk } from '../../store/notes';
-
+import './DeleteNoteForm.css'
 
 export default function DeleteNoteForm() {
     const dispatch = useDispatch();

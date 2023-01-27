@@ -2,6 +2,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import {useHistory} from "react-router-dom"
 import { getNoteThunk } from '../../store/note';
+import './DeleteNoteForm.css'
 
 export default function AllNotes(){
     const dispatch = useDispatch();
@@ -14,5 +15,5 @@ export default function AllNotes(){
         history.push(`/notes/${noteId}`)
     }
 
-    return null; 
+    return null;
 }
