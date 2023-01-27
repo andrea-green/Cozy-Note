@@ -1,5 +1,6 @@
 
-const GET_NOTES = 'notes/GET_NOTES';
+const GET_ALL_NOTES = 'notes/GET_ALL_NOTES';
+const GET_NOTE = 'notes/GET_NOTE';
 const ADD_NOTE = 'notes/ADD_NOTE';
 const EDIT_NOTE = 'notes/EDIT_NOTE';
 const DELETE_NOTE = 'notes/DELETE_NOTE';
@@ -8,9 +9,14 @@ const DELETE_NOTE = 'notes/DELETE_NOTE';
 
 
 // action creators
-const getNotesAc = (notes) => ({
-    type: GET_NOTES,
+const getAllNotesAc = (notes) => ({
+    type: GET_ALL_NOTES,
     payload: notes
+});
+
+const getNoteAc= (note) => ({
+    type: GET_NOTE,
+    payload: note
 });
 
 const addNoteAc = (note) => ({
@@ -33,7 +39,7 @@ const deleteNoteAc = (noteId) => ({
 
 
 // thunks
-export const getNotesThunk = (noteId) => async (dispatch) => {
+export const getAllNotesThunk = (noteId) => async (dispatch) => {
     const response = await fetch(`/api/notes/${noteId}`, {
         headers: {
             'Content-Type': 'application/json'
@@ -42,7 +48,7 @@ export const getNotesThunk = (noteId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(getNotesAc(data));
+        dispatch(getAllNotesAc(data));
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -52,6 +58,26 @@ export const getNotesThunk = (noteId) => async (dispatch) => {
         return ['An error occurred. Please try again.']
     }
 };
+
+export const getNoteThunk = (noteId) => async (dispatch) => {
+    const response = await fetch(`/api/notes/${noteId}`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(getNoteAc(data));
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
 
 export const addNoteThunk = (note) => async (dispatch) => {
     const response = await fetch('/api/notes', {
@@ -137,7 +163,7 @@ const initialState = {
 
 export default function noteReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_NOTES:
+        case GET_ALL_NOTES:
             const newState = {};
             action.payload.forEach(note => {
                 newState[note.id] = note;
@@ -148,6 +174,12 @@ export default function noteReducer(state = initialState, action) {
                     byId: newState,
                     allIds: action.payload.map(note => note.id),
                 },
+            };
+        case GET_NOTE:
+            const note = action.payload;
+            return{
+                ...state,
+                allNotes: note
             };
         case ADD_NOTE:
             const newNote = action.payload;
