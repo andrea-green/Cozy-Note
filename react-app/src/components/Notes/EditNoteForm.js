@@ -18,7 +18,7 @@ export default function EditNoteForm() {
     const updateTitle = (e) => setTitle(e.target.value);
     const updateContent = (e) => setContent(e.target.value);
 
-    const myNote = useSelector(state => console.log('state', state));
+    const myNote = useSelector(state => state.notes.singleNote);
 
     useEffect(() => {
         const errors = [];

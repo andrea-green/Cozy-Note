@@ -8,7 +8,7 @@ export default function DeleteNoteForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const myNote = useSelector(state => state.notes);
+    const myNote = useSelector(state => state.notes.singleNote);
     const [errors, setErrors] = useState([]);
     const [boolean,setBoolean] = useState(false);
 
