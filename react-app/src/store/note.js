@@ -48,7 +48,7 @@ export const getAllNotesThunk = (noteId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(getAllNotesAc(data));
+        dispatch(getAllNotesAc(data.Notes));
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -68,7 +68,7 @@ export const getNoteThunk = (noteId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(getNoteAc(data));
+        dispatch(getNoteAc(data.Note));
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -136,8 +136,8 @@ export const deleteNoteThunk = (noteId) => async (dispatch) => {
         });
 
         if (response.ok) {
-            const data = await response.json();
-            dispatch(deleteNoteAc(data));
+            // const data = await response.json();
+            dispatch(deleteNoteAc(noteId));
         } else if (response.status < 500) {
             const data = await response.json();
             if (data.errors) {
@@ -158,7 +158,8 @@ const initialState = {
     allNotes: {
         byId: {},
         allIds: [],
-    }
+    },
+    singleNote: {}
 }
 
 export default function noteReducer(state = initialState, action) {
@@ -179,38 +180,38 @@ export default function noteReducer(state = initialState, action) {
             const note = action.payload;
             return{
                 ...state,
-                allNotes: note
+                singleNote: note
             };
         case ADD_NOTE:
             const newNote = action.payload;
             const newNoteState = {
-                ...state,
                 allNotes: {
                     byId: {...state.allNotes.byId},
                     allIds: [...state.allNotes.allIds, newNote.id],
                 },
+                singleNote: newNote
             };
             newNoteState.allNotes.byId[newNote.id] = newNote;
             return newNoteState;
         case EDIT_NOTE:
             const editedNote = action.payload;
             const editedNoteState = {
-                ...state,
                 allNotes: {
                     byId: {...state.allNotes.byId},
                     allIds: [...state.allNotes.allIds,newNote.id],
                 },
+                singleNote: editedNote
             };
             editedNoteState.allNotes.byId[editedNote.id] = editedNote;
             return editedNoteState;
         case DELETE_NOTE:
             const deletedNote = action.payload;
             const deletedNoteState = {
-                ...state,
                 allNotes: {
                     byId: {...state.allNotes.byId},
                     allIds: state.allNotes.allIds.filter(id => id !== deletedNote.id),
                 },
+                singleNote: {}
             };
             delete deletedNoteState.allNotes.byId[deletedNote.id];
             return deletedNoteState;

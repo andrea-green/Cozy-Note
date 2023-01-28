@@ -5,9 +5,11 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import UsersList from './components/Users/UsersList';
+import User from './components/Users/User';
 import { authenticate } from './store/session';
+import Body from './components/Notes';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,6 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      {/* move nav bar to landing page.  */}
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -42,6 +45,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+        </Route>
+        <Route path='/notes' exact={true} >
+          <Body />
         </Route>
       </Switch>
     </BrowserRouter>

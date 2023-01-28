@@ -1,8 +1,8 @@
 import {useSelector,useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import {useHistory} from "react-router-dom"
-import { getNoteThunk } from '../../store/note';
-import './DeleteNoteForm.css'
+import { getAllNotesThunk } from '../../store/note';
+
 
 export default function AllNotes(){
     const dispatch = useDispatch();
@@ -11,9 +11,23 @@ export default function AllNotes(){
     const history = useHistory();
 
     const handleSubmit = (noteId) => {
-        dispatch(getNoteThunk(noteId))
+        dispatch(getAllNotesThunk(noteId))
         history.push(`/notes/${noteId}`)
     }
 
-    return null;
+    //use selector to grab all of the notes belonging to the current user.
+    const myNotes = useSelector((state)=>state.AllNotes.author_id);
+    const myNotesArr = Object.values(myNotes);
+
+    return (
+        <>
+            <h1>My Notes</h1>
+            <div>
+
+
+            </div>
+        </>
+    );
 }
+
+// emppty tags for outer div.

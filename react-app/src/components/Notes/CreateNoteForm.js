@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 import { addNoteThunk } from '../../store/note';
-import './DeleteNoteForm.css'
+
 
 export default function CreateNoteForm() {
     const dispatch = useDispatch();
