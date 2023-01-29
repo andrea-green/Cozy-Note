@@ -23,12 +23,7 @@ export default function AllNotes(){
     return (
         <div>
             <h1>My Notes Here </h1>
-            <div className='create-new-note'>
-                <button onClick={()=>{
-                    handleSubmit(noteId)
-                }}
-                />
-            </div>
+        
         </div>
     );
 }

@@ -103,7 +103,6 @@ export const addNoteThunk = (note) => async (dispatch) => {
 }
 
 export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
-    async (dispatch) =>{
         const response = await fetch(`/api/notes/${noteId}`, {
             method: 'PUT',
             headers: {
@@ -123,11 +122,9 @@ export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
         } else {
             return ['An error occurred. Please try again.']
         }
-    }
-};
+    };
 
 export const deleteNoteThunk = (noteId) => async (dispatch) => {
-    async (dispatch) =>{
         const response = await fetch(`/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
@@ -146,8 +143,7 @@ export const deleteNoteThunk = (noteId) => async (dispatch) => {
         } else {
             return ['An error occurred. Please try again.']
         }
-    }
-};
+    };
 
 
 
