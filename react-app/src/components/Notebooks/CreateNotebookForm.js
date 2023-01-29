@@ -1,58 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-
-import { addNoteThunk } from '../../store/note';
+import React, {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import { addNtbkThunk } from '../../store/notebook';
 
 
-export default function CreateNoteForm() {
+export default function CreateNotebookForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { noteId } = useParams();
 
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-
-
-    const enterTitle = (e) => setTitle(e.target.value);
-    const enterContent = (e) => setContent(e.target.value);
+    const [name, setName] = useState('');
+    const enterName = (e) => setName(e.target.value);
 
     const [errors, setErrors] = useState([]);
-
 
     useEffect(() => {
         const errors = [];
 
-        if (title.length < 1) errors.push('Title must be at least 1 characters long');
-        if (content.length < 0) errors.push('Content may not be empty');
+        if (name.length < 1) errors.push('Name must be at least 1 characters long');
 
         setErrors(errors);
-    }, [title, content])
+    },[name])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const payload = {
-            title,
-            content
+            name
         }
 
-        return dispatch(addNoteThunk(payload))
-            .then(() => history.push('/notes'))
+        return dispatch(addNtbkThunk(payload))
+            .then(() => history.push('/notebooks'))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
     };
-
-
-
     return (
         <>
             <div className="form-header">
-                <h1>New note</h1>
+                <h1>New Notebook</h1>
             </div>
 
             <section className='form-container'>
@@ -60,12 +46,12 @@ export default function CreateNoteForm() {
                     <li key={error}>{error}</li>
                 ))}</ul>
                 <form className='form-body' onSubmit={handleSubmit}>
-                    <label>Title </label>
+                    <label>Name </label>
                     <input className='form-input'
                         type="text"
                         required
-                        value={title}
-                        onChange={enterTitle}
+                        value={name}
+                        onChange={enterName}
                     />
                     <label>Start writing to create your note.</label>
                     <input className='form-input'
@@ -77,6 +63,5 @@ export default function CreateNoteForm() {
             </section>
 
         </>
-
     )
 }
