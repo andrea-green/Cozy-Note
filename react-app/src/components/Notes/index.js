@@ -42,7 +42,7 @@ function Body() {
         }
     }, [dispatch, noteId]);
 
-    const handleSubmit=(noteId)=>{
+    const handleSubmit=()=>{
         dispatch(addNoteThunk(noteId))
         history.push(`/notes/${noteId}`)
     }
@@ -53,11 +53,10 @@ function Body() {
         <h1>Hello</h1>
         <h1>My Notes Here </h1>
             <div className='create-new-note'>
-                <button onClick={()=>{
-                    handleSubmit(noteId)
-
-                }}
-                />
+                <IconModal
+                modalComponent={<CreateNoteForm/>}
+                faIcon="fa-solid fa-notes-medical"
+                 />
             </div>
 
         </ div>
