@@ -39,8 +39,8 @@ const deleteNoteAc = (noteId) => ({
 
 
 // thunks
-export const getAllNotesThunk = (noteId) => async (dispatch) => {
-    const response = await fetch(`/api/notes/${noteId}`, {
+export const getAllNotesThunk = () => async (dispatch) => {
+    const response = await fetch(`/api/notes`, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -194,7 +194,7 @@ export default function noteReducer(state = initialState, action) {
             const editedNoteState = {
                 allNotes: {
                     byId: {...state.allNotes.byId},
-                    allIds: [...state.allNotes.allIds,newNote.id],
+                    allIds: [...state.allNotes.allIds],
                 },
                 singleNote: editedNote
             };
