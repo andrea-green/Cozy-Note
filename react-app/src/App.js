@@ -8,18 +8,22 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/Users/UsersList';
 import User from './components/Users/User';
 import { authenticate } from './store/session';
-import Body from './components/Notes';
+import Body from './components/index';
 
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   (async() => {
+  //     await dispatch(authenticate());
+  //     setLoaded(true);
+  //   });
+  // }, [dispatch]);
+
   useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
-    })();
+    dispatch(authenticate()).then(() => setLoaded(true));
   }, [dispatch]);
 
   if (!loaded) {
@@ -44,11 +48,10 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </Route>
-        <Route path='/notes' exact={true} >
           <Body />
         </Route>
+        {/* <Route path='/notes' exact={true} >
+        </Route> */}
       </Switch>
     </BrowserRouter>
   );

@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { addNtbkThunk } from '../../store/notebook';
+import { useHistory } from 'react-router-dom';
 
 
 export default function CreateNotebookForm() {
@@ -19,7 +20,7 @@ export default function CreateNotebookForm() {
         if (name.length < 1) errors.push('Name must be at least 1 characters long');
 
         setErrors(errors);
-    },[name])
+    }, [name])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,18 +49,16 @@ export default function CreateNotebookForm() {
                 <form className='form-body' onSubmit={handleSubmit}>
                     <label>Name </label>
                     <input className='form-input'
-                        type="text"
+                        type="name"
                         required
                         value={name}
                         onChange={enterName}
                     />
-                    <label>Start writing to create your note.</label>
-                    <input className='form-input'
-                        type="text"
-                        value={content}
-                        onChange={enterContent}
-                    />
                 </form>
+                <button
+                    className='button form-button'
+                    type="submit"
+                >Submit</button>
             </section>
 
         </>

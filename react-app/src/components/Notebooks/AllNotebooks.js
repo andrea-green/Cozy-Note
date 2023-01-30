@@ -1,11 +1,12 @@
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getAllNtbksThunk } from "../../store/notebooks";
-import { getNtbkThunk } from "../../store/notebook";
+import { getAllNtbksThunk } from '../../store/notebook'
+// import { getAllNtbksThunk } from "../../store/notebooks";
+// import { getNtbkThunk } from "../../store/notebook";
 import { useHistory } from "react-router-dom";
 
 
-export default function AllNotebooks(){
+export default function AllNotebooks() {
     const dispatch = useDispatch();
 
     const history = useHistory();
@@ -15,15 +16,26 @@ export default function AllNotebooks(){
         history.push(`/notebooks/${notebookId}`)
     }
 
-    //use selector to grab all of the notebookss belonging to the current user.
-    const myNotebooks = useSelector((state)=>state.notebooks.allNotebooks);
+
+    //use selector to grab all of the notebooks belonging to the current user.
+    const myNotebooks = useSelector((state) => state.notebooks.allNotebooks);
     const myNotebooksArr = Object.values(myNotebooks);
 
 
     return (
-        null
-        // <div>
-        //     <h1>My Notebooks Here </h1>
-        // </div>
+        <div>
+            <h1>My Notebooks </h1>
+            <div className="notebooks-list">
+                {myNotebooksArr.map((notebook) => (
+                    <div key={notebook.id} className='notebook'>
+                        <button onClick={() => {
+                            handleSubmit(notebook.id)
+                        }}>Notebook name
+                        </button>
+                    </div>
+                ))}
+            </div>
+
+        </div>
     );
 }

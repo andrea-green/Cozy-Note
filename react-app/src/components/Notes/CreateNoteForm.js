@@ -74,6 +74,10 @@ export default function CreateNoteForm() {
                         onChange={enterContent}
                     />
                 </form>
+                <button
+                    className='button form-button'
+                    type="submit"
+                >Submit</button>
             </section>
 
         </>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import logo from './images/Cozy-logo.png';
 
 const NavBar = () => {
   return (
@@ -9,7 +10,7 @@ const NavBar = () => {
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+            <img src={logo} alt='logo'></img>
           </NavLink>
         </li>
         <li>
