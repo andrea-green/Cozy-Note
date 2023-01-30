@@ -7,6 +7,7 @@ import { useParams, useHistory } from "react-router-dom";
 // import OpenModalButton from '../OpenModalButton';
 // import IconModal from '../IconModal';
 import IconModal from './IconModal/IconModal'
+import './HomePage.css'
 
 // // thunks imports
 

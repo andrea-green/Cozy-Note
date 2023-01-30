@@ -30,7 +30,7 @@ export default function AllNotebooks() {
                     <div key={notebook.id} className='notebook'>
                         <button onClick={() => {
                             handleSubmit(notebook.id)
-                        }}>{notebook.title}
+                        }}>Notebook name
                         </button>
                     </div>
                 ))}

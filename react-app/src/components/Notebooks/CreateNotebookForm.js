@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { addNtbkThunk } from '../../store/notebook';
 import { useHistory } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ export default function CreateNotebookForm() {
         if (name.length < 1) errors.push('Name must be at least 1 characters long');
 
         setErrors(errors);
-    },[name])
+    }, [name])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -55,6 +55,10 @@ export default function CreateNotebookForm() {
                         onChange={enterName}
                     />
                 </form>
+                <button
+                    className='button form-button'
+                    type="submit"
+                >Submit</button>
             </section>
 
         </>
