@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getAllNtbksThunk } from "../../store/notebooks";
+import { getAllNtbksThunk } from '../../store/notebook'
+// import { getAllNtbksThunk } from "../../store/notebooks";
 // import { getNtbkThunk } from "../../store/notebook";
 import { useHistory } from "react-router-dom";
 
@@ -16,7 +17,7 @@ export default function AllNotebooks() {
     }
 
 
-    //use selector to grab all of the notebookss belonging to the current user.
+    //use selector to grab all of the notebooks belonging to the current user.
     const myNotebooks = useSelector((state) => state.notebooks.allNotebooks);
     const myNotebooksArr = Object.values(myNotebooks);
 
