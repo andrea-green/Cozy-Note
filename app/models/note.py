@@ -16,4 +16,5 @@ class Note(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now())
 
     # associations here
-    # author = db.relationship('User')
+    notebook = db.relationship('Notebook', back_populates='notes')
+    author = db.relationship('User', back_populates='notes')

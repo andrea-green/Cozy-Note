@@ -4,7 +4,7 @@ from app.models import  User
 # need to import Notes model
 from app.models import Note
 from app.models.db import db
-from app.forms import Note_Form
+from app.forms import NoteForm
 
 from .validation_to_error_formatter import validation_errors_to_error_messages
 
@@ -40,7 +40,7 @@ def get_single_note(note_id):
 @notes_routes.route('/', methods=['POST'])
 @login_required
 def create_note():
-    form = Note_Form()
+    form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         note = Note(
@@ -63,7 +63,7 @@ def update_note(note_id):
     if note.owner_id != current_user.id:
         return jsonify({"error": "Unauthorized"}), 401
 
-    form = Note_Form()
+    form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         note.title = form.data['title']

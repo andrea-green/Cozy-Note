@@ -1,7 +1,7 @@
 import {useSelector,useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import {useHistory} from "react-router-dom"
-import { getAllNotesThunk } from '../../store/note';
+import { getNoteThunk } from '../../store/note';
 
 
 export default function AllNotes(){
@@ -12,7 +12,7 @@ export default function AllNotes(){
     const history = useHistory();
 
     const handleSubmit = (noteId) => {
-        dispatch(getAllNotesThunk(noteId))
+        dispatch(getNoteThunk(noteId))
         history.push(`/notes/${noteId}`)
     }
 

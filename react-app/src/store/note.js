@@ -40,7 +40,7 @@ const deleteNoteAc = (noteId) => ({
 
 // thunks
 export const getAllNotesThunk = () => async (dispatch) => {
-    const response = await fetch(`/api/notes`, {
+    const response = await fetch(`/api/notes/`, {
         headers: {
             'Content-Type': 'application/json'
         }
