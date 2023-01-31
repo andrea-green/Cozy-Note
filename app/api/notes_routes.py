@@ -15,8 +15,16 @@ notes_routes = Blueprint('notes', __name__)
 @notes_routes.route('/')
 @login_required
 def get_user_notes():
-    notes = Note.query.filter(Note.author_id.any(id=current_user.id)).all()
-    return jsonify({"Notes": [note.to_dict() for note in notes]})
+    notes = Note.query.filter(Note.author_id == current_user.id).all()
+    notes_dict=[]
+    for note in notes:
+        note_dict=note.to_dict()
+        if note.notebook:
+            notebook=note.notebook.to_dict()
+            note_dict['notebook']=notebook
+        notes_dict.append(note_dict)
+
+    return jsonify({"Notes": notes_dict})
 
 # get a single note by id
 @notes_routes.route('/<int:note_id>',methods=['GET'])
@@ -25,16 +33,13 @@ def get_single_note(note_id):
     note = Note.query.get(note_id)
     if note is None:
         return jsonify({"error": "Note not found"}), 404
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "title": self.title,
-            "body": self.body,
-            "author_id": self.author_id,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at,
-        }
-    return jsonify({"Note": note.to_dict()})
+
+    note_dict=note.to_dict()
+    if note.notebook:
+        notebook=note.notebook.to_dict()
+        note_dict['notebook']=notebook
+
+    return jsonify({"Note": note_dict})
 
 # create a new note
 @notes_routes.route('/', methods=['POST'])
@@ -45,7 +50,7 @@ def create_note():
     if form.validate_on_submit():
         note = Note(
             title=form.data['title'],
-            body=form.data['body'],
+            content=form.data['content'],
             author_id=current_user.id,
         )
         db.session.add(note)

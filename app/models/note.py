@@ -18,3 +18,13 @@ class Note(db.Model):
     # associations here
     notebook = db.relationship('Notebook', back_populates='notes')
     author = db.relationship('User', back_populates='notes')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "author_id": self.author_id,
+            "notebook_id": self.notebook_id,
+            "title": self.title,
+            "content": self.content,
+            "created_at": self.created_at,
+        }

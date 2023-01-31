@@ -18,8 +18,9 @@ export default function AllNotes(){
 
 
     //use selector to grab all of the notes belonging to the current user.
-    const myNotes = useSelector((state)=>state.notes.allNotes);
+    const myNotes = useSelector((state)=>state.notes.allNotes.byId);
     const myNotesArr = Object.values(myNotes);
+    console.log('notesArr', myNotesArr)
 
     return (
         <div>

@@ -13,8 +13,16 @@ class Notebook(db.Model):
     name= db.Column(db.String(100), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
-    notes= db.relationship('Note', back_populates='notebook')
     # note_id here.
 
     # associations here
+    notes= db.relationship('Note', back_populates='notebook')
     author = db.relationship('User', back_populates='notebooks')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "owner_id": self.owner_id,
+            "created_at": self.created_at,
+        }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 
 import { addNoteThunk } from '../../store/note';
 
@@ -9,7 +8,6 @@ import { addNoteThunk } from '../../store/note';
 export default function CreateNoteForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { noteId } = useParams();
 
 
     const [title, setTitle] = useState('');

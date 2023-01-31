@@ -18,7 +18,7 @@ export default function AllNotebooks() {
 
 
     //use selector to grab all of the notebooks belonging to the current user.
-    const myNotebooks = useSelector((state) => state.notebooks.allNotebooks);
+    const myNotebooks = useSelector((state) => state.notebooks.allNotebooks.byId);
     const myNotebooksArr = Object.values(myNotebooks);
 
 

@@ -37,7 +37,7 @@ export default function CreateNotebookForm() {
             });
     };
     return (
-        <>
+        <div>
             <div className="form-header">
                 <h1>New Notebook</h1>
             </div>
@@ -61,6 +61,6 @@ export default function CreateNotebookForm() {
                 >Submit</button>
             </section>
 
-        </>
+        </div>
     )
 }
