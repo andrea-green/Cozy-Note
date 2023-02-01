@@ -51,7 +51,7 @@ export default function EditNotebookForm() {
                 </div>
 
                 <form className='edit-form-body' onSubmit={handleSubmit}>
-                    <input className='edit-form-input'
+                    <textarea className='edit-form-input'
                         type="text"
                         placeholder={myNotebook.name}
                         required
