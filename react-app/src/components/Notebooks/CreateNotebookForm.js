@@ -29,12 +29,13 @@ export default function CreateNotebookForm() {
             name
         }
 
-        return dispatch(addNtbkThunk(payload))
+        await dispatch(addNtbkThunk(payload))
             .then(() => history.push('/notebooks'))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+            // .catch(async (res) => {
+            //     console.log('res', res)
+                // const data = await res.json();
+                // if (data && data.errors) setErrors(data.errors);
+            // });
     };
     return (
         <div>
@@ -54,11 +55,11 @@ export default function CreateNotebookForm() {
                         value={name}
                         onChange={enterName}
                     />
+                    <button
+                        className='button form-button'
+                        type="submit"
+                    >Submit</button>
                 </form>
-                <button
-                    className='button form-button'
-                    type="submit"
-                >Submit</button>
             </section>
 
         </div>

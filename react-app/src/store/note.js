@@ -80,7 +80,7 @@ export const getNoteThunk = (noteId) => async (dispatch) => {
 }
 
 export const addNoteThunk = (note) => async (dispatch) => {
-    const response = await fetch('/api/notes', {
+    const response = await fetch('/api/notes/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -97,7 +97,8 @@ export const addNoteThunk = (note) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return response
+        // return ['An error occurred. Please try again.']
     }
 
 }

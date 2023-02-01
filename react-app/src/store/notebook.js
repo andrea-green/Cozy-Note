@@ -82,14 +82,14 @@ export const addNtbkThunk = (notebook) => async (dispatch) => {
     });
     if (res.ok) {
         const notebook = await res.json();
-        dispatch(addNtbkAc(notebook.Notebook));
+        dispatch(addNtbkAc(notebook));
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors) {
             return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return res; 
     }
 };
 

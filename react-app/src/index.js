@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import { ModalProvider, Modal } from './context/Modal';
+import { BrowserRouter } from 'react-router-dom';
 
 const store = configureStore();
 
@@ -12,10 +13,12 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ModalProvider>
-        <App />
-        <Modal />
+        <BrowserRouter>
+          <App />
+          <Modal />
+        </BrowserRouter>
       </ModalProvider>
-      </Provider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

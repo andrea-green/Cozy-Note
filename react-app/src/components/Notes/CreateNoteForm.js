@@ -12,7 +12,8 @@ export default function CreateNoteForm() {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-
+    console.log('title', title)
+    console.log('content', content)
 
     const enterTitle = (e) => setTitle(e.target.value);
     const enterContent = (e) => setContent(e.target.value);
@@ -37,18 +38,18 @@ export default function CreateNoteForm() {
             content
         }
 
-        return dispatch(addNoteThunk(payload))
-            .then(() => history.push('/notes'))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+        await dispatch(addNoteThunk(payload))
+        await history.push('/notes')
+            // .catch(async (res) => {
+            //     const data = await res.json();
+            //     if (data && data.errors) setErrors(data.errors);
+            // });
     };
 
 
 
     return (
-        <>
+        <div>
             <div className="form-header">
                 <h1>New note</h1>
             </div>
@@ -71,14 +72,14 @@ export default function CreateNoteForm() {
                         value={content}
                         onChange={enterContent}
                     />
-                </form>
                 <button
                     className='button form-button'
                     type="submit"
                 >Submit</button>
+                </form>
             </section>
 
-        </>
+        </div>
 
     )
 }

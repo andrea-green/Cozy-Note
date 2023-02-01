@@ -41,7 +41,7 @@ def create_notebook():
     if form.validate_on_submit():
         notebook = Notebook(
             name=form.data['name'],
-            author_id=current_user.id,
+            owner_id=current_user.id,
         )
         db.session.add(notebook)
         db.session.commit()

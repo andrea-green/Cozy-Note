@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { editNoteThunk } from '../../store/notes';
+import { editNoteThunk } from '../../store/note'
 
 
 
@@ -73,7 +73,7 @@ export default function EditNoteForm() {
                     placeholder={myNote.content}
                     required
                     value={content}
-                    onChange={setName}
+                    onChange={updateContent}
                 />
             </form>
 

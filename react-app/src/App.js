@@ -9,7 +9,8 @@ import UsersList from './components/Users/UsersList';
 import User from './components/Users/User';
 import { authenticate } from './store/session';
 import Body from './components/index';
-
+import SingleNote from './components/Notes';
+import AllNotes from './components/Notes/AllNotes';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,7 +32,8 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+
+    <>
       <NavBar />
       {/* move nav bar to landing page.  */}
       <Switch>
@@ -52,8 +54,15 @@ function App() {
         </Route>
         {/* <Route path='/notes' exact={true} >
         </Route> */}
+        <Route path='/notes' exact={true}>
+          <AllNotes />
+        </Route>
+        <Route path='/notes/:noteId'>
+          <SingleNote />
+        </Route>
       </Switch>
-    </BrowserRouter>
+      </>
+
   );
 }
 

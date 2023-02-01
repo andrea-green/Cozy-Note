@@ -30,7 +30,7 @@ export default function AllNotes(){
                     <div key={note.id} className='note'>
                             <button onClick={() => {
                                 handleSubmit(note.id)
-                                }}>Note Name
+                                }}>{note.title}
                             </button>
                     </div>
                 ))}
