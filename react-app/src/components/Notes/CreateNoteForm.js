@@ -67,7 +67,7 @@ export default function CreateNoteForm() {
                         onChange={enterTitle}
                     />
                     <label>Start writing to create your note.</label>
-                    <input className='form-input'
+                    <textarea className='form-input'
                         type="text"
                         value={content}
                         onChange={enterContent}
