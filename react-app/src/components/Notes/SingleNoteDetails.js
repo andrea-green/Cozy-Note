@@ -6,6 +6,7 @@ import IconModal from '../IconModal/IconModal'
 import EditNoteForm from '../Notes/EditNoteForm'
 import DeleteNoteForm from '../Notes/DeleteNoteForm'
 
+
 export default function SingleNoteDetails() {
 
     const myNote = useSelector(state => state.notes.singleNote)

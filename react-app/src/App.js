@@ -11,17 +11,12 @@ import { authenticate } from './store/session';
 import Body from './components/index';
 import SingleNote from './components/Notes';
 import AllNotes from './components/Notes/AllNotes';
+import SingleNotebook from './components/Notebooks';
+import AllNotebooks from './components/Notebooks/AllNotebooks';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   (async() => {
-  //     await dispatch(authenticate());
-  //     setLoaded(true);
-  //   });
-  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setLoaded(true));
@@ -35,7 +30,7 @@ function App() {
 
     <>
       <NavBar />
-      {/* move nav bar to landing page.  */}
+
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -52,13 +47,17 @@ function App() {
         <Route path='/' exact={true} >
           <Body />
         </Route>
-        {/* <Route path='/notes' exact={true} >
-        </Route> */}
         <Route path='/notes' exact={true}>
           <AllNotes />
         </Route>
+        <Route path='/notebooks' exact={true}>
+          <AllNotebooks />
+        </Route>
         <Route path='/notes/:noteId'>
           <SingleNote />
+        </Route>
+        <Route path='/notebooks/:notebookId'>
+          <SingleNotebook />
         </Route>
       </Switch>
       </>

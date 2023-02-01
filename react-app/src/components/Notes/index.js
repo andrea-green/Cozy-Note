@@ -5,6 +5,7 @@ import SingleNoteDetails from "./SingleNoteDetails"
 import { getNoteThunk } from "../../store/note"
 import { useDispatch,useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+import AllNotes from './AllNotes'
 
 export default function SingleNote(){
 
@@ -21,7 +22,7 @@ export default function SingleNote(){
     return (
         <>
          <div className = "all-notes-note-page">
-            {/* all notes component */}
+            {/* {<AllNotes />} */}
 
          </div>
          <div className="single-note-details">
