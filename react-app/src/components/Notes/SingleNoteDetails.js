@@ -31,7 +31,7 @@ export default function SingleNoteDetails() {
                 <div className="edit-delete-buttons">
                     <IconModal
                     modalComponent={<EditNoteForm/>}
-                    faIcon="fa-light fa-pencil"
+                    faIcon="fa-solid fa-pencil"
                     />
                     <IconModal
                     modalComponent={<DeleteNoteForm/>}

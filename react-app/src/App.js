@@ -56,9 +56,9 @@ function App() {
         <Route path='/notes/:noteId'>
           <SingleNote />
         </Route>
-        <Route path='/notebooks/:notebookId'>
+        {/* <Route path='/notebooks/:notebookId'>
           <SingleNotebook />
-        </Route>
+        </Route> */}
       </Switch>
       </>
 

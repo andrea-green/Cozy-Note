@@ -75,6 +75,14 @@ export default function EditNoteForm() {
                     value={content}
                     onChange={updateContent}
                 />
+                <button
+                    className='button form-button'
+                    type="submit"
+                >Submit</button>
+                <button
+                    className='button form-button'
+                    type="submit"
+                >Cancel</button>
             </form>
 
         </section>
