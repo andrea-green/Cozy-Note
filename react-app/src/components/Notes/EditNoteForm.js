@@ -10,16 +10,16 @@ export default function EditNoteForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { closeModal } = useModal();
+    const myNote = useSelector(state => state.notes.singleNote);
 
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    const [title, setTitle] = useState(myNote.title);
+    const [content, setContent] = useState(myNote.content);
     const [errors, setErrors] = useState([]);
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateContent = (e) => setContent(e.target.value);
 
-    const myNote = useSelector(state => state.notes.singleNote);
 
     useEffect(() => {
         const errors = [];
