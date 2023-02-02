@@ -12,6 +12,7 @@ class Notebook(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     name= db.Column(db.String(100), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
     # note_id here.
 
@@ -25,4 +26,5 @@ class Notebook(db.Model):
             "name": self.name,
             "owner_id": self.owner_id,
             "created_at": self.created_at,
+            "updated_at": self.updated_at,
         }

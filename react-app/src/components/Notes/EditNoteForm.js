@@ -37,12 +37,12 @@ export default function EditNoteForm() {
             content
         }
 
-        return dispatch(editNoteThunk(payload))
-            .then(() => history.push('/notes'))
+        return dispatch(editNoteThunk(noteId, payload))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
+        // .then(() => history.push(`/notes/${noteId}`))
     }
 
 

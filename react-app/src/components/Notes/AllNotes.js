@@ -11,8 +11,8 @@ export default function AllNotes(){
     // const noteId = useSelector(state => state.notes.notes.id);
     const history = useHistory();
 
-    const handleSubmit = (noteId) => {
-        dispatch(getNoteThunk(noteId))
+    const handleSubmit = async (noteId) => {
+        await dispatch(getNoteThunk(noteId))
         history.push(`/notes/${noteId}`)
     }
 
