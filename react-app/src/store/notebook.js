@@ -27,9 +27,9 @@ const editNtbkAc = (notebook) => ({
     payload: notebook
 });
 
-const deleteNtbkAc = (notebook) => ({
+const deleteNtbkAc = (notebookId) => ({
     type: DELETE_NTBK,
-    payload: notebook
+    payload: notebookId
 });
 
 
@@ -82,14 +82,14 @@ export const addNtbkThunk = (notebook) => async (dispatch) => {
     });
     if (res.ok) {
         const notebook = await res.json();
-        dispatch(addNtbkAc(notebook.Notebook));
+        dispatch(addNtbkAc(notebook));
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors) {
             return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return res;
     }
 };
 
@@ -103,7 +103,7 @@ export const editNtbkThunk = (notebkId, updatedNtbk) => async (dispatch) => {
     });
     if (res.ok) {
         const notebook = await res.json();
-        dispatch(editNtbkAc(notebook.Notebook));
+        dispatch(editNtbkAc(notebook));
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors) {
@@ -122,8 +122,8 @@ export const deleteNtbkThunk = (notebookId) => async (dispatch) => {
         }
     });
     if (res.ok) {
-        const notebook = await res.json();
-        dispatch(deleteNtbkAc(notebook.Notebook));
+        // const notebook = await res.json();
+        dispatch(deleteNtbkAc(notebookId));
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors) {
@@ -190,15 +190,15 @@ export default function ntbkReducer(state = initialState,action){
             return updatedNtbkState;
 
         case DELETE_NTBK:
-            const deletedNtbk = action.payload;
+            const deletedNtbkId = action.payload;
             const deletedNtbkState = {
                 allNotebooks:{
                     byId: {...state.allNotebooks.byId},
-                    allIds:state.allNotebooks.allIds.filter(id=>id!==deletedNtbk.id)
+                    allIds:state.allNotebooks.allIds.filter(id=>id!==deletedNtbkId)
                 },
                 singleNtbk: {}
             };
-            delete deletedNtbkState.allNotebooks.byId[deletedNtbk.id];
+            delete deletedNtbkState.allNotebooks.byId[deletedNtbkId];
             return deletedNtbkState;
         default:
             return state;

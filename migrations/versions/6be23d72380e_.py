@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 6be23d72380e
-Revises: 
+Revises:
 Create Date: 2023-01-26 20:28:57.501271
 
 """
@@ -32,6 +32,7 @@ def upgrade():
     sa.Column('owner_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=100), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.Column('updated_at',sa.DateTime(),nullable=True),
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

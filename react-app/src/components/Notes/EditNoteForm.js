@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { editNoteThunk } from '../../store/notes';
+import { useModal } from '../../context/Modal';
+import { editNoteThunk } from '../../store/note'
 
 
 
 export default function EditNoteForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { noteId } = useParams();
+    const { closeModal } = useModal();
 
 
     const [title, setTitle] = useState('');
@@ -37,12 +38,13 @@ export default function EditNoteForm() {
             content
         }
 
-        return dispatch(editNoteThunk(payload))
-            .then(() => history.push('/notes'))
+        dispatch(editNoteThunk(myNote.id, payload))
+        .then(() => closeModal())
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
+        // .then(() => history.push(`/notes/${noteId}`))
     }
 
 
@@ -73,8 +75,16 @@ export default function EditNoteForm() {
                     placeholder={myNote.content}
                     required
                     value={content}
-                    onChange={setName}
+                    onChange={updateContent}
                 />
+                <button
+                    className='button form-button'
+                    type="submit"
+                >Submit</button>
+                <button
+                    className='button form-button'
+                    type="submit"
+                >Cancel</button>
             </form>
 
         </section>

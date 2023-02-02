@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { deleteNoteThunk } from '../../store/notes';
+import { useModal } from '../../context/Modal';
+import { deleteNoteThunk } from '../../store/note';
 
 
 export default function DeleteNoteForm() {
@@ -14,12 +15,16 @@ export default function DeleteNoteForm() {
 
     const trueBoolean = (e) => setBoolean(true);
     const falseBoolean = (e) => setBoolean(false);
+    const { closeModal } = useModal()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         await dispatch(deleteNoteThunk(myNote.id))
-            .then(history.push(`/notes/${myNote.id}`))
+            .then(()=>{
+                closeModal();
+                history.push('/notes')
+            })
             .catch(async(res)=>{
                 const data=await res.json();
                 if(data && data.errors){

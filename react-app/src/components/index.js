@@ -16,6 +16,7 @@ import {getAllNotesThunk} from '../store/note'
 import {getAllNtbksThunk} from '../store/notebook'
 
 
+
 // components
 import CreateNoteForm from './Notes/CreateNoteForm'
 // import LogoutButton from "../auth/LogoutButton";
@@ -46,6 +47,7 @@ function Body() {
 
 
 
+
     return (
         <div>
             {/* notes container  */}
@@ -64,8 +66,8 @@ function Body() {
             </div>
             {/* notebooks container  */}
             <div className='notebooks-container'>
-                <div className="notebooks-list">
-                    <AllNotebooks />
+                <div className="notebooks-list" >
+                    <AllNotebooks  />
                 </div>
                 <div className='create-new-ntbk'>
                     <IconModal

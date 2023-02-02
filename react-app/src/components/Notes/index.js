@@ -1,79 +1,38 @@
-// // homepage index
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useParams, useHistory } from "react-router-dom";
-// // import OpenModalButton from '../OpenModalButton';
-// import IconModal from "../IconModal/IconModal";
+// single note page index
 
-// // thunks imports
-// import { editNoteThunk } from "../../store/note";
-// import { getAllNotesThunk, getNoteThunk, addNoteThunk } from "../../store/note";
+import React, { useEffect } from "react"
+import SingleNoteDetails from "./SingleNoteDetails"
+import { getNoteThunk } from "../../store/note"
+import { useDispatch, useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
+import AllNotes from './AllNotes'
 
+export default function SingleNote() {
 
-// // components
-// import CreateNoteForm from "./CreateNoteForm";
-// import LogoutButton from "../auth/LogoutButton";
-// import AllNotes from "./AllNotes";
+    const myNote = useSelector(state => state.notes.singleNote)
+    const dispatch = useDispatch();
+    const { noteId } = useParams();
+    console.log('out', noteId)
 
+    useEffect(() => {
+        console.log(noteId)
+        // async () => {
+            // if (!Object.keys(myNote).length) {
+            // console.log(noteId)
+            //     dispatch(getNoteThunk(noteId))
+            // }
+        dispatch(getNoteThunk(noteId))
+        // }
+    }, [dispatch, noteId])
 
-// //css imports
-
-// import '../IconModal/iconmodal.css';
-
-
-// function Body() {
-
-//     //hooks
-//     const [note, setNote] = useState({});
-
-//     const dispatch = useDispatch();
-//     const history = useHistory();
-//     const { noteId } = useParams();
-
-//     //use selectors
-//     // const state = useSelector(state => state);
-//     // const singleNote = useSelector(state => state.notes[noteId]);
-//     const myNote = useSelector(state => state.notes.singleNote);
-
-
-//     useEffect(() => {
-//         if (noteId) {
-//             dispatch(getNoteThunk(noteId))
-//         }
-//     }, [dispatch, noteId]);
-
-//     const handleSubmit = () => {
-//         dispatch(addNoteThunk(noteId))
-//         history.push(`/notes/${noteId}`)
-//     }
-
-
-//     return (
-//         <div className='notes-container'>
-//             <div className='notes-list'>
-//                 <AllNotes />
-//             </div>
-//             <div className='create-new-note'>
-//                 <IconModal
-//                     modalComponent={<CreateNoteForm />}
-//                     faIcon="fa-solid fa-notes-medical"
-//                 />
-//             </div>
-
-//         </div>
-//         // <div className="home-page-div">
-//         // <h1>Hello</h1>
-//         // <h1>My Notes Here </h1>
-//         //     <div className='create-new-note'>
-//         //         <IconModal
-//         //         modalComponent={<CreateNoteForm/>}
-//         //         faIcon="fa-solid fa-notes-medical"
-//         //          />
-//         //     </div>
-
-//         // </ div>
-//     )
-
-// }
-
-// export default Body;
+    return (
+        <>
+            <div className="all-notes-note-page">
+                {<AllNotes />}
+            </div>
+            <div className="single-note-details">
+                <SingleNoteDetails />
+            </div>
+        </>
+    )
+}

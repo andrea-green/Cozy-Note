@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-
+import { useModal } from '../../context/Modal';
 import { addNoteThunk } from '../../store/note';
 
 
 export default function CreateNoteForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { noteId } = useParams();
 
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-
+    console.log('title', title)
+    console.log('content', content)
 
     const enterTitle = (e) => setTitle(e.target.value);
     const enterContent = (e) => setContent(e.target.value);
 
     const [errors, setErrors] = useState([]);
+    const { closeModal } = useModal();
 
 
     useEffect(() => {
@@ -39,18 +39,22 @@ export default function CreateNoteForm() {
             content
         }
 
-        return dispatch(addNoteThunk(payload))
-            .then(() => history.push('/notes'))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+        await dispatch(addNoteThunk(payload))
+            .then((note) => {
+                closeModal()
+                history.push(`/notes/${note.id}`)
+            })
+        // .then(()=>closeModal())
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors);
+        // });
     };
 
 
 
     return (
-        <>
+        <div>
             <div className="form-header">
                 <h1>New note</h1>
             </div>
@@ -68,19 +72,19 @@ export default function CreateNoteForm() {
                         onChange={enterTitle}
                     />
                     <label>Start writing to create your note.</label>
-                    <input className='form-input'
+                    <textarea className='form-input'
                         type="text"
                         value={content}
                         onChange={enterContent}
                     />
+                    <button
+                        className='button form-button'
+                        type="submit"
+                    >Submit</button>
                 </form>
-                <button
-                    className='button form-button'
-                    type="submit"
-                >Submit</button>
             </section>
 
-        </>
+        </div>
 
     )
 }

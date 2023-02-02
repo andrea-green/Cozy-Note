@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addNtbkThunk } from '../../store/notebook';
 import { useHistory } from 'react-router-dom';
+import { useModal } from '../../context/Modal';
 
 
 export default function CreateNotebookForm() {
@@ -13,6 +14,7 @@ export default function CreateNotebookForm() {
     const enterName = (e) => setName(e.target.value);
 
     const [errors, setErrors] = useState([]);
+    const {closeModal} = useModal()
 
     useEffect(() => {
         const errors = [];
@@ -29,15 +31,19 @@ export default function CreateNotebookForm() {
             name
         }
 
-        return dispatch(addNtbkThunk(payload))
-            .then(() => history.push('/notebooks'))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+        await dispatch(addNtbkThunk(payload))
+            .then(() => {
+                closeModal()
+                history.push('/notebooks')
+            })
+        // .catch(async (res) => {
+        //     console.log('res', res)
+        // const data = await res.json();
+        // if (data && data.errors) setErrors(data.errors);
+        // });
     };
     return (
-        <>
+        <div>
             <div className="form-header">
                 <h1>New Notebook</h1>
             </div>
@@ -54,13 +60,13 @@ export default function CreateNotebookForm() {
                         value={name}
                         onChange={enterName}
                     />
+                    <button
+                        className='button form-button'
+                        type="submit"
+                    >Submit</button>
                 </form>
-                <button
-                    className='button form-button'
-                    type="submit"
-                >Submit</button>
             </section>
 
-        </>
+        </div>
     )
 }

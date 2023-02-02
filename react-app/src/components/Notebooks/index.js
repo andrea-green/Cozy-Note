@@ -1,59 +1,22 @@
-// // notebooks index.
+
+//single notebook index
+import React from "react"
+import SingleNotebookDetails from "./SingleNotebookDetails"
+import AllNotes2 from "../Notes/AllNotes2"
 
 
-// // homepage index
-// import React, { useEffect } from "react";
-// import { useDispatch,useSelector} from "react-redux";
-// import { useParams, useHistory } from "react-router-dom";
-// // import OpenModalButton from '../OpenModalButton';
-// import IconModal from "../IconModal/IconModal";
+export default function SingleNotebook() {
 
-// // components
-// import CreateNoteForm from "./CreateNoteForm";
-// import LogoutButton from "../auth/LogoutButton";
-// import AllNotes from "./AllNotes";
-
-
-
-
-// function Body() {
+    return (
+        <div className='single-notebook-page'>
+            <div className='single-notebook'>
+                {<SingleNotebookDetails />}
+            </div>
+            <div className='all-notes-2'>
+                {<AllNotes2 />}
+            </div>
+        </div>
+    )
 
 
-
-
-//     const dispatch = useDispatch();
-//     const history = useHistory();
-//     const { noteId } = useParams();
-
-//     const myNotebooks = useSelector((state)=>state.notebooks.allNotebooks);
-//     const myNotebooksArr = Object.values(myNotebooks);
-
-//     useEffect(() => {
-//         if (noteId) {
-//             dispatch(getNoteThunk(noteId))
-//         }
-//     }, [dispatch, noteId]);
-
-//     const handleSubmit=()=>{
-//         dispatch(addNoteThunk(noteId))
-//         history.push(`/notes/${noteId}`)
-//     }
-
-
-//     return (
-
-
-//     <div className='notebooks-container'>
-//         <h1>My Notebooks</h1>
-//         {myNotebooksArr.map((notebook) => (
-//             <div key={notebook.id} className='notebook'>
-
-//             </div>
-
-//         ))}
-
-//     </div>
-//     )
-// }
-
-// export default Body;
+}

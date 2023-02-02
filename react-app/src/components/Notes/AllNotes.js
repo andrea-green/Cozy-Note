@@ -1,7 +1,7 @@
 import {useSelector,useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import {useHistory} from "react-router-dom"
-import { getAllNotesThunk } from '../../store/note';
+import { getNoteThunk } from '../../store/note';
 
 
 export default function AllNotes(){
@@ -11,15 +11,16 @@ export default function AllNotes(){
     // const noteId = useSelector(state => state.notes.notes.id);
     const history = useHistory();
 
-    const handleSubmit = (noteId) => {
-        dispatch(getAllNotesThunk(noteId))
+    const handleSubmit = async (noteId) => {
+        await dispatch(getNoteThunk(noteId))
         history.push(`/notes/${noteId}`)
     }
 
 
     //use selector to grab all of the notes belonging to the current user.
-    const myNotes = useSelector((state)=>state.notes.allNotes);
+    const myNotes = useSelector((state)=>state.notes.allNotes.byId);
     const myNotesArr = Object.values(myNotes);
+    console.log('notesArr', myNotesArr)
 
     return (
         <div>
@@ -29,7 +30,7 @@ export default function AllNotes(){
                     <div key={note.id} className='note'>
                             <button onClick={() => {
                                 handleSubmit(note.id)
-                                }}>Note Name
+                                }}>{note.title}
                             </button>
                     </div>
                 ))}
