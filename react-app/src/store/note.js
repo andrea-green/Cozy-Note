@@ -39,8 +39,8 @@ const deleteNoteAc = (noteId) => ({
 
 
 // thunks
-export const getAllNotesThunk = (noteId) => async (dispatch) => {
-    const response = await fetch(`/api/notes/${noteId}`, {
+export const getAllNotesThunk = () => async (dispatch) => {
+    const response = await fetch(`/api/notes/`, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -48,7 +48,7 @@ export const getAllNotesThunk = (noteId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(getAllNotesAc(data));
+        dispatch(getAllNotesAc(data.Notes));
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -68,7 +68,7 @@ export const getNoteThunk = (noteId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(getNoteAc(data));
+        dispatch(getNoteAc(data.Note));
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -80,7 +80,7 @@ export const getNoteThunk = (noteId) => async (dispatch) => {
 }
 
 export const addNoteThunk = (note) => async (dispatch) => {
-    const response = await fetch('/api/notes', {
+    const response = await fetch('/api/notes/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -91,19 +91,20 @@ export const addNoteThunk = (note) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(addNoteAc(data));
+        return data
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
             return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return response
+        // return ['An error occurred. Please try again.']
     }
 
 }
 
 export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
-    async (dispatch) =>{
         const response = await fetch(`/api/notes/${noteId}`, {
             method: 'PUT',
             headers: {
@@ -123,11 +124,9 @@ export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
         } else {
             return ['An error occurred. Please try again.']
         }
-    }
-};
+    };
 
 export const deleteNoteThunk = (noteId) => async (dispatch) => {
-    async (dispatch) =>{
         const response = await fetch(`/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
@@ -136,8 +135,8 @@ export const deleteNoteThunk = (noteId) => async (dispatch) => {
         });
 
         if (response.ok) {
-            const data = await response.json();
-            dispatch(deleteNoteAc(data));
+            // const data = await response.json();
+            dispatch(deleteNoteAc(noteId));
         } else if (response.status < 500) {
             const data = await response.json();
             if (data.errors) {
@@ -146,8 +145,7 @@ export const deleteNoteThunk = (noteId) => async (dispatch) => {
         } else {
             return ['An error occurred. Please try again.']
         }
-    }
-};
+    };
 
 
 
@@ -158,7 +156,8 @@ const initialState = {
     allNotes: {
         byId: {},
         allIds: [],
-    }
+    },
+    singleNote: {}
 }
 
 export default function noteReducer(state = initialState, action) {
@@ -179,40 +178,40 @@ export default function noteReducer(state = initialState, action) {
             const note = action.payload;
             return{
                 ...state,
-                allNotes: note
+                singleNote: note
             };
         case ADD_NOTE:
             const newNote = action.payload;
             const newNoteState = {
-                ...state,
                 allNotes: {
                     byId: {...state.allNotes.byId},
                     allIds: [...state.allNotes.allIds, newNote.id],
                 },
+                singleNote: newNote
             };
             newNoteState.allNotes.byId[newNote.id] = newNote;
             return newNoteState;
         case EDIT_NOTE:
             const editedNote = action.payload;
             const editedNoteState = {
-                ...state,
                 allNotes: {
                     byId: {...state.allNotes.byId},
-                    allIds: [...state.allNotes.allIds,newNote.id],
+                    allIds: [...state.allNotes.allIds],
                 },
+                singleNote: editedNote
             };
             editedNoteState.allNotes.byId[editedNote.id] = editedNote;
             return editedNoteState;
         case DELETE_NOTE:
-            const deletedNote = action.payload;
+            const deletedNoteId = action.payload;
             const deletedNoteState = {
-                ...state,
                 allNotes: {
                     byId: {...state.allNotes.byId},
-                    allIds: state.allNotes.allIds.filter(id => id !== deletedNote.id),
+                    allIds: state.allNotes.allIds.filter(id => id !== deletedNoteId),
                 },
+                singleNote: {}
             };
-            delete deletedNoteState.allNotes.byId[deletedNote.id];
+            delete deletedNoteState.allNotes.byId[deletedNoteId];
             return deletedNoteState;
 
 

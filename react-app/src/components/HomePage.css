@@ -1,0 +1,27 @@
+.notes-container {
+    border: 1px black solid;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    margin: 0px auto;
+    padding: 0px 20px 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+}
+
+
+.notebooks-container{
+    border: 1px black solid;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    margin: 0px auto;
+    padding: 0px 20px 10px 20px;
+    border-radius: 10px;
+
+}
+
+.logout-button {
+    font-family:'Peace Sans', sans-serif;
+}

@@ -5,19 +5,21 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import UsersList from './components/Users/UsersList';
+import User from './components/Users/User';
 import { authenticate } from './store/session';
+import Body from './components/index';
+import SingleNote from './components/Notes';
+import AllNotes from './components/Notes/AllNotes';
+import SingleNotebook from './components/Notebooks';
+import AllNotebooks from './components/Notebooks/AllNotebooks';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
-    })();
+    dispatch(authenticate()).then(() => setLoaded(true));
   }, [dispatch]);
 
   if (!loaded) {
@@ -25,8 +27,10 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+
+    <>
       <NavBar />
+
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -41,10 +45,23 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <Body />
         </Route>
+        <Route path='/notes' exact={true}>
+          <AllNotes />
+        </Route>
+        <Route path='/notebooks' exact={true}>
+          <AllNotebooks />
+        </Route>
+        <Route path='/notes/:noteId'>
+          <SingleNote />
+        </Route>
+        {/* <Route path='/notebooks/:notebookId'>
+          <SingleNotebook />
+        </Route> */}
       </Switch>
-    </BrowserRouter>
+      </>
+
   );
 }
 

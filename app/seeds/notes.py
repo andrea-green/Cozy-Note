@@ -8,7 +8,21 @@ def seed_notes():
         notebook_id=None,
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
     )
+    note_2= Note(
+        title="brain bump",
+        author_id=1,
+        notebook_id=1,
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
+    )
+    note_3= Note(
+        title="brain pump",
+        author_id=2,
+        notebook_id=2,
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
+    )
     db.session.add(note_1)
+    db.session.add(note_2)
+    db.session.add(note_3)
 
     db.session.commit()
 

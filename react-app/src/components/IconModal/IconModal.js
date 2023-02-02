@@ -1,13 +1,14 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
 
-function OpenModalButton({
+function IconModal({
+  imageUrl, //image to render
   modalComponent, // component to render inside the modal
-  buttonText, // text of the button that opens the modal
+  faIcon, //can pass className for fa-icon
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose, // optional: callback function that will be called once the modal is closed
-  faIcon,
-  tr,
+  isServer = false, //give css class for hover effect if True
+  clickEvent = null, //pass a custom clickevent for Icon
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
@@ -18,24 +19,15 @@ function OpenModalButton({
   };
 
   return (
-    <>
+    <div className={`open-modal-button icon-img ${isServer ? 'server-icon' : ''}`} onClick={onClick}>
       {
-        tr
-          ?
-          <td onClick={onClick}>
-            {faIcon}
-          </td>
+        faIcon ?
+          <i className={`icon-img ${faIcon} ${isServer ? 'server-icon' : ''}`} ></i>
           :
-          faIcon
-            ?
-            <div onClick={onClick}>
-              {faIcon}
-            </div>
-            :
-            <button className='open-modal-button clickable' onClick={onClick}>{buttonText}</button>
+          <img src={imageUrl} alt='icon' className={`icon-img ${isServer ? 'server-icon' : ''}`} />
       }
-    </>
+    </div>
   );
 }
 
-export default OpenModalButton;
+export default IconModal;
