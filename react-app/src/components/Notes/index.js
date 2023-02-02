@@ -12,12 +12,18 @@ export default function SingleNote() {
     const myNote = useSelector(state => state.notes.singleNote)
     const dispatch = useDispatch();
     const { noteId } = useParams();
+    console.log('out', noteId)
 
     useEffect(() => {
-        if (!Object.keys(myNote).length) {
-            dispatch(getNoteThunk(noteId))
-        }
-    }, [dispatch, noteId, myNote])
+        console.log(noteId)
+        // async () => {
+            // if (!Object.keys(myNote).length) {
+            // console.log(noteId)
+            //     dispatch(getNoteThunk(noteId))
+            // }
+        dispatch(getNoteThunk(noteId))
+        // }
+    }, [dispatch, noteId])
 
     return (
         <>

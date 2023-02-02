@@ -65,14 +65,14 @@ def update_note(note_id):
     note = Note.query.get(note_id)
     if note is None:
         return jsonify({"error": "Note not found"}), 404
-    if note.owner_id != current_user.id:
+    if note.author_id != current_user.id:
         return jsonify({"error": "Unauthorized"}), 401
 
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         note.title = form.data['title']
-        note.body = form.data['body']
+        note.content = form.data['content']
         db.session.commit()
         return note.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
@@ -84,7 +84,7 @@ def delete_note(note_id):
     note = Note.query.get(note_id)
     if note is None:
         return jsonify({"error": "Note not found"}), 404
-    if note.owner_id != current_user.id:
+    if note.author_id != current_user.id:
         return jsonify({"error": "Unauthorized"}), 401
     db.session.delete(note)
     db.session.commit()

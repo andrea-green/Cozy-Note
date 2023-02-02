@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addNtbkThunk } from '../../store/notebook';
 import { useHistory } from 'react-router-dom';
+import { useModal } from '../../context/Modal';
 
 
 export default function CreateNotebookForm() {
@@ -13,6 +14,7 @@ export default function CreateNotebookForm() {
     const enterName = (e) => setName(e.target.value);
 
     const [errors, setErrors] = useState([]);
+    const {closeModal} = useModal()
 
     useEffect(() => {
         const errors = [];
@@ -30,12 +32,15 @@ export default function CreateNotebookForm() {
         }
 
         await dispatch(addNtbkThunk(payload))
-            .then(() => history.push('/notebooks'))
-            // .catch(async (res) => {
-            //     console.log('res', res)
-                // const data = await res.json();
-                // if (data && data.errors) setErrors(data.errors);
-            // });
+            .then(() => {
+                closeModal()
+                history.push('/notebooks')
+            })
+        // .catch(async (res) => {
+        //     console.log('res', res)
+        // const data = await res.json();
+        // if (data && data.errors) setErrors(data.errors);
+        // });
     };
     return (
         <div>

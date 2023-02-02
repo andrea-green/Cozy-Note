@@ -1,4 +1,4 @@
-import React,  { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllNtbksThunk } from '../../store/notebook'
 // import { getAllNtbksThunk } from "../../store/notebooks";
@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import EditNotebookForm from "./EditNotebookForm";
 import DeleteNotebookForm from "./DeleteNotebookForm";
 import IconModal from "../IconModal/IconModal";
+import OpenModalButton from "../OpenModalButton";
 
 export default function AllNotebooks() {
     const dispatch = useDispatch();
@@ -19,30 +20,34 @@ export default function AllNotebooks() {
     //     history.push(`/notebooks/${notebookId}`)
     // }
 
-    const handleSubmit = (notebookId) => {
-        dispatch(getNtbkThunk(notebookId))
-        history.push(`/notebooks/${notebookId}`)
-    }
+    const handleSubmit = (e, notebookId) => {
+        e.preventDefault();
 
+        dispatch(getNtbkThunk(notebookId))
+            .then(() => { history.push(`/notebooks/${notebookId}`) })
+    }
 
 
     //use selector to grab all of the notebooks belonging to the current user.
     const myNotebooks = useSelector((state) => state.notebooks.allNotebooks.byId);
     const myNotebooksArr = Object.values(myNotebooks);
+    console.log('myNotebooksArr', myNotebooksArr)
 
     //accordian effect
-    const [active, setActive] = useState([]);
-    const toggle = (index, notebookId) => {
-        const activeIndices = [...active];
+    const [activeIndex, setActiveIndex] = useState([]);
 
-        if (activeIndices.includes(index)) {
-            activeIndices.splice(activeIndices.indexOf(index), 1);
-            setActive(activeIndices);
-            return;
+    const toggle = (index, notebookId) => {
+        const newIndex = [...activeIndex];
+
+        if (!newIndex.includes(index)) {
+            newIndex.push(index);
+            setActiveIndex(newIndex);
+            dispatch(getNtbkThunk(notebookId));
         }
-        activeIndices.push(index);
-        setActive(activeIndices);
-        dispatch(getNtbkThunk(notebookId));
+        else {
+            newIndex.splice(newIndex.indexOf(index), 1);
+            setActiveIndex(newIndex);
+        }
     };
 
     return (
@@ -60,31 +65,49 @@ export default function AllNotebooks() {
                     {myNotebooksArr.map((notebook, index) => (
                         <React.Fragment key={notebook.id}>
                             <tr
-                            onClick={() => toggle(index, notebook.id)}
-                            style={{ cursor: "pointer" }}
+                                style={{ cursor: "pointer" }}
                             >
-                                <td>
-                                    {active.includes(index) ? (
-                                        <i className="fa-solid fa-angles-right"></i>
-                                    ) :(<i className="fa-solid fa-angles-down"></i>)}
+                                <td onClick={() => toggle(index, notebook.id)}>
+                                    {activeIndex.includes(index) ? (
+                                        <i className="fa-solid fa-angles-down"></i>
+                                    ) : (<i className="fa-solid fa-angles-right"></i>)}
                                 </td>
                                 <td>
                                     <i className="fa-solid fa-book-bookmark">{notebook.title}</i>
                                 </td>
-                                {/* need to figure out how to grab the user's name */}
+
+                                <td>{notebook.name}</td>
                                 <td>{user.username}</td>
                                 <td>{notebook.created_at}</td>
                                 <td>{notebook.updated_at}</td>
-                                <IconModal
+                                <OpenModalButton
+                                    modalComponent={<EditNotebookForm myNotebook={notebook}/>}
+                                    faIcon={<i className="fa-regular fa-pen-to-square" />}
+                                    tr={true}
+                                />
+                                <OpenModalButton
+                                    modalComponent={<DeleteNotebookForm myNotebook={notebook}/>}
+                                    faIcon={<i className="fa-regular fa-trash-can" />}
+                                    tr={true}
+                                />
+                                {/* <IconModal
                                 modalComponent={EditNotebookForm}
                                 faIcon="fa-regular fa-pen-to-square"
                                 />
                                 <IconModal
                                 modalComponent={DeleteNotebookForm}
                                 faIcon="fa-regular fa-trash-can"
-                                />
+                                /> */}
                             </tr>
-                            {active.includes(index) && (
+                            {activeIndex.includes(index) &&
+                                // <h1>Hello</h1>
+                                // notebook.notes.map((note) => (
+                                //     <tr key={note.id}>
+                                //         <td>{note.title}</td>
+                                //         <td>{note.created_at}</td>
+                                //         <td>{note.updated_at}</td>
+                                //     </tr>
+                                // ))
                                 <tr>
                                     <td colSpan={4}>
                                         <table>
@@ -100,7 +123,7 @@ export default function AllNotebooks() {
                                         </table>
                                     </td>
                                 </tr>
-                            )}
+                            }
                         </React.Fragment>
                     ))}
                 </tbody>

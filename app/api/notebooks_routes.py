@@ -27,10 +27,10 @@ def get_single_notebook(notebook_id):
     notebook = Notebook.query.get(notebook_id)
     if notebook is None:
         return jsonify({"error": "Notebook not found"}), 404
-    notebook_dict = notebook.to_dict()
-    note = notebook.note.to_dict()
-    notebook_dict['note'] = note
-    return jsonify({"Notebook": notebook_dict})
+    # notebook_dict = notebook.to_dict()
+    # notes = [note.to_dict() for note in notebook.notes]
+    # notebook_dict['notes'] = notes
+    return jsonify({"Notebook": notebook.to_dict()})
 
 # create notebook
 @notebooks_routes.route('/',methods=['POST'])

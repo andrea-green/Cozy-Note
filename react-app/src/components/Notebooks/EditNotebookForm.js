@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { editNtbkThunk } from "../../store/notebook";
+import { useModal } from "../../context/Modal";
 
-export default function EditNotebookForm() {
-    const dispatch = useDispatch();
-    const history = useHistory();
-
+export default function EditNotebookForm({ myNotebook }) {
+    // const myNotebook = useSelector(state => state.notebooks.singleNotebook);
     const [name, setName] = useState('');
     const [errors, setErrors] = useState([]);
 
+    const dispatch = useDispatch();
+    const { closeModal } = useModal();
+    const history = useHistory();
+
+    // const { notebookId } = useParams();
+    console.log('myNotebook', myNotebook)
+
     const updateName = (e) => setName(e.target.value);
 
-    const myNotebook = useSelector(state => state.notebooks.singleNotebook);
+
 
     useEffect(() => {
         const errors = [];
@@ -22,19 +28,23 @@ export default function EditNotebookForm() {
         setErrors(errors);
     }, [name])
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e, notebookId) => {
         e.preventDefault();
 
         const payload = {
             name
         }
 
-        return dispatch(editNtbkThunk(payload))
-            .then(() => history.push('/notebooks'))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+        await dispatch(editNtbkThunk(notebookId, payload))
+        // history.push(`/notebooks/${notebookId}`)
+        .then(() => {
+            closeModal()
+            // history.push(`/notebooks/${notebookId}`)
+        })
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors);
+        // });
     };
 
     return (
@@ -50,14 +60,15 @@ export default function EditNotebookForm() {
                     </ul>
                 </div>
 
-                <form className='edit-form-body' onSubmit={handleSubmit}>
+                <form className='edit-form-body' onSubmit={(e) => handleSubmit(e,myNotebook?.id)}>
                     <textarea className='edit-form-input'
                         type="text"
-                        placeholder={myNotebook.name}
+                        placeholder={myNotebook?.name}
                         required
                         value={name}
                         onChange={updateName}
                     />
+                    <button className='edit-form-button' type="submit">Save</button>
                 </form>
             </section>
         </>

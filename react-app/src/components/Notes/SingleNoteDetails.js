@@ -16,9 +16,9 @@ export default function SingleNoteDetails() {
     const history = useHistory();
 
 
-    useEffect((noteId) => {
-        dispatch(getNoteThunk(noteId))
-    }, [dispatch])
+    // useEffect((noteId) => {
+    //     dispatch(getNoteThunk(noteId))
+    // }, [dispatch])
 
 
     return (

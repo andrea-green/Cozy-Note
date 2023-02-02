@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import { useModal } from '../../context/Modal';
 import { addNoteThunk } from '../../store/note';
 
 
@@ -19,6 +19,7 @@ export default function CreateNoteForm() {
     const enterContent = (e) => setContent(e.target.value);
 
     const [errors, setErrors] = useState([]);
+    const { closeModal } = useModal();
 
 
     useEffect(() => {
@@ -39,11 +40,15 @@ export default function CreateNoteForm() {
         }
 
         await dispatch(addNoteThunk(payload))
-        await history.push('/notes')
-            // .catch(async (res) => {
-            //     const data = await res.json();
-            //     if (data && data.errors) setErrors(data.errors);
-            // });
+            .then((note) => {
+                closeModal()
+                history.push(`/notes/${note.id}`)
+            })
+        // .then(()=>closeModal())
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors);
+        // });
     };
 
 
@@ -72,10 +77,10 @@ export default function CreateNoteForm() {
                         value={content}
                         onChange={enterContent}
                     />
-                <button
-                    className='button form-button'
-                    type="submit"
-                >Submit</button>
+                    <button
+                        className='button form-button'
+                        type="submit"
+                    >Submit</button>
                 </form>
             </section>
 

@@ -27,4 +27,5 @@ class Notebook(db.Model):
             "owner_id": self.owner_id,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            "notes": [note.to_dict() for note in self.notes]
         }
