@@ -6,7 +6,7 @@ import { useModal } from "../../context/Modal";
 
 export default function EditNotebookForm({ myNotebook }) {
     // const myNotebook = useSelector(state => state.notebooks.singleNotebook);
-    const [name, setName] = useState('');
+    const [name, setName] = useState(myNotebook?.name);
     const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch();
