@@ -62,13 +62,6 @@ export default function EditNoteForm() {
             </div>
 
             <form className='edit-note-form-body' onSubmit={handleSubmit}>
-                <input className='edit=note-form-input'
-                    type="text"
-                    placeholder={myNote.title}
-                    required
-                    value={title}
-                    onChange={updateTitle}
-                />
 
                 <input className='edit-note-form-input'
                     type="text"

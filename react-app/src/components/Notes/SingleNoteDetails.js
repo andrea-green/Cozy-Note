@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { getNoteThunk } from '../../store/note'
+import { getNoteThunk, editNoteThunk } from '../../store/note'
 import IconModal from '../IconModal/IconModal'
-import EditNoteForm from '../Notes/EditNoteForm'
+import EditNoteForm from './EditNoteTitle'
 import DeleteNoteForm from '../Notes/DeleteNoteForm'
+import { useParams } from 'react-router-dom'
+
 
 
 export default function SingleNoteDetails() {
@@ -14,11 +16,30 @@ export default function SingleNoteDetails() {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const history = useHistory();
+    const [isContentEditing, setIsContentEditing] = useState(false)
+    const [isTitleEditing, setIsTitleEditing] = useState(false)
+    const [title, setTitle] = useState(myNote.title)
+    const [content, setContent] = useState(myNote.content)
+    const { noteId } = useParams();
 
 
-    // useEffect((noteId) => {
-    //     dispatch(getNoteThunk(noteId))
-    // }, [dispatch])
+    useEffect(() => {
+    }, [myNote])
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const payload = {
+            title,
+            content
+        }
+
+        dispatch(editNoteThunk(noteId, payload))
+    }
+
+
+    const updateTitle = (e) => setTitle(e.target.value);
+    const updateContent = (e) => setContent(e.target.value);
 
 
     return (
@@ -30,20 +51,77 @@ export default function SingleNoteDetails() {
                 }
                 <div className="edit-delete-buttons">
                     <IconModal
-                    modalComponent={<EditNoteForm/>}
-                    faIcon="fa-solid fa-pencil"
+                        modalComponent={<EditNoteForm />}
+                        faIcon="fa-solid fa-pencil"
                     />
                     <IconModal
-                    modalComponent={<DeleteNoteForm/>}
-                    faIcon="fa-regular fa-trash-can"
+                        modalComponent={<DeleteNoteForm />}
+                        faIcon="fa-regular fa-trash-can"
                     />
                 </div>
             </div>
             <div className='note-title'>
-                <h1>{myNote.title}</h1>
+                <form className='edit-note-form-title' onSubmit={handleSubmit}>
+                    <input className='edit-note-title-input'
+                        type="text"
+                        required
+                        value={title}
+                        onChange={updateTitle}
+                    />
+                    {title !== myNote.title &&
+                        <>
+                            <button
+                                className='button form-button'
+                                type="submit"
+                            >Save</button>
+                            <button
+                                onClick={()=> setIsTitleEditing(false)}
+                                className='button form-button'
+                                type="submit"
+                            >Cancel</button>
+                        </>
+                    }
+                </form>
             </div>
             <div className='note-body'>
-                <p>{myNote.content}</p>
+                <div>
+                    <form className='edit-note-form-body' onSubmit={handleSubmit}>
+
+                        <textarea className='edit-note-form-text'
+                            type="text"
+                            // placeholder={myNote.content}
+                            required
+                            value={content}
+                            onChange={updateContent}
+                        />
+                        {content !== myNote.content &&
+                            <>
+                                <button
+                                    className='button form-button'
+                                    type="submit"
+                                >Submit</button>
+                                <button
+                                    onClick={() => setIsContentEditing(false)}
+                                    className='button form-button'
+                                    type="submit"
+                                >Cancel</button>
+                            </>
+                        }
+                    </form>
+
+                </div>
+                {/* <div>
+                    <div>
+                        <button onClick={() => {
+                            setIsContentEditing(true)
+                            setContent(myNote.content)
+                        }}>
+                            <i className="fas fa-solid fa-pencil"></i>
+                        </button>
+                    </div>
+
+                </div> */}
+
             </div>
         </div>
     )

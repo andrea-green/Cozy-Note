@@ -28,6 +28,12 @@ export default function CreateNoteForm() {
         if (title.length < 1) errors.push('Title must be at least 1 characters long');
         if (content.length < 0) errors.push('Content may not be empty');
 
+        // const textError = newArray(newNote.length).fill(' ').join('') === newNote
+        //use trim for content validation
+        // new Array(newNoteItemName.length).fill(' ').join('') === newNoteItemName
+        // will disable button if content is empty b/c equal to white space. but when enter letter its not a white space so button will show up.
+        // add inside of disabled button.
+
         setErrors(errors);
     }, [title, content])
 
@@ -80,6 +86,7 @@ export default function CreateNoteForm() {
                     <button
                         className='button form-button'
                         type="submit"
+                        // disabled={textError}
                     >Submit</button>
                 </form>
             </section>

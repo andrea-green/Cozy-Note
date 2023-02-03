@@ -14,3 +14,13 @@ a img{
     height: 150px;
     width: 150px;
 }
+
+root {
+    display: flex;
+    flex-direction: row;
+
+}
+
+textarea {
+    resize:none;
+}
