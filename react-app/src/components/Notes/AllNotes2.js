@@ -21,21 +21,31 @@ export default function AllNotes2() {
 
 
     return (
-        <div>
-            {myNotesArr.map((note) => (
-                <div>
-                    <div className="notes-list">
-                            <div key={note.id} className='note'>
-                                <button onClick={() => {
-                                    handleSubmit(note.id)
-                                }}>{note.title}
-                                </button>
+            <div>
+                <h1>My Notes </h1>
+                <div className="notes-list">
+                    {myNotesArr.map((note) => (
+                        <div className='card-container'>
+                            <div>
+                                <h3>{note.title}</h3>
                             </div>
-                    </div>
-                </div>
-            ))}
+                            <div
+                                key={note.id}
+                                className='card-pic'
+                                onClick={() => { handleSubmit(note.id) }}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                <img src={notecard} alt='note' />
+                            </div>
+                            <div>
+                                <span>{note.updated_at}</span>
+                            </div>
+                        </div>
 
-        </div>
+                    ))}
+                </div>
+
+            </div>
     );
 }
 

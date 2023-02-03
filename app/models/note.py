@@ -14,6 +14,7 @@ class Note(db.Model):
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.String(2000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
     # associations here
     notebook = db.relationship('Notebook', back_populates='notes')
@@ -27,4 +28,5 @@ class Note(db.Model):
             "title": self.title,
             "content": self.content,
             "created_at": self.created_at,
+            "updated_at": self.updated_at,
         }
