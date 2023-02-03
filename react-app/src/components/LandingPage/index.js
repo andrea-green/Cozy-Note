@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './LandingPage.css';
 import SignUpForm from '../auth/SignUpForm';
 
+// add in the demo user here 
+
 export default function LandingPage() {
     const [page, setPage] = useState(0);
 
