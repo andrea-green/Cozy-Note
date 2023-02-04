@@ -65,9 +65,8 @@ export default function AllNotebooks() {
                     {myNotebooksArr.map((notebook, index) => (
                         <React.Fragment key={notebook.id}>
                             <tr
-                                style={{ cursor: "pointer" }}
                             >
-                                <td onClick={() => toggle(index, notebook.id)}>
+                                <td onClick={() => toggle(index, notebook.id)} style={{ cursor: "pointer" }}>
                                     {activeIndex.includes(index) ? (
                                         <i className="fa-solid fa-angles-down"></i>
                                     ) : (<i className="fa-solid fa-angles-right"></i>)}

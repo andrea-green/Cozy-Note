@@ -56,12 +56,12 @@ function Body() {
                 <div className='notes-list'>
                     <AllNotes />
                 </div>
-                <div className='create-new-note'>
+                {/* <div className='create-new-note'>
                     <IconModal
                         modalComponent={<CreateNoteForm />}
                         faIcon="fa-solid fa-notes-medical"
                     />
-                </div>
+                </div> */}
 
             </div>
             {/* notebooks container  */}

@@ -36,7 +36,7 @@ export default function AllNotes2() {
                                 onClick={() => { handleSubmit(note.id) }}
                                 style={{ cursor: 'pointer' }}
                             >
-                                <img src={notecard} alt='note' />
+                                <img src={notecard} alt='note' style={{height:'230px'}} />
                             </div>
                             <div>
                                 <span>{note.updated_at}</span>

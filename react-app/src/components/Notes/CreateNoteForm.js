@@ -27,6 +27,7 @@ export default function CreateNoteForm() {
 
         if (title.length < 1) errors.push('Title must be at least 1 characters long');
         if (content.length < 0) errors.push('Content may not be empty');
+        // const contentError = newArray(newNote.length).fill(' ').join('') === newNote
 
         // const textError = newArray(newNote.length).fill(' ').join('') === newNote
         //use trim for content validation
@@ -86,7 +87,7 @@ export default function CreateNoteForm() {
                     <button
                         className='button form-button'
                         type="submit"
-                        // disabled={textError}
+                        // disabled={contentError}
                     >Submit</button>
                 </form>
             </section>

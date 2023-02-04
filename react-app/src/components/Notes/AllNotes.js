@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import { getNoteThunk } from '../../store/note';
 import notecard from '../images/indiv-note.png'
+import IconModal from '../IconModal/IconModal'
+import CreateNoteForm from './CreateNoteForm'
 
 
 export default function AllNotes() {
@@ -25,21 +27,32 @@ export default function AllNotes() {
 
     return (
         <div>
-            <h1>My Notes </h1>
+            <div className='my-notes-header'>
+                <h1>My Notes </h1>
+                <div className='create-new-note' style={{ padding: '35px' }}>
+                    <IconModal
+                        modalComponent={<CreateNoteForm />}
+                        faIcon="fa-solid fa-notes-medical"
+                    />
+                </div>
+            </div>
             <div className="notes-list">
                 {myNotesArr.map((note) => (
-                    <div className='card-container' key={note.id} >
+                    <div className='card-container' key={note.id}
+                        onClick={() => { handleSubmit(note.id) }}
+                        style={{ cursor: 'pointer' }}
+                    >
                         <div>
                             <h3>{note.title}</h3>
                         </div>
-                        <div
+                        {/* <div
 
                             className='card-pic'
                             onClick={() => { handleSubmit(note.id) }}
                             style={{ cursor: 'pointer' }}
                         >
-                            <img src={notecard} alt='note' style={{height:'180px'}}/>
-                        </div>
+                            <img src={notecard} alt='note' style={{ height: '230px' }} />
+                        </div> */}
                         <div>
                             <span>{note.updated_at}</span>
                         </div>

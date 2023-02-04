@@ -34,3 +34,19 @@
 .logout-button {
     font-family:'Peace Sans', sans-serif;
 }
+
+
+.card-container h3{
+    /* position: absolute; */
+    padding: 10px 30px 0px 30px;
+    color:black;
+
+
+}
+
+.card-container{
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 40vh;
+    width: 15vw;
+}
