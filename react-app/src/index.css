@@ -8,6 +8,8 @@ nav {
     border: 1px solid black;
     width: fit-content;
     padding: 0px 40px 50px 10px;
+    border-radius: 10px;
+    background-image: url('./components/images/nav-bar-background.png');
 }
 
 a img{

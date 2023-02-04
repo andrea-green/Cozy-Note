@@ -5,6 +5,7 @@ import { getNoteThunk } from '../../store/note';
 import notecard from '../images/indiv-note.png'
 import IconModal from '../IconModal/IconModal'
 import CreateNoteForm from './CreateNoteForm'
+import headerPic from '../images/my-notes-header.png'
 
 
 export default function AllNotes() {
@@ -28,7 +29,7 @@ export default function AllNotes() {
     return (
         <div>
             <div className='my-notes-header'>
-                <h1>My Notes </h1>
+                <img src={headerPic} alt='header' style={{height:'300px'}}/>
                 <div className='create-new-note' style={{ padding: '35px' }}>
                     <IconModal
                         modalComponent={<CreateNoteForm />}
