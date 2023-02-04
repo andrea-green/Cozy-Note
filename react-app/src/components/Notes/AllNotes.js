@@ -28,17 +28,17 @@ export default function AllNotes() {
             <h1>My Notes </h1>
             <div className="notes-list">
                 {myNotesArr.map((note) => (
-                    <div className='card-container'>
+                    <div className='card-container' key={note.id} >
                         <div>
                             <h3>{note.title}</h3>
                         </div>
                         <div
-                            key={note.id}
+
                             className='card-pic'
                             onClick={() => { handleSubmit(note.id) }}
                             style={{ cursor: 'pointer' }}
                         >
-                            <img src={notecard} alt='note' />
+                            <img src={notecard} alt='note' style={{height:'180px'}}/>
                         </div>
                         <div>
                             <span>{note.updated_at}</span>

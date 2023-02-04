@@ -20,6 +20,15 @@ class Note(db.Model):
     notebook = db.relationship('Notebook', back_populates='notes')
     author = db.relationship('User', back_populates='notes')
 
+    def format_date(self, date):
+        date_year = date.year
+        today = datetime.now()
+        today_year = today.strftime("%Y")
+        if str(date_year) == str(today_year):
+            return date.strftime("%b %d")
+        else:
+            return date.strftime("%b %d, %Y")
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -27,6 +36,6 @@ class Note(db.Model):
             "notebook_id": self.notebook_id,
             "title": self.title,
             "content": self.content,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at,
+            "created_at": self.format_date(self.created_at),
+            "updated_at": self.format_date(self.updated_at),
         }
