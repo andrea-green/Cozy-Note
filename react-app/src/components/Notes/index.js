@@ -33,7 +33,8 @@ export default function SingleNote() {
 
     return loaded && (
         <>
-            <div className="all-notes-note-page">
+            <div className="all-notes-note-page" style={{border:'1px solid black', 
+            padding:'11px'}}>
                 {<AllNotes />}
             </div>
             <div className="single-note-details">
