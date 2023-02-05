@@ -10,6 +10,13 @@
     width: 190px;
     margin-bottom: -190px;
 }
+.logout-button{
+    height: 280px;
+    width: 200px;
+    position: absolute;
+   
+    cursor: pointer;
+}
 
 /* notes */
 .notes-container {

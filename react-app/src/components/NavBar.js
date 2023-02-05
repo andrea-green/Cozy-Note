@@ -7,7 +7,9 @@ import DemoUser from './Users/DemoUser';
 import { useSelector } from 'react-redux';
 import notes from './images/nav-notes.png'
 import notebooks from './images/nav-notebooks.png'
-// import logoutButton from './images/logout-button.png'
+import profileButton from './images/profile-button.png'
+import IconModal from './IconModal/IconModal';
+import User from './Users/User';
 import './HomePage.css';
 
 
@@ -19,7 +21,7 @@ const NavBar = () => {
       <ul>
         <li className='home-button'>
           <NavLink to='/home' exact={true} activeClassName='active'>
-            <img src={logo} alt='logo'/>
+            <img src={logo} alt='logo' />
           </NavLink>
         </li>
         {!user &&
@@ -50,7 +52,12 @@ const NavBar = () => {
             <img src={notebooks} alt='notes' style={{ height: "280px", width: "200px" }} />
           </NavLink>
         </li>
-        <li className='nav-button'>
+        {/* <li className='nav-button' >
+          <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>
+            <img src={profileButton} alt='profile' style={{ height: "280px", width: "200px" }} />
+          </NavLink>
+        </li> */}
+        <li>
           <LogoutButton />
         </li>
       </ul>
