@@ -37,7 +37,7 @@ export default function AllNotes() {
                     />
                 </div>
             </div>
-            <div className="notes-list">
+            <div className="home-notes-list">
                 {myNotesArr.map((note) => (
                     <div className='card-container' key={note.id}
                         onClick={() => { handleSubmit(note.id) }}

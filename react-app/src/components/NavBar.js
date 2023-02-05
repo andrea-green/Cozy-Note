@@ -8,15 +8,17 @@ import { useSelector } from 'react-redux';
 import notes from './images/nav-notes.png'
 import notebooks from './images/nav-notebooks.png'
 // import logoutButton from './images/logout-button.png'
+import "./HomePage.css"
+
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
 
   return (
-    <nav>
+    <nav className='nav-bar'>
       <ul>
-        <li>
+        <li className='home-button'>
           <NavLink to='/home' exact={true} activeClassName='active'>
-            <img src={logo} alt='logo' style={{ height: '350px', width: '350px' }} />
+            <img src={logo} alt='logo'/>
           </NavLink>
         </li>
         {!user &&

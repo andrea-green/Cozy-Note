@@ -6,6 +6,7 @@ const EDIT_NTBK = 'notebook/EDIT_NTBK';
 const DELETE_NTBK = 'notebook/DELETE_NTBK';
 
 
+
 // action creators
 const getAllNtbksAc = (notebooks) => ({
     type: GET_ALL_NTBKS,
@@ -31,6 +32,7 @@ const deleteNtbkAc = (notebookId) => ({
     type: DELETE_NTBK,
     payload: notebookId
 });
+
 
 
 // thunks
@@ -92,6 +94,7 @@ export const addNtbkThunk = (notebook) => async (dispatch) => {
         return res;
     }
 };
+
 
 export const editNtbkThunk = (notebkId, updatedNtbk) => async (dispatch) => {
     const res = await fetch(`/api/notebooks/${notebkId}`,{

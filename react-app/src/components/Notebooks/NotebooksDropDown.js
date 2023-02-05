@@ -1,35 +1,41 @@
-import React, {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { getAllNtbksThunk } from "../../store/notebook"
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CreateNotebookForm from "./CreateNotebookForm";
 import { addNtbkThunk } from "../../store/notebook";
 import { useHistory } from "react-router-dom";
 
-export default function NotebookDropDown(){
+export default function NotebookDropDown() {
 
     const dispatch = useDispatch();
 
-    const myNotebooks = useSelector(state=>state.notebooks.allNotebooks.byId)
+    const myNotebooks = useSelector(state => state.notebooks.allNotebooks.byId)
     const myNotebooksArr = Object.values(myNotebooks);
     // drop down menu setup
-    const [selectNotebook,setSelectNotebook] = useState('');
-    const notebookOptions = ()=>{
-        if(myNotebooksArr.length === 0 ){
+    const [selectNotebook, setSelectNotebook] = useState('');
 
-        }
-        myNotebooksArr.forEach(notebook=>{
-            const options = [
-                {value:notebook.name,label:notebook.name}
-            ]
-        })
+    const handleSubmit= (notebookId) => {
+        // 
+
     }
-    // const types = [
-    //     {value:'text', label:'Text'},
-    //     {value:'voice', label:'Voice'}
-    // ];
 
-    //now i'm confused how to conditionally render this bc only want this to happen if you dont have any notebooks. 
-    useEffect((notebook)=>{
+    const notebookOptions = myNotebooksArr.map((notebook, idx) => (
+            <div key={notebook + idx} className='create-notebook-link'>
+                <span>{notebook.name}</span>
+
+            </div>
+
+    ))
+
+    // const options = [{CreateNotebookForm}]
+    // const optionComps =
+    // myNotebooksArr.forEach(notebook=>{
+    //     const notebookOption={value:notebook.name,label:notebook.name}
+    //     options.push(notebookOption)
+    // })
+
+    //now i'm confused how to conditionally render this bc only want this to happen if you dont have any notebooks.
+    useEffect((notebook) => {
         dispatch(addNtbkThunk(notebook))
     })
 
@@ -41,7 +47,6 @@ export default function NotebookDropDown(){
             {!myNotebooksArr ? (
                 <div className='create-notebook-link'>
                     <span>Add to a new notebook</span>
-                    {/* then this will open up the create notebook form. */}
                 </div>
             ) : (<></>)}
 

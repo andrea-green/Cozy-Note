@@ -1,7 +1,11 @@
-import { useDispatch } from "react-redux";
-import { Modal } from "../../context/Modal";
-import {LandingPage} from './LandingPage'
+import React,{useState} from "react";
+import LandingPage from "./index";
 
-export default function LandingPageModal(){
-    const dispatch = useDispatch();
+
+export default function LandingModal(){
+    const [isOpen,setIsOpen]=useState(false);
+
+    return (
+        
+    )
 }

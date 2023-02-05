@@ -1,20 +1,24 @@
+
 /* notes */
 .notes-container {
     border: 1px black solid;
     display: flex;
-    width: fit-content;
     align-items: center;
     margin: 0px auto;
     padding: 0px 20px 10px 20px;
     border-radius: 10px;
     margin-bottom: 30px;
     margin: 0px 20px 20px 20px;
+    overflow: auto;
+    width: 50%;
 
 
 }
 
 .my-notes-header{
     display: flex;
+    height:300px;
+    margin-bottom:-140px;
 }
 
 .create-new-note i{
@@ -22,19 +26,23 @@
     padding-top: 0px;
 }
 
-.notes-list{
+.home-notes-list{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    align-items: center;
 }
-/* .all-notes-note-container{
+.notes-list{
     display: flex;
     flex-direction: column;
-    border: solid 1px black;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-} */
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.all-notes-note-container{
+    border: 1px solid black;
+    padding: 11px;
+    overflow: auto;
+    width: 25%;
+}
 /* notebooks */
 .notebooks-container{
     border: 1px black solid;
