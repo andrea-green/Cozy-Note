@@ -11,7 +11,7 @@ const LogoutButton = () => {
   };
   return (
     <div>
-      <div className='logout-button' onClick={onLogout}>
+      <div className='logout-button' onClick={onLogout} style={{marginTop:"28px"}}>
         <img src={logoutButton} alt='logout' style={{ height: "280px", width: "200px" }} />
       </div>
     </div>
