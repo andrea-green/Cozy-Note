@@ -24,7 +24,7 @@ const NavBar = () => {
             <img src={logo} alt='logo' />
           </NavLink>
         </li>
-        {!user &&
+        {!user ? (
           <div>
             <li className='nav-button' >
               <NavLink to='/login' exact={true} activeClassName='active'>
@@ -41,25 +41,23 @@ const NavBar = () => {
               </NavLink>
             </li>
           </div>
-        }
-        <li className='nav-button' >
-          <NavLink to='/notes' exact={true} activeClassName='active'>
-            <img src={notes} alt='notes' style={{ height: "260px", width: "190px" }} />
-          </NavLink>
-        </li>
-        <li className='nav-button' >
-          <NavLink to='/notebooks' exact={true} activeClassName='active'>
-            <img src={notebooks} alt='notes' style={{ height: "280px", width: "200px" }} />
-          </NavLink>
-        </li>
-        {/* <li className='nav-button' >
-          <NavLink to={`/users/${user.id}`} exact={true} activeClassName='active'>
-            <img src={profileButton} alt='profile' style={{ height: "280px", width: "200px" }} />
-          </NavLink>
-        </li> */}
-        <li>
-          <LogoutButton />
-        </li>
+        ) : (
+          <div>
+            <li className='nav-button' >
+              <NavLink to='/notes' exact={true} activeClassName='active'>
+                <img src={notes} alt='notes' style={{ height: "260px", width: "190px" }} />
+              </NavLink>
+            </li>
+            <li className='nav-button' >
+              <NavLink to='/notebooks' exact={true} activeClassName='active'>
+                <img src={notebooks} alt='notes' style={{ height: "280px", width: "200px" }} />
+              </NavLink>
+            </li>
+            <li>
+              <LogoutButton />
+            </li>
+          </div>
+        )}
       </ul>
     </nav>
   );

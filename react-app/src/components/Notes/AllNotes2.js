@@ -24,7 +24,7 @@ export default function AllNotes2() {
     return (
             <div>
                 <h1>My Notes </h1>
-                <div className="notes-list">
+                <div className="my-notes-list">
                     {myNotesArr.map((note) => (
                         <div className='card-container' key={note.id}>
                             <div>

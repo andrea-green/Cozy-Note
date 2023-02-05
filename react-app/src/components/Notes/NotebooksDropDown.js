@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { getAllNtbksThunk } from "../../store/notebook"
 import { useSelector, useDispatch } from "react-redux";
-import CreateNotebookForm from "./CreateNotebookForm";
+import CreateNotebookForm from "../Notebooks/CreateNotebookForm";
 import { addNtbkThunk } from "../../store/notebook";
 import { useHistory } from "react-router-dom";
 
 export default function NotebookDropDown() {
 
-    const dispatch = useDispatch();
+    const [selectedNotebook,setSelectNotebook] = useState('')
+
+    // const dispatch = useDispatch();
 
     const myNotebooks = useSelector(state => state.notebooks.allNotebooks.byId)
     const myNotebooksArr = Object.values(myNotebooks);
-    // drop down menu setup
-    const [selectNotebook, setSelectNotebook] = useState('');
+    // // drop down menu setup
+    // const [selectNotebook, setSelectNotebook] = useState('');
 
-    const handleSubmit= (notebookId) => {
-        // 
 
-    }
 
     const notebookOptions = myNotebooksArr.map((notebook, idx) => (
             <div key={notebook + idx} className='create-notebook-link'>
@@ -27,30 +26,31 @@ export default function NotebookDropDown() {
 
     ))
 
-    // const options = [{CreateNotebookForm}]
-    // const optionComps =
-    // myNotebooksArr.forEach(notebook=>{
-    //     const notebookOption={value:notebook.name,label:notebook.name}
-    //     options.push(notebookOption)
-    // })
+    const options = [{CreateNotebookForm}]
+    const optionComps =
+    myNotebooksArr.forEach(notebook=>{
+        const notebookOption={value:notebook.name,label:notebook.name}
+        options.push(notebookOption)
+    })
 
     //now i'm confused how to conditionally render this bc only want this to happen if you dont have any notebooks.
-    useEffect((notebook) => {
-        dispatch(addNtbkThunk(notebook))
-    })
+    // useEffect((notebook) => {
+    //     dispatch(addNtbkThunk(notebook))
+    // })
 
 
 
 
     return (
-        <div className='notebook-drop-down-main'>
-            {!myNotebooksArr ? (
-                <div className='create-notebook-link'>
-                    <span>Add to a new notebook</span>
-                </div>
-            ) : (<></>)}
+        <h1>hello</h1>
+        // <div className='notebook-drop-down-main'>
+        //     {!myNotebooksArr ? (
+        //         <div className='create-notebook-link'>
+        //             <span>Add to a new notebook</span>
+        //         </div>
+        //     ) : (<></>)}
 
-        </div>
+        // </div>
     )
 }
 

@@ -6,6 +6,8 @@ import IconModal from '../IconModal/IconModal'
 import EditNoteForm from './EditNoteTitle'
 import DeleteNoteForm from '../Notes/DeleteNoteForm'
 import { useParams } from 'react-router-dom'
+import NotebookDropDown from './NotebooksDropDown'
+
 
 
 
@@ -47,8 +49,9 @@ export default function SingleNoteDetails() {
             <div className='note-header'>
                 {/* should be able to click and go to the notebook */}
                 {myNote.notebook_id &&
-                    <h1>{myNote.notebook_id} </h1>
+                    <h1>{myNote.notebook.name} </h1>
                 }
+                <NotebookDropDown/>
                 <div className="edit-delete-buttons">
                     <IconModal
                         modalComponent={<EditNoteForm />}

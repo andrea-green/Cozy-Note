@@ -15,7 +15,10 @@ export default function EditNoteForm() {
 
     const [title, setTitle] = useState(myNote.title);
     const [content, setContent] = useState(myNote.content);
+    const [jsonNotebookId, setJsonNotebookId] = useState(null);
     const [errors, setErrors] = useState([]);
+
+    const notebook_id=jsonNotebookId
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateContent = (e) => setContent(e.target.value);
@@ -35,7 +38,8 @@ export default function EditNoteForm() {
 
         const payload = {
             title,
-            content
+            content,
+            // notebook_id
         }
 
         dispatch(editNoteThunk(myNote.id, payload))

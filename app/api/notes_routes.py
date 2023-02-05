@@ -63,6 +63,9 @@ def create_note():
 @login_required
 def update_note(note_id):
     note = Note.query.get(note_id)
+    if request.json['notebook_id']:
+        notebookId=request.json['notebook_id']
+    print('NOTEBOOKID',notebookId)
     if note is None:
         return jsonify({"error": "Note not found"}), 404
     if note.author_id != current_user.id:
@@ -71,6 +74,8 @@ def update_note(note_id):
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        if notebookId:
+            note.notebook_id = notebookId
         note.title = form.data['title']
         note.content = form.data['content']
         db.session.commit()

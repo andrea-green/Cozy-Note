@@ -17,9 +17,6 @@ def get_user_notebooks():
     notebook_dict=[notebook.to_dict() for notebook in notebooks]
     return jsonify({"Notebooks": notebook_dict})
 
-
-    return jsonify({"Notebooks": [notebook.to_dict() for notebook in notebooks]})
-
 # get single notebook by id
 @notebooks_routes.route('/<int:notebook_id>',methods=['GET'])
 @login_required
