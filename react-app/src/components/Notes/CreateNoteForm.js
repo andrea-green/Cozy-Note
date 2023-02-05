@@ -96,3 +96,8 @@ export default function CreateNoteForm() {
 
     )
 }
+
+// a drop down option to select from a list of pre-existing notebooks.
+// if no notebooks exist -> only option is to create a new notebook with that note added to it.
+// get all notebooks thunk
+
