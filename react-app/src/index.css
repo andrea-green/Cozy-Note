@@ -28,3 +28,8 @@ textarea {
 button{
     cursor:pointer;
 }
+
+
+* {
+    font-family: 'Gaegu', cursive;
+}
