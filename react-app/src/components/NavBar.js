@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux';
 import notes from './images/nav-notes.png'
 import notebooks from './images/nav-notebooks.png'
 // import logoutButton from './images/logout-button.png'
-import "./HomePage.css"
+import './HomePage.css';
+
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
@@ -23,33 +24,33 @@ const NavBar = () => {
         </li>
         {!user &&
           <div>
-            <li>
+            <li className='nav-button' >
               <NavLink to='/login' exact={true} activeClassName='active'>
                 Login
               </NavLink>
             </li>
             {/* demo user move to the landing page */}
-            <div>
+            <div className='nav-button' >
               <DemoUser />
             </div>
-            <li>
+            <li className='nav-button' >
               <NavLink to='/sign-up' exact={true} activeClassName='active'>
                 Sign Up
               </NavLink>
             </li>
           </div>
         }
-        <li>
+        <li className='nav-button' >
           <NavLink to='/notes' exact={true} activeClassName='active'>
             <img src={notes} alt='notes' style={{ height: "260px", width: "190px" }} />
           </NavLink>
         </li>
-        <li>
+        <li className='nav-button' >
           <NavLink to='/notebooks' exact={true} activeClassName='active'>
             <img src={notebooks} alt='notes' style={{ height: "280px", width: "200px" }} />
           </NavLink>
         </li>
-        <li>
+        <li className='nav-button'>
           <LogoutButton />
         </li>
       </ul>

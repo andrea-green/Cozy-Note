@@ -1,3 +1,15 @@
+.home-button img{
+    height: 400px;
+    width: 400px;
+    margin-top: -160px;
+    margin-left: -75px;
+
+}
+.nav-button{
+    height: 260px;
+    width: 190px;
+    margin-bottom: -190px;
+}
 
 /* notes */
 .notes-container {
