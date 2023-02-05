@@ -26,7 +26,7 @@ export default function CreateNoteForm() {
         const errors = [];
 
         if (title.length < 1) errors.push('Title must be at least 1 characters long');
-        if (content.length < 0) errors.push('Content may not be empty');
+       
         // const contentError = newArray(newNote.length).fill(' ').join('') === newNote
 
         // const textError = newArray(newNote.length).fill(' ').join('') === newNote
@@ -100,4 +100,3 @@ export default function CreateNoteForm() {
 // a drop down option to select from a list of pre-existing notebooks.
 // if no notebooks exist -> only option is to create a new notebook with that note added to it.
 // get all notebooks thunk
-
