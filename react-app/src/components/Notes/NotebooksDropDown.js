@@ -3,54 +3,85 @@ import { getAllNtbksThunk } from "../../store/notebook"
 import { useSelector, useDispatch } from "react-redux";
 import CreateNotebookForm from "../Notebooks/CreateNotebookForm";
 import { addNtbkThunk } from "../../store/notebook";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { editNoteThunk } from "../../store/note";
+import { useModal } from "../../context/Modal";
+
 
 export default function NotebookDropDown() {
 
-    const [selectedNotebook,setSelectNotebook] = useState('')
-
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const { noteId } = useParams();
+    const { setModalContent } = useModal();
 
     const myNotebooks = useSelector(state => state.notebooks.allNotebooks.byId)
     const myNotebooksArr = Object.values(myNotebooks);
+    console.log('myNotebooksArr', myNotebooksArr)
     // // drop down menu setup
     // const [selectNotebook, setSelectNotebook] = useState('');
 
+    const myNote = useSelector(state => state.notes.singleNote)
 
+
+    const title = myNote.title
+    const content = myNote.content
+    const [dropDown, setDropDown] = useState(false)
+
+
+    function addToNotebook(nbkId){
+        console.log('nbkid',nbkId)
+        const payload = {
+            title,
+            content,
+            notebookId:nbkId,
+        }
+
+        dispatch(editNoteThunk(noteId, payload))
+    }
+    // const addToNotebook = (myNotebookId) => {
+    //     setNotebookId(myNotebookId)
+    //     const payload = {
+    //         title,
+    //         content,
+    //         notebookId,
+    //     }
+
+    //     dispatch(editNoteThunk(noteId, payload))
+    // }
+
+    const createNewNotebook=()=>{
+        setModalContent(<CreateNotebookForm />)
+
+    }
+
+    useEffect(() => {
+        dispatch(getAllNtbksThunk())
+    }, [])
 
     const notebookOptions = myNotebooksArr.map((notebook, idx) => (
-            <div key={notebook + idx} className='create-notebook-link'>
-                <span>{notebook.name}</span>
-
-            </div>
-
+        <div onClick={()=> addToNotebook(notebook.id)} key={notebook + idx} className='create-notebook-link'>
+            <span>{notebook.name}</span>
+        </div>
     ))
 
-    const options = [{CreateNotebookForm}]
-    const optionComps =
-    myNotebooksArr.forEach(notebook=>{
-        const notebookOption={value:notebook.name,label:notebook.name}
-        options.push(notebookOption)
-    })
-
-    //now i'm confused how to conditionally render this bc only want this to happen if you dont have any notebooks.
-    // useEffect((notebook) => {
-    //     dispatch(addNtbkThunk(notebook))
-    // })
+    const openDropDown = () => { setDropDown(!dropDown) }
 
 
 
 
     return (
-        <h1>hello</h1>
-        // <div className='notebook-drop-down-main'>
-        //     {!myNotebooksArr ? (
-        //         <div className='create-notebook-link'>
-        //             <span>Add to a new notebook</span>
-        //         </div>
-        //     ) : (<></>)}
 
-        // </div>
+        <div onClick={openDropDown}>
+            Add to a notebook
+            {dropDown &&
+                <>
+                    <div className='create-notebook-link' onClick={createNewNotebook}>
+                        <span>Create New Notebook</span>
+                    </div>
+                    {notebookOptions}
+                </>
+            }
+        </div>
     )
 }
 

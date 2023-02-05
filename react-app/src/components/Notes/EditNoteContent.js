@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
 import { useModal } from '../../context/Modal';
 import { editNoteThunk } from '../../store/note'
 
 
 
-export default function EditNoteForm() {
+export default function EditNoteContent() {
     const dispatch = useDispatch();
-    const history = useHistory();
     const { closeModal } = useModal();
     const myNote = useSelector(state => state.notes.singleNote);
 
 
-    const [title, setTitle] = useState(myNote.title);
+    const title = myNote.title;
     const [content, setContent] = useState(myNote.content);
-    const [jsonNotebookId, setJsonNotebookId] = useState(null);
+    const notebookId = myNote.notebook_id || null;
     const [errors, setErrors] = useState([]);
 
-    const notebook_id=jsonNotebookId
+    console.log('title', title)
 
-    const updateTitle = (e) => setTitle(e.target.value);
+
     const updateContent = (e) => setContent(e.target.value);
 
 
@@ -39,11 +37,12 @@ export default function EditNoteForm() {
         const payload = {
             title,
             content,
-            // notebook_id
+            notebookId
         }
+        console.log('payload', payload)
 
         dispatch(editNoteThunk(myNote.id, payload))
-        .then(() => closeModal())
+            .then(() => closeModal())
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
@@ -53,10 +52,7 @@ export default function EditNoteForm() {
 
 
 
-    return <>
-        <div className='edit-note-form'>
-            <h1>Edit your note</h1>
-        </div>
+    return (
         <section className='edit-note-container'>
             <div className='edit-note-errors'>
                 <ul> {errors.map((error) => (
@@ -65,25 +61,33 @@ export default function EditNoteForm() {
                 </ul>
             </div>
 
-            <form className='edit-note-form-body' onSubmit={handleSubmit}>
+            <div className='note-body'>
+                <div>
+                    <form className='edit-note-form-body' onSubmit={handleSubmit}>
 
-                <input className='edit-note-form-input'
-                    type="text"
-                    placeholder={myNote.content}
-                    required
-                    value={content}
-                    onChange={updateContent}
-                />
-                <button
-                    className='button form-button'
-                    type="submit"
-                >Submit</button>
-                <button
-                    className='button form-button'
-                    type="submit"
-                >Cancel</button>
-            </form>
-
+                        <textarea className='edit-note-form-text'
+                            type="text"
+                            // placeholder={myNote.content}
+                            required
+                            value={content}
+                            onChange={updateContent}
+                        />
+                        {content !== myNote.content &&
+                            <>
+                                <button
+                                    className='button form-button'
+                                    type="submit"
+                                >Submit</button>
+                                <button
+                                    onClick={() => setContent(myNote.content)}
+                                    className='button form-button'
+                                    type="submit"
+                                >Cancel</button>
+                            </>
+                        }
+                    </form>
+                </div>
+            </div>
         </section>
-    </>;
+    )
 }

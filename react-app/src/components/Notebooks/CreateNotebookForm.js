@@ -34,7 +34,6 @@ export default function CreateNotebookForm() {
         await dispatch(addNtbkThunk(payload))
             .then(() => {
                 closeModal()
-                history.push('/notebooks')
             })
         // .catch(async (res) => {
         //     console.log('res', res)

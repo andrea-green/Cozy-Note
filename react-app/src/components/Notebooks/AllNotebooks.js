@@ -15,10 +15,7 @@ export default function AllNotebooks() {
     const history = useHistory();
     const user = useSelector((state) => state.session.user);
 
-    // const handleSubmit = (notebookId) => {
-    //     dispatch(getAllNtbksThunk(notebookId))
-    //     history.push(`/notebooks/${notebookId}`)
-    // }
+
 
     const handleSubmit = (e, notebookId) => {
         e.preventDefault();
@@ -30,6 +27,7 @@ export default function AllNotebooks() {
 
     //use selector to grab all of the notebooks belonging to the current user.
     const myNotebooks = useSelector((state) => state.notebooks.allNotebooks.byId);
+    const myNotes = useSelector((state) => state.notes.allNotes);
     const myNotebooksArr = Object.values(myNotebooks);
     console.log('myNotebooksArr', myNotebooksArr)
 
@@ -49,6 +47,9 @@ export default function AllNotebooks() {
             setActiveIndex(newIndex);
         }
     };
+    useEffect(() => {
+        dispatch(getAllNtbksThunk())
+    },[myNotes])
 
     return (
         <div className="notebook-table">

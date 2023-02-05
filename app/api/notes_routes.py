@@ -1,10 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import  User
-# need to import Notes model
-from app.models import Note
-from app.models.db import db
+from app.models import  User,Note,Notebook,db
 from app.forms import NoteForm
+
 
 from .validation_to_error_formatter import validation_errors_to_error_messages
 
@@ -35,9 +33,9 @@ def get_single_note(note_id):
         return jsonify({"error": "Note not found"}), 404
 
     note_dict=note.to_dict()
-    if note.notebook:
-        notebook=note.notebook.to_dict()
-        note_dict['notebook']=notebook
+    if note.notebook_id != None:
+        notebook=Notebook.query.get(note.notebook_id)
+        note_dict['notebook']=notebook.to_dict()
 
     return jsonify({"Note": note_dict})
 
@@ -63,8 +61,7 @@ def create_note():
 @login_required
 def update_note(note_id):
     note = Note.query.get(note_id)
-    if request.json['notebook_id']:
-        notebookId=request.json['notebook_id']
+    notebookId=request.json['notebookId']
     print('NOTEBOOKID',notebookId)
     if note is None:
         return jsonify({"error": "Note not found"}), 404
@@ -74,7 +71,7 @@ def update_note(note_id):
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        if notebookId:
+        if notebookId != None:
             note.notebook_id = notebookId
         note.title = form.data['title']
         note.content = form.data['content']
