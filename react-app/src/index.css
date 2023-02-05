@@ -24,3 +24,8 @@ a img{
 textarea {
     resize:none;
 }
+
+button{
+    cursor:pointer;
+}
+
