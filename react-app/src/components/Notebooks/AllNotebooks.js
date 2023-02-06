@@ -49,18 +49,20 @@ export default function AllNotebooks() {
     };
     useEffect(() => {
         dispatch(getAllNtbksThunk())
-    },[myNotes])
+    }, [myNotes])
 
     return (
         <div className="notebook-table">
             <table>
                 <thead>
-                    <tr>
-                        <th>TITLE</th>
-                        <th>CREATED BY</th>
-                        <th>UPDATED </th>
-                        <th>ACTIONS</th>
-                    </tr>
+                    <div className='table-header'>
+                        <tr>
+                            <th>TITLE</th>
+                            <th>CREATED BY</th>
+                            <th>UPDATED </th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </div>
                 </thead>
                 <tbody>
                     {myNotebooksArr.map((notebook, index) => (
@@ -81,14 +83,16 @@ export default function AllNotebooks() {
                                 <td>{notebook.created_at}</td>
                                 <td>{notebook.updated_at}</td>
                                 <OpenModalButton
-                                    modalComponent={<EditNotebookForm myNotebook={notebook}/>}
-                                    faIcon={<i className="fa-regular fa-pen-to-square" />}
+                                    modalComponent={<EditNotebookForm myNotebook={notebook} />}
+                                    faIcon={<i className="fa-regular fa-pen-to-square" style={{ cursor: "pointer" }} />}
                                     tr={true}
+
                                 />
                                 <OpenModalButton
-                                    modalComponent={<DeleteNotebookForm myNotebook={notebook}/>}
-                                    faIcon={<i className="fa-regular fa-trash-can" />}
+                                    modalComponent={<DeleteNotebookForm myNotebook={notebook} />}
+                                    faIcon={<i className="fa-regular fa-trash-can" style={{ cursor: "pointer" }} />}
                                     tr={true}
+
                                 />
                                 {/* <IconModal
                                 modalComponent={EditNotebookForm}

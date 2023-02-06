@@ -69,7 +69,7 @@ function Body() {
                 <div className="notebooks-list" >
                     <AllNotebooks  />
                 </div>
-                <div className='create-new-ntbk'>
+                <div className='create-new-ntbk' style={{margin:'40px'}}>
                     <IconModal
                         modalComponent={<CreateNotebookForm />}
                         faIcon="fa-solid fa-book-medical"

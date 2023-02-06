@@ -39,6 +39,7 @@
     width: 90%;
     background-color: white;
 
+
 }
 
 .my-notes-header{
@@ -75,10 +76,12 @@
     display: flex;
     width: fit-content;
     align-items: center;
-    margin: 0px auto;
     padding: 0px 20px 10px 20px;
     border-radius: 10px;
     background-color: white;
+    margin-left: 20px;
+    margin-top: 50px;
+    background-color: #b8c4b5;
 
 }
 
@@ -138,3 +141,16 @@
     background-repeat: no-repeat;
     border:none;
 }
+
+.notebook-table {
+    height: 20vh;
+    padding: 10px;
+    overflow: auto;
+
+  }
+
+th, td {
+    padding: 8px;
+    text-align: left;
+
+  }

@@ -29,9 +29,8 @@ function App() {
 
   return (
 
-    <>
+    <div className='app-main'>
       <NavBar />
-
       <Switch>
         <Route path='/' exact={true}>
         <LandingPage />
@@ -61,8 +60,7 @@ function App() {
           <SingleNotebook />
         </ProtectedRoute> */}
       </Switch>
-      </>
-
+      </div>
   );
 }
 
