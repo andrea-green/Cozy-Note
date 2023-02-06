@@ -5,7 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import logo from './images/Cozy-logo.png';
 import DemoUser from './Users/DemoUser';
 import { useSelector } from 'react-redux';
-import notes from './images/nav-notes.png'
+import notes from './images/nav-notes.png';
 import notebooks from './images/nav-notebooks.png'
 import profileButton from './images/profile-button.png'
 import IconModal from './IconModal/IconModal';

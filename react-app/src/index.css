@@ -19,6 +19,8 @@ nav {
  #root {
     display: flex;
     flex-direction: row;
+    background-image:url('./components/images/background-filler.png');
+    background-repeat: repeat;
  }
 
 textarea {

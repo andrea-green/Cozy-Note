@@ -37,5 +37,5 @@ class Note(db.Model):
             "title": self.title,
             "content": self.content,
             "created_at": self.format_date(self.created_at),
-            "updated_at": self.format_date(self.updated_at),
+            "updated_at": self.format_date(self.updated_at)
         }
