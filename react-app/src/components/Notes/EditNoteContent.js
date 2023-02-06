@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { editNoteThunk } from '../../store/note'
+import '../HomePage.css'
 
 
 

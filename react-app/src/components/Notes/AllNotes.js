@@ -27,9 +27,9 @@ export default function AllNotes() {
     console.log('notesArr', myNotesArr)
 
     return (
-        <div>
+        <div style={{border: '1px solid black'}}>
             <div className='my-notes-header'>
-                <img src={headerPic} alt='header' style={{height:'300px'}}/>
+                <img src={headerPic} alt='header' style={{height:'300px',marginTop:'30px'}}/>
                 <div className='create-new-note' style={{ padding: '35px' }}>
                     <IconModal
                         modalComponent={<CreateNoteForm />}

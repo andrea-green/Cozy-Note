@@ -6,6 +6,7 @@ import { getNoteThunk } from "../../store/note"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import AllNotes from './AllNotes'
+import '../HomePage.css'
 
 export default function SingleNote() {
 
@@ -33,7 +34,7 @@ export default function SingleNote() {
 
     return loaded && (
         <>
-            <div className="all-notes-note-page" style={{border:'1px solid black',
+            <div style={{border:'1px solid black',
             padding:'11px', overflow:'auto'}}>
                 {<AllNotes />}
             </div>

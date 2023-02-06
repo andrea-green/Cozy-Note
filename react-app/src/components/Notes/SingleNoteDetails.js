@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom'
 import NotebookDropDown from './NotebooksDropDown'
 import EditNoteTitle from './EditNoteTitle'
 import EditNoteContent from './EditNoteContent'
+import '../HomePage.css'
 
 
 
