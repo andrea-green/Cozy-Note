@@ -1,148 +1,95 @@
-# Flask React Project
+# Cozy-Note 
 
-This is the starter for the Flask React project.
-
-## Getting started
-1. Clone this repository (only this branch)
-
-2. Install dependencies
-
-      ```bash
-      pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-
-4. Make sure the SQLite3 database connection URL is in the **.env** file
-
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
-
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+An Evernote inspired application built with Flask, React/Redux, and SQLAlchemy.Cozy Note is a note taking application that allows users to stay organized with all their productivity needs. 
 
 
-## Deployment through Render.com
+## ✨ Features
+-Notes: Create, edit, and delete notes. Notes can also be added to notebooks. 
+-Notebooks: holds notes that are assigned to it. 
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+## ⚡ Technologies Used
+- Flask: Backend framework for building web applications.
+- React: Frontend library for building user interfaces.
+- Redux: State management library for React.
+- SQLAlchemy: Object-relational mapper for working with databases.
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+## 🏠 Homepage
+- [CozyNote](https://cozy-note.onrender.com/)
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+## 📺 Demo
+- add Gif here when complete
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+## 🚀 Local Installation
+1. Clone the repository
 
-### Part A: Configure the Start and Build Commands
+HTTPS:
+```bash
+git clone https://github.com/andrea-green/Cozy-Note
+```
+SSH:
+```bash
+git clone git@github.com:andrea-green/Cozy-Note.git
+```
 
-Start by giving your application a name.
+2. Install the dependencies
+```bash
+pipenv install -r requirements.txt
+```
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+3. Create a .env file based on the example with proper settings for your development environment
+```bash
+SECRET_KEY= <your secret key>
+DATABASE_URL=sqlite:///dev.db
+SCHEMA=flask_schema
+```
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+4. Get into your pipenv, migrate your database, seed your database, and run your Flask app
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+```bash
+pipenv shell
+```
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
+```bash
+flask db upgrade
+```
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
+```bash
 flask seed all
 ```
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
-
-Now, add your start command in the Start field:
-
-```shell
-# start script
-gunicorn app:app
+```bash
+flask run
 ```
 
-_If you are using websockets, use the following start command instead for increased performance:_
+5. Change into the react-app directory
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+```bash
+cd react-app
+```
 
-### Part B: Add the Environment Variables
+6. Install the dependencies
+```bash
+npm install
+```
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+7. Start the application
+```bash
+npm start
+```
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+5. Navigate to the application in your browser
 
-Add the following keys and values in the Render GUI form:
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
+## 💻 Usage
+To use CozyNote, you need to sign up for an account (or use the demo user). You can then begin creating a note or notebook. 
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
+## 📝 Documentation
+- comming soon!
 
-Add the following keys and values:
+## 🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-- DATABASE_URL (copy value from Internal Database URL field)
+## ✏️ Authors
+- 👤 [andrea-green](https://github.com/andrea-green)
 
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
 
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
