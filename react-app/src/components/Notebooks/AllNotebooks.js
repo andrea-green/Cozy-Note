@@ -55,24 +55,23 @@ export default function AllNotebooks() {
         <div className="notebook-table">
             <table>
                 <thead>
-                    <div className='table-header'>
-                        <tr>
-                            <th>TITLE</th>
-                            <th>CREATED BY</th>
-                            <th>UPDATED </th>
-                            <th>ACTIONS</th>
-                        </tr>
-                    </div>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>TITLE</th>
+                        <th>CREATED BY</th>
+                        <th>UPDATED </th>
+                        <th>ACTIONS</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {myNotebooksArr.map((notebook, index) => (
                         <React.Fragment key={notebook.id}>
-                            <tr
-                            >
+                            <tr>
                                 <td onClick={() => toggle(index, notebook.id)} style={{ cursor: "pointer" }}>
-                                    {activeIndex.includes(index) ? (
+                                    {activeIndex.includes(index) ?
                                         <i className="fa-solid fa-angles-down"></i>
-                                    ) : (<i className="fa-solid fa-angles-right"></i>)}
+                                        : <i className="fa-solid fa-angles-right"></i>}
                                 </td>
                                 <td>
                                     <i className="fa-solid fa-book-bookmark">{notebook.title}</i>
@@ -80,20 +79,21 @@ export default function AllNotebooks() {
 
                                 <td>{notebook.name}</td>
                                 <td>{user.username}</td>
-                                <td>{notebook.created_at}</td>
                                 <td>{notebook.updated_at}</td>
-                                <OpenModalButton
-                                    modalComponent={<EditNotebookForm myNotebook={notebook} />}
-                                    faIcon={<i className="fa-regular fa-pen-to-square" style={{ cursor: "pointer" }} />}
-                                    tr={true}
+                                <td>
+                                    <OpenModalButton
+                                        modalComponent={<EditNotebookForm myNotebook={notebook} />}
+                                        faIcon={<i className="fa-regular fa-pen-to-square" style={{ cursor: "pointer" }} />}
+                                        tr={true}
 
-                                />
-                                <OpenModalButton
-                                    modalComponent={<DeleteNotebookForm myNotebook={notebook} />}
-                                    faIcon={<i className="fa-regular fa-trash-can" style={{ cursor: "pointer" }} />}
-                                    tr={true}
+                                    />
+                                    <OpenModalButton
+                                        modalComponent={<DeleteNotebookForm myNotebook={notebook} />}
+                                        faIcon={<i className="fa-regular fa-trash-can" style={{ cursor: "pointer" }} />}
+                                        tr={true}
 
-                                />
+                                    />
+                                </td>
                                 {/* <IconModal
                                 modalComponent={EditNotebookForm}
                                 faIcon="fa-regular fa-pen-to-square"

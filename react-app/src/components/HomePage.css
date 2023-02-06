@@ -145,7 +145,7 @@
 .notebook-table {
     height: 20vh;
     padding: 10px;
-    overflow: auto;
+    overflow-y: scroll;
 
   }
 
@@ -154,3 +154,5 @@ th, td {
     text-align: left;
 
   }
+
+  
