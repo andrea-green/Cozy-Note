@@ -26,7 +26,14 @@ export default function CreateNoteForm() {
         const errors = [];
 
         if (title.length < 1) errors.push('Title must be at least 1 characters long');
-        if (content.length < 0) errors.push('Content may not be empty');
+       
+        // const contentError = newArray(newNote.length).fill(' ').join('') === newNote
+
+        // const textError = newArray(newNote.length).fill(' ').join('') === newNote
+        //use trim for content validation
+        // new Array(newNoteItemName.length).fill(' ').join('') === newNoteItemName
+        // will disable button if content is empty b/c equal to white space. but when enter letter its not a white space so button will show up.
+        // add inside of disabled button.
 
         setErrors(errors);
     }, [title, content])
@@ -80,6 +87,7 @@ export default function CreateNoteForm() {
                     <button
                         className='button form-button'
                         type="submit"
+                        // disabled={contentError}
                     >Submit</button>
                 </form>
             </section>
@@ -88,3 +96,7 @@ export default function CreateNoteForm() {
 
     )
 }
+
+// a drop down option to select from a list of pre-existing notebooks.
+// if no notebooks exist -> only option is to create a new notebook with that note added to it.
+// get all notebooks thunk

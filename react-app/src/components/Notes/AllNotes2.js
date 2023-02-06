@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { useHistory,useParams } from "react-router-dom"
 import { getNoteThunk } from '../../store/note';
+import notecard from '../images/indiv-note.png'
 
 
 export default function AllNotes2() {
@@ -21,21 +22,31 @@ export default function AllNotes2() {
 
 
     return (
-        <div>
-            {myNotesArr.map((note) => (
-                <div>
-                    <div className="notes-list">
-                            <div key={note.id} className='note'>
-                                <button onClick={() => {
-                                    handleSubmit(note.id)
-                                }}>{note.title}
-                                </button>
+            <div>
+                <h1>My Notes </h1>
+                <div className="notes-list">
+                    {myNotesArr.map((note) => (
+                        <div className='card-container' key={note.id}>
+                            <div>
+                                <h3>{note.title}</h3>
                             </div>
-                    </div>
-                </div>
-            ))}
+                            <div
 
-        </div>
+                                className='card-pic'
+                                onClick={() => { handleSubmit(note.id) }}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                <img src={notecard} alt='note' style={{height:'230px'}} />
+                            </div>
+                            <div>
+                                <span>{note.updated_at}</span>
+                            </div>
+                        </div>
+
+                    ))}
+                </div>
+
+            </div>
     );
 }
 

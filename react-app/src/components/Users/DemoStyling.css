@@ -1,0 +1,9 @@
+.demo-user {
+    font-size: 25px;
+    height: 80px;
+    width: 150px;
+    border-radius: 45px;
+    padding: 5px;
+    margin: 20px;
+    background-color: #b8c4b5;
+}

@@ -4,6 +4,7 @@ const GET_NOTE = 'notes/GET_NOTE';
 const ADD_NOTE = 'notes/ADD_NOTE';
 const EDIT_NOTE = 'notes/EDIT_NOTE';
 const DELETE_NOTE = 'notes/DELETE_NOTE';
+// const ADD_NOTE_TO_NTBK = 'notebook/ADD_NOTE_TO_NTBK'
 
 
 
@@ -33,6 +34,11 @@ const deleteNoteAc = (noteId) => ({
     type: DELETE_NOTE,
     payload: noteId
 });
+
+// const addNoteToNtbkAc = (note) => ({
+//     type: ADD_NOTE_TO_NTBK,
+//     payload:note
+// })
 
 
 
@@ -115,6 +121,7 @@ export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
 
         if (response.ok) {
             const data = await response.json();
+            // dispatch(get)
             dispatch(editNoteAc(data));
         } else if (response.status < 500) {
             const data = await response.json();
@@ -146,6 +153,31 @@ export const deleteNoteThunk = (noteId) => async (dispatch) => {
             return ['An error occurred. Please try again.']
         }
     };
+// this is sketchy.
+// export const addNoteToNtbkThunk = (notebookId,noteTitle,noteContent)=>async (dispatch)=>{
+//     const res = await fetch('/api/notes/',{
+//         method:'POST',
+//         headers:{
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             notebook_id:notebookId,
+//             title: noteTitle,
+//             content:noteContent
+//         })
+//     });
+//     if(res.ok){
+//         const note = await res.json();;
+//         dispatch(addNoteToNtbkAc(note));
+//     } else if (res.status < 500) {
+//         const data = await res.json();
+//         if(data.errors) {
+//             return data.errors;
+//         }
+//     } else {
+//         return res;
+//     }
+// }
 
 
 
@@ -191,6 +223,19 @@ export default function noteReducer(state = initialState, action) {
             };
             newNoteState.allNotes.byId[newNote.id] = newNote;
             return newNoteState;
+
+        // case ADD_NOTE_TO_NTBK:{
+        //     const newNote = action.payload;
+        //     const newNoteState = {
+        //         allNotes:{
+        //             byId: {...state.allNotes.byId},
+        //             allIds: [...state.allNotes.allIds, newNote.id],
+        //         },
+        //         singleNote:newNote
+        //     }
+        // }
+
+
         case EDIT_NOTE:
             const editedNote = action.payload;
             const editedNoteState = {
@@ -202,6 +247,7 @@ export default function noteReducer(state = initialState, action) {
             };
             editedNoteState.allNotes.byId[editedNote.id] = editedNote;
             return editedNoteState;
+
         case DELETE_NOTE:
             const deletedNoteId = action.payload;
             const deletedNoteState = {

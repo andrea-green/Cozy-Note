@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { getNoteThunk } from '../../store/note'
+import { getNoteThunk, editNoteThunk } from '../../store/note'
 import IconModal from '../IconModal/IconModal'
-import EditNoteForm from '../Notes/EditNoteForm'
 import DeleteNoteForm from '../Notes/DeleteNoteForm'
+import { useParams } from 'react-router-dom'
+import NotebookDropDown from './NotebooksDropDown'
+import EditNoteTitle from './EditNoteTitle'
+import EditNoteContent from './EditNoteContent'
+
+
 
 
 export default function SingleNoteDetails() {
@@ -14,37 +19,31 @@ export default function SingleNoteDetails() {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const history = useHistory();
+    const { noteId } = useParams();
 
 
-    // useEffect((noteId) => {
-    //     dispatch(getNoteThunk(noteId))
-    // }, [dispatch])
+
+    useEffect(() => {
+    }, [myNote])
 
 
     return (
         <div>
             <div className='note-header'>
                 {/* should be able to click and go to the notebook */}
-                {myNote.notebook_id &&
-                    <h1>{myNote.notebook_id} </h1>
+                {myNote.notebook &&
+                    <h1>{myNote.notebook.name} </h1>
                 }
+                <NotebookDropDown/>
                 <div className="edit-delete-buttons">
                     <IconModal
-                    modalComponent={<EditNoteForm/>}
-                    faIcon="fa-solid fa-pencil"
-                    />
-                    <IconModal
-                    modalComponent={<DeleteNoteForm/>}
-                    faIcon="fa-regular fa-trash-can"
+                        modalComponent={<DeleteNoteForm />}
+                        faIcon="fa-regular fa-trash-can"
                     />
                 </div>
             </div>
-            <div className='note-title'>
-                <h1>{myNote.title}</h1>
-            </div>
-            <div className='note-body'>
-                <p>{myNote.content}</p>
-            </div>
+            <EditNoteTitle />
+            <EditNoteContent />
         </div>
     )
 }
