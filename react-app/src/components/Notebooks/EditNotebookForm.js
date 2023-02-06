@@ -28,6 +28,8 @@ export default function EditNotebookForm({ myNotebook }) {
         setErrors(errors);
     }, [name])
 
+    
+
     const handleSubmit = async (e, notebookId) => {
         e.preventDefault();
 
