@@ -148,6 +148,24 @@
     border:none;
 }
 
+.sign-up-main{
+    background-image: url('../components/images/sticky-note.png');
+    height: 500px;
+    width: 500px;
+    text-align: center;
+    padding-top: 135px;
+    margin-left: 25%;
+    margin-top: 5%;
+    background-repeat: no-repeat;
+    border:none;
+}
+
+.sign-up-header img{
+    margin-top: -93px;
+    margin-bottom: -112px;
+    height: 225px;
+}
+
 .notebook-table {
     height: 20vh;
     padding: 10px;
