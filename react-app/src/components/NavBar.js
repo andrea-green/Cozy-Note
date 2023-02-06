@@ -55,12 +55,12 @@ const NavBar = () => {
           </div>
         ) : (
           <div>
-            <li className='nav-button' >
+            <li className='notes-nav-button' >
               <NavLink to='/notes' exact={true} activeClassName='active'>
                 <img src={notes} alt='notes' style={{ height: "260px", width: "190px" }} />
               </NavLink>
             </li>
-            <li className='nav-button' >
+            <li className='notebook-nav-button' >
               <NavLink to='/notebooks' exact={true} activeClassName='active'>
                 <img src={notebooks} alt='notes' style={{ height: "280px", width: "200px" }} />
               </NavLink>
