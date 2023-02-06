@@ -34,7 +34,7 @@ export default function AllNotes() {
     },[myNotes])
 
     return (
-        <div style={{border: '1px solid black',overflow:'auto',background:'white'}}>
+        <div style={{border: '1px solid black',overflow:'auto',background:'white', height:'40%'}}>
             <div className='my-notes-header'>
                 <img src={headerPic} alt='header' style={{height:'300px',marginTop:'30px'}}/>
                 <div className='create-new-note' style={{ padding: '35px' }}>
