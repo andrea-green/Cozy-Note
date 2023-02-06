@@ -94,32 +94,21 @@ export default function AllNotebooks() {
 
                                     />
                                 </td>
-                                {/* <IconModal
-                                modalComponent={EditNotebookForm}
-                                faIcon="fa-regular fa-pen-to-square"
-                                />
-                                <IconModal
-                                modalComponent={DeleteNotebookForm}
-                                faIcon="fa-regular fa-trash-can"
-                                /> */}
                             </tr>
                             {activeIndex.includes(index) &&
-                                // <h1>Hello</h1>
-                                // notebook.notes.map((note) => (
-                                //     <tr key={note.id}>
-                                //         <td>{note.title}</td>
-                                //         <td>{note.created_at}</td>
-                                //         <td>{note.updated_at}</td>
-                                //     </tr>
-                                // ))
+
                                 <tr>
                                     <td colSpan={4}>
                                         <table>
                                             <tbody>
                                                 {notebook.notes?.map((note) => (
                                                     <tr key={note.id}>
-                                                        <td>{note.title}</td>
-                                                        <td>{note.created_at}</td>
+                                                        <td>
+                                                            {/* <NavLink to={`/notes/${note.id}`} style={{cursor:'pointer'}} exact={true} activeClassName='active'>
+                                                            {note.title}
+                                                            </NavLink> */}
+                                                            {note.title}
+                                                        </td>
                                                         <td>{note.updated_at}</td>
                                                     </tr>
                                                 ))}
