@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import loginGraphic from '../images/log-in-graphic.png'
+import loginHeader from '../images/login-header.png'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,23 +33,21 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}
-      style={{
-        border:'1px solid black' ,
-        height:'500px',
-        width: '500px',
-        textAlign:'center',
-        paddingTop: '135px',
-        marginLeft: '25%',
-        marginTop: '5%'
-      }}
-    >
+    <form className='login-form-main' onSubmit={onLogin}>
+      <div className='login-header'>
+        <img src={loginHeader} />
+
+      </div>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
+      <div style={{
+        padding: '5px',
+        margin: '5px',
+        fontSize:'25px'
+      }}>
         <label htmlFor='email'>Email</label>
         <input
           name='email'
@@ -57,7 +57,11 @@ const LoginForm = () => {
           onChange={updateEmail}
         />
       </div>
-      <div>
+      <div style={{
+        padding: '5px',
+        marginBottom: '5px',
+        fontSize:'25px'
+      }}>
         <label htmlFor='password'>Password</label>
         <input
           name='password'
@@ -66,7 +70,10 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button style={{cursor:'pointer'}} type='submit'>Login</button>
+      </div>
+      <div className='login-graphic'>
+        <img src={loginGraphic} alt='login-graphic' />
       </div>
     </form>
   );
