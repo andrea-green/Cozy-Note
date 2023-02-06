@@ -68,12 +68,12 @@ const NavBar = () => {
           <div>
             <li className='notes-nav-button' >
               <NavLink to='/notes' exact={true} activeClassName='active'>
-                <img src={notes} alt='notes' style={{ height: "260px", width: "190px" }} />
+                <img src={notes} alt='notes' style={{ height:'40vh',marginBottom:'-25vh'}} />
               </NavLink>
             </li>
             <li className='notebook-nav-button' >
               <NavLink to='/notebooks' exact={true} activeClassName='active'>
-                <img src={notebooks} alt='notes' style={{ height: "280px", width: "200px" }} />
+                <img src={notebooks} alt='notes' style={{ height:'40vh',marginBottom:'-25vh' }} />
               </NavLink>
             </li>
             <li>

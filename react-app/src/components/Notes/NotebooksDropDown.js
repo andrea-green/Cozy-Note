@@ -17,8 +17,6 @@ export default function NotebookDropDown() {
     const myNotebooks = useSelector(state => state.notebooks.allNotebooks.byId)
     const myNotebooksArr = Object.values(myNotebooks);
     console.log('myNotebooksArr', myNotebooksArr)
-    // // drop down menu setup
-    // const [selectNotebook, setSelectNotebook] = useState('');
 
     const myNote = useSelector(state => state.notes.singleNote)
 
@@ -38,16 +36,6 @@ export default function NotebookDropDown() {
 
         dispatch(editNoteThunk(noteId, payload))
     }
-    // const addToNotebook = (myNotebookId) => {
-    //     setNotebookId(myNotebookId)
-    //     const payload = {
-    //         title,
-    //         content,
-    //         notebookId,
-    //     }
-
-    //     dispatch(editNoteThunk(noteId, payload))
-    // }
 
     const createNewNotebook=()=>{
         setModalContent(<CreateNotebookForm />)
@@ -57,6 +45,8 @@ export default function NotebookDropDown() {
     useEffect(() => {
         dispatch(getAllNtbksThunk())
     }, [])
+
+    useEffect(() => {},[myNote])
 
     const notebookOptions = myNotebooksArr.map((notebook, idx) => (
         <div onClick={()=> addToNotebook(notebook.id)} key={notebook + idx} className='create-notebook-link'>
@@ -71,7 +61,7 @@ export default function NotebookDropDown() {
 
     return (
 
-        <div onClick={openDropDown} style={{curosr:'pointer',background:'white', border:'1px solid black'}}>
+        <div onClick={openDropDown} style={{cursor:'pointer',background:'white', border:'1px solid black'}}>
             Add to a notebook
             {dropDown &&
                 <>

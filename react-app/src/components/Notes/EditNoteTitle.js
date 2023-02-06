@@ -29,6 +29,10 @@ export default function EditNoteTitle() {
         setErrors(errors);
     }, [title])
 
+    useEffect(() => {
+        setTitle(myNote.title)
+    }, [myNote])
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 

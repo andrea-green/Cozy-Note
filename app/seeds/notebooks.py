@@ -13,16 +13,31 @@ def seed_notebooks():
         owner_id=3,
         name="Chem notes"
     )
-    # notebook_4= Notebook(
-    #     owner_id=3,
-    #     name="Math notes"
-    # ),
+    notebook_4= Notebook(
+        owner_id=1,
+        name="Math notes"
+    )
+    notebook_5= Notebook(
+        owner_id=2,
+        name="My notes"
+    )
+    notebook_6= Notebook(
+        owner_id=1,
+        name="Random notes"
+    )
+    notebook_7= Notebook(
+        owner_id=1,
+        name="Physics notes"
+    )
 
 
     db.session.add(notebook_1)
     db.session.add(notebook_2)
     db.session.add(notebook_3)
-    # db.session.add(notebook_4)
+    db.session.add(notebook_4)
+    db.session.add(notebook_5)
+    db.session.add(notebook_6)
+    db.session.add(notebook_7)
 
     db.session.commit()
 

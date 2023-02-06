@@ -18,7 +18,9 @@ export default function EditNoteContent() {
     const [errors, setErrors] = useState([]);
 
 
-
+    useEffect(() => {
+        setContent(myNote.content)
+    }, [myNote])
 
     const updateContent = (e) => setContent(e.target.value);
 

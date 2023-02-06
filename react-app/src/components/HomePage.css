@@ -37,10 +37,9 @@
 .notes-container {
     display: flex;
     align-items: center;
-    margin: 0px auto;
     padding: 0px 20px 10px 20px;
     margin-bottom: 30px;
-    margin: 10px 20px 20px 20px;
+    margin-top: 10vh;
     /* background-image: url('./images/my-notes-container-background.png'); */
     background-repeat: repeat;
     height: 30%;
@@ -88,8 +87,8 @@
     padding: 0px 20px 10px 20px;
     border-radius: 10px;
     background-color: white;
-    margin-left: 20px;
-    margin-top: 50px;
+    margin-left: 5vh;
+    margin-top: 20vh;
     background-color: #b8c4b5;
 
 }
@@ -198,8 +197,8 @@ th, td {
     margin-left: 265px;
     margin-bottom: 20px;
     padding-bottom: 0px;
-    height: 10vh;
     border:1px solid black;
+    height: 15vh;
 
 }
 
@@ -220,9 +219,11 @@ th, td {
 }
 
 .edit-note-form-text{
-    height: 60vh;
+
     width: 30vw;
     border-radius: 10px;
     font-size: 30px;
     text-align: left;
+    height: 50vh;
+    margin-top: 15vh;
 }
