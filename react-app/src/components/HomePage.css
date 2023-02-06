@@ -14,6 +14,17 @@
     margin: 20px;
     background-color: #b8c4b5;
 }
+
+.repo-nav-button{
+    font-size: 30px;
+    height: 80px;
+    width: 150px;
+    border-radius: 45px;
+    padding: 5px;
+    margin: 20px;
+    background-color: #b8c4b5;
+
+}
 .logout-button{
     height: 280px;
     width: 200px;
