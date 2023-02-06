@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { editNoteThunk } from '../../store/note'
+import '../HomePage.css'
 
 
 
@@ -16,20 +17,10 @@ export default function EditNoteContent() {
     const notebookId = myNote.notebook_id || null;
     const [errors, setErrors] = useState([]);
 
-    console.log('title', title)
+
 
 
     const updateContent = (e) => setContent(e.target.value);
-
-
-    useEffect(() => {
-        const errors = [];
-
-        if (title.length < 1) errors.push('Title must be at least 1 characters long');
-        if (content.length < 0) errors.push('Content may not be empty');
-
-        setErrors(errors);
-    }, [title, content])
 
     const handleSubmit = async (e) => {
         e.preventDefault();

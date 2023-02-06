@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import signUpButton from '../images/sign-up-button.png'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -45,13 +46,20 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='sign-up-main' onSubmit={onSignUp}>
+      <div className='sign-up-header'>
+        <img src={signUpButton} />
+      </div>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
+      <div style={{
+        padding: '5px',
+        margin: '5px',
+        fontSize:'25px'
+      }}>
         <label>User Name</label>
         <input
           type='text'
@@ -60,7 +68,11 @@ const SignUpForm = () => {
           value={username}
         ></input>
       </div>
-      <div>
+      <div style={{
+        padding: '5px',
+        margin: '5px',
+        fontSize:'25px'
+      }}>
         <label>Email</label>
         <input
           type='email'
@@ -69,7 +81,11 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
-      <div>
+      <div style={{
+        padding: '5px',
+        margin: '5px',
+        fontSize:'25px'
+      }}>
         <label>Password</label>
         <input
           type='password'
@@ -78,7 +94,11 @@ const SignUpForm = () => {
           value={password}
         ></input>
       </div>
-      <div>
+      <div style={{
+        padding: '5px',
+        margin: '5px',
+        fontSize:'25px'
+      }}>
         <label>Repeat Password</label>
         <input
           type='password'
@@ -88,7 +108,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button style={{ marginTop:'10px',cursor:'pointer'}}type='submit'>Sign Up</button>
     </form>
   );
 };

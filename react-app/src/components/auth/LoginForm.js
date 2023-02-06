@@ -36,7 +36,6 @@ const LoginForm = () => {
     <form className='login-form-main' onSubmit={onLogin}>
       <div className='login-header'>
         <img src={loginHeader} />
-
       </div>
       <div>
         {errors.map((error, ind) => (

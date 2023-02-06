@@ -71,7 +71,7 @@ export default function NotebookDropDown() {
 
     return (
 
-        <div onClick={openDropDown}>
+        <div onClick={openDropDown} style={{curosr:'pointer',background:'white', border:'1px solid black'}}>
             Add to a notebook
             {dropDown &&
                 <>

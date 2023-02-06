@@ -5,7 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import logo from './images/Cozy-logo.png';
 import DemoUser from './Users/DemoUser';
 import { useSelector } from 'react-redux';
-import notes from './images/nav-notes.png'
+import notes from './images/nav-notes.png';
 import notebooks from './images/nav-notebooks.png'
 import profileButton from './images/profile-button.png'
 import IconModal from './IconModal/IconModal';
@@ -33,12 +33,7 @@ const NavBar = () => {
                 Login
               </NavLink>
             </button>
-            {/* <li className='nav-button' >
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                <img src={LoginButton} alt='login' style={{ height: "260px", width: "190px" }} />
-              </NavLink>
-            </li> */}
-            {/* demo user move to the landing page */}
+
             <div >
               <DemoUser />
             </div>
@@ -47,11 +42,27 @@ const NavBar = () => {
                 SignUp
               </NavLink>
             </button>
-            {/* <li className='nav-button' >
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                <img src={SignUpButton} alt='sign-up' style={{ height: "260px", width: "190px" }} />
-              </NavLink>
-            </li> */}
+            <div className='about-me-links'>
+              <a href='https://github.com/andrea-green/Cozy-Note'>
+                <button className='repo-nav-button' type='submit'>
+                  Project Repo
+                </button>
+              </a>
+              <div className='personal-links'>
+                <a href='https://github.com/andrea-green'>
+                  <i class="fa-brands fa-github fa-3x" style={{
+                    color: "#b05217", marginLeft: "20px", marginRight: "20px"
+                  }}></i>
+                </a>
+                <a href='https://www.linkedin.com/in/andrea-green-201146245/'>
+                  <i class="fa-brands fa-linkedin fa-3x" style={{
+                    color: "#b05217", marginLeft: "20px", marginRight: "20px"
+                  }}></i>
+                </a>
+              </div>
+
+            </div>
+
           </div>
         ) : (
           <div>

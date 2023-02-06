@@ -49,13 +49,15 @@ export default function AllNotebooks() {
     };
     useEffect(() => {
         dispatch(getAllNtbksThunk())
-    },[myNotes])
+    }, [myNotes])
 
     return (
         <div className="notebook-table">
             <table>
                 <thead>
                     <tr>
+                        <th></th>
+                        <th></th>
                         <th>TITLE</th>
                         <th>CREATED BY</th>
                         <th>UPDATED </th>
@@ -65,12 +67,11 @@ export default function AllNotebooks() {
                 <tbody>
                     {myNotebooksArr.map((notebook, index) => (
                         <React.Fragment key={notebook.id}>
-                            <tr
-                            >
+                            <tr>
                                 <td onClick={() => toggle(index, notebook.id)} style={{ cursor: "pointer" }}>
-                                    {activeIndex.includes(index) ? (
+                                    {activeIndex.includes(index) ?
                                         <i className="fa-solid fa-angles-down"></i>
-                                    ) : (<i className="fa-solid fa-angles-right"></i>)}
+                                        : <i className="fa-solid fa-angles-right"></i>}
                                 </td>
                                 <td>
                                     <i className="fa-solid fa-book-bookmark">{notebook.title}</i>
@@ -78,44 +79,36 @@ export default function AllNotebooks() {
 
                                 <td>{notebook.name}</td>
                                 <td>{user.username}</td>
-                                <td>{notebook.created_at}</td>
                                 <td>{notebook.updated_at}</td>
-                                <OpenModalButton
-                                    modalComponent={<EditNotebookForm myNotebook={notebook}/>}
-                                    faIcon={<i className="fa-regular fa-pen-to-square" />}
-                                    tr={true}
-                                />
-                                <OpenModalButton
-                                    modalComponent={<DeleteNotebookForm myNotebook={notebook}/>}
-                                    faIcon={<i className="fa-regular fa-trash-can" />}
-                                    tr={true}
-                                />
-                                {/* <IconModal
-                                modalComponent={EditNotebookForm}
-                                faIcon="fa-regular fa-pen-to-square"
-                                />
-                                <IconModal
-                                modalComponent={DeleteNotebookForm}
-                                faIcon="fa-regular fa-trash-can"
-                                /> */}
+                                <td>
+                                    <OpenModalButton
+                                        modalComponent={<EditNotebookForm myNotebook={notebook} />}
+                                        faIcon={<i className="fa-regular fa-pen-to-square" style={{ cursor: "pointer" }} />}
+                                        tr={true}
+
+                                    />
+                                    <OpenModalButton
+                                        modalComponent={<DeleteNotebookForm myNotebook={notebook} />}
+                                        faIcon={<i className="fa-regular fa-trash-can" style={{ cursor: "pointer" }} />}
+                                        tr={true}
+
+                                    />
+                                </td>
                             </tr>
                             {activeIndex.includes(index) &&
-                                // <h1>Hello</h1>
-                                // notebook.notes.map((note) => (
-                                //     <tr key={note.id}>
-                                //         <td>{note.title}</td>
-                                //         <td>{note.created_at}</td>
-                                //         <td>{note.updated_at}</td>
-                                //     </tr>
-                                // ))
+
                                 <tr>
                                     <td colSpan={4}>
                                         <table>
                                             <tbody>
                                                 {notebook.notes?.map((note) => (
                                                     <tr key={note.id}>
-                                                        <td>{note.title}</td>
-                                                        <td>{note.created_at}</td>
+                                                        <td>
+                                                            {/* <NavLink to={`/notes/${note.id}`} style={{cursor:'pointer'}} exact={true} activeClassName='active'>
+                                                            {note.title}
+                                                            </NavLink> */}
+                                                            {note.title}
+                                                        </td>
                                                         <td>{note.updated_at}</td>
                                                     </tr>
                                                 ))}

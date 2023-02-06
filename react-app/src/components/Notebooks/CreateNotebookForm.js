@@ -53,7 +53,7 @@ export default function CreateNotebookForm() {
                 ))}</ul>
                 <form className='form-body' onSubmit={handleSubmit}>
                     <label>Name </label>
-                    <input className='form-input'
+                    <input className='notebook-form-input'
                         type="name"
                         required
                         value={name}

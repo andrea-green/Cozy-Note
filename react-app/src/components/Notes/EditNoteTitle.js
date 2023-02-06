@@ -25,10 +25,9 @@ export default function EditNoteTitle() {
         const errors = [];
 
         if (title.length < 1) errors.push('Title must be at least 1 characters long');
-        if (content.length < 0) errors.push('Content may not be empty');
 
         setErrors(errors);
-    }, [title, content])
+    }, [title])
 
     const handleSubmit = async (e) => {
         e.preventDefault();

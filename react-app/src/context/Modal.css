@@ -23,12 +23,34 @@
 
   #modal-content {
     position: absolute;
-    background-color:#2C2F33;
+    background-color:#ffece1;
     border-radius: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    overflow-y: auto;
-    height: 30%;
     width: 20%;
     z-index: 9999;
+    overflow-y: scroll;
+    height: 60%;
+  }
+
+  .form-header h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-body{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .form-input{
+    height: 60px;
+    padding-bottom: 50px;
+  }
+
+  .notebook-form-input{
+    font-size: 20px;
+    padding-bottom: 0px;
   }
