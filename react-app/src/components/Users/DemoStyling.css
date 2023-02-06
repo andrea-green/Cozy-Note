@@ -1,8 +1,9 @@
 .demo-user {
-    margin: 5px;
-    border-radius: 20px;
-    border: 1px solid black;
+    font-size: 25px;
+    height: 80px;
+    width: 150px;
+    border-radius: 45px;
     padding: 5px;
-    padding-top: 5px;
-    height: 30px;
+    margin: 20px;
+    background-color: #b8c4b5;
 }

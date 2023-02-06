@@ -11,6 +11,8 @@ import profileButton from './images/profile-button.png'
 import IconModal from './IconModal/IconModal';
 import User from './Users/User';
 import './HomePage.css';
+import LoginButton from './images/nav-bar-login-button.png';
+import SignUpButton from './images/sign-up-button.png';
 
 
 const NavBar = () => {
@@ -26,20 +28,30 @@ const NavBar = () => {
         </li>
         {!user ? (
           <div>
-            <li className='nav-button' >
+            <button className='nav-button' >
               <NavLink to='/login' exact={true} activeClassName='active'>
                 Login
               </NavLink>
-            </li>
+            </button>
+            {/* <li className='nav-button' >
+              <NavLink to='/login' exact={true} activeClassName='active'>
+                <img src={LoginButton} alt='login' style={{ height: "260px", width: "190px" }} />
+              </NavLink>
+            </li> */}
             {/* demo user move to the landing page */}
-            <div className='nav-button' >
+            <div >
               <DemoUser />
             </div>
-            <li className='nav-button' >
+            <button className='nav-button' >
               <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
+                SignUp
               </NavLink>
-            </li>
+            </button>
+            {/* <li className='nav-button' >
+              <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                <img src={SignUpButton} alt='sign-up' style={{ height: "260px", width: "190px" }} />
+              </NavLink>
+            </li> */}
           </div>
         ) : (
           <div>
