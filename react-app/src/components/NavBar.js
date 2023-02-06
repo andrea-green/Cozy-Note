@@ -48,10 +48,6 @@ const NavBar = () => {
                   Project Repo
                 </button>
               </a>
-              {/* <button className='repo-nav-button' type='submit'>
-                <a href='https://github.com/andrea-green/Cozy-Note' />
-                Project Repo
-              </button> */}
               <div className='personal-links'>
                 <a href='https://github.com/andrea-green'>
                   <i class="fa-brands fa-github fa-3x" style={{
