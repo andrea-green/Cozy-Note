@@ -36,7 +36,6 @@ def get_single_note(note_id):
     if note.notebook_id != None:
         notebook=Notebook.query.get(note.notebook_id)
         note_dict['notebook']=notebook.to_dict()
-
     return jsonify({"Note": note_dict})
 
 # create a new note
@@ -53,6 +52,7 @@ def create_note():
         )
         db.session.add(note)
         db.session.commit()
+
         return note.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
@@ -61,22 +61,27 @@ def create_note():
 @login_required
 def update_note(note_id):
     note = Note.query.get(note_id)
-    notebookId=request.json['notebookId']
-    print('NOTEBOOKID',notebookId)
     if note is None:
         return jsonify({"error": "Note not found"}), 404
     if note.author_id != current_user.id:
         return jsonify({"error": "Unauthorized"}), 401
+    notebookId=request.json['notebookId']
+    notebook=Notebook.query.get(notebookId)
 
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        print("notebook",notebook)
         if notebookId != None:
+            print("notebook2",notebook)
             note.notebook_id = notebookId
+            note.notebook=notebook
         note.title = form.data['title']
         note.content = form.data['content']
         db.session.commit()
-        return note.to_dict()
+        note_dict=note.to_dict()
+        note_dict['notebook']=notebook.to_dict()
+        return note_dict
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # delete a note
