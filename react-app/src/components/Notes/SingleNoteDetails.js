@@ -25,7 +25,10 @@ export default function SingleNoteDetails() {
 
 
     useEffect(() => {
-    }, [myNote])
+        dispatch(getNoteThunk(noteId))
+    }, [noteId])
+
+    useEffect(() => {}, [myNote])
 
 
     return (

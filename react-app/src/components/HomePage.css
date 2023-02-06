@@ -197,8 +197,8 @@ th, td {
     margin-left: 265px;
     margin-bottom: 20px;
     padding-bottom: 0px;
-    height: 10vh;
     border:1px solid black;
+    height: 15vh;
 
 }
 
@@ -219,9 +219,11 @@ th, td {
 }
 
 .edit-note-form-text{
-    height: 60vh;
+
     width: 30vw;
     border-radius: 10px;
     font-size: 30px;
     text-align: left;
+    height: 50vh;
+    margin-top: 15vh;
 }
