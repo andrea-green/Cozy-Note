@@ -103,10 +103,7 @@ export default function AllNotebooks() {
                                             <tbody>
                                                 {notebook.notes?.map((note) => (
                                                     <tr key={note.id}>
-                                                        <td>
-                                                            {/* <NavLink to={`/notes/${note.id}`} style={{cursor:'pointer'}} exact={true} activeClassName='active'>
-                                                            {note.title}
-                                                            </NavLink> */}
+                                                        <td onClick={()=>history.push(`/notes/${note.id}`)} style={{cursor:'pointer'}}>
                                                             {note.title}
                                                         </td>
                                                         <td>{note.updated_at}</td>
