@@ -1,9 +1,9 @@
-# Cozy-Note 
+# :herb: Cozy-Note 
 
 An Evernote inspired application built with Flask, React/Redux, and SQLAlchemy.Cozy Note is a note taking application that allows users to stay organized with all their productivity needs. 
 
 
-## ✨ Features
+## :open_book: Features
 -Notes: Create, edit, and delete notes. Notes can also be added to notebooks. 
 -Notebooks: holds notes that are assigned to it. 
 
@@ -90,6 +90,6 @@ To use CozyNote, you need to sign up for an account (or use the demo user). You 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## ✏️ Authors
-- 👤 [andrea-green](https://github.com/andrea-green)
+- :woman_technologist: [andrea-green](https://github.com/andrea-green)
 
 
