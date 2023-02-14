@@ -39,13 +39,13 @@ const LoginForm = () => {
       </div>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div style={{color:'#b05217'}} key={ind}>{error}</div>
         ))}
       </div>
       <div style={{
         padding: '5px',
         margin: '5px',
-        fontSize:'25px'
+        fontSize: '25px'
       }}>
         <label htmlFor='email'>Email</label>
         <input
@@ -54,12 +54,13 @@ const LoginForm = () => {
           placeholder='Email'
           value={email}
           onChange={updateEmail}
+          style={{marginLeft:'1rem'}}
         />
       </div>
       <div style={{
         padding: '5px',
         marginBottom: '5px',
-        fontSize:'25px'
+        fontSize: '25px'
       }}>
         <label htmlFor='password'>Password</label>
         <input
@@ -68,9 +69,10 @@ const LoginForm = () => {
           placeholder='Password'
           value={password}
           onChange={updatePassword}
+          style={{marginLeft:'1rem'}}
         />
-        <button style={{cursor:'pointer'}} type='submit'>Login</button>
       </div>
+      <button type='submit'>Login</button>
       <div className='login-graphic'>
         <img src={loginGraphic} alt='login-graphic' />
       </div>
