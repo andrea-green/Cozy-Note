@@ -20,7 +20,7 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
-    }else {
+    } else {
       setErrors(['passwords do not match'])
     }
   };
@@ -52,13 +52,16 @@ const SignUpForm = () => {
       </div>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div style={{ color: '#b05217' }} key={ind}>{error}</div>
         ))}
+      </div>
+      <div className='sign-up-inputs'>
+
       </div>
       <div style={{
         padding: '5px',
-        margin: '5px',
-        fontSize:'25px'
+        marginLeft: '0.5rem',
+        fontSize: '25px'
       }}>
         <label>User Name</label>
         <input
@@ -70,8 +73,8 @@ const SignUpForm = () => {
       </div>
       <div style={{
         padding: '5px',
-        margin: '5px',
-        fontSize:'25px'
+        marginLeft: '0.5rem',
+        fontSize: '25px'
       }}>
         <label>Email</label>
         <input
@@ -83,8 +86,8 @@ const SignUpForm = () => {
       </div>
       <div style={{
         padding: '5px',
-        margin: '5px',
-        fontSize:'25px'
+        marginLeft: '0.5rem',
+        fontSize: '25px'
       }}>
         <label>Password</label>
         <input
@@ -96,8 +99,8 @@ const SignUpForm = () => {
       </div>
       <div style={{
         padding: '5px',
-        margin: '5px',
-        fontSize:'25px'
+        marginLeft:'0.5rem',
+        fontSize: '25px'
       }}>
         <label>Repeat Password</label>
         <input
@@ -108,7 +111,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button style={{ marginTop:'10px',cursor:'pointer'}}type='submit'>Sign Up</button>
+      <button type='submit'>Sign Up</button>
     </form>
   );
 };
