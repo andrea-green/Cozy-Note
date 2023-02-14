@@ -227,3 +227,28 @@ th, td {
     height: 50vh;
     margin-top: 15vh;
 }
+
+.login-form-main button{
+    cursor: pointer;
+    width: 6vw;
+    height: 4vh;
+    font-size: large;
+    border-radius: 14px;
+    border: 1px solid black;
+    margin-top: 1.5rem;
+    background-color: #b8c4b5;
+}
+.sign-up-main input{
+    margin-left:1rem
+}
+
+.sign-up-main button{
+    cursor: pointer;
+    width: 6vw;
+    height: 4vh;
+    font-size: large;
+    border-radius: 14px;
+    border: 1px solid black;
+    margin-top: 1.5rem;
+    background-color: #b8c4b5;
+}
