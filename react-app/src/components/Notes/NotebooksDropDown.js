@@ -61,8 +61,8 @@ export default function NotebookDropDown() {
 
     return (
 
-        <div onClick={openDropDown} style={{cursor:'pointer',background:'white', border:'1px solid black'}}>
-            Add to a notebook
+        <div onClick={openDropDown} style={{cursor:'pointer',background:'white', border:'1px solid black',marginBottom:'2rem'}}>
+            Add to a notebook!
             {dropDown &&
                 <>
                     <div className='create-notebook-link' onClick={createNewNotebook}>
@@ -74,17 +74,3 @@ export default function NotebookDropDown() {
         </div>
     )
 }
-
-// if the current user does not have any notebooks, then show the create a notebook button.
-    //will this redirect user to a new page or will it open another modal?
-    // create new note button needs to redirect user to the notes page but open up the new note thing on the side.
-    // so opening modal for new notebook will work for this.
-    // will need to stay on the same page after creating the notebook.
-    // should update the button so that it shows that it belongs to the new notebook. -> didn't i have
-    // like a label that displays the notebook name? -> yes keep the button there but update the label.
-// if the current user does have notebooks, show their notesbooks as a dropdown menu.
-// where is this going to be rendered-> make it into a variable and then use conditional rendering to render those
-// variables or?
-
-// if i create/ add the note to a notebook, is this going to update the state/ db and how the hell doe i
-// figure that out?

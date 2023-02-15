@@ -193,8 +193,7 @@ th, td {
 }
 
 .note-header{
-    background: white;
-    padding-left: 115px;
+    background: #99A67F;
     border-radius: 10px;
     width: 10vw;
     margin-left: 1rem;
@@ -202,7 +201,15 @@ th, td {
     padding-bottom: 0px;
     border:1px solid black;
     height: 15vh;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 
+}
+
+.notebook-name{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 25px;
 }
 
 .edit-note-errors{
