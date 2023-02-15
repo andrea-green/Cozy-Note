@@ -7,6 +7,11 @@ An Evernote inspired application built with Flask, React/Redux, and SQLAlchemy.C
 -Notes: Create, edit, and delete notes. Notes can also be added to notebooks. 
 -Notebooks: holds notes that are assigned to it. 
 
+## Coming soon! 
+- To Do tasks : Create, edit, view, and delete to do tasks on a to do list. 
+-Reminders: Create, edit, view, and delete reminders on any tasks. 
+-Rich text editor
+
 ## ⚡ Technologies Used
 - Flask: Backend framework for building web applications.
 - React: Frontend library for building user interfaces.
