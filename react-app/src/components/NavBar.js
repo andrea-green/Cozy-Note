@@ -43,18 +43,18 @@ const NavBar = () => {
               </NavLink>
             </button>
             <div className='about-me-links'>
-              <a href='https://github.com/andrea-green/Cozy-Note'>
+              <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green/Cozy-Note'>
                 <button className='repo-nav-button' type='submit'>
                   Project Repo
                 </button>
               </a>
               <div className='personal-links'>
-                <a href='https://github.com/andrea-green'>
+                <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>
                   <i class="fa-brands fa-github fa-3x" style={{
                     color: "#b05217", marginLeft: "20px", marginRight: "20px"
                   }}></i>
                 </a>
-                <a href='https://www.linkedin.com/in/andrea-green-201146245/'>
+                <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/andrea-green-201146245/'>
                   <i class="fa-brands fa-linkedin fa-3x" style={{
                     color: "#b05217", marginLeft: "20px", marginRight: "20px"
                   }}></i>
