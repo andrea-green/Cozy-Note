@@ -102,9 +102,10 @@
 
 
 .card-container h3{
-    /* position: absolute; */
-    padding: 10px 30px 0px 30px;
-    color:black;
+    padding-left: 0;
+    font-size: 30px;
+    margin-top: 0;
+    font-weight: bolder;
 }
 
 .card-container{

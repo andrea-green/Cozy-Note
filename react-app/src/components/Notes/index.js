@@ -34,7 +34,7 @@ export default function SingleNote() {
 
     return loaded && (
         <>
-            <div style={{border:'1px solid black',
+            <div style={{
             padding:'11px', overflow:'auto'}}>
                 {<AllNotes />}
             </div>
