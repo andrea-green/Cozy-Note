@@ -251,20 +251,32 @@ th, td {
 
 .edit-note-container{
     text-align: center;
+    margin-top: -8rem;
 }
 
 .edit-note-form-text{
+      font-size: 30px;
 
+}
+
+.rabbit{
+    height:25vh;
+    border-radius:11rem;
+}
+
+.react-quill{
     width: 30vw;
     border-radius: 10px;
-    font-size: 30px;
     text-align: left;
     height: 50vh;
     margin-top: 0px;
     background-color: #99A67F;
     color:white;
     border:1px solid black;
-
+    cursor: pointer;
+}
+.ql-editor p{
+    font-size: 30px;
 }
 
 .login-form-main button{
@@ -291,3 +303,4 @@ th, td {
     margin-top: 1.5rem;
     background-color: #b8c4b5;
 }
+
