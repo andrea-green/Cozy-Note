@@ -46,7 +46,7 @@ export default function EditNoteContent() {
 
 
     return (
-        <section className='edit-note-container'>
+        <div className='edit-note-container'>
             <div className='edit-note-errors'>
                 <ul> {errors.map((error) => (
                     <li key={error}>{error}</li>
@@ -81,6 +81,6 @@ export default function EditNoteContent() {
                     </form>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
