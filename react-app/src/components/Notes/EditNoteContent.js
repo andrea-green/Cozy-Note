@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { editNoteThunk } from '../../store/note'
 import '../HomePage.css'
-
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 export default function EditNoteContent() {
@@ -11,28 +12,25 @@ export default function EditNoteContent() {
     const { closeModal } = useModal();
     const myNote = useSelector(state => state.notes.singleNote);
 
-
     const title = myNote.title;
     const [content, setContent] = useState(myNote.content);
     const notebookId = myNote.notebook_id || null;
     const [errors, setErrors] = useState([]);
-
+    const quillRef = useRef();
 
     useEffect(() => {
         setContent(myNote.content)
     }, [myNote])
 
-    const updateContent = (e) => setContent(e.target.value);
-
+    const updateContent = (value) => setContent(value);
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const payload = {
             title,
-            content,
-            notebookId
-        }
-        console.log('payload', payload)
+            content: quillRef.current.getEditor().getContents(),
+            notebookId,
+        };
 
         dispatch(editNoteThunk(myNote.id, payload))
             .then(() => closeModal())
@@ -40,9 +38,7 @@ export default function EditNoteContent() {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        // .then(() => history.push(`/notes/${noteId}`))
-    }
-
+    };
 
 
     return (
@@ -57,13 +53,20 @@ export default function EditNoteContent() {
             <div className='note-body'>
                 <div>
                     <form className='edit-note-form-body' onSubmit={handleSubmit}>
-
-                        <textarea className='edit-note-form-text'
-                            type="text"
-                            // placeholder={myNote.content}
-                            required
+                        <ReactQuill
+                            className='react-quill'
                             value={content}
                             onChange={updateContent}
+                            modules={{
+                                toolbar: [
+                                    [{ header: [1, 2, 3, false] }],
+                                    ['bold', 'italic', 'underline', 'strike'],
+                                    [{ list: 'ordered' }, { list: 'bullet' }],
+                                    [{ color: [] }, { background: [] }],
+                                    ['clean'],
+                                ],
+                            }}
+                            ref={quillRef}
                         />
                         {content !== myNote.content &&
                             <>
