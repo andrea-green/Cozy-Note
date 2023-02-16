@@ -259,6 +259,11 @@ th, td {
 
 }
 
+.rabbit{
+    height:25vh;
+    border-radius:11rem;
+}
+
 .react-quill{
     width: 30vw;
     border-radius: 10px;
