@@ -206,6 +206,12 @@ th, td {
 
 }
 
+.note-body{
+    display: flex;
+    margin-top: 11rem;
+    flex-direction: column;
+}
+
 .notebook-name{
     margin-top: 0;
     margin-bottom: 0;
