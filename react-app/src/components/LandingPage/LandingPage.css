@@ -13,6 +13,11 @@
     height: 200px;
 }
 
+.graphic-3 img{
+    height: 20vh;
+    margin-top: -18vh;
+}
+
 .section-2{
     background: white;
     border: 1px solid black;
@@ -26,6 +31,4 @@
 .section-2 img{
     height: 100px;
     width: 100px;
-
-
 }
