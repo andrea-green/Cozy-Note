@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import AllNotes from './AllNotes'
 import '../HomePage.css'
+import toDo from '../images/to-do.png'
 
 export default function SingleNote() {
 
@@ -15,29 +16,19 @@ export default function SingleNote() {
     const { noteId } = useParams();
     const [loaded, setLoaded] = useState(false)
 
-    console.log('out', noteId)
-
     useEffect(() => {
-        console.log(noteId)
-
         dispatch(getNoteThunk(noteId)).then(() => setLoaded(true))
-
-        // async () => {
-        // if (!Object.keys(myNote).length) {
-        // console.log(noteId)
-        //     dispatch(getNoteThunk(noteId))
-        // }
-
-        // }
     }, [dispatch, noteId])
 
 
     return loaded && (
         <>
-            <div style={{
-            padding:'11px', overflow:'auto'}}>
-                {<AllNotes />}
+            <div style={{ padding: "11px", overflow: "auto" }}>
+                <AllNotes />
             </div>
+            {/* <div style={{ display: "flex", justifyContent: "center" }}>
+                <img src={toDo} alt="" />
+            </div> */}
             <div className="single-note-details">
                 <SingleNoteDetails />
             </div>

@@ -10,6 +10,7 @@ import EditNoteTitle from './EditNoteTitle'
 import EditNoteContent from './EditNoteContent'
 import '../HomePage.css'
 import trashCan from '../images/trash-can.png';
+import rabbit from '../images/rabbit.gif'
 
 
 
@@ -38,15 +39,23 @@ export default function SingleNoteDetails() {
                 }
                 <NotebookDropDown />
             </div>
-            <div className="edit-delete-buttons">
-                <IconModal
-                    modalComponent={<DeleteNoteForm />}
-                    imageUrl={trashCan}
-                    style={{ height:"90%", width:"100%"}}
-                />
+            <div style={{
+                display:'flex', justifyContent:'flex-end',marginTop:'-10rem', marginBottom:'-6rem'
+            }}>
+                <img src={rabbit} alt="" className='rabbit' />
             </div>
-            <EditNoteTitle />
-            <EditNoteContent />
+
+            <div style={{ marginTop: '11rem' }} >
+                <div className="edit-delete-buttons">
+                    <IconModal
+                        modalComponent={<DeleteNoteForm />}
+                        imageUrl={trashCan}
+                        style={{ height: "90%", width: "100%" }}
+                    />
+                </div>
+                <EditNoteTitle />
+                <EditNoteContent />
+            </div>
         </div>
     )
 }
