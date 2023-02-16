@@ -22,15 +22,19 @@ export default function EditNoteContent() {
         setContent(myNote.content)
     }, [myNote])
 
-    const updateContent = (value) => setContent(value);
+    const updateContent = (value) => {
+        setContent(value)
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const payload = {
             title,
-            content: quillRef.current.getEditor().getContents(),
+            content,
             notebookId,
         };
+        console.log('payload',payload)
 
         dispatch(editNoteThunk(myNote.id, payload))
             .then(() => closeModal())
