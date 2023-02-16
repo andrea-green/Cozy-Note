@@ -254,17 +254,23 @@ th, td {
 }
 
 .edit-note-form-text{
+      font-size: 30px;
 
+}
+
+.react-quill{
     width: 30vw;
     border-radius: 10px;
-    font-size: 30px;
     text-align: left;
     height: 50vh;
     margin-top: 0px;
     background-color: #99A67F;
     color:white;
     border:1px solid black;
-
+    cursor: pointer;
+}
+.ql-editor p{
+    font-size: 30px;
 }
 
 .login-form-main button{
