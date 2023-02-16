@@ -172,8 +172,10 @@
     overflow-y: scroll;
     background-color: #b8c4b5;
     height: 40vh;
-    padding: 2%;
+    padding: 10px;
     overflow-y: scroll;
+    background-color: #b8c4b5;
+    font-size: 30px;
   }
 
 th, td {
@@ -324,4 +326,3 @@ th, td {
     background-color: #DB9970;
     color: white;
 }
-
