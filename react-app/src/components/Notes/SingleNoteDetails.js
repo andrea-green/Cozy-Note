@@ -9,6 +9,7 @@ import NotebookDropDown from './NotebooksDropDown'
 import EditNoteTitle from './EditNoteTitle'
 import EditNoteContent from './EditNoteContent'
 import '../HomePage.css'
+import trashCan from '../images/trash-can.png';
 
 
 
@@ -36,12 +37,13 @@ export default function SingleNoteDetails() {
                     <h1 className='notebook-name'>{myNote.notebook.name} </h1>
                 }
                 <NotebookDropDown />
-                <div className="edit-delete-buttons">
-                    <IconModal
-                        modalComponent={<DeleteNoteForm />}
-                        faIcon="fa-regular fa-trash-can fa-2x"
-                    />
-                </div>
+            </div>
+            <div className="edit-delete-buttons">
+                <IconModal
+                    modalComponent={<DeleteNoteForm />}
+                    imageUrl={trashCan}
+                    style={{ height:"90%", width:"100%"}}
+                />
             </div>
             <EditNoteTitle />
             <EditNoteContent />

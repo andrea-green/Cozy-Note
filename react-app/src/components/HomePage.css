@@ -219,10 +219,29 @@ th, td {
 .edit-note-title-input{
     width: 200px;
     height: 40px;
-    font-size: larger;
     border-radius: 10px;
-    padding-top: 20px;
+    padding-top: 0;
+    font-size: xxx-large;
+    font-weight: bolder;
+    background-color: #99A67F;
+    color: white;
 }
+
+.edit-delete-buttons{
+    float: right;
+    background-color: #99a67f;
+    height: 7vh;
+    width: 4vw;
+    padding: 0vw;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .edit-note-container{
     text-align: center;
@@ -235,7 +254,11 @@ th, td {
     font-size: 30px;
     text-align: left;
     height: 50vh;
-    margin-top: 15vh;
+    margin-top: 0px;
+    background-color: #99A67F;
+    color:white;
+    border:1px solid black;
+
 }
 
 .login-form-main button{
