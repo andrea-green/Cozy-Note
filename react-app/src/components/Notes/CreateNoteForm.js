@@ -26,7 +26,7 @@ export default function CreateNoteForm() {
         const errors = [];
 
         if (title.length < 1) errors.push('Title must be at least 1 characters long');
-       
+
         // const contentError = newArray(newNote.length).fill(' ').join('') === newNote
 
         // const textError = newArray(newNote.length).fill(' ').join('') === newNote
@@ -77,12 +77,14 @@ export default function CreateNoteForm() {
                         required
                         value={title}
                         onChange={enterTitle}
+                        style={{fontSize:"30px"}}
                     />
                     <label>Start writing to create your note.</label>
                     <textarea className='form-input'
                         type="text"
                         value={content}
                         onChange={enterContent}
+                        style={{fontSize:"30px"}}
                     />
                     <button
                         className='button form-button'
