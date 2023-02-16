@@ -279,6 +279,8 @@ th, td {
     font-size: 30px;
 }
 
+
+
 .login-form-main button{
     cursor: pointer;
     width: 6vw;
@@ -303,4 +305,3 @@ th, td {
     margin-top: 1.5rem;
     background-color: #b8c4b5;
 }
-
