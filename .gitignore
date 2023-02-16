@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
 # C extensions
 *.so
 
@@ -161,3 +162,4 @@ cython_debug/
 dev.db
 .VS_Code
 .DS_Store
+color-chart.html
