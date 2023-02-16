@@ -38,15 +38,17 @@ export default function SingleNoteDetails() {
                 }
                 <NotebookDropDown />
             </div>
-            <div className="edit-delete-buttons">
-                <IconModal
-                    modalComponent={<DeleteNoteForm />}
-                    imageUrl={trashCan}
-                    style={{ height:"90%", width:"100%"}}
-                />
+            <div style={{marginTop:'11rem'}} >
+                <div className="edit-delete-buttons">
+                    <IconModal
+                        modalComponent={<DeleteNoteForm />}
+                        imageUrl={trashCan}
+                        style={{ height: "90%", width: "100%" }}
+                    />
+                </div>
+                <EditNoteTitle />
+                <EditNoteContent />
             </div>
-            <EditNoteTitle />
-            <EditNoteContent />
         </div>
     )
 }
