@@ -79,10 +79,6 @@
     padding: 11px;
     overflow: auto;
     width: 25%;
-}
-/* notebooks */
-.notebooks-container{
-    border: 1px black solid;
     display: flex;
     width: fit-content;
     align-items: center;
@@ -324,4 +320,3 @@ th, td {
     background-color: #DB9970;
     color: white;
 }
-
