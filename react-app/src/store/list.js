@@ -1,6 +1,8 @@
 const GET_ALL_LISTS = "lists/GET_ALL_LISTS";
 const GET_SINGLE_LIST = "lists/GET_SINGLE_LIST";
 const CREATE_LIST = "lists/CREATE_LIST";
+const DELETE_LIST = 'lists/DELETE_LIST';
+const UPDATE_LIST = 'lists/UPDATE_LIST';
 
 // action creators
 const getAllListsAc = (lists) => ({
@@ -15,8 +17,13 @@ const getSingleListAc = (list) =>({
 
 const createListAc = (list) => ({
     type:CREATE_LIST,
-    pyaload:list
+    payload:list
 });
+
+const deleteListAc = (listId)=>({
+    type:DELETE_LIST,
+    payload:listId
+})
 
 
 // thunks
@@ -79,6 +86,25 @@ export const addListThunk = (list) => async(dispatch) =>{
     }
 }
 
+export const deleteListThunk = (listId) => async(dispatch)=>{
+    const res = await fetch(`/api/lists/${listId}`,{
+        method:"DELETE",
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    });
+    if (res.ok){
+        dispatch(deleteListAc(listId));
+    } else if (res.status < 500 ) {
+        const data = await res.json();
+        if(data.errors){
+            return data.errors;
+        }
+    }else {
+        return ['An error occurred.Please try again.']
+    }
+}
+
 
 // reducer
 const initialState = {
@@ -121,7 +147,17 @@ export default function listReducer(state = initialState, action) {
             newListState.allLists.byId[newList.id]= newList;
             return newListState;
 
-            
+        case DELETE_LIST:
+            const deleteListId = action.payload;
+            const deletedListState = {
+                allLists : {
+                    byId:{...state.allLists.byId},
+                    allIds:[...state.allLists.allIds]
+                },
+                singleList:{}
+            };
+            delete deletedListState.allLists.byId[deletedList];
+            return deletedListState;
         default:
             return state;
     }
