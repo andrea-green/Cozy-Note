@@ -1,6 +1,6 @@
 const GET_ALL_LISTS = "lists/GET_ALL_LISTS";
 const GET_SINGLE_LIST = "lists/GET_SINGLE_LIST";
-
+const CREATE_LIST = "lists/CREATE_LIST";
 
 // action creators
 const getAllListsAc = (lists) => ({
@@ -13,11 +13,15 @@ const getSingleListAc = (list) =>({
     payload:list
 });
 
+const createListAc = (list) => ({
+    type:CREATE_LIST,
+    pyaload:list
+});
 
 
 // thunks
 export const getAllListsThunk = () => async (dispatch) => {
-    const res = await fetch('/api/lists', {
+    const res = await fetch('/api/lists/', {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -35,7 +39,7 @@ export const getAllListsThunk = () => async (dispatch) => {
     }
 }
 
-export const getSingleListThunk = () => async(dispatch) => {
+export const getSingleListThunk = (listId) => async(dispatch) => {
     const res = await fetch(`api/lists/${listId}`, {
         headers:{
             'Content-Type': 'application/json'
@@ -51,6 +55,27 @@ export const getSingleListThunk = () => async(dispatch) => {
         }
     } else {
         return ['An error occurred.Please try again.']
+    }
+}
+
+export const addListThunk = (list) => async(dispatch) =>{
+    const res = await fetch('/api/lists/',{
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(list)
+    });
+    if (res.ok){
+        const list = await res.json();
+        dispatch(createListAc(list));
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors){
+            return data.errors;
+        }
+    } else {
+        return res;
     }
 }
 
@@ -84,6 +109,18 @@ export default function listReducer(state = initialState, action) {
                 ...state,
                 singleList:list
             };
+        case CREATE_LIST:
+            const newList = action.payload;
+            const newListState = {
+                allLists:{
+                    byId: {...state.allLists.byId},
+                    allIds:[...state.allLists.allIds,newList.id]
+                },
+                singleList: newList
+            };
+            newListState.allLists.byId[newList.id]= newList;
+            return newListState;
+
             
         default:
             return state;
