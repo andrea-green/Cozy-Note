@@ -14,7 +14,7 @@ class List(db.Model):
 
 
     # associations
-    author = db.relationship('User',back_populates="notes")
+    author = db.relationship('User',back_populates="lists")
 
     def format_date(self,date):
         date_year = date.year

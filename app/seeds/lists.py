@@ -1,4 +1,4 @@
-from app.models import db, List,environment, SCHEMA
+from app.models import db,List,environment, SCHEMA
 
 def seed_lists():
     list_1=List(
@@ -51,12 +51,12 @@ def seed_lists():
 
     db.session.commit()
 
-def undo_notebooks():
+def undo_lists():
 
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.notebooks RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table {SCHEMA}.lists RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM notebooks")
+        db.session.execute("DELETE FROM lists")
 
     db.session.commit()
