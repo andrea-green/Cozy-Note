@@ -2,6 +2,10 @@ import React, {useState,useEffect} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { getAllListsThunk } from "../../store/list";
+import CreateListForm from "./CreateListForm";
+//set up icon  modal for create list form
+//make an index to hold edit/delete/ single list components.
+
 
 export default function AllLists(){
     const dispatch = useDispatch();
@@ -20,6 +24,9 @@ export default function AllLists(){
             <div className='my-to-do-header'>
                 <h1>My Lists </h1>
             </div>
+            <div className='create-list'>
+                <CreateListForm />
+            </div>
             <div className='list-content'>
                 {myListsArr.map((list)=> (
                     <div className='list-card' key={list.id}
@@ -32,7 +39,6 @@ export default function AllLists(){
                     <div>
                         <span>{list.created_at}</span>
                     </div>
-
                     </div>
                 ))}
 
