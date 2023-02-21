@@ -57,7 +57,7 @@ export const getSingleListThunk = (listId) => async(dispatch) => {
         }
     });
     if (res.ok) {
-        const notebook = await res.json();
+        const list = await res.json();
         dispatch(getSingleListAc(list.List));
     }else if (res.status < 500) {
         const data = await res.json();
@@ -154,7 +154,7 @@ export default function listReducer(state = initialState, action) {
                     allIds:action.payload.map(list=>list.id)
                 }
             };
-        case GET_LIST:
+        case GET_SINGLE_LIST:
             const list = action.payload;
             return {
                 ...state,
@@ -181,7 +181,7 @@ export default function listReducer(state = initialState, action) {
                 },
                 singleList:{}
             };
-            delete deletedListState.allLists.byId[deletedList];
+            delete deletedListState.allLists.byId[deleteListId];
             return deletedListState;
 
         case EDIT_LIST:
@@ -195,7 +195,7 @@ export default function listReducer(state = initialState, action) {
             };
             updatedListState.allLists.byId[updatedList.id] = updatedListState;
             return updatedListState;
-            
+
         default:
             return state;
     }

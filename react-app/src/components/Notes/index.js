@@ -26,9 +26,6 @@ export default function SingleNote() {
             <div style={{ padding: "11px", overflow: "auto" }}>
                 <AllNotes />
             </div>
-            {/* <div style={{ display: "flex", justifyContent: "center" }}>
-                <img src={toDo} alt="" />
-            </div> */}
             <div className="single-note-details">
                 <SingleNoteDetails />
             </div>
