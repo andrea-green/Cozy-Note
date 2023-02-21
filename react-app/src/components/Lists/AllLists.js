@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import { getAllListsThunk } from "../../store/list";
 import CreateListForm from "./CreateListForm";
 //set up icon  modal for create list form
-//make an index to hold edit/delete/ single list components.
+
 
 
 export default function AllLists(){
