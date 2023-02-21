@@ -2,7 +2,7 @@ const GET_ALL_LISTS = "lists/GET_ALL_LISTS";
 const GET_SINGLE_LIST = "lists/GET_SINGLE_LIST";
 const CREATE_LIST = "lists/CREATE_LIST";
 const DELETE_LIST = 'lists/DELETE_LIST';
-const UPDATE_LIST = 'lists/UPDATE_LIST';
+const EDIT_LIST = 'lists/UPDATE_LIST';
 
 // action creators
 const getAllListsAc = (lists) => ({
@@ -25,6 +25,10 @@ const deleteListAc = (listId)=>({
     payload:listId
 })
 
+const editListAc = (list) => ({
+    type:EDIT_LIST,
+    payload:list
+});
 
 // thunks
 export const getAllListsThunk = () => async (dispatch) => {
@@ -105,6 +109,27 @@ export const deleteListThunk = (listId) => async(dispatch)=>{
     }
 }
 
+export const editListThunk = (listId, updatedList) => async(dispatch) => {
+    const res = await fetch(`/api/lists/${listId}`, {
+        method:'PUT',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(updatedList)
+    });
+    if(res.ok){
+        const list = await res.json();
+        dispatch(editListAc(list));
+    } else if (res.status < 500){
+        const data = await res.json();
+        if(data.errors){
+            return data.errors;
+        }
+    }else {
+        return ['An error occurred.Please try again.']
+    }
+}
+
 
 // reducer
 const initialState = {
@@ -158,6 +183,19 @@ export default function listReducer(state = initialState, action) {
             };
             delete deletedListState.allLists.byId[deletedList];
             return deletedListState;
+
+        case EDIT_LIST:
+            const updatedList = action.payload;
+            const updatedListState = {
+                allLists:{
+                    byId:{...state.allLists.byId},
+                    allIds:[...state.allLists.allIds]
+                },
+                singleList:updatedList
+            };
+            updatedListState.allLists.byId[updatedList.id] = updatedListState;
+            return updatedListState;
+            
         default:
             return state;
     }
