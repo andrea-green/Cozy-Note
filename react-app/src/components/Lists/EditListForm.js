@@ -1,8 +1,7 @@
 //single list index page.
 
 import React, {useEffect,useState} from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory} from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import {editListThunk} from '../../store/list';
 
@@ -26,7 +25,7 @@ export default function EditListForm({myList}){
             title
         }
 
-        await dispatch(editListThunk(payload))
+        await dispatch(editListThunk(listId, payload))
             .then(()=>{
                 closeModal()
             })
