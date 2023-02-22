@@ -3,6 +3,7 @@
 
 import EditListForm from "./EditListForm";
 import DeleteListForm from './DeleteListForm'
+import SingleListDetails from "./SingleListDetails";
 
 export default function SingleList(){
 
@@ -13,6 +14,9 @@ export default function SingleList(){
             </div>
             <div className='delete-list-idx'>
                 <DeleteListForm/>
+            </div>
+            <div className='single-list-details-idx'>
+                <SingleListDetails /> 
             </div>
         </div>
     );
