@@ -1,34 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { editNtbkThunk } from "../../store/notebook";
 import { useModal } from "../../context/Modal";
 
 export default function EditNotebookForm({ myNotebook }) {
-    // const myNotebook = useSelector(state => state.notebooks.singleNotebook);
+
     const [name, setName] = useState(myNotebook?.name);
     const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch();
     const { closeModal } = useModal();
-    const history = useHistory();
-
-    // const { notebookId } = useParams();
-    console.log('myNotebook', myNotebook)
-
     const updateName = (e) => setName(e.target.value);
-
-
 
     useEffect(() => {
         const errors = [];
-
         if (name.length < 1) errors.push('Name must be at least 1 characters long');
-
         setErrors(errors);
     }, [name])
-
-    
 
     const handleSubmit = async (e, notebookId) => {
         e.preventDefault();
@@ -38,15 +26,10 @@ export default function EditNotebookForm({ myNotebook }) {
         }
 
         await dispatch(editNtbkThunk(notebookId, payload))
-        // history.push(`/notebooks/${notebookId}`)
-        .then(() => {
-            closeModal()
-            // history.push(`/notebooks/${notebookId}`)
-        })
-        // .catch(async (res) => {
-        //     const data = await res.json();
-        //     if (data && data.errors) setErrors(data.errors);
-        // });
+            .then(() => {
+                closeModal()
+            })
+
     };
 
     return (
@@ -62,7 +45,7 @@ export default function EditNotebookForm({ myNotebook }) {
                     </ul>
                 </div>
 
-                <form className='edit-form-body' onSubmit={(e) => handleSubmit(e,myNotebook?.id)}>
+                <form className='edit-form-body' onSubmit={(e) => handleSubmit(e, myNotebook?.id)}>
                     <textarea className='edit-form-input'
                         type="text"
                         placeholder={myNotebook?.name}

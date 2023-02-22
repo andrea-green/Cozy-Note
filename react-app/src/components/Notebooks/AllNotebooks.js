@@ -29,8 +29,7 @@ export default function AllNotebooks() {
     const myNotebooks = useSelector((state) => state.notebooks.allNotebooks.byId);
     const myNotes = useSelector((state) => state.notes.allNotes);
     const myNotebooksArr = Object.values(myNotebooks);
-    console.log('myNotebooksArr', myNotebooksArr)
-
+  
     //accordian effect
     const [activeIndex, setActiveIndex] = useState([]);
 
