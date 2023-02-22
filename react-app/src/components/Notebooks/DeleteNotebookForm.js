@@ -1,15 +1,10 @@
 import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {useHistory} from "react-router-dom";
+import {useDispatch} from "react-redux";
 import { useModal } from "../../context/Modal";
 import { deleteNtbkThunk } from "../../store/notebook";
 
 export default function DeleteNotebookForm({myNotebook}){
     const dispatch = useDispatch();
-    const history = useHistory();
-
-    // const myNotebook = useSelector(state => state.notebooks.singleNotebook);
-
     const [errors, setErrors] = useState([]);
     const [boolean,setBoolean] = useState(false);
 
@@ -23,7 +18,6 @@ export default function DeleteNotebookForm({myNotebook}){
         await dispatch(deleteNtbkThunk(myNotebook.id))
             .then(()=>{
                 closeModal();
-                // history.push('/notebooks')
             })
             .catch(async(res)=>{
                 const data=await res.json();
