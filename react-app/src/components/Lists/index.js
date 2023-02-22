@@ -1,7 +1,8 @@
-//import delete, and single list components.
+//importsingle list components.
 
 
 import EditListForm from "./EditListForm";
+import DeleteListForm from './DeleteListForm'
 
 export default function SingleList(){
 
@@ -10,7 +11,9 @@ export default function SingleList(){
             <div className='edit-list-idx'>
                 <EditListForm />
             </div>
-
+            <div className='delete-list-idx'>
+                <DeleteListForm/>
+            </div>
         </div>
     );
 }
