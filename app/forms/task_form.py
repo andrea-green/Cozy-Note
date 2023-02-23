@@ -5,5 +5,5 @@ from app.models import User,List
 
 class TaskForm(FlaskForm):
     content = StringField('Content',validators=[DataRequired(),Length(min=2,max=50000)])
-    todo_list_id = IntegerField('List Id')
+    list_id = IntegerField('List Id')
     is_completed = BooleanField('is completed',validators=[DataRequired()])
