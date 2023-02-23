@@ -16,8 +16,7 @@ export default function NotebookDropDown() {
 
     const myNotebooks = useSelector(state => state.notebooks.allNotebooks.byId)
     const myNotebooksArr = Object.values(myNotebooks);
-    console.log('myNotebooksArr', myNotebooksArr)
-
+    
     const myNote = useSelector(state => state.notes.singleNote)
 
 
