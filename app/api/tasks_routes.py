@@ -20,5 +20,17 @@ def get_user_tasks():
         tasks_dict.append(task_dict)
     return jsonify({"Tasks":tasks_dict})
 
+# get single task by id
+@tasks_routes.route('/<int:task_id',methods=['GET'])
+@login_required
+def get_single_task(task_id):
+    task = Task.query.get(task_id)
+    if task is None:
+        return jsonify({'error':"Task not found"}),404
+    task_dict = task.to_dict()
+    if task.list_id != None:
+        list=List.query.get(task.list_id)
+        task_dict['list']=list.to_dict()
+    return jsonify({"Task":task_dict})
 
 
