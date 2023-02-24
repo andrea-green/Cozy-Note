@@ -10,4 +10,15 @@ tasks_routes = Blueprint('tasks', __name__)
 @tasks_routes.route('/')
 @login_required
 def get_user_tasks():
-    tasks=Task.query.filter(Task)
+    tasks=Task.query.filter(Task.owner_id == current_user.id).all()
+    tasks_dict=[]
+    for task in tasks:
+        task_dict=task.to_dict()
+        if task.list:
+            list=task.list.to_dict()
+            task_dict['list']=list
+        tasks_dict.append(task_dict)
+    return jsonify({"Tasks":tasks_dict})
+
+
+
