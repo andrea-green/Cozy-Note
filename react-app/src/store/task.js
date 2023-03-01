@@ -1,7 +1,8 @@
 
 const GET_ALL_TASKS='tasks/GET_ALL_TASKS';
 const GET_TASK = 'tasks/GET_TASK';
-const CREATE_TASK = 'tasks/CREATE';
+const CREATE_TASK = 'tasks/CREATE_TASK';
+const EDIT_TASK = 'tasks/EDIT_TASK';
 
 
 
@@ -22,6 +23,11 @@ const createTaskAc = (task) => ({
     type:CREATE_TASK,
     payload:task
 })
+
+const editTaskAc = (task) => ({
+    type:EDIT_TASK,
+    payload:task
+});
 
 
 
@@ -91,6 +97,27 @@ export const createTaskThunk = (task) => async(dispatch)=>{
     }
 }
 
+export const editTaskThunk = (taskId, updatedTask) =>async (dispatch) => {
+    const response = await fetch (`/api/tasks/${taskId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(updatedTask)
+    });
+    if (response.ok){
+        const data = await response.json();
+        dispatch(editTaskAc(data));
+    }else if ( response.status < 500 ) {
+        const data = await response.json();
+        if (data.errors){
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
+
 
 
 
@@ -118,12 +145,14 @@ export default function taskReducer(){
                     allIds:action.payload.map(task=>task.id),
                 },
             };
+
         case GET_TASK:
             const task = action.payload;
             return {
                 ...state,
                 singleTask:task
             };
+
         case CREATE_TASK:
             const newTask = action.payload;
             const newTaskState = {
@@ -134,7 +163,20 @@ export default function taskReducer(){
                 singleTask:newTask
             };
             newTaskState.allTasks.byId[newTask.id]=newTask;
-            return newTaskState; 
+            return newTaskState;
+
+        case EDIT_TASK:
+            const editedTask = action.payload;
+            const editedTaskState = {
+                allTasks:{
+                    byId: {...state.allTasks.byId},
+                    allIds: [...state.allTasks.allIds],
+                },
+                singleTask:editedTask
+            };
+            editedTastState.allTasks.byId[editedTask.id] = editedTask;
+            return editedTaskState;
+            
         default:
             return state;
     }
