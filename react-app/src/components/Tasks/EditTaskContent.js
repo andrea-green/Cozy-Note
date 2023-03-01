@@ -1,48 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
-import { editNoteThunk } from '../../store/note'
+import { editTaskThunk } from '../../store/task';
 
-
-
-export default function EditNoteTitle() {
+export default function EditTask() {
     const dispatch = useDispatch();
 
     const { closeModal } = useModal();
-    const myNote = useSelector(state => state.notes.singleNote);
+    const myTask = useSelector(state => state.tasks.singleTask);
 
-
-    const [title, setTitle] = useState(myNote.title);
-    const content = myNote.content
-    const notebookId = myNote.notebook_id || null;
+    const [content, setContent] = useState(myTask.content);
+    const updateTask = (e) => setContent(e.target.value);
     const [errors, setErrors] = useState([]);
-
-    const updateTitle = (e) => setTitle(e.target.value);
-
-
+    const listId = myTask.list_id;
 
     useEffect(() => {
         const errors = [];
 
-        if (title.length < 1) errors.push('Title must be at least 1 characters long');
-
+        if (content.length < 1) errors.push('Task must be at least 1 characters long');
         setErrors(errors);
     }, [title])
 
     useEffect(() => {
-        setTitle(myNote.title)
-    }, [myNote])
+        setContent(myTask.content)
+    }, [myTask])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const payload = {
-            title,
             content,
-            notebookId
+            listId
         }
 
-        dispatch(editNoteThunk(myNote.id, payload))
+        dispatch(editTaskThunk(myTask.id, payload))
             .then(() => closeModal())
             .catch(async (res) => {
                 const data = await res.json();
@@ -50,32 +41,30 @@ export default function EditNoteTitle() {
             });
     }
 
-
-
     return (
         <>
-            <div className='edit-note-errors'>
+            <div className='edit-task-errors'>
                 <ul> {errors.map((error) => (
                     <li key={error}>{error}</li>
                 ))}
                 </ul>
             </div>
-            <div className='note-title'>
-                <form className='edit-note-form-title' onSubmit={handleSubmit}>
-                    <input className='edit-note-title-input'
+
+            <div cclassName='list-content'>
+                <form className = 'edit-list-content-form' onSubmit={handleSubmit}>
+                    <input className='edit-list-content-input'
                         type="text"
-                        required
-                        value={title}
-                        onChange={updateTitle}
+                        requiredvalue={content}
+                        onChange={updateTask}
                     />
-                    {title !== myNote.title &&
+                {content !== myTask.content &&
                         <>
                             <button
                                 className='button form-button'
                                 type="submit"
                             >Save</button>
                             <button
-                                onClick={() => setTitle(myNote.title)}
+                                onClick={() => setContent(myTask.content)}
                                 className='button form-button'
                                 type="submit"
                             >Cancel</button>
@@ -85,5 +74,4 @@ export default function EditNoteTitle() {
             </div>
         </>
     )
-
 }
