@@ -43,21 +43,21 @@ export default function EditTask() {
 
     return (
         <>
-            <div className='edit-task-errors'>
+            <div className='edit-note-errors'>
                 <ul> {errors.map((error) => (
                     <li key={error}>{error}</li>
                 ))}
                 </ul>
             </div>
-
-            <div cclassName='list-content'>
-                <form className = 'edit-list-content-form' onSubmit={handleSubmit}>
-                    <input className='edit-list-content-input'
+            <div className='note-title'>
+                <form className='edit-note-form-title' onSubmit={handleSubmit}>
+                    <input className='edit-note-title-input'
                         type="text"
-                        requiredvalue={content}
+                        required
+                        value={myTask.content}
                         onChange={updateTask}
                     />
-                {content !== myTask.content &&
+                    {content !== myTask.content &&
                         <>
                             <button
                                 className='button form-button'
