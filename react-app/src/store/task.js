@@ -3,6 +3,7 @@ const GET_ALL_TASKS='tasks/GET_ALL_TASKS';
 const GET_TASK = 'tasks/GET_TASK';
 const CREATE_TASK = 'tasks/CREATE_TASK';
 const EDIT_TASK = 'tasks/EDIT_TASK';
+const DELETE_TASK = 'tasks/DELETE_TASK';
 
 
 
@@ -28,6 +29,11 @@ const editTaskAc = (task) => ({
     type:EDIT_TASK,
     payload:task
 });
+
+const deleteTaskAc = (taskId) => ({
+    type:DELETE_TASK,
+    payload:taskId
+})
 
 
 
@@ -118,6 +124,25 @@ export const editTaskThunk = (taskId, updatedTask) =>async (dispatch) => {
     }
 }
 
+export const deleteTaskThunk = (taskId) => async (dispatch) =>{
+    const response = await fetch (`/api/tasks/${taskId}`,{
+        method:'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
+    if(response.ok) {
+        dispatch(deleteTaskAc(taskId));
+    } else if (response.status < 500){
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    }else {
+        return ['An error occurred.Please try again.']
+    }
+};
+
 
 
 
@@ -176,7 +201,19 @@ export default function taskReducer(){
             };
             editedTastState.allTasks.byId[editedTask.id] = editedTask;
             return editedTaskState;
-            
+
+        case DELETE_TASK:
+            const deletedTaskId = action.payload;
+            const deletedTaskState = {
+                allTasks : {
+                    byId : {...state.allTasks.byId},
+                    allIds: state. allTasks.allIds.filter(id => id !== deletedTaskId),
+                },
+                singleTask:{}
+            };
+            delete deletedTaskState.allTasks.byId[deletedTaskId];
+            return deletedTaskState;
+
         default:
             return state;
     }

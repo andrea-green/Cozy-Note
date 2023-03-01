@@ -11,7 +11,7 @@ const getAllNotesAc = (notes) => ({
     payload: notes
 });
 
-const getNoteAc= (note) => ({
+const getNoteAc = (note) => ({
     type: GET_NOTE,
     payload: note
 });
@@ -97,47 +97,46 @@ export const addNoteThunk = (note) => async (dispatch) => {
 }
 
 export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
-        const response = await fetch(`/api/notes/${noteId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedNote)
-        });
+    const response = await fetch(`/api/notes/${noteId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedNote)
+    });
 
-        if (response.ok) {
-            const data = await response.json();
-            dispatch(editNoteAc(data));
-        } else if (response.status < 500) {
-            const data = await response.json();
-            if (data.errors) {
-                return data.errors;
-            }
-        } else {
-            return ['An error occurred. Please try again.']
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(editNoteAc(data));
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
         }
-    };
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+};
 
 export const deleteNoteThunk = (noteId) => async (dispatch) => {
-        const response = await fetch(`/api/notes/${noteId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        });
+    const response = await fetch(`/api/notes/${noteId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
 
-        if (response.ok) {
-            // const data = await response.json();
-            dispatch(deleteNoteAc(noteId));
-        } else if (response.status < 500) {
-            const data = await response.json();
-            if (data.errors) {
-                return data.errors;
-            }
-        } else {
-            return ['An error occurred. Please try again.']
+    if (response.ok) {
+        dispatch(deleteNoteAc(noteId));
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
         }
-    };
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+};
 
 // reducer
 const initialState = {
@@ -164,7 +163,7 @@ export default function noteReducer(state = initialState, action) {
             };
         case GET_NOTE:
             const note = action.payload;
-            return{
+            return {
                 ...state,
                 singleNote: note
             };
@@ -172,7 +171,7 @@ export default function noteReducer(state = initialState, action) {
             const newNote = action.payload;
             const newNoteState = {
                 allNotes: {
-                    byId: {...state.allNotes.byId},
+                    byId: { ...state.allNotes.byId },
                     allIds: [...state.allNotes.allIds, newNote.id],
                 },
                 singleNote: newNote
@@ -184,7 +183,7 @@ export default function noteReducer(state = initialState, action) {
             const editedNote = action.payload;
             const editedNoteState = {
                 allNotes: {
-                    byId: {...state.allNotes.byId},
+                    byId: { ...state.allNotes.byId },
                     allIds: [...state.allNotes.allIds],
                 },
                 singleNote: editedNote
@@ -196,7 +195,7 @@ export default function noteReducer(state = initialState, action) {
             const deletedNoteId = action.payload;
             const deletedNoteState = {
                 allNotes: {
-                    byId: {...state.allNotes.byId},
+                    byId: { ...state.allNotes.byId },
                     allIds: state.allNotes.allIds.filter(id => id !== deletedNoteId),
                 },
                 singleNote: {}
