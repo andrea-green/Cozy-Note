@@ -1,5 +1,7 @@
 
 const GET_ALL_TASKS='tasks/GET_ALL_TASKS';
+const GET_TASK = 'tasks/GET_TASK';
+
 
 
 
@@ -9,6 +11,11 @@ const getAllTasksAc=(tasks) =>({
     type:GET_ALL_TASKS,
     payload:tasks
 });
+
+const getTaskAc = (task) => ({
+    type:GET_TASK,
+    payload:task
+})
 
 
 
@@ -33,6 +40,27 @@ export const getAllTasksThunk = () => async(dispatch) =>{
         return ['An error occurred.Please try again.']
     }
 };
+
+
+export const getTaskThunk = (taskId) => async(dispatch) =>{
+    const response = await fetch(`api/lists/${taskId}`,{
+        headers:{
+            'Content-Type':'application/json'
+        }
+    });
+
+    if (response.ok){
+        const data = await response.json();
+        dispatch(getTaskAc(data.Task));
+    }else if (response.status < 500) {
+        const data = await response.json();
+        if(data.errors){
+            return data.errors;
+        }
+    }else {
+        return ['An error occurred.Please try again.']
+    }
+}
 
 
 
@@ -61,7 +89,12 @@ export default function taskReducer(){
                     allIds:action.payload.map(task=>task.id),
                 },
             };
-
+        case GET_TASK:
+            const task = action.payload;
+            return {
+                ...state,
+                singleTask:task
+            };
         default:
             return state;
     }
