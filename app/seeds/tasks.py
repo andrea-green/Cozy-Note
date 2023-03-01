@@ -20,17 +20,17 @@ def seed_tasks():
     task4 = Task(
         content="Buy groceries",
         list_id=1,
-         owner_id=1
+        owner_id=1
     )
     task5 = Task(
         content="Pay bills",
         list_id=1,
-         owner_id=1
+        owner_id=1
     )
     task6 = Task(
         content="Apples",
         list_id=2,
-         owner_id=2
+        owner_id=2
     )
     task7 = Task(
         content="Bananas",
@@ -124,8 +124,10 @@ def seed_tasks():
         owner_id=4
     )
 
-    db.session.add_all(['task1', 'task2', 'task3', 'task4', 'task5', 'task6', 'task7', 'task8', 'task9', 'task10', 'task11', 'task12', 'task13', 'task14', 'task15', 'task16', 'task17', 'task18', 'task19', 'task20', 'task21', 'task22', 'task23', 'task24']
-                       )
+    db.session.add_all([task1, task2, task3, task4, task5, task6, task7, task8, task9, task10, task11, task12, task13, task14, task15, task16, task17, task18, task19, task20, task21, task22, task23, task24])
+
+    # db.session.add_all(['task1', 'task2', 'task3', 'task4', 'task5', 'task6', 'task7', 'task8', 'task9', 'task10', 'task11', 'task12', 'task13', 'task14', 'task15', 'task16', 'task17', 'task18', 'task19', 'task20', 'task21', 'task22', 'task23', 'task24']
+    #                    )
 
     db.session.commit()
 

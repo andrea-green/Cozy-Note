@@ -25,7 +25,7 @@ def get_user_tasks():
 # get single task by id
 
 
-@tasks_routes.route('/<int:task_id', methods=['GET'])
+@tasks_routes.route('/<int:task_id>', methods=['GET'])
 @login_required
 def get_single_task(task_id):
     task = Task.query.get(task_id)
@@ -58,7 +58,7 @@ def create_task():
 
 
 # update task route
-@tasks_routes.route('/<int:task_id', methods=['PUT'])
+@tasks_routes.route('/<int:task_id>', methods=['PUT'])
 @login_required
 def update_task(task_id):
     task = Task.query.get(task_id)
@@ -84,7 +84,7 @@ def update_task(task_id):
 
 
 # delete task
-@tasks_routes.route('/<int:task_id', methods=['PUT'])
+@tasks_routes.route('/<int:task_id>', methods=['PUT'])
 @login_required
 def delete_task(task_id):
     task = Task.query.get(task_id)
@@ -95,4 +95,4 @@ def delete_task(task_id):
 
     db.session.delete(task)
     db.session.commit()
-    return jsonify({"message":"Task successfully deleted"}),200 
+    return jsonify({"message":"Task successfully deleted"}),200
