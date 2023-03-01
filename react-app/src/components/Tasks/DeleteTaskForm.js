@@ -12,11 +12,11 @@ export default function DeleteTaskForm(){
 
     const myTask = useSelector(state => state.tasks.singleTask);
     const [errors,setErrors] = useState([]);
-    const [boolean, setBoolean] = useState(false);
+    // const [boolean, setBoolean] = useState(false);
 
 
-    const trueBoolean = (e) => setBoolean(true);
-    const falseBoolean = (e) => setBoolean(false);
+    // const trueBoolean = (e) => setBoolean(true);
+    // const falseBoolean = (e) => setBoolean(false);
     const {closeModal} = useModal()
 
 
@@ -30,9 +30,9 @@ export default function DeleteTaskForm(){
 
     return (
         <div>
-            <div className='form-header'>
+            {/* <div className='form-header'>
                 <h1>Are you sure you want to delete this task?</h1>
-            </div>
+            </div> */}
             <section className='form-body-container'>
                 <div className='delete-errors'>
                     <ul>{errors.map((error) => (
@@ -41,7 +41,7 @@ export default function DeleteTaskForm(){
                     </ul>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <label>
+                    {/* <label>
                         No
                         <input className='button'
                             type="radio"
@@ -58,12 +58,12 @@ export default function DeleteTaskForm(){
                             checked={boolean}
                             onChange={trueBoolean}
                         />
-                    </label>
+                    </label> */}
                     <button
                         className='button form-button'
                         type="submit"
-                        disabled={!boolean}
-                    >Confirm</button>
+                        // disabled={!boolean}
+                    >Delete</button>
                 </form>
             </section>
 
