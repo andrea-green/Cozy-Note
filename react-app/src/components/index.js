@@ -10,9 +10,10 @@ import './HomePage.css'
 // // thunks imports
 
 
-import {getAllNotesThunk} from '../store/note'
-import {getAllNtbksThunk} from '../store/notebook'
-import {getAllListsThunk} from '../store/list'
+import { getAllNotesThunk } from '../store/note'
+import { getAllNtbksThunk } from '../store/notebook'
+import { getAllListsThunk } from '../store/list'
+
 
 
 
@@ -21,6 +22,8 @@ import AllNotes from './Notes/AllNotes'
 import CreateNotebookForm from "./Notebooks/CreateNotebookForm";
 import AllNotebooks from "./Notebooks/AllNotebooks";
 import AllLists from "./Lists/AllLists";
+import CreateListForm from './Lists/CreateListForm'
+//?? do i need to import all tasks as well?
 
 //css imports
 import './IconModal/iconmodal.css'
@@ -31,17 +34,17 @@ function Body() {
     const dispatch = useDispatch();
 
     // use effects to get all the details for the notes and notebooks
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getAllNotesThunk())
-    },[dispatch])
+    }, [dispatch])
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getAllNtbksThunk())
-    },[dispatch])
+    }, [dispatch])
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getAllListsThunk())
-    },[dispatch])
+    }, [dispatch])
 
 
 
@@ -54,13 +57,13 @@ function Body() {
                 <div className='notes-list'>
                     <AllNotes />
                 </div>
-                        </div>
+            </div>
             {/* notebooks container  */}
             <div className='notebooks-container'>
                 <div className="notebooks-list" >
-                    <AllNotebooks  />
+                    <AllNotebooks />
                 </div>
-                <div className='create-new-ntbk' style={{margin:'40px'}}>
+                <div className='create-new-ntbk' style={{ margin: '40px' }}>
                     <IconModal
                         modalComponent={<CreateNotebookForm />}
                         faIcon="fa-solid fa-book-medical"
@@ -68,8 +71,10 @@ function Body() {
                 </div>
             </div>
             {/* all lists container */}
-            <div>
-                <AllLists />
+            <div className='lists-container'>
+                <div className='allLists-list'>
+                    <AllLists />
+                </div>
             </div>
 
 
