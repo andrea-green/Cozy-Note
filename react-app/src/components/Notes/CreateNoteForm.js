@@ -8,13 +8,8 @@ import { addNoteThunk } from '../../store/note';
 export default function CreateNoteForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-
-
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    console.log('title', title)
-    console.log('content', content)
-
     const enterTitle = (e) => setTitle(e.target.value);
     const enterContent = (e) => setContent(e.target.value);
 
@@ -26,14 +21,6 @@ export default function CreateNoteForm() {
         const errors = [];
 
         if (title.length < 1) errors.push('Title must be at least 1 characters long');
-
-        // const contentError = newArray(newNote.length).fill(' ').join('') === newNote
-
-        // const textError = newArray(newNote.length).fill(' ').join('') === newNote
-        //use trim for content validation
-        // new Array(newNoteItemName.length).fill(' ').join('') === newNoteItemName
-        // will disable button if content is empty b/c equal to white space. but when enter letter its not a white space so button will show up.
-        // add inside of disabled button.
 
         setErrors(errors);
     }, [title, content])
@@ -51,11 +38,6 @@ export default function CreateNoteForm() {
                 closeModal()
                 history.push(`/notes/${note.id}`)
             })
-        // .then(()=>closeModal())
-        // .catch(async (res) => {
-        //     const data = await res.json();
-        //     if (data && data.errors) setErrors(data.errors);
-        // });
     };
 
 
