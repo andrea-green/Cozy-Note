@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, {useEffect} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { getAllListsThunk, getSingleListThunk } from "../../store/list";
@@ -29,9 +29,7 @@ export default function AllLists(){
             <div className='my-to-do-header'>
                 <h1>My Lists </h1>
             </div>
-            <div className='create-list'>
-                <CreateListForm />
-            </div>
+    
             <div className='list-content'>
                 {myListsArr.map((list)=> (
                     <div className='list-card' key={list.id}

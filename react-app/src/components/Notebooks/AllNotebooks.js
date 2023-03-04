@@ -8,6 +8,7 @@ import EditNotebookForm from "./EditNotebookForm";
 import DeleteNotebookForm from "./DeleteNotebookForm";
 import IconModal from "../IconModal/IconModal";
 import OpenModalButton from "../OpenModalButton";
+import CreateNotebookForm from "./CreateNotebookForm";
 
 export default function AllNotebooks() {
     const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export default function AllNotebooks() {
     const myNotebooks = useSelector((state) => state.notebooks.allNotebooks.byId);
     const myNotes = useSelector((state) => state.notes.allNotes);
     const myNotebooksArr = Object.values(myNotebooks);
-  
+
     //accordian effect
     const [activeIndex, setActiveIndex] = useState([]);
 
@@ -61,6 +62,14 @@ export default function AllNotebooks() {
                         <th>CREATED BY</th>
                         <th>UPDATED </th>
                         <th>ACTIONS</th>
+                        <th>
+                            <div className='create-new-ntbk' style={{ margin: '40px' }}>
+                                <IconModal
+                                    modalComponent={<CreateNotebookForm />}
+                                    faIcon="fa-solid fa-book-medical"
+                                />
+                            </div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,7 +111,7 @@ export default function AllNotebooks() {
                                             <tbody>
                                                 {notebook.notes?.map((note) => (
                                                     <tr key={note.id}>
-                                                        <td onClick={()=>history.push(`/notes/${note.id}`)} style={{cursor:'pointer'}}>
+                                                        <td onClick={() => history.push(`/notes/${note.id}`)} style={{ cursor: 'pointer' }}>
                                                             {note.title}
                                                         </td>
                                                         <td>{note.updated_at}</td>

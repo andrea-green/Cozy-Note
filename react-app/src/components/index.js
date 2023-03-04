@@ -63,21 +63,19 @@ function Body() {
                 <div className="notebooks-list" >
                     <AllNotebooks />
                 </div>
-                <div className='create-new-ntbk' style={{ margin: '40px' }}>
-                    <IconModal
-                        modalComponent={<CreateNotebookForm />}
-                        faIcon="fa-solid fa-book-medical"
-                    />
-                </div>
             </div>
-            {/* all lists container */}
+            {/* lists container */}
             <div className='lists-container'>
                 <div className='allLists-list'>
                     <AllLists />
                 </div>
+                <div className='create-new-ntbk' style={{ margin: '40px' }}>
+                    <IconModal
+                        modalComponent={<CreateListForm />}
+                        faIcon="fa-solid fa-book-medical"
+                    />
+                </div>
             </div>
-
-
         </div>
 
     )
