@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import { getAllListsThunk } from "../../store/list";
+import { getAllListsThunk, getSingleListThunk } from "../../store/list";
 import CreateListForm from "./CreateListForm";
 //set up icon  modal for create list form
 
@@ -10,14 +10,19 @@ import CreateListForm from "./CreateListForm";
 export default function AllLists(){
     const dispatch = useDispatch();
     const history= useHistory();
-    const user = useSelector((state)=>state.session.user);
-
-    const myLists = useSelector((state)=>state.lists.byId);
+    const myLists = useSelector((state)=>state.lists.allLists.byId);
     const myListsArr = Object.values(myLists);
 
     useEffect(()=>{
         dispatch(getAllListsThunk())
     },[myLists])
+
+
+    const handleSubmit=(e,listId) =>{
+        e.preventDefault();
+        dispatch(getSingleListThunk(listId))
+            .then(()=>{history.push(`/lists/${listId}`)})
+    }
 
     return (
         <div className='all-lists-main-container'>

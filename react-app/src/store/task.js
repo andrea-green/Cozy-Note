@@ -1,13 +1,8 @@
-
 const GET_ALL_TASKS='tasks/GET_ALL_TASKS';
 const GET_TASK = 'tasks/GET_TASK';
 const CREATE_TASK = 'tasks/CREATE_TASK';
 const EDIT_TASK = 'tasks/EDIT_TASK';
 const DELETE_TASK = 'tasks/DELETE_TASK';
-
-
-
-
 
 //action creators
 const getAllTasksAc=(tasks) =>({
@@ -156,11 +151,11 @@ const initialState = {
     singleTask: {}
 }
 
-export default function taskReducer(){
+export default function taskReducer(state=initialState,action){
     switch (action.type) {
         case GET_ALL_TASKS:
             const newState = {};
-            action.payload.forEach(note => {
+            action.payload.forEach(task => {
                 newState[task.id] = task;
             });
             return {
@@ -199,7 +194,7 @@ export default function taskReducer(){
                 },
                 singleTask:editedTask
             };
-            editedTastState.allTasks.byId[editedTask.id] = editedTask;
+            editedTaskState.allTasks.byId[editedTask.id] = editedTask;
             return editedTaskState;
 
         case DELETE_TASK:

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { deleteListThunk } from "../../store/list";
 
-export default function DeleteListForm({ myList }) {
+export default function DeleteListForm({myList}) {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [boolean, setBoolean] = useState(false);

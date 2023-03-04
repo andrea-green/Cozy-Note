@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { addListThunk } from '../../store/list';
+import { useModal } from '../../context/Modal';
 
 export default function CreateListForm(){
     const dispatch = useDispatch();

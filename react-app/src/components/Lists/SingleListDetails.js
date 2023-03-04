@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleListThunk } from "../../store/list";
+import { getTaskThunk } from "../../store/task";
 //also need to import thunk to grab all of the tasks of a list.
 
 export default function SingleListDetails(){
