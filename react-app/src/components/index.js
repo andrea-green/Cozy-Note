@@ -60,7 +60,7 @@ function Body() {
             </div>
             {/* notebooks container  */}
             <div className='notebooks-container'>
-                <div className="notebooks-list" >
+                <div className="notebooks-list" style={{width:'45vw',marginLeft:'1rem',marginRight:'5rem',marginTop:'5rem'}} >
                     <AllNotebooks />
                 </div>
             </div>

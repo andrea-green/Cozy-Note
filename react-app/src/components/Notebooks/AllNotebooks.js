@@ -9,6 +9,7 @@ import DeleteNotebookForm from "./DeleteNotebookForm";
 import IconModal from "../IconModal/IconModal";
 import OpenModalButton from "../OpenModalButton";
 import CreateNotebookForm from "./CreateNotebookForm";
+import headerPic from '../images/my-notebooks-graphic.png'
 
 export default function AllNotebooks() {
     const dispatch = useDispatch();
@@ -53,6 +54,16 @@ export default function AllNotebooks() {
 
     return (
         <div className="notebook-table">
+            <div className='create-new-ntbk' style={{height:'18vh'}}>
+                <IconModal
+                    modalComponent={<CreateNotebookForm />}
+                    faIcon="fa-solid fa-book-medical"
+                />
+                <img src={headerPic} alt='header' style={{ height: '30vh', width:'15vw', marginTop: '0px' }} />
+            </div>
+            <div>
+
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -62,14 +73,6 @@ export default function AllNotebooks() {
                         <th>CREATED BY</th>
                         <th>UPDATED </th>
                         <th>ACTIONS</th>
-                        <th>
-                            <div className='create-new-ntbk' style={{ margin: '40px' }}>
-                                <IconModal
-                                    modalComponent={<CreateNotebookForm />}
-                                    faIcon="fa-solid fa-book-medical"
-                                />
-                            </div>
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,6 +129,6 @@ export default function AllNotebooks() {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </div >
     );
 }
