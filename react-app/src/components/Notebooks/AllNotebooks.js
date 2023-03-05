@@ -54,8 +54,8 @@ export default function AllNotebooks() {
 
     return (
         <div className="notebook-table">
-            <div className='create-new-ntbk' style={{ height: '18vh', display: 'flex',paddingTop:'2rem' }}>
-                <img src={headerPic} alt='header' style={{ height: '30vh', width: '15vw', marginTop: '0px',paddingRight:'6rem' }} />
+            <div className='create-new-ntbk' style={{ height: '18vh', display: 'flex', paddingTop: '2rem' }}>
+                <img src={headerPic} alt='header' style={{ height: '30vh', width: '15vw', marginTop: '0px', paddingRight: '6rem' }} />
                 <IconModal
                     modalComponent={<CreateNotebookForm />}
                     faIcon="fa-solid fa-book-medical"
@@ -92,7 +92,7 @@ export default function AllNotebooks() {
                                 <td>{notebook.name}</td>
                                 <td>{user.username}</td>
                                 <td>{notebook.updated_at}</td>
-                                <td>
+                                <td style={{display:'flex', justifyContent:'space-around'}}>
                                     <OpenModalButton
                                         modalComponent={<EditNotebookForm myNotebook={notebook} />}
                                         faIcon={<i className="fa-regular fa-pen-to-square" style={{ cursor: "pointer" }} />}

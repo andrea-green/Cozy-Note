@@ -9,14 +9,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 //set up icon  modal for create list form
 
-
-
 export default function AllLists() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const myLists = useSelector((state) => state.lists.allLists.byId);
+    const myLists = useSelector(state => state.lists.allLists.byId);
     const myListsArr = Object.values(myLists);
-
 
     const settings = {
         dots: true,
@@ -27,19 +24,15 @@ export default function AllLists() {
         autoplay: true
     };
 
-
-
     useEffect(() => {
         dispatch(getAllListsThunk())
-    }, [myLists])
-
+    }, [dispatch])
 
     const handleSubmit = (e, listId) => {
         e.preventDefault();
         dispatch(getSingleListThunk(listId))
             .then(() => { history.push(`/lists/${listId}`) })
     }
-
 
     return (
         <div className='all-lists-main-container'>
@@ -48,7 +41,7 @@ export default function AllLists() {
             </div>
 
             <div className='list-content'>
-                <Slider {...settings}>
+                <Slider {...settings} >
                     {myListsArr.map((list) => (
                         <div
                             className='list-card'

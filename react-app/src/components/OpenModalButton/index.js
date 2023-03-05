@@ -22,9 +22,9 @@ function OpenModalButton({
       {
         tr
           ?
-          <td onClick={onClick}>
+          <p onClick={onClick}>
             {faIcon}
-          </td>
+          </p>
           :
           faIcon
             ?
