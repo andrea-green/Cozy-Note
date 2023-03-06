@@ -50,14 +50,16 @@ function Body() {
 
 
     return (
-        <div>
-            {/* notes container  */}
-            <AllNotes />
+        <div style={{display:'flex', flexDirection:'row',alignItems:'center'}}>
+            <div>
+                {/* notes container  */}
+                <AllNotes />
 
-            {/* notebooks container  */}
-            <div className='notebooks-container'>
-                <div className="notebooks-list" >
-                    <AllNotebooks />
+                {/* notebooks container  */}
+                <div className='notebooks-container'>
+                    <div className="notebooks-list" >
+                        <AllNotebooks />
+                    </div>
                 </div>
             </div>
             {/* lists container */}

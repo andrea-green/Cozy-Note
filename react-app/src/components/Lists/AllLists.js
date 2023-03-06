@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllListsThunk, getSingleListThunk } from "../../store/list";
 import CreateListForm from "./CreateListForm";
+import IconModal from "../IconModal/IconModal";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,14 +16,14 @@ export default function AllLists() {
     const myLists = useSelector(state => state.lists.allLists.byId);
     const myListsArr = Object.values(myLists);
 
-    const NextArrow = ({onClick})=>{
+    const NextArrow = ({ onClick }) => {
         return (
             <div className='next-arrow' onClick={onClick}>
                 <i class="fa-regular fa-circle-right"></i>
             </div>
         )
     }
-    const PrevArrow = ({onClick})=>{
+    const PrevArrow = ({ onClick }) => {
         return (
             <div className='prev-arrow' onClick={onClick}>
                 <i class="fa-regular fa-circle-left"></i>
@@ -35,7 +36,7 @@ export default function AllLists() {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows:true,
+        arrows: true,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         // autoplay: true
@@ -56,6 +57,12 @@ export default function AllLists() {
         <div className='all-lists-main-container'>
             <div className='my-to-do-header'>
                 <h1>My Lists</h1>
+                <div>
+                    <IconModal
+                        modalComponent={<CreateListForm />}
+                        faIcon="fa-solid fa-book-medical"
+                    />
+                </div>
             </div>
 
             <div className='list-content'>
@@ -70,6 +77,12 @@ export default function AllLists() {
                             <div>
                                 <h3>{list.title}</h3>
                             </div>
+                            {/* <div>
+                                <ul>
+                                basically need to display my tasks associated w/ list here.
+                                    <li>{task}</li>
+                                </ul>
+                            </div> */}
                             <div>
                                 <span>{list.created_at}</span>
                             </div>

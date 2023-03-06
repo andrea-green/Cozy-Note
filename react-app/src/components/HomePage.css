@@ -328,12 +328,22 @@ th, td {
 }
 
 /* all lists styling*/
+
+.my-to-do-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.my-to-do-header h1{
+    margin-right: 4rem;
+}
+
 .lists-container {
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
-    height: 30vh;
-    width: 20vw;
+    height: 40vh;
+    width: 15vw;
     margin-left: 1rem;
     margin-top: 1rem;
     padding: 1rem;
@@ -342,7 +352,7 @@ th, td {
 .prev-arrow {
     position: absolute;
     left: 0;
-    bottom: -50px;
+    bottom: -8rem;
     z-index: 1;
     cursor: pointer;
   }
@@ -350,7 +360,7 @@ th, td {
   .next-arrow {
     position: absolute;
     right: 0;
-    bottom: -50px;
+    bottom: -8rem;
     z-index: 1;
     cursor: pointer;
   }
