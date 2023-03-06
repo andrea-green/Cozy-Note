@@ -15,13 +15,30 @@ export default function AllLists() {
     const myLists = useSelector(state => state.lists.allLists.byId);
     const myListsArr = Object.values(myLists);
 
+    const NextArrow = ({onClick})=>{
+        return (
+            <div className='next-arrow' onClick={onClick}>
+                <i class="fa-regular fa-circle-right"></i>
+            </div>
+        )
+    }
+    const PrevArrow = ({onClick})=>{
+        return (
+            <div className='prev-arrow' onClick={onClick}>
+                <i class="fa-regular fa-circle-left"></i>
+            </div>
+        )
+    }
     const settings = {
-        dots: true,
+        // dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true
+        arrows:true,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        // autoplay: true
     };
 
     useEffect(() => {
@@ -33,6 +50,7 @@ export default function AllLists() {
         dispatch(getSingleListThunk(listId))
             .then(() => { history.push(`/lists/${listId}`) })
     }
+
 
     return (
         <div className='all-lists-main-container'>

@@ -57,21 +57,21 @@ function Body() {
             {/* </div> */}
             {/* notebooks container  */}
             <div className='notebooks-container'>
-                <div className="notebooks-list" style={{ width: '45vw', marginLeft: '1rem', marginRight: '5rem', marginTop: '5rem' }} >
+                <div className="notebooks-list" style={{ width: '45vw', marginLeft: '1rem', marginRight: '1rem', marginTop: '1rem' }} >
                     <AllNotebooks />
                 </div>
             </div>
             {/* lists container */}
             <div className='lists-container'>
-                <div className='allLists-list'>
-                    <AllLists />
-                </div>
-                <div className='create-new-ntbk' style={{ margin: '40px' }}>
+                {/* <div className='allLists-list'> */}
+                <AllLists />
+                {/* </div> */}
+                {/* <div className='create-new-ntbk' style={{ margin: '40px' }}>
                     <IconModal
                         modalComponent={<CreateListForm />}
                         faIcon="fa-solid fa-book-medical"
                     />
-                </div>
+                </div> */}
             </div>
         </div>
 

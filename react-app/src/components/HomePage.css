@@ -321,3 +321,29 @@ th, td {
 }
 
 /* all lists styling*/
+.lists-container {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 30vh;
+    width: 20vw;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.prev-arrow {
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .next-arrow {
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    z-index: 1;
+    cursor: pointer;
+  }
