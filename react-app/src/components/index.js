@@ -52,15 +52,12 @@ function Body() {
     return (
         <div>
             {/* notes container  */}
-
-            <div className='notes-container'>
-                <div className='notes-list'>
-                    <AllNotes />
-                </div>
-            </div>
+            {/* <div className='notes-container'> */}
+            <AllNotes />
+            {/* </div> */}
             {/* notebooks container  */}
             <div className='notebooks-container'>
-                <div className="notebooks-list" style={{width:'45vw',marginLeft:'1rem',marginRight:'5rem',marginTop:'5rem'}} >
+                <div className="notebooks-list" style={{ width: '45vw', marginLeft: '1rem', marginRight: '5rem', marginTop: '5rem' }} >
                     <AllNotebooks />
                 </div>
             </div>
