@@ -52,26 +52,17 @@ function Body() {
     return (
         <div>
             {/* notes container  */}
-            {/* <div className='notes-container'> */}
             <AllNotes />
-            {/* </div> */}
+
             {/* notebooks container  */}
             <div className='notebooks-container'>
-                <div className="notebooks-list" style={{ width: '45vw', marginLeft: '1rem', marginRight: '1rem', marginTop: '1rem' }} >
+                <div className="notebooks-list" >
                     <AllNotebooks />
                 </div>
             </div>
             {/* lists container */}
             <div className='lists-container'>
-                {/* <div className='allLists-list'> */}
                 <AllLists />
-                {/* </div> */}
-                {/* <div className='create-new-ntbk' style={{ margin: '40px' }}>
-                    <IconModal
-                        modalComponent={<CreateListForm />}
-                        faIcon="fa-solid fa-book-medical"
-                    />
-                </div> */}
             </div>
         </div>
 

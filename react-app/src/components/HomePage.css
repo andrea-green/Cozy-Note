@@ -320,6 +320,13 @@ th, td {
     color: white;
 }
 
+.notebooks-list{
+    width:45vw;
+    margin-left:1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
 /* all lists styling*/
 .lists-container {
     background-color: white;
