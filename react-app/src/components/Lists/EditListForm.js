@@ -7,23 +7,14 @@ import { editListThunk } from '../../store/list';
 
 
 export default function EditListForm() {
+    const myList = useSelector(state => state.lists.singleList);
     const [title, setTitle] = useState(myList.title);
     const [errors, setErrors] = useState([]);
-    const myList = useSelector(state => state.lists.singleList);
     const updateTitle = (e) => setTitle(e.target.value);
 
     const dispatch = useDispatch();
     const { closeModal } = useModal();
 
-    useEffect(() => {
-        const errors = [];
-        if (title.length < 1) errors.push('List must be at least 1 characters long');
-        setErrors(errors);
-    }, [title])
-
-    useEffect(() => {
-        setTitle(myList.title)
-    }, [myList])
 
     useEffect(() => {
         const errors = [];
@@ -37,7 +28,7 @@ export default function EditListForm() {
             title
         }
 
-        await dispatch(editListThunk(listId, payload))
+        dispatch(editListThunk(myList.id, payload))
             .then(() => closeModal())
             .catch(async (res) => {
                 const data = await res.json();

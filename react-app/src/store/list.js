@@ -51,7 +51,7 @@ export const getAllListsThunk = () => async (dispatch) => {
 }
 
 export const getSingleListThunk = (listId) => async(dispatch) => {
-    const res = await fetch(`api/lists/${listId}`, {
+    const res = await fetch(`/api/lists/${listId}`, {
         headers:{
             'Content-Type': 'application/json'
         }
@@ -193,7 +193,7 @@ export default function listReducer(state = initialState, action) {
                 },
                 singleList:updatedList
             };
-            updatedListState.allLists.byId[updatedList.id] = updatedListState;
+            updatedListState.allLists.byId[updatedList.id] = updatedList;
             return updatedListState;
 
         default:

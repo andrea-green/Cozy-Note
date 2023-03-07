@@ -19,38 +19,39 @@ export default function AllLists() {
     const NextArrow = ({ onClick }) => {
         return (
             <div className='next-arrow' onClick={onClick}>
-                <i class="fa-regular fa-circle-right"></i>
+                <i className="fa-regular fa-circle-right"></i>
             </div>
         )
     }
     const PrevArrow = ({ onClick }) => {
         return (
             <div className='prev-arrow' onClick={onClick}>
-                <i class="fa-regular fa-circle-left"></i>
+                <i className="fa-regular fa-circle-left"></i>
             </div>
         )
     }
     const settings = {
-        // dots: true,
         infinite: true,
-        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
-        // autoplay: true
+
     };
 
     useEffect(() => {
         dispatch(getAllListsThunk())
     }, [dispatch])
 
-    const handleSubmit = (e, listId) => {
-        e.preventDefault();
-        dispatch(getSingleListThunk(listId))
-            .then(() => { history.push(`/lists/${listId}`) })
+    const handleSubmit = async (listId) => {
+        await dispatch(getSingleListThunk(listId))
+        history.push(`/lists/${listId}`)
     }
+
+    useEffect(()=>{
+
+    },[myLists])
 
 
     return (
