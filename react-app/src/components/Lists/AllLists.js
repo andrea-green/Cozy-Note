@@ -7,6 +7,7 @@ import IconModal from "../IconModal/IconModal";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import listHeader from '../images/my-lists-graphic.svg';
 
 //set up icon  modal for create list form
 
@@ -49,15 +50,15 @@ export default function AllLists() {
         history.push(`/lists/${listId}`)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
 
-    },[myLists])
+    }, [myLists])
 
 
     return (
         <div className='all-lists-main-container'>
             <div className='my-to-do-header'>
-                <h1>My Lists</h1>
+                <img src={listHeader} alt='header' style={{ height: '18vh', width: '10vw', marginTop: '0px', paddingRight: '1rem', marginBottom: '-1rem' }} />
                 <div>
                     <IconModal
                         modalComponent={<CreateListForm />}
@@ -73,9 +74,8 @@ export default function AllLists() {
                             className='list-card'
                             key={list.id}
                             onClick={() => handleSubmit(list.id)}
-                            style={{ cursor: 'pointer' }}
                         >
-                            <div>
+                            <div  style={{ cursor: 'pointer' }}>
                                 <h3>{list.title}</h3>
                             </div>
                             {/* <div>

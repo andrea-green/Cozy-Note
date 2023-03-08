@@ -4,19 +4,27 @@
 import EditListForm from "./EditListForm";
 import DeleteListForm from './DeleteListForm'
 import SingleListDetails from "./SingleListDetails";
+import IconModal from "../IconModal/IconModal";
 
-export default function SingleList(){
+export default function SingleList() {
 
     return (
         <div className='single-list-idx-main'>
             <div className='edit-list-idx'>
                 <EditListForm />
             </div>
-            <div className='delete-list-idx'>
+
+            <IconModal
+                modalComponent={<DeleteListForm />}
+                faIcon="fa-regular fa-trash-can "
+                style={{ color:"red" }}
+            />
+
+            {/* <div className='delete-list-idx'>
                 <DeleteListForm/>
-            </div>
+            </div> */}
             <div className='single-list-details-idx'>
-                <SingleListDetails /> 
+                <SingleListDetails />
             </div>
         </div>
     );
