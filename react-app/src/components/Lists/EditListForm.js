@@ -1,28 +1,29 @@
 //single list index page.
 
 import React, { useEffect, useState } from 'react';
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { editListThunk } from '../../store/list';
+import { editListThunk} from '../../store/list';
+
 
 
 export default function EditListForm() {
     const myList = useSelector(state => state.lists.singleList);
     const [title, setTitle] = useState(myList.title);
     const [errors, setErrors] = useState([]);
-    const updateTitle = (e) => setTitle(e.target.value);
 
     const dispatch = useDispatch();
     const { closeModal } = useModal();
 
+    const updateTitle = (e) => setTitle(e.target.value);
 
     useEffect(() => {
         const errors = [];
         if (title.length < 1) errors.push('Title must be at least 1 character long');
         setErrors(errors);
-    }, [title])
+    }, [myList,title])
 
-    const handleSubmit = async (e, listId) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = {
             title

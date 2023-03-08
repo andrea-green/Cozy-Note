@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 // import all the tasks belonging to the specific list.
 import { useSelector,useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -8,15 +8,19 @@ import { getTaskThunk } from "../../store/task";
 
 export default function SingleListDetails(){
     const myList = useSelector(state=>state.lists.singleList)
+    const myListArr = Object.values(myList);
     const dispatch = useDispatch();
     const {listId} = useParams();
+
+
+     const myTasks = useSelector(state => state.tasks.allTasks.byId)
+     const myTasksArr = Object.values(myTasks)
+     const listTasks = myTasksArr.filter(task=> task.list_id == myListArr?.id)
 
 
     useEffect(()=>{
         dispatch(getSingleListThunk(listId))
     },[dispatch,listId]);
-
-    // have use effect for getting a taks thunk? do i even need this? questionable.
 
 
     return (
@@ -24,9 +28,10 @@ export default function SingleListDetails(){
             <div className='single-list-details-header'>
                 <h1>{myList.title}</h1>
             </div>
-            {/* <div className='single-list-tasks'>
-                will import the tasks belonging to a single note component here.
-            </div> */}
+            <div className='single-list-tasks'>
+                
+
+            </div>
         </div>
     );
 }

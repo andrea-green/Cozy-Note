@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllListsThunk, getSingleListThunk } from "../../store/list";
@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import listHeader from '../images/my-lists-graphic.svg';
 
+
 //set up icon  modal for create list form
 
 export default function AllLists() {
@@ -16,6 +17,8 @@ export default function AllLists() {
     const history = useHistory();
     const myLists = useSelector(state => state.lists.allLists.byId);
     const myListsArr = Object.values(myLists);
+
+
 
     const NextArrow = ({ onClick }) => {
         return (
@@ -44,6 +47,7 @@ export default function AllLists() {
     useEffect(() => {
         dispatch(getAllListsThunk())
     }, [dispatch])
+
 
     const handleSubmit = async (listId) => {
         await dispatch(getSingleListThunk(listId))
