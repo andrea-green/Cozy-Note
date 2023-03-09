@@ -37,18 +37,7 @@
 
 
 /* notes */
-/* .notes-container {
-    display: flex;
-    align-items: center;
-    padding: 0px 20px 10px 20px;
-    margin-bottom: 30px;
-    margin-top: 0vh;
-    /* background-image: url('./images/my-notes-container-background.png'); */
-    /* background-repeat: repeat; */
-    /* height: 30%; */
-    /* width: 90%; */
-    /* background-color: white; */
-/* } */
+
 
 .my-notes-header{
     display: flex;
@@ -219,7 +208,7 @@ th, td {
 }
 
 .edit-note-title-input{
-    width: 200px;
+    width: auto;
     height: 40px;
     border-radius: 10px;
     padding-top: 0;
@@ -373,3 +362,14 @@ th, td {
     z-index: 1;
     cursor: pointer;
   }
+
+  .edit-task-input{
+    width: auto;
+    height: 40px;
+    border-radius: 10px;
+    padding-top: 0;
+    font-size: xxx-large;
+    font-weight: bolder;
+    background-color: #99A67F;
+    color: white;
+}

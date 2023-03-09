@@ -72,7 +72,7 @@ export default function EditTask({ task }) {
                         style={{ cursor: 'pointer' }}
                         onChange={taskCompletion}
                     />
-                    <input className='edit-note-title-input'
+                    <input className='edit-task-input'
                         type="text"
                         required
                         value={content}
