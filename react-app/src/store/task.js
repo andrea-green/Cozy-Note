@@ -34,8 +34,8 @@ const deleteTaskAc = (taskId) => ({
 
 // thunks
 
-export const getAllTasksThunk = () => async(dispatch) =>{
-    const response = await fetch(`/api/tasks`,{
+export const getAllTasksThunk = (listId) => async(dispatch) =>{
+    const response = await fetch(`/api/lists/${listId}/tasks`,{
         headers:{
             'Content-Type':'application/json'
         }

@@ -3,43 +3,59 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { editTaskThunk } from '../../store/task';
 
-export default function EditTask() {
+export default function EditTask({ task }) {
     const dispatch = useDispatch();
 
     const { closeModal } = useModal();
     const myTask = useSelector(state => state.tasks.singleTask);
 
-    const [content, setContent] = useState(myTask.content);
+    const [content, setContent] = useState(task.content);
     const updateTask = (e) => setContent(e.target.value);
     const [errors, setErrors] = useState([]);
-    const listId = myTask.list_id;
+    const [isCompleted,setIsCompleted] = useState(task.is_completed)
+    const [loaded, setLoaded] = useState(false)
+    // console.log('task.is_completed', task.is_completed)
+
 
     useEffect(() => {
         const errors = [];
 
         if (content.length < 1) errors.push('Task must be at least 1 characters long');
         setErrors(errors);
-    }, [title])
+    }, [content])
 
-    useEffect(() => {
-        setContent(myTask.content)
-    }, [myTask])
+    useEffect(()=> {
+        if (loaded){
+            const payload = {
+                content,
+                is_completed:isCompleted
+            }
+
+            dispatch(editTaskThunk(task.id, payload))
+        } else setLoaded(true)
+    },[dispatch, isCompleted])
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const payload = {
             content,
-            listId
+            is_completed:isCompleted
         }
 
-        dispatch(editTaskThunk(myTask.id, payload))
+        await dispatch(editTaskThunk(task.id, payload))
             .then(() => closeModal())
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
     }
+
+    const taskCompletion = (e) =>{
+       setIsCompleted(!isCompleted)
+    }
+
 
     return (
         <>
@@ -51,20 +67,26 @@ export default function EditTask() {
             </div>
             <div className='note-title'>
                 <form className='edit-note-form-title' onSubmit={handleSubmit}>
+                    <input
+                        type='checkbox'
+                        checked={isCompleted}
+                        style={{ cursor: 'pointer' }}
+                        onChange={taskCompletion}
+                    />
                     <input className='edit-note-title-input'
                         type="text"
                         required
-                        value={myTask.content}
+                        value={content}
                         onChange={updateTask}
                     />
-                    {content !== myTask.content &&
+                    {content !== task.content &&
                         <>
                             <button
                                 className='button form-button'
                                 type="submit"
                             >Save</button>
                             <button
-                                onClick={() => setContent(myTask.content)}
+                                onClick={() => setContent(task.content)}
                                 className='button form-button'
                                 type="submit"
                             >Cancel</button>
