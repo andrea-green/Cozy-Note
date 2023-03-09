@@ -21,7 +21,7 @@ class List(db.Model):
     def format_date(self, date):
         date_year = date.year
         today = datetime.now()
-        today_year = today.strtime("%Y")
+        today_year = today.strftime("%Y")
         if str(date_year) == str(today_year):
             return date.strftime("%b %d")
         else:

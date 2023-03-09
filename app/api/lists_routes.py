@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required,current_user
-from app.models import User, List,db
+from app.models import User, List,db,Task
 from app.forms import ListForm
 
 
@@ -62,7 +62,7 @@ def update_list(list_id):
     return {'error': validation_errors_to_error_messages(form.errors)},400
 
 # delete list
-@lists_routes.route('<int:list_id>', methods=['DELETE'])
+@lists_routes.route('/<int:list_id>', methods=['DELETE'])
 @login_required
 def delete_list(list_id):
     list = List.query.get(list_id)
@@ -72,4 +72,20 @@ def delete_list(list_id):
         return jsonify({"error": "unauthorized"}), 401
     db.session.delete(list)
     db.session.commit()
-    return jsonify({"message": "Notebook deleted"}),200 
+    return jsonify({"message": "Notebook deleted"}),200
+
+
+# get all tasks of current user on current list
+
+@lists_routes.route('/<int:list_id>/tasks')
+@login_required
+def get_list_tasks(list_id):
+    tasks = Task.query.filter(Task.owner_id == current_user.id , Task.list_id == list_id).all()
+    tasks_dict = []
+    for task in tasks:
+        task_dict = task.to_dict()
+        if task.list:
+            list = task.list.to_dict()
+            task_dict['list'] = list
+        tasks_dict.append(task_dict)
+    return jsonify({"Tasks": tasks_dict})

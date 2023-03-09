@@ -14,7 +14,6 @@ export default function EditTask({ task }) {
     const [errors, setErrors] = useState([]);
     const [isCompleted,setIsCompleted] = useState(task.is_completed)
     const [loaded, setLoaded] = useState(false)
-    // console.log('task.is_completed', task.is_completed)
 
 
     useEffect(() => {
