@@ -29,9 +29,6 @@ export default function SingleListDetails() {
 
     return (
         <div className='single-list-details-main'>
-            <div className='single-list-details-header'>
-                <h1>{myList.title}</h1>
-            </div>
             <div className='create-task'>
                 <IconModal
                     modalComponent={<CreateTaskForm listId={listId}/>}

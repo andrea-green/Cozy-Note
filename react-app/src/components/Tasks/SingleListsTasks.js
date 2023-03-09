@@ -5,13 +5,15 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from "react-router-dom"
 import { getAllTasksThunk, getTaskThunk } from '../../store/task'
+import IconModal from '../IconModal/IconModal';
 import EditTask from './EditTaskContent';
+import DeleteTaskForm from './DeleteTaskForm';
 
 
 export default function SingleListsTasks() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { taskId} = useParams();
+    const { taskId, listId } = useParams();
 
 
     const handleSubmit = (taskId) => {
@@ -27,9 +29,18 @@ export default function SingleListsTasks() {
         <div>
             <div className='lists-tasks'>
                 {myListTasksArr.map((task) => (
-                    <div className='single-task-container' key={task.id}>
-                        <EditTask task={task} />
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                        <div className='single-task-container' key={task.id}>
+                            <EditTask task={task} />
+                        </div>
+                        <div style={{marginTop:'2rem',marginLeft:'1rem'}}>
+                            <IconModal
+                                modalComponent={<DeleteTaskForm listId={listId} />}
+                                faIcon="fa-solid fa-trash-can"
+                            />
+                        </div>
                     </div>
+
                 ))}
 
             </div>
