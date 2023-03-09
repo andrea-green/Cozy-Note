@@ -76,7 +76,7 @@ export const getTaskThunk = (taskId) => async(dispatch) =>{
 }
 
 export const createTaskThunk = (task) => async(dispatch)=>{
-    const response = await fetch (`api/tasks`, {
+    const response = await fetch (`/api/tasks/`, {
         method:'POST',
         headers: {
             'Content-Type': 'application/json'

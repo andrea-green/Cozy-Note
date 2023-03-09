@@ -23,8 +23,6 @@ def get_single_task(task_id):
     return jsonify({"Task": task_dict})
 
 # create a new task
-
-
 @tasks_routes.route('/', methods=["POST"])
 @login_required
 def create_task():
@@ -33,7 +31,8 @@ def create_task():
     if form.validate_on_submit():
         task = Task(
             content=form.data['content'],
-            owner_id=current_user.id
+            owner_id=current_user.id,
+            list_id=form.data['list_id']
         )
         db.session.add(task)
         db.session.commit()

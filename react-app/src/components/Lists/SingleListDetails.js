@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleListThunk } from "../../store/list";
 import { getAllTasksThunk, getTaskThunk } from "../../store/task";
+import IconModal from "../IconModal/IconModal";
+import CreateTaskForm from "../Tasks/CreateTaskForm";
 import SingleListsTasks from "../Tasks/SingleListsTasks";
 //also need to import thunk to grab all of the tasks of a list.
 
@@ -29,6 +31,13 @@ export default function SingleListDetails() {
         <div className='single-list-details-main'>
             <div className='single-list-details-header'>
                 <h1>{myList.title}</h1>
+            </div>
+            <div className='create-task'>
+                <IconModal
+                    modalComponent={<CreateTaskForm listId={listId}/>}
+                    faIcon="fa-solid fa-book-medical"
+                />
+
             </div>
             <div className='single-list-tasks'>
                 <SingleListsTasks />

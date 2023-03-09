@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useModal } from '../../context/Modal';
 import { createTaskThunk } from '../../store/task';
 
 
-export default function CreateTaskForm() {
+export default function CreateTaskForm({listId}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [content,setContent] = useState('');
     const [errors,setErrors] = useState([]);
     const {closeModal} = useModal();
+    // const {listId} = useParams();
 
-    const enterContent = setContent(e.target.value);
+    const enterContent =(e) => setContent(e.target.value);
+    console.log('listId', typeof listId)
 
 
     useEffect(()=>{
@@ -26,12 +28,12 @@ export default function CreateTaskForm() {
         e.preventDefault();
 
         const payload={
-            content
+            content,
+            list_id:listId
         }
         await dispatch (createTaskThunk(payload))
             .then((task)=>{
                 closeModal()
-                history.push(`/tasks/${task.id}`)
             })
     };
 
