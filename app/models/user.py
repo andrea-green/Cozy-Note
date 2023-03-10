@@ -17,7 +17,8 @@ class User(db.Model, UserMixin):
     # associations here
     notebooks = db.relationship('Notebook', back_populates='author')
     notes = db.relationship('Note', back_populates='author')
-    
+    lists = db.relationship('List', back_populates='author')
+    tasks = db.relationship('Task',back_populates='author')
 
     @property
     def password(self):

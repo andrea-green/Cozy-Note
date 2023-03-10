@@ -4,10 +4,6 @@ const GET_NOTE = 'notes/GET_NOTE';
 const ADD_NOTE = 'notes/ADD_NOTE';
 const EDIT_NOTE = 'notes/EDIT_NOTE';
 const DELETE_NOTE = 'notes/DELETE_NOTE';
-// const ADD_NOTE_TO_NTBK = 'notebook/ADD_NOTE_TO_NTBK'
-
-
-
 
 // action creators
 const getAllNotesAc = (notes) => ({
@@ -15,7 +11,7 @@ const getAllNotesAc = (notes) => ({
     payload: notes
 });
 
-const getNoteAc= (note) => ({
+const getNoteAc = (note) => ({
     type: GET_NOTE,
     payload: note
 });
@@ -34,15 +30,6 @@ const deleteNoteAc = (noteId) => ({
     type: DELETE_NOTE,
     payload: noteId
 });
-
-// const addNoteToNtbkAc = (note) => ({
-//     type: ADD_NOTE_TO_NTBK,
-//     payload:note
-// })
-
-
-
-
 
 // thunks
 export const getAllNotesThunk = () => async (dispatch) => {
@@ -105,83 +92,51 @@ export const addNoteThunk = (note) => async (dispatch) => {
         }
     } else {
         return response
-        // return ['An error occurred. Please try again.']
     }
 
 }
 
 export const editNoteThunk = (noteId, updatedNote) => async (dispatch) => {
-        const response = await fetch(`/api/notes/${noteId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedNote)
-        });
+    const response = await fetch(`/api/notes/${noteId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedNote)
+    });
 
-        if (response.ok) {
-            const data = await response.json();
-            // dispatch(get)
-            dispatch(editNoteAc(data));
-        } else if (response.status < 500) {
-            const data = await response.json();
-            if (data.errors) {
-                return data.errors;
-            }
-        } else {
-            return ['An error occurred. Please try again.']
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(editNoteAc(data));
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
         }
-    };
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+};
 
 export const deleteNoteThunk = (noteId) => async (dispatch) => {
-        const response = await fetch(`/api/notes/${noteId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        });
+    const response = await fetch(`/api/notes/${noteId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
 
-        if (response.ok) {
-            // const data = await response.json();
-            dispatch(deleteNoteAc(noteId));
-        } else if (response.status < 500) {
-            const data = await response.json();
-            if (data.errors) {
-                return data.errors;
-            }
-        } else {
-            return ['An error occurred. Please try again.']
+    if (response.ok) {
+        dispatch(deleteNoteAc(noteId));
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
         }
-    };
-// this is sketchy.
-// export const addNoteToNtbkThunk = (notebookId,noteTitle,noteContent)=>async (dispatch)=>{
-//     const res = await fetch('/api/notes/',{
-//         method:'POST',
-//         headers:{
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             notebook_id:notebookId,
-//             title: noteTitle,
-//             content:noteContent
-//         })
-//     });
-//     if(res.ok){
-//         const note = await res.json();;
-//         dispatch(addNoteToNtbkAc(note));
-//     } else if (res.status < 500) {
-//         const data = await res.json();
-//         if(data.errors) {
-//             return data.errors;
-//         }
-//     } else {
-//         return res;
-//     }
-// }
-
-
-
-
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+};
 
 // reducer
 const initialState = {
@@ -208,7 +163,7 @@ export default function noteReducer(state = initialState, action) {
             };
         case GET_NOTE:
             const note = action.payload;
-            return{
+            return {
                 ...state,
                 singleNote: note
             };
@@ -216,7 +171,7 @@ export default function noteReducer(state = initialState, action) {
             const newNote = action.payload;
             const newNoteState = {
                 allNotes: {
-                    byId: {...state.allNotes.byId},
+                    byId: { ...state.allNotes.byId },
                     allIds: [...state.allNotes.allIds, newNote.id],
                 },
                 singleNote: newNote
@@ -224,23 +179,11 @@ export default function noteReducer(state = initialState, action) {
             newNoteState.allNotes.byId[newNote.id] = newNote;
             return newNoteState;
 
-        // case ADD_NOTE_TO_NTBK:{
-        //     const newNote = action.payload;
-        //     const newNoteState = {
-        //         allNotes:{
-        //             byId: {...state.allNotes.byId},
-        //             allIds: [...state.allNotes.allIds, newNote.id],
-        //         },
-        //         singleNote:newNote
-        //     }
-        // }
-
-
         case EDIT_NOTE:
             const editedNote = action.payload;
             const editedNoteState = {
                 allNotes: {
-                    byId: {...state.allNotes.byId},
+                    byId: { ...state.allNotes.byId },
                     allIds: [...state.allNotes.allIds],
                 },
                 singleNote: editedNote
@@ -252,7 +195,7 @@ export default function noteReducer(state = initialState, action) {
             const deletedNoteId = action.payload;
             const deletedNoteState = {
                 allNotes: {
-                    byId: {...state.allNotes.byId},
+                    byId: { ...state.allNotes.byId },
                     allIds: state.allNotes.allIds.filter(id => id !== deletedNoteId),
                 },
                 singleNote: {}

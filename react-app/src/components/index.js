@@ -4,25 +4,26 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-// import OpenModalButton from '../OpenModalButton';
-// import IconModal from '../IconModal';
 import IconModal from './IconModal/IconModal'
 import './HomePage.css'
 
 // // thunks imports
 
 
-import {getAllNotesThunk} from '../store/note'
-import {getAllNtbksThunk} from '../store/notebook'
+import { getAllNotesThunk } from '../store/note'
+import { getAllNtbksThunk } from '../store/notebook'
+import { getAllListsThunk } from '../store/list'
+
 
 
 
 // components
-import CreateNoteForm from './Notes/CreateNoteForm'
-// import LogoutButton from "../auth/LogoutButton";
 import AllNotes from './Notes/AllNotes'
 import CreateNotebookForm from "./Notebooks/CreateNotebookForm";
 import AllNotebooks from "./Notebooks/AllNotebooks";
+import AllLists from "./Lists/AllLists";
+import CreateListForm from './Lists/CreateListForm'
+//?? do i need to import all tasks as well?
 
 //css imports
 import './IconModal/iconmodal.css'
@@ -30,54 +31,41 @@ import './IconModal/iconmodal.css'
 
 function Body() {
 
-    //use selectors
-    const myNote = useSelector(state => state.notes.singleNote);
-    const user = useSelector(state => state.session.user);
-
     const dispatch = useDispatch();
 
     // use effects to get all the details for the notes and notebooks
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getAllNotesThunk())
-    },[dispatch])
+    }, [dispatch])
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getAllNtbksThunk())
-    },[dispatch])
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getAllListsThunk())
+    }, [dispatch])
 
 
 
 
     return (
-        <div>
-            {/* notes container  */}
+        <div style={{display:'flex', flexDirection:'row',alignItems:'center'}}>
+            <div>
+                {/* notes container  */}
+                <AllNotes />
 
-            <div className='notes-container'>
-                <div className='notes-list'>
-                    <AllNotes />
-                </div>
-                {/* <div className='create-new-note'>
-                    <IconModal
-                        modalComponent={<CreateNoteForm />}
-                        faIcon="fa-solid fa-notes-medical"
-                    />
-                </div> */}
-
-            </div>
-            {/* notebooks container  */}
-            <div className='notebooks-container'>
-                <div className="notebooks-list" >
-                    <AllNotebooks  />
-                </div>
-                <div className='create-new-ntbk' style={{margin:'40px'}}>
-                    <IconModal
-                        modalComponent={<CreateNotebookForm />}
-                        faIcon="fa-solid fa-book-medical"
-                    />
+                {/* notebooks container  */}
+                <div className='notebooks-container'>
+                    <div className="notebooks-list" >
+                        <AllNotebooks />
+                    </div>
                 </div>
             </div>
-
-
+            {/* lists container */}
+            <div className='lists-container'>
+                <AllLists />
+            </div>
         </div>
 
     )

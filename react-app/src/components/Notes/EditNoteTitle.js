@@ -48,7 +48,6 @@ export default function EditNoteTitle() {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        // .then(() => history.push(`/notes/${noteId}`))
     }
 
 
