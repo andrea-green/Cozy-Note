@@ -27,7 +27,7 @@ export default function SingleNotebookDetails(){
             <div className='single-notebook-header'>
                 <h1>{myNotebook.name}</h1>
             </div>
-            <div classNAme='note-page'>
+            <div className='note-page'>
                 <AllNotes2 />
             </div>
 

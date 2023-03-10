@@ -37,20 +37,7 @@
 
 
 /* notes */
-.notes-container {
-    display: flex;
-    align-items: center;
-    padding: 0px 20px 10px 20px;
-    margin-bottom: 30px;
-    margin-top: 10vh;
-    /* background-image: url('./images/my-notes-container-background.png'); */
-    background-repeat: repeat;
-    height: 30%;
-    width: 90%;
-    background-color: white;
 
-
-}
 
 .my-notes-header{
     display: flex;
@@ -221,7 +208,7 @@ th, td {
 }
 
 .edit-note-title-input{
-    width: 200px;
+    width: auto;
     height: 40px;
     border-radius: 10px;
     padding-top: 0;
@@ -322,4 +309,67 @@ th, td {
     color: white;
 }
 
+.notebooks-list{
+    width:45vw;
+    margin-left:1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
 /* all lists styling*/
+
+.my-to-do-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.my-to-do-header h1{
+    margin-right: 4rem;
+}
+
+.lists-container {
+    background-color: white;
+    /* background-image: url('./images/nav-bar-background.png'); */
+    /* background-repeat: none; */
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 40vh;
+    width: 15vw;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+.list-content {
+    width: 12vw;
+    display: inline-block;
+    border: 1px solid black;
+    background-color: #FDD6B3;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+.prev-arrow {
+    position: absolute;
+    left: 0;
+    bottom: -6rem;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .next-arrow {
+    position: absolute;
+    right: 0;
+    bottom: -6rem;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .edit-task-input{
+    width: auto;
+    height: 40px;
+    border-radius: 10px;
+    padding-top: 0;
+    font-size: xxx-large;
+    font-weight: bolder;
+    background-color: #99A67F;
+    color: white;
+}

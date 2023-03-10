@@ -8,6 +8,8 @@ import EditNotebookForm from "./EditNotebookForm";
 import DeleteNotebookForm from "./DeleteNotebookForm";
 import IconModal from "../IconModal/IconModal";
 import OpenModalButton from "../OpenModalButton";
+import CreateNotebookForm from "./CreateNotebookForm";
+import headerPic from '../images/my-notebooks-graphic.png'
 
 export default function AllNotebooks() {
     const dispatch = useDispatch();
@@ -29,7 +31,7 @@ export default function AllNotebooks() {
     const myNotebooks = useSelector((state) => state.notebooks.allNotebooks.byId);
     const myNotes = useSelector((state) => state.notes.allNotes);
     const myNotebooksArr = Object.values(myNotebooks);
-  
+
     //accordian effect
     const [activeIndex, setActiveIndex] = useState([]);
 
@@ -51,7 +53,18 @@ export default function AllNotebooks() {
     }, [myNotes])
 
     return (
-        <div className="notebook-table">
+        <div className="notebook-table" style={{border:'1px solid black', borderRadius:'10px'}}>
+            <div className='create-new-ntbk' style={{ height: '18vh', display: 'flex', paddingTop: '2rem' }}>
+                <img src={headerPic} alt='header' style={{ height: '30vh', width: '15vw', marginTop: '0px', paddingRight: '6rem' }} />
+                <IconModal
+                    modalComponent={<CreateNotebookForm />}
+                    faIcon="fa-solid fa-book-medical"
+
+                />
+            </div>
+            <div>
+
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -79,7 +92,7 @@ export default function AllNotebooks() {
                                 <td>{notebook.name}</td>
                                 <td>{user.username}</td>
                                 <td>{notebook.updated_at}</td>
-                                <td>
+                                <td style={{display:'flex', justifyContent:'space-around'}}>
                                     <OpenModalButton
                                         modalComponent={<EditNotebookForm myNotebook={notebook} />}
                                         faIcon={<i className="fa-regular fa-pen-to-square" style={{ cursor: "pointer" }} />}
@@ -102,7 +115,7 @@ export default function AllNotebooks() {
                                             <tbody>
                                                 {notebook.notes?.map((note) => (
                                                     <tr key={note.id}>
-                                                        <td onClick={()=>history.push(`/notes/${note.id}`)} style={{cursor:'pointer'}}>
+                                                        <td onClick={() => history.push(`/notes/${note.id}`)} style={{ cursor: 'pointer' }}>
                                                             {note.title}
                                                         </td>
                                                         <td>{note.updated_at}</td>
@@ -117,6 +130,6 @@ export default function AllNotebooks() {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </div >
     );
 }

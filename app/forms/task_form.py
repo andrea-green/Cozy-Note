@@ -7,4 +7,4 @@ class TaskForm(FlaskForm):
     owner_id=IntegerField('Owner Id')
     content = StringField('Content',validators=[DataRequired(),Length(min=2,max=50000)])
     list_id = IntegerField('List Id')
-    is_completed = BooleanField('is completed',validators=[DataRequired()])
+    is_completed = BooleanField('is completed',validators=[])

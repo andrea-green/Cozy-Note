@@ -1,60 +1,75 @@
 //single list index page.
 
-import React, {useEffect,useState} from 'react';
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
-import {editListThunk} from '../../store/list';
+import { editListThunk} from '../../store/list';
 
-export default function EditListForm({myList}){
-    const [title, setTitle] = useState(myList?.title);
-    const updateTitle=(e)=>setTitle(e.target.value);
-    const [errors,setErrors]=useState([]);
 
-    const dispatch=useDispatch();
-    const {closeModal}=useModal();
 
-    useEffect(()=>{
-        const errors=[];
-        if(title.length < 1) errors.push('Title must be at least 1 character long');
+export default function EditListForm() {
+    const myList = useSelector(state => state.lists.singleList);
+    const [title, setTitle] = useState(myList.title);
+    const [errors, setErrors] = useState([]);
+
+    const dispatch = useDispatch();
+    const { closeModal } = useModal();
+
+    const updateTitle = (e) => setTitle(e.target.value);
+
+    useEffect(() => {
+        const errors = [];
+        if (title.length < 1) errors.push('Title must be at least 1 character long');
         setErrors(errors);
-    },[title])
+    }, [myList,title])
 
-    const handleSubmit=async(e,listId) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const payload={
+        const payload = {
             title
         }
 
-        await dispatch(editListThunk(listId, payload))
-            .then(()=>{
-                closeModal()
-            })
+        dispatch(editListThunk(myList.id, payload))
+            .then(() => closeModal())
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            });
     };
 
 
     return (
         <>
-            <div className='edit-form'>
-                <h1>Edit your list</h1>
+            <div className='edit-note-errors'>
+                <ul> {errors.map((error) => (
+                    <li key={error}>{error}</li>
+                ))}
+                </ul>
             </div>
-            <section className='edit-container'>
-                <div className='edit-errors'>
-                    <ul>{errors.map((error)=>(
-                        <li key={error}>{error}</li>
-                    ))}
-                    </ul>
-                </div>
-                <form className='edit-form-body' onSubmit={(e)=> handleSubmit(e,myList?.id)}>
-                    <textarea className='edit-form-input'
-                        type='text'
-                        placeholder={myList?.title}
+            <div className='note-title'>
+                <form className='edit-note-form-title' onSubmit={handleSubmit}>
+                    <input className='edit-note-title-input'
+                        type="text"
                         required
-                        value={updateTitle}
+                        value={title}
                         onChange={updateTitle}
                     />
-                    <button className='edit-form-button' type='submit'>Save</button>
+                    {title !== myList.title &&
+                        <>
+                            <button
+                                className='button form-button'
+                                type="submit"
+                            >Save</button>
+                            <button
+                                onClick={() => setTitle(myList.title)}
+                                className='button form-button'
+                                type="submit"
+                            >Cancel</button>
+                        </>
+                    }
                 </form>
-            </section>
+            </div>
         </>
-    );
+    )
+
 }

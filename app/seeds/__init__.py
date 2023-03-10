@@ -23,8 +23,8 @@ def seed():
         undo_notes()
         undo_notebooks()
         undo_users()
-        undo_lists();
-        undo_tasks();
+        undo_lists()
+        undo_tasks()
     seed_users()
     seed_notebooks()
     seed_notes()

@@ -20,112 +20,114 @@ def seed_tasks():
     task4 = Task(
         content="Buy groceries",
         list_id=1,
-         owner_id=1
+        owner_id=1
     )
     task5 = Task(
         content="Pay bills",
         list_id=1,
-         owner_id=1
+        owner_id=1
     )
     task6 = Task(
         content="Apples",
         list_id=2,
-         owner_id=2
+        owner_id=1
     )
     task7 = Task(
         content="Bananas",
         list_id=2,
-        owner_id=2
+        owner_id=1
     )
     task8 = Task(
         content="Bread",
         list_id=2,
-        owner_id=2
+        owner_id=1
     )
     task9 = Task(
         content="Cheese",
         list_id=2,
-        owner_id=2
+        owner_id=1
     )
 
     task10 = Task(
         content="Chicken",
         list_id=2,
-        owner_id=2
+        owner_id=1
     )
     task11 = Task(
         content="Pasta",
         list_id=2,
-        owner_id=2
+        owner_id=1
     )
     task12 = Task(
         content="Rice",
         list_id=3,
-        owner_id=3
+        owner_id=1
     )
     task13 = Task(
         content="Apples",
         list_id=3,
-        owner_id=3
+        owner_id=1
     )
     task14 = Task(
         content="Bananas",
         list_id=3,
-        owner_id=3
+        owner_id=1
     )
     task15 = Task(
         content="Bread",
         list_id=3,
-        owner_id=3
+        owner_id=1
     )
     task16 = Task(
         content="Cheese",
         list_id=3,
-        owner_id=3
+        owner_id=1
     )
     task17 = Task(
         content="Chicken",
         list_id=3,
-        owner_id=3
+        owner_id=1
     )
     task18 = Task(
         content="Pasta",
         list_id=3,
-        owner_id=3
+        owner_id=1
     )
     task19 = Task(
         content="Stairway to Heaven",
         list_id=4,
-        owner_id=4
+        owner_id=2
     )
     task20 = Task(
         content="The Immigrant Song",
         list_id=4,
-        owner_id=4
+        owner_id=2
     )
     task21 = Task(
         content="Enter Sandman",
         list_id=4,
-        owner_id=4
+        owner_id=2
     )
     task22 = Task(
         content="Highway Tune",
         list_id=4,
-        owner_id=4
+        owner_id=2
     )
     task23 = Task(
         content="Dreams",
         list_id=4,
-        owner_id=4
+        owner_id=2
     )
     task24 = Task(
         content="Rhiannon",
         list_id=3,
-        owner_id=4
+        owner_id=1
     )
 
-    db.session.add_all(['task1', 'task2', 'task3', 'task4', 'task5', 'task6', 'task7', 'task8', 'task9', 'task10', 'task11', 'task12', 'task13', 'task14', 'task15', 'task16', 'task17', 'task18', 'task19', 'task20', 'task21', 'task22', 'task23', 'task24']
-                       )
+    db.session.add_all([task1, task2, task3, task4, task5, task6, task7, task8, task9, task10, task11, task12, task13, task14, task15, task16, task17, task18, task19, task20, task21, task22, task23, task24])
+
+    # db.session.add_all(['task1', 'task2', 'task3', 'task4', 'task5', 'task6', 'task7', 'task8', 'task9', 'task10', 'task11', 'task12', 'task13', 'task14', 'task15', 'task16', 'task17', 'task18', 'task19', 'task20', 'task21', 'task22', 'task23', 'task24']
+    #                    )
 
     db.session.commit()
 

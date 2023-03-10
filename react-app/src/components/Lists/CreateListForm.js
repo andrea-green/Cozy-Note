@@ -1,32 +1,33 @@
-import React, {useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addListThunk } from '../../store/list';
+import { useModal } from '../../context/Modal';
 
-export default function CreateListForm(){
+export default function CreateListForm() {
     const dispatch = useDispatch();
 
-    const [title,setTitle] = useState('');
+    const [title, setTitle] = useState('');
     const enterTitle = (e) => setTitle(e.target.value);
 
-    const [errors,setErrors] = useState([]);
-    const {closeModal} = useModal();
+    const [errors, setErrors] = useState([]);
+    const { closeModal } = useModal();
 
-    useEffect(()=>{
-        const errors=[];
-        if(title.length < 1) errors.push('Title must be at least 1 character long');
+    useEffect(() => {
+        const errors = [];
+        if (title.length < 1) errors.push('Title must be at least 1 character long');
         setErrors(errors);
-    },[title])
+    }, [title])
 
-    const handleSubmit = async(e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = {
             title
         }
 
         await dispatch(addListThunk(payload))
-        .then(()=>{
-            closeModal()
-        })
+            .then(() => {
+                closeModal()
+            })
     };
     return (
         <div className='create-list-main'>
@@ -35,7 +36,7 @@ export default function CreateListForm(){
             </div>
 
             <section className='form-container'>
-                <ul>{errors.map((error)=> (
+                <ul>{errors.map((error) => (
                     <li key={error}>{error}</li>
                 ))}</ul>
                 <form className='form-body' onSubmit={handleSubmit}>
@@ -47,8 +48,8 @@ export default function CreateListForm(){
                         onChange={enterTitle}
                     />
                     <button
-                    classNamae='button form-button'
-                    type='submit'
+                        className='button form-button'
+                        type='submit'
                     >Submit</button>
                 </form>
             </section>
