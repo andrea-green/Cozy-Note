@@ -156,8 +156,10 @@
     overflow-y: scroll;
     background-color: #b8c4b5;
     height: 40vh;
-    padding: 2%;
+    padding: 10px;
     overflow-y: scroll;
+    background-color: #b8c4b5;
+    font-size: 30px;
   }
 
 th, td {
@@ -309,6 +311,7 @@ th, td {
     color: white;
 }
 
+
 .notebooks-list{
     width:45vw;
     margin-left:1rem;
@@ -373,3 +376,4 @@ th, td {
     background-color: #99A67F;
     color: white;
 }
+
