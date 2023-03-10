@@ -56,7 +56,7 @@ export const getAllTasksThunk = (listId) => async(dispatch) =>{
 
 
 export const getTaskThunk = (taskId) => async(dispatch) =>{
-    const response = await fetch(`api/tasks/${taskId}`,{
+    const response = await fetch(`/api/tasks/${taskId}`,{
         headers:{
             'Content-Type':'application/json'
         }

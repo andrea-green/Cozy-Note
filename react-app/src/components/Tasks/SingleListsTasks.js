@@ -29,13 +29,13 @@ export default function SingleListsTasks() {
         <div>
             <div className='lists-tasks'>
                 {myListTasksArr.map((task) => (
-                    <div style={{ display: 'flex', flexDirection: 'row' }}>
-                        <div className='single-task-container' key={task.id}>
+                    <div style={{ display: 'flex', flexDirection: 'row' }} key={task.id}>
+                        <div className='single-task-container'>
                             <EditTask task={task} />
                         </div>
                         <div style={{marginTop:'2rem',marginLeft:'1rem'}}>
                             <IconModal
-                                modalComponent={<DeleteTaskForm listId={listId} />}
+                                modalComponent={<DeleteTaskForm task={task} />}
                                 faIcon="fa-solid fa-trash-can"
                             />
                         </div>

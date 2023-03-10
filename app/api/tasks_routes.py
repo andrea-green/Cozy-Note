@@ -63,7 +63,7 @@ def update_task(task_id):
 
 
 # delete task
-@tasks_routes.route('/<int:task_id>', methods=['PUT'])
+@tasks_routes.route('/<int:task_id>', methods=['DELETE'])
 @login_required
 def delete_task(task_id):
     task = Task.query.get(task_id)
