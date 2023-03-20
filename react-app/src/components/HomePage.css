@@ -160,6 +160,7 @@
     overflow-y: scroll;
     background-color: #b8c4b5;
     font-size: 30px;
+    margin-left: 1rem;
   }
 
 th, td {
@@ -376,4 +377,3 @@ th, td {
     background-color: #99A67F;
     color: white;
 }
-

@@ -17,23 +17,24 @@ export default function SingleList() {
     const { listId } = useParams();
 
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getSingleListThunk(listId))
-    },[dispatch,listId])
+    }, [dispatch, listId])
 
     if (!myList.title) return null;
 
     return (
-        <div className='single-list-idx-main'>
+        <div className='single-list-idx-main' style={{ marginLeft: '1rem' }}>
             <div className='edit-list-idx'>
                 <EditListForm />
             </div>
-
-            <IconModal
-                modalComponent={<DeleteListForm />}
-                faIcon="fa-regular fa-trash-can "
-                style={{ color:"red" }}
-            />
+            <div style={{marginTop:'1rem'}}>
+                <IconModal
+                    modalComponent={<DeleteListForm />}
+                    faIcon="fa-regular fa-trash-can "
+                    style={{ color: "red" }}
+                />
+            </div>
 
             {/* <div className='delete-list-idx'>
                 <DeleteListForm/>

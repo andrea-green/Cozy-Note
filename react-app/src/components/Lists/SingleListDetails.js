@@ -29,7 +29,7 @@ export default function SingleListDetails() {
 
     return (
         <div className='single-list-details-main'>
-            <div className='create-task'>
+            <div className='create-task' style={{marginTop:'1rem'}}>
                 <IconModal
                     modalComponent={<CreateTaskForm listId={listId}/>}
                     faIcon="fa-solid fa-book-medical"

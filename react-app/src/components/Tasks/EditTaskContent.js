@@ -12,7 +12,7 @@ export default function EditTask({ task }) {
     const [content, setContent] = useState(task.content);
     const updateTask = (e) => setContent(e.target.value);
     const [errors, setErrors] = useState([]);
-    const [isCompleted,setIsCompleted] = useState(task.is_completed)
+    const [isCompleted, setIsCompleted] = useState(task.is_completed)
     const [loaded, setLoaded] = useState(false)
 
 
@@ -23,16 +23,16 @@ export default function EditTask({ task }) {
         setErrors(errors);
     }, [content])
 
-    useEffect(()=> {
-        if (loaded){
+    useEffect(() => {
+        if (loaded) {
             const payload = {
                 content,
-                is_completed:isCompleted
+                is_completed: isCompleted
             }
 
             dispatch(editTaskThunk(task.id, payload))
         } else setLoaded(true)
-    },[dispatch, isCompleted])
+    }, [dispatch, isCompleted])
 
 
     const handleSubmit = async (e) => {
@@ -40,7 +40,7 @@ export default function EditTask({ task }) {
 
         const payload = {
             content,
-            is_completed:isCompleted
+            is_completed: isCompleted
         }
 
         await dispatch(editTaskThunk(task.id, payload))
@@ -51,8 +51,8 @@ export default function EditTask({ task }) {
             });
     }
 
-    const taskCompletion = (e) =>{
-       setIsCompleted(!isCompleted)
+    const taskCompletion = (e) => {
+        setIsCompleted(!isCompleted)
     }
 
 
@@ -69,9 +69,10 @@ export default function EditTask({ task }) {
                     <input
                         type='checkbox'
                         checked={isCompleted}
-                        style={{ cursor: 'pointer' }}
+                        style={{ cursor: 'pointer', width: '30px', height: '30px', marginRight:'0.5rem'}}
                         onChange={taskCompletion}
                     />
+
                     <input className='edit-task-input'
                         type="text"
                         required

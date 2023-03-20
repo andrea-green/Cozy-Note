@@ -53,7 +53,7 @@ export default function AllNotebooks() {
     }, [myNotes])
 
     return (
-        <div className="notebook-table" style={{border:'1px solid black', borderRadius:'10px'}}>
+        <div className="notebook-table" style={{border:'1px solid black', borderRadius:'10px', width:'fit-content',height:'fit-content'}}>
             <div className='create-new-ntbk' style={{ height: '18vh', display: 'flex', paddingTop: '2rem' }}>
                 <img src={headerPic} alt='header' style={{ height: '30vh', width: '15vw', marginTop: '0px', paddingRight: '6rem' }} />
                 <IconModal
