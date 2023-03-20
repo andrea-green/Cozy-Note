@@ -51,10 +51,9 @@ function Body() {
 
     return (
         <div style={{display:'flex', flexDirection:'row',alignItems:'center'}}>
-            <div>
+            <div style={{width:'fit-content'}}>
                 {/* notes container  */}
                 <AllNotes />
-
                 {/* notebooks container  */}
                 <div className='notebooks-container'>
                     <div className="notebooks-list" >

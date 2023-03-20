@@ -28,8 +28,8 @@ const NavBar = () => {
         </li>
         {!user ? (
           <div>
-            <button className='nav-button' >
-              <NavLink to='/login' exact={true} activeClassName='active'>
+            <button className='nav-button'>
+              <NavLink to='/login' exact={true} activeClassName='active' style={{color: '#6C8C7D'}} >
                 Login
               </NavLink>
             </button>
@@ -37,8 +37,8 @@ const NavBar = () => {
             <div >
               <DemoUser />
             </div>
-            <button className='nav-button' >
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
+            <button className='nav-button'>
+              <NavLink to='/sign-up' exact={true} activeClassName='active' style={{color: '#6C8C7D'}} >
                 SignUp
               </NavLink>
             </button>

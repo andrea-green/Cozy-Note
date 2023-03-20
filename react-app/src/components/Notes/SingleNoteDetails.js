@@ -40,7 +40,7 @@ export default function SingleNoteDetails() {
                 <NotebookDropDown />
             </div>
             <div style={{
-                display:'flex', justifyContent:'flex-end',marginTop:'-10rem', marginBottom:'-6rem'
+                display:'flex', justifyContent:'flex-end',marginTop:'-8rem', marginBottom:'-6rem'
             }}>
                 <img src={rabbit} alt="" className='rabbit' />
             </div>
