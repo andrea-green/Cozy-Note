@@ -211,7 +211,7 @@ th, td {
 }
 
 .edit-note-title-input{
-    width: auto;
+    width: 20vw;
     height: 40px;
     border-radius: 10px;
     padding-top: 0;
@@ -219,6 +219,7 @@ th, td {
     font-weight: bolder;
     background-color: #99A67F;
     color: white;
+    overflow: auto;
 }
 
 .edit-delete-buttons{
