@@ -38,8 +38,13 @@ export default function CreateNotebookForm() {
     };
     return (
         <div>
-            <div className="form-header">
+            <div className="form-header" style={{display:'flex',justifyContent:'space-between'}}>
                 <h1>New Notebook</h1>
+                <button
+                    type='submit'
+                    onClick={closeModal}
+                    style={{cursor:'pointer',marginTop:'1rem',height:'fit-content'}}
+                > X </button>
             </div>
 
             <section className='form-container'>
