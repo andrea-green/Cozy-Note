@@ -10,6 +10,7 @@ import IconModal from "../IconModal/IconModal";
 import OpenModalButton from "../OpenModalButton";
 import CreateNotebookForm from "./CreateNotebookForm";
 import headerPic from '../images/my-notebooks-graphic.png'
+import notebookFiller from '../images/notebook-filler.png'
 
 export default function AllNotebooks() {
     const dispatch = useDispatch();
@@ -53,7 +54,7 @@ export default function AllNotebooks() {
     }, [myNotes])
 
     return (
-        <div className="notebook-table" style={{border:'1px solid black', borderRadius:'10px', width:'fit-content'}}>
+        <div className="notebook-table" style={{ border: '1px solid black', borderRadius: '10px', width: 'fit-content' }}>
             <div className='create-new-ntbk' style={{ height: '18vh', display: 'flex', paddingTop: '2rem' }}>
                 <img src={headerPic} alt='header' style={{ height: '30vh', width: '15vw', marginTop: '0px', paddingRight: '6rem' }} />
                 <IconModal
@@ -62,74 +63,84 @@ export default function AllNotebooks() {
 
                 />
             </div>
-            <div>
-
-            </div>
-            <table style={{marginTop:'-4rem'}}>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th>TITLE</th>
-                        <th>CREATED BY</th>
-                        <th>UPDATED </th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {myNotebooksArr.map((notebook, index) => (
-                        <React.Fragment key={notebook.id}>
+            {!myNotebooksArr.length
+                ? (
+                    <div>
+                        <img src={notebookFiller} alt='img' style={{
+                            height: '16rem',
+                            width: 'auto',
+                            marginTop:'-6rem'}} />
+                    </div>
+                )
+                : (
+                    <table style={{ marginTop: '-4rem' }}>
+                        <thead>
                             <tr>
-                                <td onClick={() => toggle(index, notebook.id)} style={{ cursor: "pointer" }}>
-                                    {activeIndex.includes(index) ?
-                                        <i className="fa-solid fa-angles-down"></i>
-                                        : <i className="fa-solid fa-angles-right"></i>}
-                                </td>
-                                <td>
-                                    <i className="fa-solid fa-book-bookmark">{notebook.title}</i>
-                                </td>
-
-                                <td>{notebook.name}</td>
-                                <td>{user.username}</td>
-                                <td>{notebook.updated_at}</td>
-                                <td style={{display:'flex', justifyContent:'space-around'}}>
-                                    <OpenModalButton
-                                        modalComponent={<EditNotebookForm myNotebook={notebook} />}
-                                        faIcon={<i className="fa-regular fa-pen-to-square" style={{ cursor: "pointer" }} />}
-                                        tr={true}
-
-                                    />
-                                    <OpenModalButton
-                                        modalComponent={<DeleteNotebookForm myNotebook={notebook} />}
-                                        faIcon={<i className="fa-regular fa-trash-can" style={{ cursor: "pointer" }} />}
-                                        tr={true}
-
-                                    />
-                                </td>
+                                <th></th>
+                                <th></th>
+                                <th>TITLE</th>
+                                <th>CREATED BY</th>
+                                <th>UPDATED </th>
+                                <th>ACTIONS</th>
                             </tr>
-                            {activeIndex.includes(index) &&
+                        </thead>
+                        <tbody>
+                            {myNotebooksArr.map((notebook, index) => (
+                                <React.Fragment key={notebook.id}>
+                                    <tr>
+                                        <td onClick={() => toggle(index, notebook.id)} style={{ cursor: "pointer" }}>
+                                            {activeIndex.includes(index) ?
+                                                <i className="fa-solid fa-angles-down"></i>
+                                                : <i className="fa-solid fa-angles-right"></i>}
+                                        </td>
+                                        <td>
+                                            <i className="fa-solid fa-book-bookmark">{notebook.title}</i>
+                                        </td>
 
-                                <tr>
-                                    <td colSpan={4}>
-                                        <table>
-                                            <tbody>
-                                                {notebook.notes?.map((note) => (
-                                                    <tr key={note.id}>
-                                                        <td onClick={() => history.push(`/notes/${note.id}`)} style={{ cursor: 'pointer' }}>
-                                                            {note.title}
-                                                        </td>
-                                                        <td>{note.updated_at}</td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            }
-                        </React.Fragment>
-                    ))}
-                </tbody>
-            </table>
+                                        <td>{notebook.name}</td>
+                                        <td>{user.username}</td>
+                                        <td>{notebook.updated_at}</td>
+                                        <td style={{ display: 'flex', justifyContent: 'space-around' }}>
+                                            <OpenModalButton
+                                                modalComponent={<EditNotebookForm myNotebook={notebook} />}
+                                                faIcon={<i className="fa-regular fa-pen-to-square" style={{ cursor: "pointer" }} />}
+                                                tr={true}
+
+                                            />
+                                            <OpenModalButton
+                                                modalComponent={<DeleteNotebookForm myNotebook={notebook} />}
+                                                faIcon={<i className="fa-regular fa-trash-can" style={{ cursor: "pointer" }} />}
+                                                tr={true}
+
+                                            />
+                                        </td>
+                                    </tr>
+                                    {activeIndex.includes(index) &&
+
+                                        <tr>
+                                            <td colSpan={4}>
+                                                <table>
+                                                    <tbody>
+                                                        {notebook.notes?.map((note) => (
+                                                            <tr key={note.id}>
+                                                                <td onClick={() => history.push(`/notes/${note.id}`)} style={{ cursor: 'pointer' }}>
+                                                                    {note.title}
+                                                                </td>
+                                                                <td>{note.updated_at}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    }
+                                </React.Fragment>
+                            ))}
+                        </tbody>
+                    </table>
+                )
+            }
+
         </div >
     );
 }
