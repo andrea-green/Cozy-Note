@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllListsThunk, getSingleListThunk } from "../../store/list";
@@ -8,7 +8,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import listHeader from '../images/my-lists-graphic.svg';
-
+import listFiller from '../images/list-filler.gif'
 
 //set up icon  modal for create list form
 
@@ -59,6 +59,7 @@ export default function AllLists() {
     }, [myLists])
 
 
+
     return (
         <div className='all-lists-main-container'>
             <div className='my-to-do-header'>
@@ -70,31 +71,37 @@ export default function AllLists() {
                     />
                 </div>
             </div>
+            {!myListsArr.length
+                ? (
+                    <div>
+                        <img src={listFiller} alt='image' style={{
+                            height: 'auto',
+                            width: '100%',
+                            marginTop: '-2rem'
+                        }} />
+                    </div>
+                )
 
-            <div className='list-content'>
-                <Slider {...settings} >
-                    {myListsArr.map((list) => (
-                        <div
-                            className='list-card'
-                            key={list.id}
-                            onClick={() => handleSubmit(list.id)}
-                        >
-                            <div  style={{ cursor: 'pointer' }}>
-                                <h3>{list.title}</h3>
+                : (
+                            <div className='list-content'>
+                                <Slider {...settings} >
+                                    {myListsArr.map((list) => (
+                                        <div
+                                            className='list-card'
+                                            key={list.id}
+                                            onClick={() => handleSubmit(list.id)}
+                                        >
+                                            <div style={{ cursor: 'pointer' }}>
+                                                <h3>{list.title}</h3>
+                                            </div>
+                                            <div>
+                                                <span>{list.created_at}</span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </Slider>
                             </div>
-                            {/* <div>
-                                <ul>
-                                basically need to display my tasks associated w/ list here.
-                                    <li>{task}</li>
-                                </ul>
-                            </div> */}
-                            <div>
-                                <span>{list.created_at}</span>
-                            </div>
-                        </div>
-                    ))}
-                </Slider>
-            </div>
+                )}
         </div>
     );
 }

@@ -21,11 +21,6 @@ export default function SingleListDetails() {
     const listTasks = myTasksArr.filter(task => task.list_id == myListArr?.id)
 
 
-    useEffect(() => {
-        dispatch(getSingleListThunk(listId))
-        dispatch(getAllTasksThunk(listId))
-    }, [dispatch, listId,]);
-
 
     return (
         <div className='single-list-details-main'>

@@ -9,16 +9,20 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getSingleListThunk } from "../../store/list";
+import { getAllTasksThunk } from "../../store/task";
 
 
 export default function SingleList() {
     const myList = useSelector(state => state.lists.singleList);
+    // const myListTasks = useSelector(state => state.tasks.allTasks.byId);
     const dispatch = useDispatch();
     const { listId } = useParams();
+    console.log('myList', myList)
 
 
     useEffect(() => {
         dispatch(getSingleListThunk(listId))
+        dispatch(getAllTasksThunk(listId))
     }, [dispatch, listId])
 
     if (!myList.title) return null;
@@ -30,7 +34,7 @@ export default function SingleList() {
             </div>
             <div style={{marginTop:'1rem'}}>
                 <IconModal
-                    modalComponent={<DeleteListForm />}
+                    modalComponent={<DeleteListForm/>}
                     faIcon="fa-regular fa-trash-can "
                     style={{ color: "red" }}
                 />
