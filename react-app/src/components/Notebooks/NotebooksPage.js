@@ -11,7 +11,7 @@ import OpenModalButton from "../OpenModalButton";
 import CreateNotebookForm from "./CreateNotebookForm";
 import headerPic from '../images/my-notebooks-graphic.png'
 
-export default function AllNotebooks() {
+export default function AllNotebooks2() {
     const dispatch = useDispatch();
 
     const history = useHistory();
@@ -53,7 +53,7 @@ export default function AllNotebooks() {
     }, [myNotes])
 
     return (
-        <div className="notebook-table" style={{border:'1px solid black', borderRadius:'10px', width:'fit-content'}}>
+        <div className="notebook-table" style={{border:'1px solid black', borderRadius:'10px', width:'fit-content',height:'100vh'}}>
             <div className='create-new-ntbk' style={{ height: '18vh', display: 'flex', paddingTop: '2rem' }}>
                 <img src={headerPic} alt='header' style={{ height: '30vh', width: '15vw', marginTop: '0px', paddingRight: '6rem' }} />
                 <IconModal
@@ -65,7 +65,7 @@ export default function AllNotebooks() {
             <div>
 
             </div>
-            <table style={{marginTop:'-4rem'}}>
+            <table>
                 <thead>
                     <tr>
                         <th></th>

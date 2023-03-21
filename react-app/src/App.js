@@ -16,6 +16,7 @@ import AllNotebooks from './components/Notebooks/AllNotebooks';
 import LandingPage from './components/LandingPage'
 import AllLists from './components/Lists/AllLists'
 import SingleList from './components/Lists'
+import AllNotebooks2 from './components/Notebooks/NotebooksPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,7 +54,7 @@ function App() {
           <AllNotes />
         </ProtectedRoute>
         <ProtectedRoute path='/notebooks' exact={true}>
-          <AllNotebooks />
+          <AllNotebooks2 />
         </ProtectedRoute>
         <ProtectedRoute path='/notes/:noteId'>
           <SingleNote />
