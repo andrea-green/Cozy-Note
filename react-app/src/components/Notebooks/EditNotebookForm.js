@@ -45,7 +45,7 @@ export default function EditNotebookForm({ myNotebook }) {
                     </ul>
                 </div>
 
-                <form className='edit-form-body' onSubmit={(e) => handleSubmit(e, myNotebook?.id)}>
+                <form className='edit-form-body' onSubmit={(e) => handleSubmit(e, myNotebook?.id)} style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
                     <textarea className='edit-form-input'
                         type="text"
                         placeholder={myNotebook?.name}
@@ -53,7 +53,7 @@ export default function EditNotebookForm({ myNotebook }) {
                         value={name}
                         onChange={updateName}
                     />
-                    <button className='edit-form-button' type="submit">Save</button>
+                    <button className='edit-form-button' type="submit" style={{marginTop:'0.5rem'}}>Save</button>
                 </form>
             </section>
         </>

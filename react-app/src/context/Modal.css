@@ -30,7 +30,8 @@
     width: 20%;
     z-index: 9999;
     overflow-y: scroll;
-    height: 60%;
+    height: fit-content;
+    padding-bottom: 1rem;
   }
 
   .form-header h1{

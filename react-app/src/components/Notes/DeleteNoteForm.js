@@ -70,8 +70,6 @@ export default function DeleteNoteForm() {
                     >Confirm</button>
                 </form>
             </section>
-
-
         </div>
 
     );
