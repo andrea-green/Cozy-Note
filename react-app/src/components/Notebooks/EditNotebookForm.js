@@ -34,8 +34,13 @@ export default function EditNotebookForm({ myNotebook }) {
 
     return (
         <>
-            <div className='edit-form'>
+            <div className='edit-form' style={{display:'flex',justifyContent:'space-between'}}>
                 <h1>Edit your notebook</h1>
+                <button
+                    type='submit'
+                    onClick={closeModal}
+                    style={{cursor:'pointer',marginTop:'1rem',height:'fit-content'}}
+                > X </button>
             </div>
             <section className='edit-container'>
                 <div className='edit-errors'>
@@ -52,6 +57,7 @@ export default function EditNotebookForm({ myNotebook }) {
                         required
                         value={name}
                         onChange={updateName}
+                        
                     />
                     <button className='edit-form-button' type="submit" style={{marginTop:'0.5rem'}}>Save</button>
                 </form>
