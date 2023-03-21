@@ -26,8 +26,13 @@ export default function DeleteNoteForm() {
     }
     return (
         <div>
-            <div className='form-header'>
+            <div className='form-header' style={{display:'flex',justifyContent:'space-between'}}>
                 <h1>Are you sure you want to delete this note?</h1>
+                <button
+                    type='submit'
+                    onClick={closeModal}
+                    style={{cursor:'pointer',marginTop:'1rem',height:'fit-content'}}
+                > X </button>
             </div>
             <section className='form-body-container'>
                 <div className='delete-errors'>
@@ -44,7 +49,8 @@ export default function DeleteNoteForm() {
                             required
                             checked={boolean ? false : true}
                             onChange={falseBoolean}
-                        />
+                            style={{cursor:'pointer'}}
+                            />
                     </label>
                     <label>
                         Yes
@@ -53,12 +59,14 @@ export default function DeleteNoteForm() {
                             required
                             checked={boolean}
                             onChange={trueBoolean}
-                        />
+                            style={{cursor:'pointer'}}
+                            />
                     </label>
                     <button
                         className='button form-button'
                         type="submit"
                         disabled={!boolean}
+                        style={{cursor:'pointer'}}
                     >Confirm</button>
                 </form>
             </section>
