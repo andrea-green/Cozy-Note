@@ -30,8 +30,13 @@ export default function DeleteListForm({myList}) {
 
     return (
         <div>
-            <div className='form-header'>
+            <div className='form-header' style={{display:'flex',justifyContent:'space-between'}}>
                 <h1>Are you sure you want to delete this list?</h1>
+                <button
+                    type='submit'
+                    onClick={closeModal}
+                    style={{cursor:'pointer',marginTop:'1rem',height:'fit-content'}}
+                > X </button>
             </div>
             <section className='form-body-container'>
                 <div className='delete-errors'>
@@ -48,6 +53,7 @@ export default function DeleteListForm({myList}) {
                             required
                             checked={boolean ? false : true}
                             onChange={falseBoolean}
+                            style={{cursor:'pointer'}}
                         />
                     </label>
                     <label>
@@ -57,6 +63,7 @@ export default function DeleteListForm({myList}) {
                             required
                             checked={boolean}
                             onChange={trueBoolean}
+                            style={{cursor:'pointer'}}
                         />
                     </label>
                     <button

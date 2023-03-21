@@ -31,8 +31,13 @@ export default function CreateListForm() {
     };
     return (
         <div className='create-list-main'>
-            <div className='form-header'>
+            <div className='form-header' style={{display:'flex',justifyContent:'space-between'}}>
                 <h1>New List</h1>
+                <button
+                    type='submit'
+                    onClick={closeModal}
+                    style={{cursor:'pointer',marginTop:'1rem',height:'fit-content'}}
+                > X </button>
             </div>
 
             <section className='form-container'>
