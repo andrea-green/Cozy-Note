@@ -23,7 +23,7 @@ export default function SingleNote() {
 
     return loaded && (
         <>
-            <div style={{ padding: "11px", overflow: "auto" }}>
+            <div style={{ padding: "11px", overflow: "auto",display:'flex' }}>
                 <AllNotes />
             </div>
             <div className="single-note-details">

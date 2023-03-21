@@ -157,7 +157,6 @@
     background-color: #b8c4b5;
     height: 40vh;
     padding: 10px;
-    overflow-y: scroll;
     background-color: #b8c4b5;
     font-size: 30px;
     margin-left: 1rem;
@@ -240,7 +239,7 @@ th, td {
 
 .edit-note-container{
     text-align: center;
-    margin-top: -6rem;
+    margin-top: -8rem;
 }
 
 .edit-note-form-text{
@@ -266,14 +265,16 @@ th, td {
 }
 .ql-editor p{
     font-size: 30px;
+    height: 80%;
 }
 
 .ql-container.ql-snow{
     font-family: Helvetica, Arial, sans-serif;
     font-size: 13px;
-    height: 93%;
+    height: 80%;
     margin: 0px;
     position: relative;
+    border: none;
 }
 
 .login-form-main button{
