@@ -39,8 +39,13 @@ export default function CreateTaskForm({listId}) {
 
     return (
         <div>
-            <div className="form-header">
+            <div className="form-header" style={{display:'flex',justifyContent:'space-between'}}>
                 <h1>New task</h1>
+                <button
+                    type='submit'
+                    onClick={closeModal}
+                    style={{cursor:'pointer',marginTop:'1rem',height:'fit-content'}}
+                > X </button>
             </div>
 
             <section className='form-container'>
@@ -54,7 +59,7 @@ export default function CreateTaskForm({listId}) {
                         required
                         value={content}
                         onChange={enterContent}
-                        style={{fontSize:"30px"}}
+                        style={{fontSize:"30px",cursor:'pointer'}}
                     />
                     <button
                         className='button form-button'
