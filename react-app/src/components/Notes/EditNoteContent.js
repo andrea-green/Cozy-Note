@@ -34,7 +34,6 @@ export default function EditNoteContent() {
             content,
             notebookId,
         };
-        console.log('payload',payload)
 
         dispatch(editNoteThunk(myNote.id, payload))
             .then(() => closeModal())
@@ -46,48 +45,50 @@ export default function EditNoteContent() {
 
 
     return (
-        <div className='edit-note-container'>
-            <div className='edit-note-errors'>
-                <ul> {errors.map((error) => (
-                    <li key={error}>{error}</li>
-                ))}
-                </ul>
-            </div>
+        <>
+            <div className='edit-note-container'>
+                <div className='edit-note-errors'>
+                    <ul> {errors.map((error) => (
+                        <li key={error}>{error}</li>
+                    ))}
+                    </ul>
+                </div>
 
-            <div className='note-body'>
-                <div>
-                    <form className='edit-note-form-body' style={{height:'50vh'}}onSubmit={handleSubmit}>
-                        <ReactQuill
-                            className='react-quill'
-                            value={content}
-                            onChange={updateContent}
-                            modules={{
-                                toolbar: [
-                                    [{ header: [1, 2, 3, false] }],
-                                    ['bold', 'italic', 'underline', 'strike'],
-                                    [{ list: 'ordered' }, { list: 'bullet' }],
-                                    [{ color: [] }, { background: [] }],
-                                    ['clean'],
-                                ],
-                            }}
-                            ref={quillRef}
-                        />
-                        {content !== myNote.content &&
-                            <>
-                                <button
-                                    className='button form-button'
-                                    type="submit"
-                                >Submit</button>
-                                <button
-                                    onClick={() => setContent(myNote.content)}
-                                    className='button form-button'
-                                    type="submit"
-                                >Cancel</button>
-                            </>
-                        }
-                    </form>
+                <div className='note-body'>
+                    <div>
+                        <form className='edit-note-form-body' style={{ height: '50vh' }} onSubmit={handleSubmit}>
+                            <ReactQuill
+                                className='react-quill'
+                                value={content}
+                                onChange={updateContent}
+                                modules={{
+                                    toolbar: [
+                                        [{ header: [1, 2, 3, false] }],
+                                        ['bold', 'italic', 'underline', 'strike'],
+                                        [{ list: 'ordered' }, { list: 'bullet' }],
+                                        [{ color: [] }, { background: [] }],
+                                        ['clean'],
+                                    ],
+                                }}
+                                ref={quillRef}
+                            />
+                            {content !== myNote.content &&
+                                <>
+                                    <button
+                                        className='button form-button'
+                                        type="submit"
+                                    >Submit</button>
+                                    <button
+                                        onClick={() => setContent(myNote.content)}
+                                        className='button form-button'
+                                        type="submit"
+                                    >Cancel</button>
+                                </>
+                            }
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
