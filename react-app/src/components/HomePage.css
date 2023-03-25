@@ -6,6 +6,12 @@
 
 }
 
+.personal-links {
+    margin-top: -3rem;
+    position: absolute;
+    z-index: auto;
+}
+
 /* .nav-button{
     font-size: 40px;
     height: 80px;

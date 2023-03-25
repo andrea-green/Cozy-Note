@@ -21,12 +21,25 @@ const NavBar = () => {
           <NavLink to='/home' exact={true} activeClassName='active'>
             <img src={logo} alt='logo' />
           </NavLink>
+          <div className='personal-links'>
+                <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>
+                  <i class="fa-brands fa-github fa-3x" style={{
+                    color: "#b05217", marginLeft: "20px", marginRight: "20px"
+                  }}></i>
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/andrea-green-201146245/'>
+                  <i class="fa-brands fa-linkedin fa-3x" style={{
+                    color: "#b05217", marginLeft: "20px", marginRight: "20px"
+                  }}></i>
+                </a>
+              </div>
         </li>
         {!user ? (
           <div>
             <li className='home-button'>
               <NavLink to='/login' exact={true} activeClassName='active'>
-                <img src={login} alt='login' />
+                {/* <img src={login} alt='login' /> */}
+                <h1>hello</h1>
               </NavLink>
             </li>
             <div >
@@ -43,7 +56,7 @@ const NavBar = () => {
                   Project Repo
                 </button>
               </a>
-              <div className='personal-links'>
+              {/* <div className='personal-links'>
                 <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>
                   <i class="fa-brands fa-github fa-3x" style={{
                     color: "#b05217", marginLeft: "20px", marginRight: "20px"
@@ -54,7 +67,7 @@ const NavBar = () => {
                     color: "#b05217", marginLeft: "20px", marginRight: "20px"
                   }}></i>
                 </a>
-              </div>
+              </div> */}
 
             </div>
 
