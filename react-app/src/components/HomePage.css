@@ -35,6 +35,14 @@
     position: absolute;
     z-index: 1;
 }
+.lists-nav-button img{
+    margin-top: 10rem;
+    height: 25vh;
+    width: 12vw;
+    margin-left: 0rem;
+    position: absolute;
+    z-index: 1;
+}
 
 /* .nav-button{
     font-size: 40px;
@@ -56,13 +64,14 @@
     background-color: #b8c4b5;
 
 } */
-/* .logout-button{
-    height: 280px;
-    width: 200px;
+.logout-button img{
+    height: 15vh;
+    width: 8vw;
+    margin-top: 17rem;
+    margin-left: 1.5rem;
     position: absolute;
-
     cursor: pointer;
-} */
+}
 
 
 

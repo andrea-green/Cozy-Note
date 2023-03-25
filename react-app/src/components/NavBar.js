@@ -14,6 +14,9 @@ import notesHead from './graphics/header1.png'
 import nbHead from './graphics/header2.png'
 import listHead from './graphics/header3.png'
 
+import LogoutButton from './auth/LogoutButton';
+
+
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
 
@@ -25,19 +28,19 @@ const NavBar = () => {
             <img src={logo} alt='logo' />
           </NavLink>
           <div className='personal-links'>
-                <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>
-                  <i class="fa-brands fa-github fa-3x"></i>
-                </a>
-                <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/andrea-green-201146245/'>
-                  <i class="fa-brands fa-linkedin fa-3x"></i>
-                </a>
-              </div>
+            <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>
+              <i class="fa-brands fa-github fa-3x"></i>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/andrea-green-201146245/'>
+              <i class="fa-brands fa-linkedin fa-3x"></i>
+            </a>
+          </div>
         </li>
         {!user ? (
           <div>
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                <img src={login} alt='login' />
-              </NavLink>
+            <NavLink to='/login' exact={true} activeClassName='active'>
+              <img src={login} alt='login' />
+            </NavLink>
             <li className='home-button'>
               <NavLink to='/sign-up' exact={true} activeClassName='active' >
                 <img src={signup} alt='login' />
@@ -69,13 +72,21 @@ const NavBar = () => {
           <div>
             <li className='notes-nav-button' >
               <NavLink to='/notes' exact={true} activeClassName='active'>
-                <img src={notesHead} alt='notes'  />
+                <img src={notesHead} alt='notes' />
               </NavLink>
             </li>
             <li className='notebook-nav-button' >
               <NavLink to='/notebooks' exact={true} activeClassName='active'>
-                <img src={nbHead} alt='notes' />
+                <img src={nbHead} alt='notebooks' />
               </NavLink>
+            </li>
+            <li className='lists-nav-button' >
+              <NavLink to='/lists' exact={true} activeClassName='active'>
+                <img src={listHead} alt='lists' />
+              </NavLink>
+            </li>
+            <li>
+              <LogoutButton />
             </li>
           </div>
         )}

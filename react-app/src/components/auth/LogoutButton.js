@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
-import logoutButton from '../images/logout-button.png'
+import logoutButton from '../graphics/logout.png'
 import "../HomePage.css"
 
 const LogoutButton = () => {
@@ -11,12 +11,11 @@ const LogoutButton = () => {
   };
   return (
     <div>
-      <div className='logout-button' onClick={onLogout} style={{marginTop:"28px"}}>
-        <img src={logoutButton} alt='logout' style={{ height: "280px", width: "200px" }} />
+      <div className='logout-button' onClick={onLogout} >
+        <img src={logoutButton} alt='logout'  />
       </div>
     </div>
   )
-  // return <button className='logout-button' onClick={onLogout}>Logout</button>;
 };
 
 export default LogoutButton;
