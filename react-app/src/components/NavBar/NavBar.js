@@ -1,21 +1,20 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import DemoUser from './Users/DemoUser';
+import DemoUser from '../Users/DemoUser';
 import { useSelector } from 'react-redux';
 
-import IconModal from './IconModal/IconModal';
-import User from './Users/User';
-import './HomePage.css';
-import logo from './graphics/cozy-note2-logo.png'
-import login from './graphics/login-head.png'
-import signup from './graphics/signup-head.png'
-import notesHead from './graphics/header1.png'
-import nbHead from './graphics/header2.png'
-import listHead from './graphics/header3.png'
-
-import LogoutButton from './auth/LogoutButton';
-
+import IconModal from '../IconModal/IconModal';
+import User from '../Users/User';
+import './index.css';
+import logo from '../graphics/cozy-note2-logo.png'
+import login from '../graphics/login-head.png'
+import signup from '../graphics/signup-head.png'
+import notesHead from '../graphics/header1.png'
+import nbHead from '../graphics/header2.png'
+import listHead from '../graphics/header3.png'
+import LogoutButton from '../auth/LogoutButton';
+import cloud from '../graphics/cloud.png';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
@@ -87,6 +86,9 @@ const NavBar = () => {
             </li>
             <li>
               <LogoutButton />
+            </li>
+            <li className='cloud-footer'>
+              <img src={cloud} alt='cloud' />
             </li>
           </div>
         )}
