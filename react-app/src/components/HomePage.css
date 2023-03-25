@@ -7,9 +7,16 @@
 }
 
 .personal-links {
-    margin-top: -3rem;
     position: absolute;
     z-index: auto;
+    margin-left: -2rem;
+    margin-top: -3rem;
+}
+
+.personal-links i{
+    color: #e5e2fd;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* .nav-button{
