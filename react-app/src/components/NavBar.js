@@ -1,19 +1,15 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import logo from './images/Cozy-logo.png';
 import DemoUser from './Users/DemoUser';
 import { useSelector } from 'react-redux';
-import notes from './images/nav-notes.png';
-import notebooks from './images/nav-notebooks.png'
-import profileButton from './images/profile-button.png'
+
 import IconModal from './IconModal/IconModal';
 import User from './Users/User';
 import './HomePage.css';
-import LoginButton from './images/nav-bar-login-button.png';
-import SignUpButton from './images/sign-up-button.png';
-
+import logo from './graphics/cozy-note2-logo.png'
+import login from './graphics/login-head.png'
+import signup from './graphics/signup-head.png'
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
@@ -28,20 +24,19 @@ const NavBar = () => {
         </li>
         {!user ? (
           <div>
-            <button className='nav-button'>
-              <NavLink to='/login' exact={true} activeClassName='active' style={{color: '#6C8C7D'}} >
-                Login
+            <li className='home-button'>
+              <NavLink to='/login' exact={true} activeClassName='active'>
+                <img src={login} alt='login' />
               </NavLink>
-            </button>
-
+            </li>
             <div >
               <DemoUser />
             </div>
-            <button className='nav-button'>
-              <NavLink to='/sign-up' exact={true} activeClassName='active' style={{color: '#6C8C7D'}} >
-                SignUp
+            <li className='home-button'>
+              <NavLink to='/sign-up' exact={true} activeClassName='active' >
+                <img src={signup} alt='login' />
               </NavLink>
-            </button>
+            </li>
             <div className='about-me-links'>
               <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green/Cozy-Note'>
                 <button className='repo-nav-button' type='submit'>
@@ -64,22 +59,22 @@ const NavBar = () => {
             </div>
 
           </div>
-        ) : (
-          <div>
-            <li className='notes-nav-button' >
-              <NavLink to='/notes' exact={true} activeClassName='active'>
-                <img src={notes} alt='notes' style={{ height:'40vh',marginBottom:'-25vh'}} />
-              </NavLink>
-            </li>
-            <li className='notebook-nav-button' >
-              <NavLink to='/notebooks' exact={true} activeClassName='active'>
-                <img src={notebooks} alt='notes' style={{ height:'40vh',marginBottom:'-25vh' }} />
-              </NavLink>
-            </li>
-            <li>
-              <LogoutButton />
-            </li>
-          </div>
+        ) : ( <> </>
+          // <div>
+          //   <li className='notes-nav-button' >
+          //     <NavLink to='/notes' exact={true} activeClassName='active'>
+          //       <img src={notes} alt='notes' style={{ height: '40vh', marginBottom: '-25vh' }} />
+          //     </NavLink>
+          //   </li>
+          //   <li className='notebook-nav-button' >
+          //     <NavLink to='/notebooks' exact={true} activeClassName='active'>
+          //       <img src={notebooks} alt='notes' style={{ height: '40vh', marginBottom: '-25vh' }} />
+          //     </NavLink>
+          //   </li>
+          //   <li>
+          //     <LogoutButton />
+          //   </li>
+          // </div>
         )}
       </ul>
     </nav>
