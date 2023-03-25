@@ -1,7 +1,7 @@
 .home-button img{
-    margin-top: -20%;
-    width: 54vw;
-    height: 39vh;
+    margin-top: -5rem;
+    width: 20vw;
+    height: 40vh;
     margin-left: -4rem;
 
 }
@@ -9,7 +9,7 @@
 .personal-links {
     position: absolute;
     z-index: auto;
-    margin-left: -2rem;
+    margin-left: 0 rem;
     margin-top: -3rem;
 }
 
@@ -17,6 +17,23 @@
     color: #e5e2fd;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.notes-nav-button img{
+    height: 25vh;
+    margin-top: -1rem;
+    width: 12vw;
+    margin-left: 0rem;
+    position: absolute;
+    z-index: 0;
+}
+.notebook-nav-button img{
+    margin-top: 4rem;
+    height: 25vh;
+    width: 12vw;
+    margin-left: 0rem;
+    position: absolute;
+    z-index: 1;
 }
 
 /* .nav-button{
