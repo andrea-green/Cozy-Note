@@ -52,6 +52,7 @@
     margin-left: 1.5rem;
     position: absolute;
     cursor: pointer;
+    z-index:2
 }
 
 .cloud-footer img {

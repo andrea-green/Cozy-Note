@@ -47,23 +47,8 @@ const NavBar = () => {
             </li>
             <div className='about-me-links'>
               <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green/Cozy-Note'>
-                <button className='repo-nav-button' type='submit'>
-                  Project Repo
-                </button>
+                <img />
               </a>
-              {/* <div className='personal-links'>
-                <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>
-                  <i class="fa-brands fa-github fa-3x" style={{
-                    color: "#b05217", marginLeft: "20px", marginRight: "20px"
-                  }}></i>
-                </a>
-                <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/andrea-green-201146245/'>
-                  <i class="fa-brands fa-linkedin fa-3x" style={{
-                    color: "#b05217", marginLeft: "20px", marginRight: "20px"
-                  }}></i>
-                </a>
-              </div> */}
-
             </div>
 
           </div>
@@ -84,9 +69,7 @@ const NavBar = () => {
                 <img src={listHead} alt='lists' />
               </NavLink>
             </li>
-            <li>
-              <LogoutButton />
-            </li>
+            <LogoutButton />
             <li className='cloud-footer'>
               <img src={cloud} alt='cloud' />
             </li>
