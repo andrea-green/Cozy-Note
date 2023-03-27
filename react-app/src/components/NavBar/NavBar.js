@@ -37,19 +37,16 @@ const NavBar = () => {
         </li>
         {!user ? (
           <div>
-            <NavLink to='/login' exact={true} activeClassName='active'>
-              <img src={login} alt='login' />
-            </NavLink>
+            <li>
+              <NavLink to='/login' exact={true} activeClassName='active' className='login'>
+                <img src={login} alt='login' />
+              </NavLink>
+            </li>
             <li className='home-button'>
-              <NavLink to='/sign-up' exact={true} activeClassName='active' >
+              <NavLink to='/sign-up' exact={true} activeClassName='active' className='signup'>
                 <img src={signup} alt='login' />
               </NavLink>
             </li>
-            <div className='about-me-links'>
-              <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green/Cozy-Note'>
-                <img />
-              </a>
-            </div>
 
           </div>
         ) : (
