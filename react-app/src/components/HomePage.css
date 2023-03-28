@@ -1,6 +1,10 @@
-
+/* splash nav bar  */
+.header-nav-bar {
+    display: flex;
+    align-items: center;
+}
 /* notes */
-
+/*
 .my-notes-header{
     display: flex;
     height:300px;
@@ -55,7 +59,7 @@
 }
 
 .card-container{
-    /* border: 1px solid black; */
+
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -64,7 +68,6 @@
     width: 215px;
     margin: 20px;
     background-color: #eaccba;
-    /* color: white; */
 }
 
 
@@ -282,10 +285,10 @@ th, td {
     margin-left:1rem;
     margin-right: 1rem;
     margin-top: 1rem;
-}
+} */
 
 /* all lists styling*/
-
+/*
 .my-to-do-header{
     display: flex;
     flex-direction: row;
@@ -297,8 +300,7 @@ th, td {
 
 .lists-container {
     background-color: white;
-    /* background-image: url('./images/nav-bar-background.png'); */
-    /* background-repeat: none; */
+
     border: 1px solid black;
     border-radius: 10px;
     height: 40vh;
@@ -340,4 +342,4 @@ th, td {
     font-weight: bolder;
     background-color: #99A67F;
     color: white;
-}
+} */

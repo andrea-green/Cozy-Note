@@ -17,6 +17,7 @@ import LandingPage from './components/LandingPage'
 import AllLists from './components/Lists/AllLists'
 import SingleList from './components/Lists'
 import AllNotebooks2 from './components/Notebooks/NotebooksPage';
+import Header from './components/LandingPage/Header';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,10 +34,11 @@ function App() {
   return (
 
     <div className='app-main'>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <Route path='/' exact={true}>
-        <LandingPage />
+          {/* <LandingPage /> */}
+          <Header />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -66,7 +68,7 @@ function App() {
           <SingleList />
         </ProtectedRoute>
       </Switch>
-      </div>
+    </div>
   );
 }
 

@@ -8,7 +8,7 @@ import IconModal from '../IconModal/IconModal';
 import User from '../Users/User';
 import './index.css';
 import logo from '../graphics/cozy-note2-logo.png'
-import login from '../graphics/login-head.png'
+// import login from '../graphics/login-head.png'
 import signup from '../graphics/signup-head.png'
 import notesHead from '../graphics/header1.png'
 import nbHead from '../graphics/header2.png'
@@ -35,7 +35,7 @@ const NavBar = () => {
             </a>
           </div>
         </li>
-        {!user ? (
+        {/* {!user ? (
           <div>
             <li>
               <NavLink to='/login' exact={true} activeClassName='active' className='login'>
@@ -49,7 +49,7 @@ const NavBar = () => {
             </li>
 
           </div>
-        ) : (
+        ) : ( */}
           <div>
             <li className='notes-nav-button' >
               <NavLink to='/notes' exact={true} activeClassName='active'>
@@ -71,7 +71,7 @@ const NavBar = () => {
               <img src={cloud} alt='cloud' />
             </li>
           </div>
-        )}
+        {/* )} */}
       </ul>
     </nav>
   );

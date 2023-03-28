@@ -1,16 +1,23 @@
 import React from 'react';
 import './LandingPage.css';
-import noteGraphic from '../images/note-graphic.png'
-import penguin from '../images/penguin.gif'
-import graphic2 from '../images/graphic2.png'
-import graphic3 from '../images/graphic3.png'
+// import noteGraphic from '../images/note-graphic.png'
+// import penguin from '../images/penguin.gif'
+// import graphic2 from '../images/graphic2.png'
+// import graphic3 from '../images/graphic3.png'
+import Header from './Header';
 
 
 
 
 export default function LandingPage() {
 
-    return ( null
+    return (
+        // <h1>hello </h1>
+        <div>
+            <Header/>
+        </div>
+
+
         // <div className='landing-page-main'>
         //     <div className='section-1'>
         //         <h1>Why choose CozyNote?</h1>
