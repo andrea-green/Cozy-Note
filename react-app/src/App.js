@@ -37,8 +37,7 @@ function App() {
       {/* <NavBar /> */}
       <Switch>
         <Route path='/' exact={true}>
-          {/* <LandingPage /> */}
-          <Header />
+          <LandingPage />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />

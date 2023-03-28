@@ -5,6 +5,7 @@ import './LandingPage.css';
 // import graphic2 from '../images/graphic2.png'
 // import graphic3 from '../images/graphic3.png'
 import Header from './Header';
+import SectionOne from './Section1'
 
 
 
@@ -12,10 +13,11 @@ import Header from './Header';
 export default function LandingPage() {
 
     return (
-        // <h1>hello </h1>
         <div>
-            <Header/>
+            <Header />
+            <SectionOne />
         </div>
+        // <h1>hello </h1>
 
 
         // <div className='landing-page-main'>
