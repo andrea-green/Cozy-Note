@@ -1,0 +1,18 @@
+.header-nav-bar {
+    display: flex;
+    align-items: center;
+}
+
+.signUp img{
+    height: 30vh;
+    cursor: pointer;
+}
+
+.project-repo img{
+    height: 30vh;
+    cursor: pointer;
+}
+
+.login {
+    margin-left: 25%;
+}

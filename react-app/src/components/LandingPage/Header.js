@@ -6,6 +6,7 @@ import logIn from '../graphics/login.png';
 import logo from '../graphics/cozy-note2-logo.png'
 import signup from '../graphics/signup-head.png'
 import repo from '../graphics/repo.png';
+import './LandingPage.css';
 
 
 
@@ -26,8 +27,14 @@ export default function Header() {
                     </NavLink>
                 </li>
                 <li className='project-repo'>
-                    <a target='_blank' rel='noopener noreferrer' href="https://github.com/andrea-green/Cozy-Note" to='/sign-up' exact={true} activeClassName='active'>
+                    <a target='_blank' rel='noopener noreferrer' href="https://github.com/andrea-green/Cozy-Note" exact={true} activeClassName='active'>
                         <img src={repo} alt='logo' />
+                    </a>
+                </li>
+                <li className='contact-me'>
+                    <a target='_blank' rel='noopener noreferrer' href="**link**" exact={true} activeClassName='active'>
+                        <h1> Contact Us </h1>
+                        {/* <img src={contanct} alt='logo' /> */}
                     </a>
                 </li>
                 <li>
@@ -39,6 +46,11 @@ export default function Header() {
                             <i class="fa-brands fa-linkedin fa-3x"></i>
                         </a>
                     </div>
+                </li>
+                <li className='login'>
+                    <NavLink to='/login' exact={true} activeClassName='active'>
+                        <img src={logIn} alt='logo' />
+                    </NavLink>
                 </li>
             </ul>
         </nav >
