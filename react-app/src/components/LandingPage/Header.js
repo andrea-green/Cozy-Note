@@ -16,7 +16,7 @@ export default function Header() {
         <nav>
             <ul className='header-nav-bar'>
                 <li className='home-button'>
-                    <NavLink to='/home' exact={true} activeClassName='active'>
+                    <NavLink to='/' exact={true} activeClassName='active'>
                         <img src={logo} alt='logo' />
                     </NavLink>
                 </li>

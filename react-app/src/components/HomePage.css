@@ -3,6 +3,11 @@
     display: flex;
     align-items: center;
 }
+
+.signUp img{
+    height: 30vh;
+    cursor: pointer;
+}
 /* notes */
 /*
 .my-notes-header{
