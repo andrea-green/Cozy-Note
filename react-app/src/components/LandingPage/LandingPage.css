@@ -3,16 +3,24 @@
     align-items: center;
 }
 
-.signUp img{
+.nav-button img{
     height: 30vh;
     cursor: pointer;
 }
 
-.project-repo img{
-    height: 30vh;
-    cursor: pointer;
-}
 
 .login {
-    margin-left: 25%;
+    margin-left: 15%;
+
+}
+
+.login img {
+    height: 30vh;
+    width: 17vw;
+    margin-left: -1rem;
+}
+
+.personal-links{
+    margin-left: 0%;
+    margin-right: 0%;
 }
