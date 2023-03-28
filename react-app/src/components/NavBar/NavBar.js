@@ -35,21 +35,6 @@ const NavBar = () => {
             </a>
           </div>
         </li>
-        {/* {!user ? (
-          <div>
-            <li>
-              <NavLink to='/login' exact={true} activeClassName='active' className='login'>
-                <img src={login} alt='login' />
-              </NavLink>
-            </li>
-            <li className='home-button'>
-              <NavLink to='/sign-up' exact={true} activeClassName='active' className='signup'>
-                <img src={signup} alt='login' />
-              </NavLink>
-            </li>
-
-          </div>
-        ) : ( */}
           <div>
             <li className='notes-nav-button' >
               <NavLink to='/notes' exact={true} activeClassName='active'>

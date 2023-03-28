@@ -5,7 +5,7 @@ import './LandingPage.css';
 // import graphic2 from '../images/graphic2.png'
 // import graphic3 from '../images/graphic3.png'
 import Header from './Header';
-import SectionOne from './Section1'
+import Section1 from './Section1'
 
 
 
@@ -15,7 +15,7 @@ export default function LandingPage() {
     return (
         <div>
             <Header />
-            <SectionOne />
+            <Section1 />
         </div>
         // <h1>hello </h1>
 
