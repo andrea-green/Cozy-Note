@@ -25,6 +25,11 @@ export default function Header() {
                         <img src={signup} alt='logo' />
                     </NavLink>
                 </li>
+                <li className='project-repo'>
+                    <a target='_blank' rel='noopener noreferrer' href="https://github.com/andrea-green/Cozy-Note" to='/sign-up' exact={true} activeClassName='active'>
+                        <img src={repo} alt='logo' />
+                    </a>
+                </li>
                 <li>
                     <div className='personal-links'>
                         <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>

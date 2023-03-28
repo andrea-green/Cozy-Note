@@ -8,6 +8,11 @@
     height: 30vh;
     cursor: pointer;
 }
+
+.project-repo img{
+    height: 30vh;
+    cursor: pointer;
+}
 /* notes */
 /*
 .my-notes-header{
