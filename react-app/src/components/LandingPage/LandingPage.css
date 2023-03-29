@@ -26,12 +26,13 @@
     margin-right: 0%;
 }
 
-/* section 1 */
+/* sections */
 
-.s1-main{
+.s1-main {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: -5rem;
 }
 
 .s1-left {
@@ -40,4 +41,20 @@
 
 .s1-left h1{
     font-size: xxx-large;
+}
+
+
+.s2-left{
+    margin-left: 10vw;
+}
+
+.s2-right h1 {
+    font-size: xx-large;
+}
+
+.s2-right a{
+    color:#5271ff;
+    text-decoration:none;
+    margin-right:10px;
+    margin-left:10px;
 }
