@@ -71,3 +71,64 @@
     display: flex;
     flex-direction: row;
 }
+
+.contact-input {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.contact-input2 {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-submit-button{
+    border-radius: 18px;
+    border: none;
+    background-color: #e5e2fd;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-size: large;
+}
+
+.form-submit-button:hover{
+    background-color: #e5ccfd;
+}
+
+.contact-input label{
+    padding-bottom: 0.25rem;
+}
+
+/* .submit img {
+    height: 20vh;
+    width: 13vw;
+    margin-top: -4rem;
+    position: absolute;
+    z-index: 1;
+    margin-left: 3rem;
+} */
+
+.right-side h2{
+    font-size: 4rem;
+}
+
+.form-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.form-header h2{
+    margin-bottom: 1rem;
+}
+
+.form-header button{
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+    margin-top: 1rem;
+    margin-left: 2rem;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
 import gif6 from '../graphics/gif6.gif';
+// import submit from '../graphics/submit.png';
+
 
 export default function ContactForm({ onFormSubmit }) {
     const handleSubmit = (event) => {
@@ -13,24 +15,36 @@ export default function ContactForm({ onFormSubmit }) {
         window.open(`mailto:duong.andrea12@gmail.com?subject=Contact Form Submission&body=${emailBody}`);
         onFormSubmit();
     };
+    const { closeModal } = useModal();
 
     return (
         <div className='contact-main'>
             <div className='left-side'>
                 <img src={gif6} alt='gif6' />
             </div>
+
             <div className='right-side'>
-                <h1>Contact Us </h1>
+                <div className='form-header'>
+                    <h2>Contact Us </h2>
+                    <button
+                        type='submit'
+                        onClick={closeModal}
+                        style={{ cursor: 'pointer' }}
+                    > X </button>
+                </div>
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="name">Name:</label>
+                    <div className='contact-input'>
+                        <label htmlFor="name">Name</label>
                         <input type="text" id="name" name="name" required />
                     </div>
-                    <div>
-                        <label htmlFor="message">Message:</label>
+                    <div className='contact-input2'>
+                        <label htmlFor="message">Message</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit" className='form-submit-button'>
+                        Submit
+                        {/* <img src={submit} alt='submit' /> */}
+                    </button>
                 </form>
             </div>
         </div>
