@@ -8,6 +8,8 @@ import signup from '../graphics/signup-head.png'
 import repo from '../graphics/repo.png';
 import contact from '../graphics/contact.png';
 import './LandingPage.css';
+import OpenModalButton from '../OpenModalButton';
+import ContactForm from './ContactForm';
 
 
 
@@ -34,9 +36,10 @@ export default function Header() {
                     </a>
                 </li>
                 <li className='nav-button'>
-                    <a target='_blank' rel='noopener noreferrer' href="**link**" exact={true} activeClassName='active'>
-                        <img src={contact} alt='logo' />
-                    </a>
+                    <OpenModalButton
+                        modalComponent={<ContactForm />}
+                        image={contact}
+                    />
                 </li>
                 <li>
                     <div className='personal-links'>
