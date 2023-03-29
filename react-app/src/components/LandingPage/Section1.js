@@ -39,8 +39,6 @@ export default function Section1() {
                         to get started.
                     </p>
                 </div>
-
-
             </div>
         </>
     )
