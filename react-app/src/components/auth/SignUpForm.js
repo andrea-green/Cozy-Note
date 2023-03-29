@@ -1,119 +1,118 @@
-// import React, { useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux'
-// import { Redirect } from 'react-router-dom';
-// import { signUp } from '../../store/session';
-// import signUpButton from '../images/sign-up-button.png'
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { Redirect } from 'react-router-dom';
+import { signUp } from '../../store/session';
+import gif7 from '../graphics/gif7.gif';
+import { useModal } from '../../context/Modal';
+import './index.css';
 
-// const SignUpForm = () => {
-//   const [errors, setErrors] = useState([]);
-//   const [username, setUsername] = useState('');
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [repeatPassword, setRepeatPassword] = useState('');
-//   const user = useSelector(state => state.session.user);
-//   const dispatch = useDispatch();
 
-//   const onSignUp = async (e) => {
-//     e.preventDefault();
-//     if (password === repeatPassword) {
-//       const data = await dispatch(signUp(username, email, password));
-//       if (data) {
-//         setErrors(data)
-//       }
-//     } else {
-//       setErrors(['passwords do not match'])
-//     }
-//   };
 
-//   const updateUsername = (e) => {
-//     setUsername(e.target.value);
-//   };
+const SignUpForm = () => {
+    const [errors, setErrors] = useState([]);
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [repeatPassword, setRepeatPassword] = useState('');
+    const user = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+    const { closeModal } = useModal();
 
-//   const updateEmail = (e) => {
-//     setEmail(e.target.value);
-//   };
+    const onSignUp = async (e) => {
+        e.preventDefault();
+        if (password === repeatPassword) {
+            const data = await dispatch(signUp(username, email, password));
+            if (data) {
+                setErrors(data)
+            }
+        } else {
+            setErrors(['passwords do not match'])
+        }
+    };
 
-//   const updatePassword = (e) => {
-//     setPassword(e.target.value);
-//   };
+    const updateUsername = (e) => {
+        setUsername(e.target.value);
+    };
 
-//   const updateRepeatPassword = (e) => {
-//     setRepeatPassword(e.target.value);
-//   };
+    const updateEmail = (e) => {
+        setEmail(e.target.value);
+    };
 
-//   if (user) {
-//     return <Redirect to='/home' />;
-//   }
+    const updatePassword = (e) => {
+        setPassword(e.target.value);
+    };
 
-//   return (
-//     <form className='sign-up-main' onSubmit={onSignUp}>
-//       <div className='sign-up-header'>
-//         <img src={signUpButton} />
-//       </div>
-//       <div>
-//         {errors.map((error, ind) => (
-//           <div style={{ color: '#b05217' }} key={ind}>{error}</div>
-//         ))}
-//       </div>
-//       <div className='sign-up-inputs'>
+    const updateRepeatPassword = (e) => {
+        setRepeatPassword(e.target.value);
+    };
 
-//       </div>
-//       <div style={{
-//         padding: '5px',
-//         marginLeft: '0.5rem',
-//         fontSize: '25px'
-//       }}>
-//         <label>User Name</label>
-//         <input
-//           type='text'
-//           name='username'
-//           onChange={updateUsername}
-//           value={username}
-//         ></input>
-//       </div>
-//       <div style={{
-//         padding: '5px',
-//         marginLeft: '0.5rem',
-//         fontSize: '25px'
-//       }}>
-//         <label>Email</label>
-//         <input
-//           type='email'
-//           name='email'
-//           onChange={updateEmail}
-//           value={email}
-//         ></input>
-//       </div>
-//       <div style={{
-//         padding: '5px',
-//         marginLeft: '0.5rem',
-//         fontSize: '25px'
-//       }}>
-//         <label>Password</label>
-//         <input
-//           type='password'
-//           name='password'
-//           onChange={updatePassword}
-//           value={password}
-//         ></input>
-//       </div>
-//       <div style={{
-//         padding: '5px',
-//         marginLeft:'0.5rem',
-//         fontSize: '25px'
-//       }}>
-//         <label>Repeat Password</label>
-//         <input
-//           type='password'
-//           name='repeat_password'
-//           onChange={updateRepeatPassword}
-//           value={repeatPassword}
-//           required={true}
-//         ></input>
-//       </div>
-//       <button type='submit'>Sign Up</button>
-//     </form>
-//   );
-// };
+    if (user) {
+        return <Redirect to='/home' />;
+    }
 
-// export default SignUpForm;
+    return (
+        <div className='contact-main'>
+            <div className='signup-left-side'>
+                <img src={gif7} alt='gif7' />
+            </div>
+
+            <div className='right-side'>
+                <div className='form-header'>
+                    <h2>Sign Up </h2>
+                    <button
+                        type='submit'
+                        onClick={closeModal}
+                        style={{ cursor: 'pointer' }}
+                    > X </button>
+                </div>
+                <form className='sign-up-main' onSubmit={onSignUp}>
+                    <div>
+                        {errors.map((error, ind) => (
+                            <div key={ind}>{error}</div>
+                        ))}
+                    </div>
+                    <div className='signup-input' >
+                        <label>Username</label>
+                        <input
+                            type='text'
+                            name='username'
+                            onChange={updateUsername}
+                            value={username}
+                        ></input>
+                    </div>
+                    <div className='signup-input'>
+                        <label>Email</label>
+                        <input
+                            type='email'
+                            name='email'
+                            onChange={updateEmail}
+                            value={email}
+                        ></input>
+                    </div>
+                    <div className='signup-input'>
+                        <label>Password</label>
+                        <input
+                            type='password'
+                            name='password'
+                            onChange={updatePassword}
+                            value={password}
+                        ></input>
+                    </div>
+                    <div className='signup-input'>
+                        <label>Repeat Password</label>
+                        <input
+                            type='password'
+                            name='repeat_password'
+                            onChange={updateRepeatPassword}
+                            value={repeatPassword}
+                            required={true}
+                        ></input>
+                    </div>
+                    <button className='form-submit-button'type='submit'>Sign Up</button>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export default SignUpForm;

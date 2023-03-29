@@ -10,7 +10,7 @@ import contact from '../graphics/contact.png';
 import './LandingPage.css';
 import OpenModalButton from '../OpenModalButton';
 import ContactForm from './ContactForm';
-
+import SignUpForm from '../auth/SignUpForm'
 
 
 
@@ -26,9 +26,9 @@ export default function Header() {
                     </NavLink>
                 </li>
                 <li className='nav-button'>
-                    <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                        <img src={signup} alt='logo' />
-                    </NavLink>
+                    <OpenModalButton
+                        modalComponent={<SignUpForm/>}
+                        image={signup} />
                 </li>
                 <li className='nav-button'>
                     <a target='_blank' rel='noopener noreferrer' href="https://github.com/andrea-green/Cozy-Note" exact={true} activeClassName='active'>

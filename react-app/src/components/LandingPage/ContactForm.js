@@ -43,7 +43,6 @@ export default function ContactForm({ onFormSubmit }) {
                     </div>
                     <button type="submit" className='form-submit-button'>
                         Submit
-                        {/* <img src={submit} alt='submit' /> */}
                     </button>
                 </form>
             </div>
