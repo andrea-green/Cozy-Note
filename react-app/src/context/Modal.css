@@ -23,11 +23,11 @@
 
   #modal-content {
     position: absolute;
-    background-color:#ffece1;
+    background-color: white;
     border-radius: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    width: 20%;
+    width: fit-content;
     z-index: 9999;
     overflow-y: scroll;
     height: fit-content;
