@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
 import User from './components/Users/User';
@@ -17,6 +17,7 @@ import LandingPage from './components/LandingPage'
 import AllLists from './components/Lists/AllLists'
 import SingleList from './components/Lists'
 import AllNotebooks2 from './components/Notebooks/NotebooksPage';
+import Header from './components/LandingPage/Header';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,10 +34,10 @@ function App() {
   return (
 
     <div className='app-main'>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <Route path='/' exact={true}>
-        <LandingPage />
+          <LandingPage />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -66,7 +67,7 @@ function App() {
           <SingleList />
         </ProtectedRoute>
       </Switch>
-      </div>
+    </div>
   );
 }
 
