@@ -1,4 +1,5 @@
 import React from 'react';
+import gif3 from '../graphics/gif3.gif'
 
 
 
@@ -6,8 +7,6 @@ import React from 'react';
 
 
 export default function Section1() {
-
-
     return (
         <>
             <div className='s1-main'>
@@ -22,7 +21,7 @@ export default function Section1() {
                         works for you </p>
                 </div>
                 <div className='s1-right'>
-                    <h1>got eem</h1>
+                    <img src={gif3} alt='gif' />
                 </div>
             </div>
         </>

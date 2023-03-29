@@ -27,3 +27,17 @@
 }
 
 /* section 1 */
+
+.s1-main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.s1-left {
+    margin-left: 10vw;
+}
+
+.s1-left h1{
+    font-size: xxx-large;
+}
