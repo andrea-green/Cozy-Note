@@ -8,6 +8,8 @@ function OpenModalButton({
   onModalClose, // optional: callback function that will be called once the modal is closed
   faIcon,
   tr,
+  image,
+  text
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
@@ -20,19 +22,27 @@ function OpenModalButton({
   return (
     <>
       {
-        tr
-          ?
-          <p onClick={onClick}>
-            {faIcon}
-          </p>
+        image ?
+          <div onClick={onClick}>
+            <img src={image} alt='contact-us' />
+          </div>
           :
-          faIcon
-            ?
-            <div onClick={onClick}>
-              {faIcon}
-            </div>
+          text ?
+            <button className='button-text' onClick={onClick}>{text}</button>
             :
-            <button className='open-modal-button clickable' onClick={onClick}>{buttonText}</button>
+            tr
+              ?
+              <p onClick={onClick}>
+                {faIcon}
+              </p>
+              :
+              faIcon
+                ?
+                <div onClick={onClick}>
+                  {faIcon}
+                </div>
+                :
+                <button className='open-modal-button clickable' onClick={onClick}>{buttonText}</button>
       }
     </>
   );

@@ -1,44 +1,6 @@
-.home-button img{
-    height: 400px;
-    width: 400px;
-    margin-top: -160px;
-    margin-left: -75px;
-
-}
-
-.nav-button{
-    font-size: 40px;
-    height: 80px;
-    width: 150px;
-    border-radius: 45px;
-    padding: 5px;
-    margin: 20px;
-    background-color: #b8c4b5;
-}
-
-.repo-nav-button{
-    font-size: 30px;
-    height: 80px;
-    width: 150px;
-    border-radius: 45px;
-    padding: 5px;
-    margin: 20px;
-    background-color: #b8c4b5;
-
-}
-.logout-button{
-    height: 280px;
-    width: 200px;
-    position: absolute;
-
-    cursor: pointer;
-}
-
-
 
 /* notes */
-
-
+/*
 .my-notes-header{
     display: flex;
     height:300px;
@@ -93,7 +55,7 @@
 }
 
 .card-container{
-    /* border: 1px solid black; */
+
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -102,7 +64,6 @@
     width: 215px;
     margin: 20px;
     background-color: #eaccba;
-    /* color: white; */
 }
 
 
@@ -320,10 +281,10 @@ th, td {
     margin-left:1rem;
     margin-right: 1rem;
     margin-top: 1rem;
-}
+} */
 
 /* all lists styling*/
-
+/*
 .my-to-do-header{
     display: flex;
     flex-direction: row;
@@ -335,8 +296,7 @@ th, td {
 
 .lists-container {
     background-color: white;
-    /* background-image: url('./images/nav-bar-background.png'); */
-    /* background-repeat: none; */
+
     border: 1px solid black;
     border-radius: 10px;
     height: 40vh;
@@ -378,4 +338,4 @@ th, td {
     font-weight: bolder;
     background-color: #99A67F;
     color: white;
-}
+} */

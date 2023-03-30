@@ -1,0 +1,80 @@
+/* nav bar styling */
+
+.home-button img{
+    margin-top: -5rem;
+    width: 20vw;
+    height: 40vh;
+    margin-left: -4rem;
+
+}
+
+.personal-links {
+    position: absolute;
+    z-index: auto;
+    margin-left: 0 rem;
+    margin-top: -3rem;
+}
+
+.personal-links i{
+    color: #e5e2fd;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.notes-nav-button img{
+    height: 25vh;
+    margin-top: -1rem;
+    width: 12vw;
+    margin-left: 0rem;
+    position: absolute;
+    z-index: 0;
+}
+.notebook-nav-button img{
+    margin-top: 4rem;
+    height: 25vh;
+    width: 12vw;
+    margin-left: 0rem;
+    position: absolute;
+    z-index: 1;
+}
+.lists-nav-button img{
+    margin-top: 10rem;
+    height: 25vh;
+    width: 12vw;
+    margin-left: 0rem;
+    position: absolute;
+    z-index: 1;
+}
+.logout-button img{
+    height: 15vh;
+    width: 8vw;
+    margin-top: 17rem;
+    margin-left: 1.5rem;
+    position: absolute;
+    cursor: pointer;
+    z-index:2
+}
+
+.cloud-footer img {
+    height: 20rem;
+    margin-top: 17rem;
+    margin-left: -4rem;
+    position: absolute;
+    z-index: 0;
+}
+
+.login img{
+    height: 30vh;
+    width: 15vw;
+    margin-left: -1rem;
+}
+
+.signup img{
+    height: 30vh;
+    width: 15vw;
+    margin-top: -7rem;
+    margin-left: -1rem;
+    position: absolute;
+    z-index: 1;
+
+}

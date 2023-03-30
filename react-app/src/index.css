@@ -1,27 +1,31 @@
 /* TODO Add site wide styles */
+* {
+    /* font-family: 'Open Sans',sans-serif; */
+    font-family: 'Source Sans Pro',sans-serif;
+}
 
 
 li{
     list-style-type: none;
 }
 
-nav {
+/* nav {
     border: 1px solid black;
-    /* width: fit-content; */
+
     padding: 0px 40px 50px 10px;
     border-radius: 10px;
     background-image: url('./components/images/nav-bar-background.png');
     height: 100vh;
-}
+} */
 
 
 
-.app-main{
+/* .app-main{
     display: flex;
     flex-direction: row;
      background-image:url('./components/images/background-filler.png');
      background-repeat: repeat;
- }
+ } */
 
 textarea {
     resize:none;
@@ -31,7 +35,18 @@ button{
     cursor:pointer;
 }
 
-
-* {
-    font-family: 'Gaegu', cursive;
+.button-text{
+    padding: 0;
+    border: 0;
+    background: white;
+    font-size: inherit;
+    margin-right: 0.5rem;
+    margin-left:0.5rem;
+    color: #5271ff;
+    cursor:pointer;
 }
+
+
+/* * {
+    font-family: 'Gaegu', cursive;
+} */
