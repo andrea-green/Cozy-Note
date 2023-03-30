@@ -35,6 +35,17 @@ button{
     cursor:pointer;
 }
 
+.button-text{
+    padding: 0;
+    border: 0;
+    background: white;
+    font-size: inherit;
+    margin-right: 0.5rem;
+    margin-left:0.5rem;
+    color: #5271ff;
+    cursor:pointer;
+}
+
 
 /* * {
     font-family: 'Gaegu', cursive;

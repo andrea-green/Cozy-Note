@@ -1,10 +1,10 @@
 import React from 'react';
 import gif3 from '../graphics/gif3.gif';
 import gif1 from '../graphics/gif1.gif';
-
-
-
-
+import OpenModalButton from '../OpenModalButton';
+import LoginForm from '../auth/LoginForm';
+import SignUpForm from '../auth/SignUpForm';
+import { ModalProvider } from '../../context/Modal';
 
 
 export default function Section1() {
@@ -33,13 +33,19 @@ export default function Section1() {
                     <h1>Find your productivity happy place!</h1>
                     <p>See what's possible with CozyNote today.
                         <br />
-                        <a href="/login">Login</a>
+                            <OpenModalButton
+                                modalComponent={<LoginForm/>}
+                                text="Login"
+                            />
                         or
-                        <a href="/sign-up">sign up</a>
+                            <OpenModalButton
+                                modalComponent={<SignUpForm/>}
+                                text="sign up"
+                            />
                         to get started.
                     </p>
                 </div>
             </div>
-        </>
+        </ >
     )
 }

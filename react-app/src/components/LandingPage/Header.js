@@ -10,14 +10,14 @@ import contact from '../graphics/contact.png';
 import './LandingPage.css';
 import OpenModalButton from '../OpenModalButton';
 import ContactForm from './ContactForm';
-
+import SignUpForm from '../auth/SignUpForm';
+import LoginForm from '../auth/LoginForm';
 
 
 
 
 export default function Header() {
     return (
-        // <h1>Hello </h1>
         <nav>
             <ul className='header-nav-bar'>
                 <li className='home-button'>
@@ -26,9 +26,9 @@ export default function Header() {
                     </NavLink>
                 </li>
                 <li className='nav-button'>
-                    <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                        <img src={signup} alt='logo' />
-                    </NavLink>
+                    <OpenModalButton
+                        modalComponent={<SignUpForm/>}
+                        image={signup} />
                 </li>
                 <li className='nav-button'>
                     <a target='_blank' rel='noopener noreferrer' href="https://github.com/andrea-green/Cozy-Note" exact={true} activeClassName='active'>
@@ -51,10 +51,11 @@ export default function Header() {
                         </a>
                     </div>
                 </li>
-                <li className='login'>
-                    <NavLink to='/login' exact={true} activeClassName='active'>
-                        <img src={logIn} alt='logo' />
-                    </NavLink>
+                <li className='login' style={{cursor:'pointer'}}>
+                    <OpenModalButton
+                        modalComponent={<LoginForm />}
+                        image={logIn}
+                    />
                 </li>
             </ul>
         </nav >
