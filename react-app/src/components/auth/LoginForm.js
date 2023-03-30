@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import { useModal } from '../../context/Modal';
 import gif6 from '../graphics/gif6.gif';
+import DemoUser from '../Users/DemoUser'
 
 const LoginForm = () => {
     const [errors, setErrors] = useState([]);
@@ -76,7 +77,10 @@ const LoginForm = () => {
 
                         />
                     </div>
-                    <button className='form-submit-button' type='submit'>Login</button>
+                    <div style={{display:'flex', flexDirection:'column'}}>
+                        <button style={{marginBottom:'0.5rem'}} className='form-submit-button' type='submit'>Login</button>
+                        <button className='demo-user-button' type='submit'>Login as demo user</button>
+                    </div>
                 </form>
             </div>
         </div>
