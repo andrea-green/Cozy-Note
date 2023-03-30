@@ -79,7 +79,7 @@ const LoginForm = () => {
                     </div>
                     <div style={{display:'flex', flexDirection:'column'}}>
                         <button style={{marginBottom:'0.5rem'}} className='form-submit-button' type='submit'>Login</button>
-                        <button className='demo-user-button' type='submit'>Login as demo user</button>
+                        <DemoUser/>
                     </div>
                 </form>
             </div>
