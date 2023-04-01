@@ -23,6 +23,7 @@ import CreateNotebookForm from "./Notebooks/CreateNotebookForm";
 import AllNotebooks from "./Notebooks/AllNotebooks";
 import AllLists from "./Lists/AllLists";
 import CreateListForm from './Lists/CreateListForm'
+import NavBar from './NavBar/NavBar.js'
 
 
 //css imports
@@ -50,23 +51,14 @@ function Body() {
 
 
     return (
-        <div style={{display:'flex', flexDirection:'row',alignItems:'center'}}>
-            <div style={{width:'fit-content'}}>
-                {/* notes container  */}
+        <div className='body-main'>
+            <NavBar />
+            <div className='features-main'>
                 <AllNotes />
-                {/* notebooks container  */}
-                <div className='notebooks-container'>
-                    <div className="notebooks-list" >
-                        <AllNotebooks />
-                    </div>
-                </div>
-            </div>
-            {/* lists container */}
-            <div className='lists-container'>
+                <AllNotebooks />
                 <AllLists />
             </div>
         </div>
-
     )
 
 }

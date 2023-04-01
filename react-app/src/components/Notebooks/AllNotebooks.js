@@ -12,48 +12,49 @@
 // import headerPic from '../images/my-notebooks-graphic.png'
 // import notebookFiller from '../images/notebook-filler.png'
 
-// export default function AllNotebooks() {
-//     const dispatch = useDispatch();
+export default function AllNotebooks() {
+    // const dispatch = useDispatch();
 
-//     const history = useHistory();
-//     const user = useSelector((state) => state.session.user);
-
-
-
-//     const handleSubmit = (e, notebookId) => {
-//         e.preventDefault();
-
-//         dispatch(getNtbkThunk(notebookId))
-//             .then(() => { history.push(`/notebooks/${notebookId}`) })
-//     }
+    // const history = useHistory();
+    // const user = useSelector((state) => state.session.user);
 
 
-//     //use selector to grab all of the notebooks belonging to the current user.
-//     const myNotebooks = useSelector((state) => state.notebooks.allNotebooks.byId);
-//     const myNotes = useSelector((state) => state.notes.allNotes);
-//     const myNotebooksArr = Object.values(myNotebooks);
 
-//     //accordian effect
-//     const [activeIndex, setActiveIndex] = useState([]);
+    // const handleSubmit = (e, notebookId) => {
+    //     e.preventDefault();
 
-//     const toggle = (index, notebookId) => {
-//         const newIndex = [...activeIndex];
+    //     dispatch(getNtbkThunk(notebookId))
+    //         .then(() => { history.push(`/notebooks/${notebookId}`) })
+    // }
 
-//         if (!newIndex.includes(index)) {
-//             newIndex.push(index);
-//             setActiveIndex(newIndex);
-//             dispatch(getNtbkThunk(notebookId));
-//         }
-//         else {
-//             newIndex.splice(newIndex.indexOf(index), 1);
-//             setActiveIndex(newIndex);
-//         }
-//     };
-//     useEffect(() => {
-//         dispatch(getAllNtbksThunk())
-//     }, [myNotes])
 
-//     return (
+    // //use selector to grab all of the notebooks belonging to the current user.
+    // const myNotebooks = useSelector((state) => state.notebooks.allNotebooks.byId);
+    // const myNotes = useSelector((state) => state.notes.allNotes);
+    // const myNotebooksArr = Object.values(myNotebooks);
+
+    // //accordian effect
+    // const [activeIndex, setActiveIndex] = useState([]);
+
+    // const toggle = (index, notebookId) => {
+    //     const newIndex = [...activeIndex];
+
+    //     if (!newIndex.includes(index)) {
+    //         newIndex.push(index);
+    //         setActiveIndex(newIndex);
+    //         dispatch(getNtbkThunk(notebookId));
+    //     }
+    //     else {
+    //         newIndex.splice(newIndex.indexOf(index), 1);
+    //         setActiveIndex(newIndex);
+    //     }
+    // };
+    // useEffect(() => {
+    //     dispatch(getAllNtbksThunk())
+    // }, [myNotes])
+
+    return (
+        <h1>notebooks</h1>
 //         <div className="notebook-table" style={{ border: '1px solid black', borderRadius: '10px', width: 'fit-content' }}>
 //             <div className='create-new-ntbk' style={{ height: '18vh', display: 'flex', paddingTop: '2rem' }}>
 //                 <img src={headerPic} alt='header' style={{ height: '30vh', width: '15vw', marginTop: '0px', paddingRight: '6rem' }} />
@@ -142,5 +143,5 @@
 //             }
 
 //         </div >
-//     );
-// }
+    );
+}

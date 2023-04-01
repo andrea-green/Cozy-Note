@@ -1,37 +1,29 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import DemoUser from '../Users/DemoUser';
-import { useSelector } from 'react-redux';
 
-import IconModal from '../IconModal/IconModal';
-import User from '../Users/User';
 import './index.css';
 import logo from '../graphics/cozy-note2-logo.png'
-// import login from '../graphics/login-head.png'
-import signup from '../graphics/signup-head.png'
 import notesHead from '../graphics/header1.png'
 import nbHead from '../graphics/header2.png'
 import listHead from '../graphics/header3.png'
 import LogoutButton from '../auth/LogoutButton';
 import cloud from '../graphics/cloud.png';
 
-const NavBar = () => {
-  const user = useSelector(state => state.session.user);
-
+export default function NavBar() {
   return (
     <nav className='nav-bar'>
-      <ul>
+       <ul>
         <li className='home-button'>
           <NavLink to='/home' exact={true} activeClassName='active'>
             <img src={logo} alt='logo' />
           </NavLink>
           <div className='personal-links'>
             <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>
-              <i class="fa-brands fa-github fa-3x"></i>
+              <i className="fa-brands fa-github fa-3x" />
             </a>
             <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/andrea-green-201146245/'>
-              <i class="fa-brands fa-linkedin fa-3x"></i>
+              <i className="fa-brands fa-linkedin fa-3x"/>
             </a>
           </div>
         </li>
@@ -56,10 +48,7 @@ const NavBar = () => {
               <img src={cloud} alt='cloud' />
             </li>
           </div>
-        {/* )} */}
       </ul>
     </nav>
-  );
+  )
 }
-
-export default NavBar;
