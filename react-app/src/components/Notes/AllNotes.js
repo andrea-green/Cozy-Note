@@ -78,7 +78,7 @@ export default function AllNotes() {
                     ? (<></>)
 
                     : (
-                        <div className='note-content'>
+                        <div className='card-content'>
                             <Slider {...settings} >
                                 {myNotesArr.map(note => (
                                     <div className='indiv-card' key={note.id} onClick={() => handleSubmit(note.id)}>

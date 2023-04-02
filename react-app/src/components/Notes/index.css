@@ -20,8 +20,9 @@ notes styling index
     box-shadow: 9px 16px 17px 0px #e5ccfd;
     margin-top: -4rem;
     margin-left: -5rem;
+
   }
-  .note-content {
+  .card-content {
     display: inline-block;
     background-color: 	#cacafa;
     padding: 0.5rem;
@@ -29,7 +30,10 @@ notes styling index
     width: 10rem;
     height: 12rem;
     color:white;
+    cursor: pointer;
 }
+
+
 
 .open-modal-button.clickable{
     margin-top: 0rem;
