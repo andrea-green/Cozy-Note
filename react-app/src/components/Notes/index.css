@@ -45,20 +45,9 @@ notes styling index
     color: white;
 }
 
-/* .form-submit-button{
-    border-radius: 18px;
-    border: none;
-    background-color: #e5e2fd;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    font-size: large;
-} */
 .open-modal-button.clickable:hover{
     background-color: #e5ccfd;
 }
-
 .create-button {
     margin-top: 9rem;
     position: absolute;
