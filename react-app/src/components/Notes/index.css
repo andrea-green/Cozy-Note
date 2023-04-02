@@ -31,11 +31,32 @@ notes styling index
     color:white;
 }
 
-.create-button{
-    margin-top: -9rem;
-    margin-left: 11rem;
+.open-modal-button.clickable{
+    margin-top: 0rem;
+    margin-left: 19rem;
     position: inherit;
     z-index: 1;
+    background-color: #dfbde6;
+    font-size: smaller;
+    border: none;
+    border-radius: 18px;
+    height: 2rem;
+    width: 7rem;
+    color: white;
+}
+
+/* .form-submit-button{
+    border-radius: 18px;
+    border: none;
+    background-color: #e5e2fd;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-size: large;
+} */
+.open-modal-button.clickable:hover{
+    background-color: #e5ccfd;
 }
 
 .create-button {
