@@ -16,7 +16,7 @@ const LogoutButton = () => {
   return (
     <div>
       <div className='logout-button' onClick={onLogout} >
-        <img src={logoutButton} alt='logout'  />
+        <img src={logoutButton} alt='logout' />
       </div>
     </div>
   )

@@ -31,6 +31,7 @@ const LoginForm = () => {
     };
 
     if (user) {
+        closeModal();
         return <Redirect to='/home' />;
     }
 

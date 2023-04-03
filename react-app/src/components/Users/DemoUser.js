@@ -21,7 +21,7 @@ export default function DemoUser() {
   };
 
   return (
-    <button className='demo-user-button' onClick={handleSubmit}>
+    <button className='demo-user-button' type='submit' onClick={handleSubmit}>
       Login as demo user
     </button>
   );

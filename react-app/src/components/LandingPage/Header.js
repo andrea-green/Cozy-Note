@@ -59,10 +59,6 @@ export default function Header() {
                 </li>
             </ul>
         </nav >
-        //     <ul>
-        //     </ul>
-        // </nav>
-
     )
 
 }
