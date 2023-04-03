@@ -84,11 +84,11 @@ export default function AllNotebooks() {
         // <h1>notebooks</h1>
         <div className='all-features-main' >
             <div className='feature-header'>
-                <img src={nbHeader} />
+                <img src={nbHeader} alt='nb-header'/>
                 <div className='create-button'>
                     <OpenModalButton
                         modalComponent={<CreateNotebookForm />}
-                        buttonText='Create new notebook'
+                        buttonText='Create notebook'
                     />
                 </div>
             </div>
