@@ -62,7 +62,7 @@ export default function AllNotes() {
 
     return (
         // <h1>notes</h1>
-        <div className='all-notes-main'>
+        <div className='all-features-main'>
             <div className='feature-header'>
                 <img src={notesHeader} />
                 <div className='create-button'>
