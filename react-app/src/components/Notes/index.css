@@ -33,6 +33,10 @@ notes styling index
     cursor: pointer;
 }
 
+.note-content {
+    margin-top:1rem;
+}
+
 
 
 .open-modal-button.clickable{

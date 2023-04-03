@@ -83,7 +83,13 @@ export default function AllNotes() {
                                 {myNotesArr.map(note => (
                                     <div className='indiv-card' key={note.id} onClick={() => handleSubmit(note.id)}>
                                         <h3>{note.title}</h3>
-                                        <span>{note.updated_at}</span>
+                                        <span>Updated: {note.updated_at}</span>
+                                        <div className='note-content'>
+                                            {note.content.length > 100
+                                                ? ( `"${note.content.slice(0,100)}..."`)
+                                                :( `${note.content}` )
+                                            }
+                                        </div>
                                     </div>
                                 ))}
 
