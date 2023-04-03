@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addListThunk } from '../../store/list';
 import { useModal } from '../../context/Modal';
+import './index.css'
 
 export default function CreateListForm() {
     const dispatch = useDispatch();
@@ -31,18 +32,17 @@ export default function CreateListForm() {
     };
     return (
         <div className='create-list-main'>
-            <div className='form-header' style={{display:'flex',justifyContent:'space-between'}}>
+            <div className='form-header'>
                 <h1>New List</h1>
                 <button
                     type='submit'
                     onClick={closeModal}
-                    style={{cursor:'pointer',marginTop:'1rem',height:'fit-content'}}
                 > X </button>
             </div>
 
             <section className='form-container'>
                 <ul>{errors.map((error) => (
-                    <li key={error}>{error}</li>
+                    <li className='errors' key={error}>{error}</li>
                 ))}</ul>
                 <form className='form-body' onSubmit={handleSubmit}>
                     <label>Title</label>

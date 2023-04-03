@@ -19,7 +19,7 @@ notes styling index
   .indiv-card-container{
     box-shadow: 9px 16px 17px 0px #e5ccfd;
     margin-top: -4rem;
-    margin-left: -5rem;
+    margin-left: 0rem;
 
   }
   .card-content {
@@ -27,8 +27,8 @@ notes styling index
     background-color: 	#cacafa;
     padding: 0.5rem;
     border-radius: 5px;
-    width: 10rem;
-    height: 12rem;
+    width: 14rem;
+    height: 21rem;
     color:white;
     cursor: pointer;
 }
@@ -70,4 +70,9 @@ notes styling index
     display: flex;
     flex-direction: column;
     align-items: center;
+
+}
+
+.features-main {
+    margin-left: 4rem;
 }
