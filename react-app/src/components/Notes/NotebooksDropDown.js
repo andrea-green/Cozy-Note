@@ -71,9 +71,6 @@ export default function NotebookDropDown() {
     }, []);
 
 
-
-
-
     return (
         <div className='dropdown-button' onClick={handleDropDown} ref={dropdownRef}>
             Add to a notebook

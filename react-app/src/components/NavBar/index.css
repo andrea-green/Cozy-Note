@@ -1,5 +1,9 @@
 /* nav bar styling */
 
+.nav-bar{
+    background-color: #A8A8E8;
+}
+
 .home-button img{
     margin-top: -5rem;
     width: 18rem;
