@@ -6,6 +6,7 @@ import { addNtbkThunk } from "../../store/notebook";
 import { useHistory, useParams } from "react-router-dom";
 import { editNoteThunk } from "../../store/note";
 import { useModal } from "../../context/Modal";
+import './index.css';
 
 
 export default function NotebookDropDown() {
@@ -60,7 +61,7 @@ export default function NotebookDropDown() {
 
     return (
 
-        <div onClick={openDropDown} style={{cursor:'pointer',background:'white', border:'1px solid black',marginBottom:'2rem'}}>
+        <div className='dropdown-button' onClick={openDropDown}>
             Add to a notebook
             {dropDown &&
                 <>

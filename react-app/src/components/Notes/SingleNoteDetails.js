@@ -28,9 +28,9 @@ export default function SingleNoteDetails() {
     return (
         <div className='sn-main'>
             <div className='note-header'>
-                <h1 style={{ color: 'black', fontSize: '20px', marginBottom: '0' }}>Notebook</h1>
+                {<EditNoteTitle/>}
                 {myNote.notebook &&
-                    <h1 className='notebook-name'>{myNote.notebook.name} </h1>
+                    <h2 className='notebook-name'>{myNote.notebook.name} </h2>
                 }
                 <div className='drop-down'>
                     <NotebookDropDown />
@@ -42,7 +42,6 @@ export default function SingleNoteDetails() {
                     faIcon={<i className="fa-solid fa-trash fa-2xl" style={{ color: "#cacafa", cursor: 'pointer' }} />}
                 />
             </div>
-            <EditNoteTitle />
             <EditNoteContent />
         </div>
     )

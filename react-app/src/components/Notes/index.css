@@ -128,8 +128,11 @@
 }
 
 .edit-note-title-input{
-    height: fit-content;
-    width: fit-content;
+    font-size: xxx-large;
+    font-weight: bold;
+    border: 0px;
+    border-bottom: 1px solid black;
+    width: 26rem;
 }
 
 .button.form-button{
@@ -138,9 +141,28 @@
     font-size: 20px;
     margin-top: 3%;
     border-radius: 10px;
+    border:none;
     margin-right: 5%;
-    margin-left: 3%;
-    background-color: #DB9970;
+    margin-left: 15%;
+    background-color:#dfbde6;
     color: white;
     flex:1;
+}
+
+.button.form-button:hover{
+    background-color: #e5ccfd;
+}
+
+.dropdown-button{
+    cursor: pointer;
+    background-color:#dfbde6;
+    /* border: 1px solid black; */
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    color:white;
+}
+
+.dropdown-button:hover{
+    background-color: #e5ccfd;
 }
