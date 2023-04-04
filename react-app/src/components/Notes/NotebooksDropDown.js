@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getAllNtbksThunk } from "../../store/notebook"
 import { useSelector, useDispatch } from "react-redux";
 import CreateNotebookForm from "../Notebooks/CreateNotebookForm";
@@ -24,10 +24,10 @@ export default function NotebookDropDown() {
     const title = myNote.title
     const content = myNote.content
     const [dropDown, setDropDown] = useState(false)
+    const dropdownRef = useRef(null);
 
 
     function addToNotebook(nbkId){
-        console.log('nbkid',nbkId)
         const payload = {
             title,
             content,
@@ -54,14 +54,28 @@ export default function NotebookDropDown() {
         </div>
     ))
 
-    const openDropDown = () => { setDropDown(!dropDown) }
+    const handleDropDown = () => { setDropDown(!dropDown) }
+
+    const onOutsideClick = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setDropDown(false);
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener("mousedown", onOutsideClick);
+
+        return () => {
+            document.removeEventListener("mousedown", onOutsideClick);
+        };
+    }, []);
+
 
 
 
 
     return (
-
-        <div className='dropdown-button' onClick={openDropDown}>
+        <div className='dropdown-button' onClick={handleDropDown} ref={dropdownRef}>
             Add to a notebook
             {dropDown &&
                 <>
