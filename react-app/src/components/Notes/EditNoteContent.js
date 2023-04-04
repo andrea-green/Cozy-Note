@@ -5,6 +5,7 @@ import { editNoteThunk } from '../../store/note'
 import '../HomePage.css'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import './index.css'
 
 
 export default function EditNoteContent() {

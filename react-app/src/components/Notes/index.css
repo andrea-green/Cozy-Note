@@ -83,6 +83,10 @@
 
 /* single note (sn) page  */
 
+.note-header{
+    position:relative;
+}
+
 .sn-idx-main{
     display: flex;
     flex-direction: row;
@@ -90,7 +94,7 @@
 }
 
 .drop-down{
-    position: fixed;
+    position: absolute;
 }
 
 .delete-edit{
@@ -98,4 +102,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+}
+
+.quill.react-quill{
+    height: 40rem;
 }
