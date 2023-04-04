@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { getNoteThunk, editNoteThunk } from '../../store/note'
-// import IconModal from '../IconModal/IconModal'
+import { getNoteThunk } from '../../store/note'
 import DeleteNoteForm from '../Notes/DeleteNoteForm'
 import { useParams } from 'react-router-dom'
 import NotebookDropDown from './NotebooksDropDown'
 import EditNoteTitle from './EditNoteTitle'
 import EditNoteContent from './EditNoteContent'
 import OpenModalButton from '../OpenModalButton'
-// import '../HomePage.css'
-
-
-
-
+import './index.css';
 
 
 export default function SingleNoteDetails() {
@@ -32,7 +26,7 @@ export default function SingleNoteDetails() {
 
 
     return (
-        // <h1>welcome to clown town </h1>
+
         <div className='sn-main'>
             <div className='note-header'>
                 <h1 style={{ color: 'black', fontSize: '20px', marginBottom: '0' }}>Notebook</h1>
@@ -50,32 +44,8 @@ export default function SingleNoteDetails() {
                 />
 
             </div>
+            <EditNoteTitle />
+            <EditNoteContent />
         </div>
-        // <div>
-        //     <div className='note-header'>
-        //         <h1 style={{ color: 'white', fontSize: '20px', marginBottom: '0' }}>Notebook</h1>
-        //         {myNote.notebook &&
-        //             <h1 className='notebook-name'>{myNote.notebook.name} </h1>
-        //         }
-        //         <NotebookDropDown />
-        //     </div>
-        //     <div style={{
-        //         display:'flex', justifyContent:'flex-end',marginTop:'-8rem', marginBottom:'-6rem'
-        //     }}>
-        //         {/* <img src={rabbit} alt="" className='rabbit' /> */}
-        //     </div>
-
-        //     <div style={{ marginTop: '11rem' }} >
-        //         <div className="edit-delete-buttons">
-        //             <IconModal
-        //                 modalComponent={<DeleteNoteForm />}
-        //                 // imageUrl={trashCan}
-        //                 // style={{ height: "90%", width: "100%" }}
-        //             />
-        //         </div>
-        //         <EditNoteTitle />
-        //         <EditNoteContent />
-        //     </div>
-        // </div>
     )
 }
