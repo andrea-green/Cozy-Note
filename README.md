@@ -6,7 +6,8 @@ An Evernote inspired application built with Flask, React/Redux, and SQLAlchemy.C
 
 <img width="1421" alt="Screenshot 2023-03-30 at 8 00 16 PM" src="https://user-images.githubusercontent.com/108085381/228996732-f87a30b2-be84-484a-9a26-e493d5102d4e.png">
 
-<img width="674" alt="Screenshot 2023-03-30 at 8 01 08 PM" src="https://user-images.githubusercontent.com/108085381/228996803-6cf2bcf1-4b5a-4959-acb6-9751923d94c7.png">
+<img width="1403" alt="Screenshot 2023-04-04 at 10 24 00 AM" src="https://user-images.githubusercontent.com/108085381/229841039-5900ae4a-41c6-46a9-b82b-d2cb54f5dd99.png">
+
 
 <img width="462" alt="Screenshot 2023-03-30 at 8 00 55 PM" src="https://user-images.githubusercontent.com/108085381/228996831-093604b7-bb02-4e82-96c5-9375bf9aa762.png">
 
