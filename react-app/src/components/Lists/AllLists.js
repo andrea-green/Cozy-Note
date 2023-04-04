@@ -84,7 +84,7 @@ export default function AllLists() {
                                 {myListsArr.map(list => (
                                     <div className='indiv-card' key={list.id}  onClick={() => handleSubmit(list.id)} >
                                         <h3>{list.title}</h3>
-                                        <span>{list.created_aat}</span>
+                                        <span>Created: {list.created_at}</span>
                                     </div>
                                 ))}
                             </Slider>

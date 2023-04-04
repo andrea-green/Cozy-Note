@@ -102,9 +102,9 @@ export default function AllNotebooks() {
                                 {myNotebooksArr.map (notebook => (
                                     <div className='indiv-card' key={notebook.id} onClick={() => handleSubmit(notebook.id)}>
                                         <h3>{notebook.name}</h3>
-                                        <span>{notebook.updated_at}</span>
+                                        <span>Updated: {notebook.updated_at}</span>
                                         <div className='notebook-content'>
-                            
+
                                         </div>
                                     </div>
                                 ))}
