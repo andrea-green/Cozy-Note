@@ -85,16 +85,18 @@
 
 .note-header{
     position:relative;
+    z-index:2
 }
 
 .sn-idx-main{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-around;
 }
 
 .drop-down{
     position: absolute;
+    z-index:1
 }
 
 .delete-edit{
@@ -104,6 +106,41 @@
     justify-content: flex-end;
 }
 
-.quill.react-quill{
-    height: 40rem;
+/* .quill.react-quill{
+    height: 30rem;
+    width:35rem
+} */
+
+.ql-container.ql-snow{
+    height: 30rem;
+    width: 35rem;
+}
+
+.ql-editor{
+    font-size:x-large;
+    background-color: #cacafa;
+    color: white;
+}
+
+.edit-note-form-title {
+    display:flex;
+    width: 3rem;
+}
+
+.edit-note-title-input{
+    height: fit-content;
+    width: fit-content;
+}
+
+.button.form-button{
+    height: 2rem;
+    width: 6rem;
+    font-size: 20px;
+    margin-top: 3%;
+    border-radius: 10px;
+    margin-right: 5%;
+    margin-left: 3%;
+    background-color: #DB9970;
+    color: white;
+    flex:1;
 }

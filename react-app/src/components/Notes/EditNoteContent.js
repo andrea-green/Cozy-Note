@@ -57,7 +57,7 @@ export default function EditNoteContent() {
 
                 <div className='note-body'>
                     <div>
-                        <form className='edit-note-form-body' style={{ height: '50vh' }} onSubmit={handleSubmit}>
+                        <form className='edit-note-form-body' onSubmit={handleSubmit}>
                             <ReactQuill
                                 className='react-quill'
                                 value={content}
