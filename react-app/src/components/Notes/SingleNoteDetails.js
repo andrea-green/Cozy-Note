@@ -26,7 +26,6 @@ export default function SingleNoteDetails() {
 
 
     return (
-
         <div className='sn-main'>
             <div className='note-header'>
                 <h1 style={{ color: 'black', fontSize: '20px', marginBottom: '0' }}>Notebook</h1>
@@ -42,7 +41,6 @@ export default function SingleNoteDetails() {
                     modalComponent={<DeleteNoteForm />}
                     faIcon={<i className="fa-solid fa-trash fa-2xl" style={{ color: "#cacafa", cursor: 'pointer' }} />}
                 />
-
             </div>
             <EditNoteTitle />
             <EditNoteContent />
