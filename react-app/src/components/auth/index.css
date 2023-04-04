@@ -45,3 +45,18 @@
     height: 20rem;
     width: 20rem;
 }
+
+.demo-user-button{
+    border-radius: 18px;
+    border: none;
+    background-color: #e5e2fd;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-size: large;
+}
+
+.demo-user-button:hover{
+    background-color: #e5ccfd;
+}

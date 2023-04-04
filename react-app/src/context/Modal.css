@@ -29,7 +29,6 @@
     padding-right: 40px;
     width: fit-content;
     z-index: 9999;
-    overflow-y: scroll;
     height: fit-content;
     padding-bottom: 1rem;
   }

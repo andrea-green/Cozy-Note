@@ -2,8 +2,8 @@
 
 .home-button img{
     margin-top: -5rem;
-    width: 20vw;
-    height: 40vh;
+    width: 18rem;
+    height: 18rem;
     margin-left: -4rem;
 
 }
@@ -17,42 +17,42 @@
 
 .personal-links i{
     color: #e5e2fd;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
 }
 
 .notes-nav-button img{
-    height: 25vh;
+    height: 10rem;
     margin-top: -1rem;
-    width: 12vw;
+    width: 10rem;
     margin-left: 0rem;
     position: absolute;
     z-index: 0;
 }
 .notebook-nav-button img{
     margin-top: 4rem;
-    height: 25vh;
-    width: 12vw;
+    height: 10rem;
+    width: 10rem;
     margin-left: 0rem;
     position: absolute;
     z-index: 1;
 }
 .lists-nav-button img{
     margin-top: 10rem;
-    height: 25vh;
-    width: 12vw;
+    height: 10rem;
+    width: 10rem;
     margin-left: 0rem;
     position: absolute;
     z-index: 1;
 }
 .logout-button img{
-    height: 15vh;
-    width: 8vw;
+    height: 8rem;
+    width: 8rem;
     margin-top: 17rem;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     position: absolute;
     cursor: pointer;
-    z-index:2
+    z-index: 2;
 }
 
 .cloud-footer img {
@@ -64,14 +64,14 @@
 }
 
 .login img{
-    height: 30vh;
-    width: 15vw;
+    height: 11.25rem;
+    width: 11.25rem;
     margin-left: -1rem;
 }
 
 .signup img{
-    height: 30vh;
-    width: 15vw;
+    height: 11.25rem;
+    width: 11.25rem;
     margin-top: -7rem;
     margin-left: -1rem;
     position: absolute;
