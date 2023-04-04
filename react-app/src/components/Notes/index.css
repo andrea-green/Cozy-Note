@@ -106,11 +106,6 @@
     justify-content: flex-end;
 }
 
-/* .quill.react-quill{
-    height: 30rem;
-    width:35rem
-} */
-
 .ql-container.ql-snow{
     height: 30rem;
     width: 35rem;
@@ -165,4 +160,8 @@
 
 .dropdown-button:hover{
     background-color: #e5ccfd;
+}
+
+.create-notebook-link:hover{
+    background-color: #dfbde6;
 }

@@ -30,7 +30,7 @@ export default function SingleNoteDetails() {
             <div className='note-header'>
                 {<EditNoteTitle/>}
                 {myNote.notebook &&
-                    <h2 className='notebook-name'>{myNote.notebook.name} </h2>
+                    <h2 className='notebook-name'>Notebook: {myNote.notebook.name} </h2>
                 }
                 <div className='drop-down'>
                     <NotebookDropDown />
