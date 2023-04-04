@@ -1,4 +1,4 @@
-notes styling index
+/* notes styling index */
 
 .prev-arrow {
     position: absolute;
@@ -79,4 +79,12 @@ notes styling index
 
 .features-main {
     margin-left: 4rem;
+}
+
+/* single note (sn) page  */
+
+.sn-idx-main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
