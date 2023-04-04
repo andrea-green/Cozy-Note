@@ -88,3 +88,7 @@
     flex-direction: row;
     align-items: center;
 }
+
+.drop-down{
+    position: fixed;
+}
