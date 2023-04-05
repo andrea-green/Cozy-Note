@@ -210,14 +210,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background-color: #e5ccfd;
+    background-color: #e5c9eb;
     margin-top: 0.75rem;
-    border-radius: 59px;
+    border-radius: 0px;
     color: white;
     position: relative;
     z-index: 1;
 }
 
 .indiv-note:hover{
-    background-color:#cacafa
+    background-color:#dfbde6
+    /* background-color:#cacafa */
 }
