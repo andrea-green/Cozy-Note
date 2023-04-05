@@ -3,6 +3,7 @@
 .nav-bar{
     background-color: #A8A8E8;
     padding: 0 2rem;
+    position: relative;
 }
 
 .home-button img{
@@ -61,11 +62,12 @@
 }
 
 .cloud-footer img {
-    height: 20rem;
-    margin-top: 17rem;
     margin-left: -4rem;
     position: absolute;
     z-index: 0;
+    height: 6rem;
+    position: absolute;
+    bottom: 1rem;
 }
 
 .login img{
