@@ -199,3 +199,25 @@
     position: relative;
     z-index: 1
 }
+
+.nl-list{
+    margin-top: 2rem;
+}
+
+.indiv-note{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e5ccfd;
+    margin-top: 0.75rem;
+    border-radius: 59px;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.indiv-note:hover{
+    background-color:#cacafa
+}

@@ -10,6 +10,25 @@ import './index.css'
 import CreateNotebookForm from '../Notebooks/CreateNotebookForm';
 
 export default function NotesList() {
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const myNotes = useSelector((state) => state.notes.allNotes.byId);
+    const myNotesArr = Object.values(myNotes);
+
+    const handleSubmit = async (noteId) => {
+        await dispatch(getNoteThunk(noteId))
+        history.push(`/notes/${noteId}`)
+    }
+
+    useEffect(() => {
+        dispatch(getAllNotesThunk())
+    }, [dispatch])
+
+    useEffect(() => {
+
+    }, [myNotes])
+
     return (
         <div className='nl-main'>
             {/* <h1>WELCOME TO THE CIRCUS</h1> */}
@@ -21,6 +40,16 @@ export default function NotesList() {
                         buttonText='Create notebook'
                     />
                 </div>
+            </div>
+
+            <div className='nl-list'>
+                {myNotesArr.map(note=> (
+                    <div className='indiv-note' key={note.id} onClick={() => handleSubmit(note.id)} style={{ cursor: 'pointer' }} >
+                        <h3>{note.title}</h3>
+                        <span>Updated: {note.updated_at}</span>
+                    </div>
+                ))}
+
             </div>
 
         </div>
