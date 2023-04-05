@@ -83,6 +83,10 @@
 
 /* single note (sn) page  */
 
+.sn-main{
+    margin-left: 2rem;
+}
+
 .note-header{
     position:relative;
     z-index:2
@@ -91,7 +95,6 @@
 .sn-idx-main{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
 }
 
 .drop-down{
@@ -169,4 +172,16 @@
 
 .ql-toolbar.ql-snow {
     background-color: #E8DDF4;
+}
+
+.notebook-name{
+    color: #8D8DB4;
+}
+
+/* notes list on sn page */
+
+.nl-main{
+    background-color:#e5e2fd;
+    box-shadow: 0 0 20px #DFBDEA;
+    margin-left: 2rem;
 }
