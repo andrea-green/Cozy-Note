@@ -7,7 +7,6 @@ import CreateNoteForm from './CreateNoteForm'
 import { useModal } from '../../context/Modal';
 import notesHeader from '../graphics/header4.png';
 import './index.css'
-import CreateNotebookForm from '../Notebooks/CreateNotebookForm';
 
 export default function NotesList() {
     const dispatch = useDispatch();
@@ -36,8 +35,8 @@ export default function NotesList() {
                 <img src={notesHeader} alt='nl-header'/>
                 <div className='nl-create-button'>
                     <OpenModalButton
-                        modalComponent={<CreateNotebookForm />}
-                        buttonText='Create notebook'
+                        modalComponent={<CreateNoteForm />}
+                        buttonText='Create note'
                     />
                 </div>
             </div>

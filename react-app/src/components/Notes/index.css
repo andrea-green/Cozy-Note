@@ -220,5 +220,14 @@
 
 .indiv-note:hover{
     background-color:#dfbde6
-    /* background-color:#cacafa */
 }
+
+/*forms */
+
+/* .form-input{
+    font-size: 30px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 1.5rem;
+} */

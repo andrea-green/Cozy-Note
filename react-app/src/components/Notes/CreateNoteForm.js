@@ -64,14 +64,13 @@ export default function CreateNoteForm() {
                         required
                         value={title}
                         onChange={enterTitle}
-                        style={{fontSize:"30px"}}
                     />
-                    <label>Start writing to create your note.</label>
+                    {/* <label>Start writing to create your note.</label> */}
                     <textarea className='form-input'
                         type="text"
                         value={content}
                         onChange={enterContent}
-                        style={{fontSize:"30px"}}
+                        placeholder='Start writing to create your note'
                     />
                     <button
                         className='button form-button'
