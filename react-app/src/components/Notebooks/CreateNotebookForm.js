@@ -49,7 +49,7 @@ export default function CreateNotebookForm() {
 
             <section className='form-container'>
                 <ul>{errors.map((error) => (
-                    <li key={error}>{error}</li>
+                    <li className='errors' key={error}>{error}</li>
                 ))}</ul>
                 <form className='form-body' onSubmit={handleSubmit}>
                     <label>Name </label>

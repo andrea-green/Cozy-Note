@@ -10,10 +10,9 @@ export default function CreateNoteForm() {
     const history = useHistory();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [errors, setErrors] = useState([]);
     const enterTitle = (e) => setTitle(e.target.value);
     const enterContent = (e) => setContent(e.target.value);
-
-    const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
 
@@ -23,10 +22,12 @@ export default function CreateNoteForm() {
         if (title.length < 1) errors.push('Title must be at least 1 characters long');
 
         setErrors(errors);
+
     }, [title, content])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
 
         const payload = {
             title,
@@ -44,28 +45,26 @@ export default function CreateNoteForm() {
 
     return (
         <div>
-            <div className="form-header" style={{display:'flex',justifyContent:'space-between'}}>
+            <div className="form-header" style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <h1>New note</h1>
                 <button
                     type='submit'
                     onClick={closeModal}
-                    style={{cursor:'pointer',marginTop:'1rem',height:'fit-content'}}
+                    style={{ cursor: 'pointer', marginTop: '1rem', height: 'fit-content' }}
                 > X </button>
             </div>
-
             <section className='form-container'>
-                <ul>{errors.map((error) => (
-                    <li key={error}>{error}</li>
-                ))}</ul>
+                    <ul>{errors.map((error) => (
+                        <li className='errors' key={error}>{error}</li>
+                    ))}</ul>
                 <form className='form-body' onSubmit={handleSubmit}>
-                    <label>Title </label>
                     <input className='form-input'
                         type="text"
+                        placeholder='Title'
                         required
                         value={title}
                         onChange={enterTitle}
                     />
-                    {/* <label>Start writing to create your note.</label> */}
                     <textarea className='form-input'
                         type="text"
                         value={content}
@@ -75,7 +74,6 @@ export default function CreateNoteForm() {
                     <button
                         className='button form-button'
                         type="submit"
-                        // disabled={contentError}
                     >Submit</button>
                 </form>
             </section>
