@@ -58,14 +58,13 @@ export default function CreateNoteForm() {
                     <li key={error}>{error}</li>
                 ))}</ul>
                 <form className='form-body' onSubmit={handleSubmit}>
-                    <label>Title </label>
                     <input className='form-input'
                         type="text"
+                        placeholder='Title'
                         required
                         value={title}
                         onChange={enterTitle}
                     />
-                    {/* <label>Start writing to create your note.</label> */}
                     <textarea className='form-input'
                         type="text"
                         value={content}
@@ -75,7 +74,6 @@ export default function CreateNoteForm() {
                     <button
                         className='button form-button'
                         type="submit"
-                        // disabled={contentError}
                     >Submit</button>
                 </form>
             </section>
