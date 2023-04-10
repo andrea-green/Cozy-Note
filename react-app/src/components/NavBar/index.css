@@ -53,15 +53,17 @@
     position: absolute;
     z-index: 1;
 }
-/* .logout-button img{
-    height: 8rem;
-    width: 8rem;
-    margin-top: 17rem;
+.logout-button {
     margin-left: 1rem;
-    position: absolute;
-    cursor: pointer;
     z-index: 2;
-} */
+    height: 2rem;
+    position: absolute;
+    bottom: 9rem;
+    font-size: large;
+    border-radius: 1rem;
+    border: none;
+    width: 7rem;
+}
 
 .cloud-footer img {
     margin-left: -4rem;

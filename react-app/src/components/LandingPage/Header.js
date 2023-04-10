@@ -44,10 +44,10 @@ export default function Header() {
                 <li>
                     <div className='personal-links'>
                         <a target="_blank" rel="noopener noreferrer" href='https://github.com/andrea-green'>
-                            <i class="fa-brands fa-github fa-3x"></i>
+                            <i className="fa-brands fa-github fa-3x"></i>
                         </a>
                         <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/andrea-green-201146245/'>
-                            <i class="fa-brands fa-linkedin fa-3x"></i>
+                            <i className="fa-brands fa-linkedin fa-3x"></i>
                         </a>
                     </div>
                 </li>

@@ -7,17 +7,15 @@ import "../HomePage.css"
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
-  const history= useHistory();
+  const history = useHistory();
 
   const onLogout = async (e) => {
     await dispatch(logout());
     history.push('/')
   };
   return (
-    <div>
-      <div className='logout-button' onClick={onLogout} >
-        <img src={logoutButton} alt='logout'  />
-      </div>
+    <div type='submit' onClick={onLogout}>
+      <button className='logout-button' type='submit'>Logout</button>
     </div>
   )
 };

@@ -13,7 +13,7 @@ import cloud from '../graphics/cloud.png';
 export default function NavBar() {
   return (
     <nav className='nav-bar'>
-       <ul>
+      <ul>
         <li className='home-button'>
           <NavLink to='/home' exact={true} activeClassName='active'>
             <img src={logo} alt='logo' />
@@ -23,32 +23,31 @@ export default function NavBar() {
               <i className="fa-brands fa-github fa-3x" />
             </a>
             <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/andrea-green-201146245/'>
-              <i className="fa-brands fa-linkedin fa-3x"/>
+              <i className="fa-brands fa-linkedin fa-3x" />
             </a>
           </div>
         </li>
-          <div>
-            <li className='notes-nav-button' >
-              <NavLink to='/notes' exact={true} activeClassName='active'>
-                <img src={notesHead} alt='notes' />
-              </NavLink>
-            </li>
-            <li className='notebook-nav-button' >
-              <NavLink to='/notebooks' exact={true} activeClassName='active'>
-                <img src={nbHead} alt='notebooks' />
-              </NavLink>
-            </li>
-            <li className='lists-nav-button' >
-              <NavLink to='/lists' exact={true} activeClassName='active'>
-                <img src={listHead} alt='lists' />
-              </NavLink>
-            </li>
-            {/* <LogoutButton /> */}
-            <button className='logout-button' type='submit'>Logout</button>
-            <li className='cloud-footer'>
-              <img src={cloud} alt='cloud' />
-            </li>
-          </div>
+        <div>
+          <li className='notes-nav-button' >
+            <NavLink to='/notes' exact={true} activeClassName='active'>
+              <img src={notesHead} alt='notes' />
+            </NavLink>
+          </li>
+          <li className='notebook-nav-button' >
+            <NavLink to='/notebooks' exact={true} activeClassName='active'>
+              <img src={nbHead} alt='notebooks' />
+            </NavLink>
+          </li>
+          <li className='lists-nav-button' >
+            <NavLink to='/lists' exact={true} activeClassName='active'>
+              <img src={listHead} alt='lists' />
+            </NavLink>
+          </li>
+          <LogoutButton />
+          <li className='cloud-footer'>
+            <img src={cloud} alt='cloud' />
+          </li>
+        </div>
       </ul>
     </nav>
   )
