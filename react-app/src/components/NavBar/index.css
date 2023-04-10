@@ -63,6 +63,12 @@
     border-radius: 1rem;
     border: none;
     width: 7rem;
+    background-color: #dfbde6;
+    color: white;
+}
+
+.logout-button:hover{
+    background-color: #e5ccfd;
 }
 
 .cloud-footer img {
