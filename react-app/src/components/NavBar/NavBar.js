@@ -43,7 +43,8 @@ export default function NavBar() {
                 <img src={listHead} alt='lists' />
               </NavLink>
             </li>
-            <LogoutButton />
+            {/* <LogoutButton /> */}
+            <button className='logout-button' type='submit'>Logout</button>
             <li className='cloud-footer'>
               <img src={cloud} alt='cloud' />
             </li>

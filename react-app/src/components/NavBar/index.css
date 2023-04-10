@@ -3,6 +3,8 @@
 .nav-bar{
     background-color: #A8A8E8;
     padding: 0 2rem;
+    min-height: 45rem;
+    max-height: 100vh;
     position: relative;
 }
 
@@ -51,7 +53,7 @@
     position: absolute;
     z-index: 1;
 }
-.logout-button img{
+/* .logout-button img{
     height: 8rem;
     width: 8rem;
     margin-top: 17rem;
@@ -59,7 +61,7 @@
     position: absolute;
     cursor: pointer;
     z-index: 2;
-}
+} */
 
 .cloud-footer img {
     margin-left: -4rem;
