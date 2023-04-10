@@ -1,3 +1,58 @@
+/* homepage body styling  */
+
+.body-main{
+    display: flex;
+    flex-direction: row;
+}
+
+.features-main{
+    display: flex;
+    align-items: center;
+}
+
+/* notes styling index */
+
+.prev-arrow {
+    position: absolute;
+    left: 0;
+    bottom: -6rem;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .next-arrow {
+    position: absolute;
+    right: 0;
+    bottom: -6rem;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+
+.create-button{
+    margin-top: -9rem;
+    margin-left: 11rem;
+    position: inherit;
+    z-index: 1;
+}
+
+.create-button {
+    margin-top: 11rem;
+    margin-left: -9rem;
+    position: inherit;
+    z-index: 1;
+}
+
+.all-notes-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.indiv-card-container {
+    margin-top: -4rem;
+    margin-left: -5rem;
+}
 
 /* notes */
 /*

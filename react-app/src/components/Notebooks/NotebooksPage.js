@@ -11,7 +11,11 @@
 // import CreateNotebookForm from "./CreateNotebookForm";
 // import headerPic from '../images/my-notebooks-graphic.png'
 
-// export default function AllNotebooks2() {
+export default function AllNotebooks2() {
+
+    return(
+        <h1>welcome</h1>
+    )
 //     const dispatch = useDispatch();
 
 //     const history = useHistory();
@@ -132,4 +136,4 @@
 //             </table>
 //         </div >
 //     );
-// }
+}

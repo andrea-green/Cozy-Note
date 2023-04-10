@@ -47,6 +47,7 @@ const SignUpForm = () => {
     };
 
     if (user) {
+        closeModal();
         return <Redirect to='/home' />;
     }
 
