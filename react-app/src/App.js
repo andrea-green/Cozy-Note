@@ -51,7 +51,7 @@ function App() {
           <Body />
         </ProtectedRoute>
         <ProtectedRoute path='/notes' exact={true}>
-          <AllNotes />
+          <SingleNote />
         </ProtectedRoute>
         <ProtectedRoute path='/notebooks' exact={true}>
           <AllNotebooks2 />
