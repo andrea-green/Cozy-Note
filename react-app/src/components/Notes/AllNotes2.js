@@ -11,23 +11,17 @@ export default function AllNotes2() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const myNotes = useSelector((state) => state.notes.allNotes.byId);
-    const myNotebook = useSelector((state) => state.notebooks.singleNtbk)
-    const myNotesArr = Object.values(myNotes).filter(note => note.notebook_id === myNotebook.id);
-    console.log('myNotesArr',myNotesArr)
+    const myNotes = useSelector(state => state.notebooks.singleNtbk.allNotes)
+    const myNotesArr = Object.values(myNotes);
+    // const myNotesArr = Object.values(myNotes).filter(note => note.notebook_id === myNotebook.id);
+    // console.log('myNotesArr',myNotesArr)
 
     const handleSubmit = async(noteId) => {
         await dispatch(getNoteThunk(noteId))
-        history.push(`/notes/${noteId}`)
-    }
+    };
 
-    useEffect(() => {
-        dispatch(getAllNotesThunk())
-    },[dispatch])
+    useEffect(()=>{},[myNotes]);
 
-    useEffect(()=>{
-
-    },[myNotes])
     return (
         <div className='nl-main'>
             <div className='nl-header'>

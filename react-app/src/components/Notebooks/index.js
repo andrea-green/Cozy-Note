@@ -8,22 +8,24 @@ import { useParams } from "react-router-dom"
 import { getNtbkThunk } from "../../store/notebook"
 import { getNoteThunk } from "../../store/note"
 import SingleNoteDetails from "../Notes/SingleNoteDetails"
+import SingleNtbkNote from "./SingleNtbkNote"
 
 
 
 export default function SingleNotebook() {
 
-    const myNote = useSelector(state => state.notes.singleNote)
+    // const myNotebook = useSelector(state => state.singleNtbk.details)
     const dispatch = useDispatch();
     const { notebookId, noteId } = useParams();
     const [loaded, setLoaded] = useState(false);
 
-    useEffect((noteId) => {
-        dispatch(getNoteThunk(noteId)).then(() => setLoaded(true))
-    }, [dispatch, noteId])
+    // useEffect((noteId) => {
+        // dispatch(getNoteThunk(noteId)).then(() => setLoaded(true))
+        // dispatch(getNoteThunk(noteId))
+    // }, [dispatch, noteId])
 
     useEffect(() => {
-        dispatch(getNtbkThunk(notebookId))
+        dispatch(getNtbkThunk(notebookId)).then(() => setLoaded(true))
     }, [dispatch, notebookId])
 
 
@@ -33,6 +35,7 @@ export default function SingleNotebook() {
             <NavBar />
             <AllNotes2 />
             {/* <SingleNoteDetails /> */}
+            <SingleNtbkNote />
         </div>
     )
 
