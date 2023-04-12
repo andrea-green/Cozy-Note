@@ -34,7 +34,6 @@ export default function SingleNotebook() {
         <div className='sn-idx-main'>
             <NavBar />
             <AllNotes2 />
-            {/* <SingleNoteDetails /> */}
             <SingleNtbkNote />
         </div>
     )

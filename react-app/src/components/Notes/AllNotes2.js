@@ -12,6 +12,7 @@ export default function AllNotes2() {
     const history = useHistory();
 
     const myNotes = useSelector(state => state.notebooks.singleNtbk.allNotes)
+    const myNote = useSelector(state => state.notebooks.singleNtbk.singleNote)
     const myNotesArr = Object.values(myNotes);
     // const myNotesArr = Object.values(myNotes).filter(note => note.notebook_id === myNotebook.id);
     // console.log('myNotesArr',myNotesArr)
@@ -20,7 +21,7 @@ export default function AllNotes2() {
         await dispatch(getNoteThunk(noteId))
     };
 
-    useEffect(()=>{},[myNotes]);
+    useEffect(()=>{},[myNote,myNotes]);
 
     return (
         <div className='nl-main'>

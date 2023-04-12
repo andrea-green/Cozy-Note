@@ -9,16 +9,16 @@ import { useModal } from "../../context/Modal";
 import './index.css';
 
 
-export default function NotebookDropDown() {
+export default function NotebookDropDown2() {
 
     const dispatch = useDispatch();
-    const { noteId } = useParams();
+    // const { noteId } = useParams();
     const { setModalContent } = useModal();
 
     const myNotebooks = useSelector(state => state.notebooks.allNotebooks.byId)
     const myNotebooksArr = Object.values(myNotebooks);
 
-    const myNote = useSelector(state => state.notes.singleNote)
+    const myNote = useSelector(state => state.notebooks.singleNtbk.singleNote)
 
 
     const title = myNote.title

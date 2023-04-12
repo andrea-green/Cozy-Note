@@ -24,14 +24,14 @@ export default function EditNoteTitle2() {
     useEffect(() => {
         const errors = [];
 
-        if (title.length < 1) errors.push('Title must be at least 1 characters long');
+        if (title && title.length < 1) errors.push('Title must be at least 1 characters long');
 
         setErrors(errors);
     }, [title])
 
-    useEffect(() => {
-        setTitle(myNote.title)
-    }, [myNote])
+    // useEffect(() => {
+    //     setTitle(myNote.title)
+    // }, [myNote])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -66,7 +66,7 @@ export default function EditNoteTitle2() {
                         value={title}
                         onChange={updateTitle}
                     />
-                    {title !== myNote.title &&
+                    {title && title !== myNote.title &&
                         <>
                             <button
                                 className='button form-button'
