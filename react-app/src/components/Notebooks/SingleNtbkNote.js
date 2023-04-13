@@ -14,11 +14,8 @@ export default function SingleNtbkNote() {
 
     const myNote = useSelector(state => state.notebooks.singleNtbk.singleNote)
     const myNotebook = useSelector(state => state.notebooks.singleNtbk.details)
-    console.log('myNotebook',myNotebook)
-    console.log('myNote',myNote)
     const dispatch = useDispatch()
     const { noteId } = useParams();
-
 
 
     // useEffect(() => {
@@ -32,7 +29,7 @@ export default function SingleNtbkNote() {
         <div className='sn-main'>
             <div className='note-header'>
                 <EditNoteTitle2/>
-                {myNotebook &&
+                {myNote &&
                     <h2 className='notebook-name'>Notebook: {myNotebook.name} </h2>
                 }
                 <div className='drop-down'>

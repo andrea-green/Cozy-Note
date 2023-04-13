@@ -4,6 +4,7 @@ const GET_NTBK = 'notebook/GET_NTBK';
 const ADD_NTBK = 'notebook/ADD_NTBK';
 const EDIT_NTBK = 'notebook/EDIT_NTBK';
 const DELETE_NTBK = 'notebook/DELETE_NTBK';
+const REFRESH_NTBK = 'notebook/REFRESH_NTBK'
 
 
 
@@ -32,6 +33,11 @@ const deleteNtbkAc = (notebookId) => ({
     type: DELETE_NTBK,
     payload: notebookId
 });
+
+export const singleNtbkNoteAc = (note) => ({
+    type:REFRESH_NTBK,
+    payload:note
+})
 
 
 
@@ -240,6 +246,19 @@ export default function ntbkReducer(state = initialState, action) {
             };
             delete deletedNtbkState.allNotebooks.byId[deletedNtbkId];
             return deletedNtbkState;
+
+        case REFRESH_NTBK:{
+            const singleNote = action.payload;
+            const newState = {
+                ...state,
+                singleNtbk:{
+                    allNotes:{...state.singleNtbk.allNotes},
+                    singleNote: singleNote,
+                    details:{...state.singleNtbk.details}
+                }
+            }
+            return newState; 
+        }
         default:
             return state;
     }

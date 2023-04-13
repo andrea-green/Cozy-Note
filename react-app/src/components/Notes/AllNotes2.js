@@ -5,7 +5,7 @@ import { getAllNotesThunk, getNoteThunk } from '../../store/note';
 import notesHeader from '../graphics/header4.png'
 import OpenModalButton from '../OpenModalButton';
 import CreateNoteForm from './CreateNoteForm';
-
+import { singleNtbkNoteAc } from '../../store/notebook';
 
 export default function AllNotes2() {
     const dispatch = useDispatch();
@@ -17,8 +17,8 @@ export default function AllNotes2() {
     // const myNotesArr = Object.values(myNotes).filter(note => note.notebook_id === myNotebook.id);
     // console.log('myNotesArr',myNotesArr)
 
-    const handleSubmit = async(noteId) => {
-        await dispatch(getNoteThunk(noteId))
+    const handleSubmit = async(note) => {
+        await dispatch(singleNtbkNoteAc(note))
     };
 
     useEffect(()=>{},[myNote,myNotes]);
@@ -37,7 +37,7 @@ export default function AllNotes2() {
 
             <div className='nl-list'>
                 {myNotesArr.map(note=> (
-                    <div className='indiv-note' key={note.id} onClick={() => handleSubmit(note.id)} style={{ cursor: 'pointer' }} >
+                    <div className='indiv-note' key={note.id} onClick={() => handleSubmit(note)} style={{ cursor: 'pointer' }} >
                         <h3>{note.title}</h3>
                         <span>Updated: {note.updated_at}</span>
                     </div>

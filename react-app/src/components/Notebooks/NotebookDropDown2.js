@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { getAllNtbksThunk } from "../../store/notebook"
+import { getAllNtbksThunk, getNtbkThunk } from "../../store/notebook"
 import { useSelector, useDispatch } from "react-redux";
 import CreateNotebookForm from "../Notebooks/CreateNotebookForm";
 import { addNtbkThunk } from "../../store/notebook";
@@ -12,7 +12,6 @@ import './index.css';
 export default function NotebookDropDown2() {
 
     const dispatch = useDispatch();
-    // const { noteId } = useParams();
     const { setModalContent } = useModal();
 
     const myNotebooks = useSelector(state => state.notebooks.allNotebooks.byId)
@@ -27,17 +26,18 @@ export default function NotebookDropDown2() {
     const dropdownRef = useRef(null);
 
 
-    function addToNotebook(nbkId){
+    async function addToNotebook(nbkId) {
         const payload = {
             title,
             content,
-            notebookId:nbkId,
+            notebookId: nbkId,
         }
 
-        dispatch(editNoteThunk(myNote.id, payload))
+        await dispatch(editNoteThunk(myNote.id, payload))
+        await dispatch(getNtbkThunk(nbkId))
     }
 
-    const createNewNotebook=()=>{
+    const createNewNotebook = () => {
         setModalContent(<CreateNotebookForm />)
 
     }
@@ -46,10 +46,10 @@ export default function NotebookDropDown2() {
         dispatch(getAllNtbksThunk())
     }, [])
 
-    useEffect(() => {},[myNote])
+    useEffect(() => { }, [myNote])
 
     const notebookOptions = myNotebooksArr.map((notebook, idx) => (
-        <div onClick={()=> addToNotebook(notebook.id)} key={notebook + idx} className='create-notebook-link'>
+        <div onClick={() => addToNotebook(notebook.id)} key={notebook + idx} className='create-notebook-link'>
             <span>{notebook.name}</span>
         </div>
     ))
