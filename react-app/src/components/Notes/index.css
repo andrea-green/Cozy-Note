@@ -173,7 +173,7 @@
 
 .create-notebook-link:hover{
     background-color: #dfbde6;
-    
+
 
 }
 
@@ -211,6 +211,7 @@
 .nl-list{
     margin-top: 0 rem;
     overflow-y: scroll;
+    max-height: 30rem;
 }
 
 .notebook-name{
