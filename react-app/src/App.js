@@ -58,7 +58,7 @@ function App() {
           <SingleNote />
         </ProtectedRoute>
         <ProtectedRoute path='/notebooks' exact={true}>
-          <SingleNotebookDetails />
+          <AllNotebooks2/>
         </ProtectedRoute>
         <ProtectedRoute path ='/notebooks/:notebookId'>
           <SingleNotebook/>
