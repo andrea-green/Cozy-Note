@@ -14,15 +14,9 @@ import SingleNtbkNote from "./SingleNtbkNote"
 
 export default function SingleNotebook() {
 
-    // const myNotebook = useSelector(state => state.singleNtbk.details)
     const dispatch = useDispatch();
     const { notebookId, noteId } = useParams();
     const [loaded, setLoaded] = useState(false);
-
-    // useEffect((noteId) => {
-        // dispatch(getNoteThunk(noteId)).then(() => setLoaded(true))
-        // dispatch(getNoteThunk(noteId))
-    // }, [dispatch, noteId])
 
     useEffect(() => {
         dispatch(getNtbkThunk(notebookId)).then(() => setLoaded(true))

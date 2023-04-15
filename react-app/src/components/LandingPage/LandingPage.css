@@ -98,6 +98,8 @@
 
 .form-submit-button:hover{
     background-color: #e5ccfd;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 
 .contact-input label{

@@ -55,6 +55,8 @@
 
 .open-modal-button.clickable:hover{
     background-color: #e5ccfd;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 .create-button {
     margin-top: 9rem;
@@ -149,6 +151,8 @@
 
 .button.form-button:hover{
     background-color: #e5ccfd;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 
 .dropdown-button{
@@ -163,10 +167,14 @@
 
 .dropdown-button:hover{
     background-color: #e5ccfd;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 
 .create-notebook-link:hover{
     background-color: #dfbde6;
+    
+
 }
 
 
@@ -201,7 +209,14 @@
 }
 
 .nl-list{
-    margin-top: 2rem;
+    margin-top: 0 rem;
+    overflow-y: scroll;
+}
+
+.notebook-name{
+    display: flex;
+    align-items: center;
+    margin-left: 0.75rem;
 }
 
 .indiv-note{
@@ -219,7 +234,9 @@
 }
 
 .indiv-note:hover{
-    background-color:#dfbde6
+    background-color:#dfbde6;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 
 /*forms */

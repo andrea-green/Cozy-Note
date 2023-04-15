@@ -5,6 +5,8 @@
 
 .icon-img:hover {
     cursor: pointer;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 
 .server-icon {
@@ -14,4 +16,6 @@
 
 .server-icon:hover {
     border-radius: 30%;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
