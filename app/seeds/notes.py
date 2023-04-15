@@ -16,7 +16,7 @@ def seed_notes():
     )
     note_3= Note(
         title="brain pump",
-        author_id=2,
+        author_id=1,
         notebook_id=2,
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
     )
@@ -40,32 +40,32 @@ def seed_notes():
     )
     note_7= Note(
         title="note 7",
-        author_id=2,
-        notebook_id=1,
+        author_id=1,
+        notebook_id=3,
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
     )
     note_8= Note(
         title="note 8",
-        author_id=1,
-        notebook_id=1,
+        author_id=2,
+        notebook_id=4,
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
     )
     note_9= Note(
         title="note 9",
-        author_id=1,
+        author_id=2,
         notebook_id=5,
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
-    )
-    note_9= Note(
-        title="note 10",
-        author_id=1,
-        notebook_id=1,
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
     )
     note_10= Note(
         title="note 10",
-        author_id=1,
-        notebook_id=1,
+        author_id=3,
+        notebook_id=6,
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
+    )
+    note_11= Note(
+        title="note 11",
+        author_id=3,
+        notebook_id=7,
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo augue orci, sed luctus erat ornare sit amet."
     )
     db.session.add(note_1)
@@ -78,6 +78,7 @@ def seed_notes():
     db.session.add(note_8)
     db.session.add(note_9)
     db.session.add(note_10)
+    db.session.add(note_11)
 
     db.session.commit()
 
