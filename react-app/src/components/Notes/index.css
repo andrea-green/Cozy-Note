@@ -41,7 +41,7 @@
 
 .open-modal-button.clickable{
     margin-top: 0rem;
-    margin-left: 19rem;
+    /* margin-left: 19rem; */
     position: inherit;
     z-index: 1;
     background-color: #dfbde6;
@@ -60,6 +60,7 @@
 }
 .create-button {
     margin-top: 9rem;
+    margin-left: 10rem;
     position: absolute;
     z-index: 1;
 }
@@ -203,7 +204,7 @@
 
 .nl-create-button{
     margin-top: -11rem;
-    margin-left: -15rem;
+    margin-left: 3rem;
     position: relative;
     z-index: 1
 }
