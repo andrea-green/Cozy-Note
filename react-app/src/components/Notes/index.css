@@ -41,16 +41,16 @@
 
 .open-modal-button.clickable{
     margin-top: 0rem;
-    /* margin-left: 19rem; */
     position: inherit;
     z-index: 1;
-    background-color: #dfbde6;
+    background-color: #8D8DB4;
     font-size: smaller;
-    border: none;
     border-radius: 18px;
     height: 2rem;
     width: 7rem;
     color: white;
+    border:none;
+    /* border: 2px solid black; */
 }
 
 .open-modal-button.clickable:hover{
@@ -113,14 +113,28 @@
 }
 
 .ql-container.ql-snow{
-    height: 30rem;
+    height: 25rem;
     width: 35rem;
+}
+.ql-toolbar.ql-snow{
+    border: 2px solid black;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    padding: 8px;
+    margin-bottom: 0.25rem;
+}
+
+.ql-container.ql-snow{
+    border:none
 }
 
 .ql-editor{
     font-size:x-large;
     background-color: #cacafa;
     color: white;
+    border: 2px solid black;
+    border-radius: 1rem;
 }
 
 .edit-note-form-title {
@@ -234,8 +248,9 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    height: 8rem;
-    width: 11rem;
+    /* height: 8rem;
+    width: 11rem; */
+    border: solid 2px black;
 }
 
 .indiv-note:hover{

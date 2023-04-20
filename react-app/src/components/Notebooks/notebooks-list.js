@@ -41,7 +41,7 @@ export default function NotebooksList(){
 
             <div className='nbl-list'>
                 {myNotebooksArr.map(notebook=> (
-                    <div className='indiv-note' key={notebook.id} onClick={() => handleSubmit(notebook.id)} style={{ cursor: 'pointer' }} >
+                    <div className='indiv-nb' key={notebook.id} onClick={() => handleSubmit(notebook.id)} style={{ cursor: 'pointer' }} >
                         <h3>{notebook.name}</h3>
                         <span>Updated: {notebook.updated_at}</span>
                     </div>

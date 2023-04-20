@@ -15,10 +15,25 @@
 
 .nbl-header h1{
     margin-left: 1rem;
-    color: white;
+    color:#DFBDEA;
     font-size: xxx-large;
 
 }
 
-
-/* notes grid */
+.indiv-nb{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e5c9eb;
+    margin-top: 0.75rem;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    height: 8rem;
+    width: 11rem;
+    border: solid 2px black;
+}
