@@ -9,6 +9,17 @@
     margin-left: 1rem;
 }
 
+.nbl-main{
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-right:1rem;
+    padding: 1rem;
+    width: 100%;
+
+}
+
 .nbl-create-button{
     margin-left: 1rem;
 }
@@ -36,4 +47,10 @@
     height: 8rem;
     width: 11rem;
     border: solid 2px black;
+}
+
+.indiv-nb:hover{
+    background-color:#dfbde6;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
