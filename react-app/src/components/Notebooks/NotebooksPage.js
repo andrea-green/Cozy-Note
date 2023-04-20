@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 import SingleNtbkNote from "./SingleNtbkNote";
 import NotebooksList from "./notebooks-list";
 import NotesGrid from "./notes-grid";
-import './index.css'; 
+import './index.css';
 
 export default function AllNotebooks2() {
     const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export default function AllNotebooks2() {
         <div className='sn-idx-main'>
             <NavBar/>
             <NotebooksList/>
-            <NotesGrid />
+            {/* <NotesGrid /> */}
         </div>
     )
     }

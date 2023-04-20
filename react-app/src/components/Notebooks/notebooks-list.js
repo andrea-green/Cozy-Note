@@ -27,7 +27,7 @@ export default function NotebooksList(){
     useEffect(()=>{},[myNotebooks])
 
     return (
-        <div className='nl-main'>
+        <div className='nbl-main'>
             <div className='nbl-header'>
                 <h1>My Notebooks</h1>
                 <div className='nbl-create-button'>
