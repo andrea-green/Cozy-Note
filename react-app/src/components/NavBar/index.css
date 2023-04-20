@@ -6,6 +6,10 @@
     min-height: 45rem;
     max-height: 100vh;
     position: relative;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin-top: 0.25rem;
+    margin-left: 0.25rem;
 }
 
 .home-button img{

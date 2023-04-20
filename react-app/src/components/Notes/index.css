@@ -31,6 +31,8 @@
     height: 21rem;
     color:white;
     cursor: pointer;
+    border: 2px solid black;
+    border-radius: 1rem;
 }
 
 .note-content {
@@ -89,6 +91,10 @@
 
 .sn-main{
     margin-left: 2rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 0.25rem;
 }
 
 .note-header{
@@ -99,6 +105,7 @@
 .sn-idx-main{
     display: flex;
     flex-direction: row;
+
 }
 
 .drop-down{
@@ -173,12 +180,13 @@
 
 .dropdown-button{
     cursor: pointer;
-    background-color:#dfbde6;
+    background-color: #dfbde6;
     margin-bottom: 2rem;
     padding: 0.5rem;
-    border-radius: 10px;
-    color:white;
+    border-radius: 1rem;
+    color: white;
     margin-top: 1rem;
+    border: 2px solid black;
 }
 
 .dropdown-button:hover{
@@ -205,9 +213,12 @@
 /* notes list on sn page */
 
 .nl-main{
-    background-color:#E8DDF4;
-    box-shadow: 0 0 20px #DFBDEA;
-    margin-left: 2rem;
+    background-color: #E8DDF4;
+    margin-left: 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin-top: 0.25rem;
+    padding: 1rem;
 }
 
 .nl-header img{
