@@ -1,5 +1,56 @@
 /* notebooks list */
 
+.nbl-list{
+    margin-top: 2rem;
+    width: 24rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5rem;
+    margin-left: 1rem;
+}
 
+.nbl-main{
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-right:1rem;
+    padding: 1rem;
+    width: 100%;
 
-/* notes grid */
+}
+
+.nbl-create-button{
+    margin-left: 1rem;
+}
+
+.nbl-header h1{
+    margin-left: 1rem;
+    color:#DFBDEA;
+    font-size: xxx-large;
+
+}
+
+.indiv-nb{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e5c9eb;
+    margin-top: 0.75rem;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    height: 8rem;
+    width: 11rem;
+    border: solid 2px black;
+}
+
+.indiv-nb:hover{
+    background-color:#dfbde6;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
+}
