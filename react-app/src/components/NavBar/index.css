@@ -78,21 +78,23 @@
     z-index: 1;
 } */
 .logout-button {
-    margin-left: 1rem;
+    margin-left: 0rem;
     z-index: 2;
-    height: 2rem;
+    height: 4rem;
+    width: 12rem;
     position: absolute;
     bottom: 9rem;
-    font-size: large;
-    border-radius: 1rem;
-    border: none;
-    width: 7rem;
-    background-color: #dfbde6;
+    font-size: xx-large;
+    border: 2px solid black;
+    border-radius: 2rem;
+    background-color: #cacafa;
     color: white;
+    padding: 0.5rem;
+    font-weight: bolder;
 }
 
 .logout-button:hover{
-    background-color: #e5ccfd;
+    background-color: #8D8DB4;
     transform: scale(0.95);
     transition: transform 0.2s ease-in-out;
 }
