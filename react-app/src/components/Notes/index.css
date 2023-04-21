@@ -17,7 +17,6 @@
   }
 
   .indiv-card-container{
-    box-shadow: 9px 16px 17px 0px #e5ccfd;
     margin-top: -4rem;
     margin-left: 0rem;
 
@@ -84,7 +83,10 @@
 }
 
 .features-main {
-    margin-left: 4rem;
+    margin-left: 2rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
 }
 
 /* single note (sn) page  */
