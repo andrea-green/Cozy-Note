@@ -17,7 +17,6 @@
   }
 
   .indiv-card-container{
-    box-shadow: 9px 16px 17px 0px #e5ccfd;
     margin-top: -4rem;
     margin-left: 0rem;
 
@@ -31,6 +30,8 @@
     height: 21rem;
     color:white;
     cursor: pointer;
+    border: 2px solid black;
+    border-radius: 1rem;
 }
 
 .note-content {
@@ -41,23 +42,26 @@
 
 .open-modal-button.clickable{
     margin-top: 0rem;
-    margin-left: 19rem;
     position: inherit;
     z-index: 1;
-    background-color: #dfbde6;
+    background-color: #8D8DB4;
     font-size: smaller;
-    border: none;
     border-radius: 18px;
     height: 2rem;
     width: 7rem;
     color: white;
+    border:none;
+    /* border: 2px solid black; */
 }
 
 .open-modal-button.clickable:hover{
     background-color: #e5ccfd;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 .create-button {
     margin-top: 9rem;
+    margin-left: 10rem;
     position: absolute;
     z-index: 1;
 }
@@ -74,17 +78,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: -7rem;
 
 }
 
 .features-main {
-    margin-left: 4rem;
+    margin-left: 2rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
 }
 
 /* single note (sn) page  */
 
 .sn-main{
     margin-left: 2rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 0.25rem;
 }
 
 .note-header{
@@ -95,6 +107,7 @@
 .sn-idx-main{
     display: flex;
     flex-direction: row;
+
 }
 
 .drop-down{
@@ -110,14 +123,28 @@
 }
 
 .ql-container.ql-snow{
-    height: 30rem;
+    height: 25rem;
     width: 35rem;
+}
+.ql-toolbar.ql-snow{
+    border: 2px solid black;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    padding: 8px;
+    margin-bottom: 0.25rem;
+}
+
+.ql-container.ql-snow{
+    border:none
 }
 
 .ql-editor{
     font-size:x-large;
     background-color: #cacafa;
     color: white;
+    border: 2px solid black;
+    border-radius: 1rem;
 }
 
 .edit-note-form-title {
@@ -149,24 +176,31 @@
 
 .button.form-button:hover{
     background-color: #e5ccfd;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 
 .dropdown-button{
     cursor: pointer;
-    background-color:#dfbde6;
+    background-color: #dfbde6;
     margin-bottom: 2rem;
     padding: 0.5rem;
-    border-radius: 10px;
-    color:white;
+    border-radius: 1rem;
+    color: white;
     margin-top: 1rem;
+    border: 2px solid black;
 }
 
 .dropdown-button:hover{
     background-color: #e5ccfd;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 
 .create-notebook-link:hover{
     background-color: #dfbde6;
+
+
 }
 
 
@@ -181,9 +215,12 @@
 /* notes list on sn page */
 
 .nl-main{
-    background-color:#E8DDF4;
-    box-shadow: 0 0 20px #DFBDEA;
-    margin-left: 2rem;
+    background-color: #E8DDF4;
+    margin-left: 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin-top: 0.25rem;
+    padding: 1rem;
 }
 
 .nl-header img{
@@ -195,31 +232,45 @@
 
 .nl-create-button{
     margin-top: -11rem;
-    margin-left: -15rem;
+    margin-left: 3rem;
     position: relative;
     z-index: 1
 }
 
 .nl-list{
-    margin-top: 2rem;
+    margin-top: 0 rem;
+    overflow-y: scroll;
+    max-height: 30rem;
+}
+
+.notebook-name{
+    display: flex;
+    align-items: center;
+    margin-left: 0.75rem;
 }
 
 .indiv-note{
-    cursor: pointer;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     background-color: #e5c9eb;
     margin-top: 0.75rem;
-    border-radius: 0px;
+    border-radius: 1.5rem;
+    padding: 1rem;
     color: white;
     position: relative;
     z-index: 1;
+    text-align: center;
+    /* height: 8rem;
+    width: 11rem; */
+    border: solid 2px black;
 }
 
 .indiv-note:hover{
-    background-color:#dfbde6
+    background-color:#dfbde6;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }
 
 /*forms */

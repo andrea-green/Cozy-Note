@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { getAllNtbksThunk } from "../../store/notebook"
+import { getAllNtbksThunk, getNtbkThunk } from "../../store/notebook"
 import { useSelector, useDispatch } from "react-redux";
 import CreateNotebookForm from "../Notebooks/CreateNotebookForm";
 import { addNtbkThunk } from "../../store/notebook";
@@ -9,16 +9,15 @@ import { useModal } from "../../context/Modal";
 import './index.css';
 
 
-export default function NotebookDropDown() {
+export default function NotebookDropDown2() {
 
     const dispatch = useDispatch();
-    const { noteId } = useParams();
     const { setModalContent } = useModal();
 
     const myNotebooks = useSelector(state => state.notebooks.allNotebooks.byId)
     const myNotebooksArr = Object.values(myNotebooks);
 
-    const myNote = useSelector(state => state.notes.singleNote)
+    const myNote = useSelector(state => state.notebooks.singleNtbk.singleNote)
 
 
     const title = myNote.title
@@ -27,17 +26,18 @@ export default function NotebookDropDown() {
     const dropdownRef = useRef(null);
 
 
-    function addToNotebook(nbkId){
+    async function addToNotebook(nbkId) {
         const payload = {
             title,
             content,
-            notebookId:nbkId,
+            notebookId: nbkId,
         }
 
-        dispatch(editNoteThunk(myNote.id, payload))
+        await dispatch(editNoteThunk(myNote.id, payload))
+        await dispatch(getNtbkThunk(nbkId))
     }
 
-    const createNewNotebook=()=>{
+    const createNewNotebook = () => {
         setModalContent(<CreateNotebookForm />)
 
     }
@@ -46,10 +46,10 @@ export default function NotebookDropDown() {
         dispatch(getAllNtbksThunk())
     }, [])
 
-    useEffect(() => {},[myNote])
+    useEffect(() => { }, [myNote])
 
     const notebookOptions = myNotebooksArr.map((notebook, idx) => (
-        <div onClick={()=> addToNotebook(notebook.id)} key={notebook + idx} className='create-notebook-link'>
+        <div onClick={() => addToNotebook(notebook.id)} key={notebook + idx} className='create-notebook-link'>
             <span>{notebook.name}</span>
         </div>
     ))

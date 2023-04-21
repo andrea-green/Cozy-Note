@@ -6,15 +6,15 @@ def seed_notebooks():
         name="My Notebook"
     )
     notebook_2= Notebook(
-        owner_id=2,
+        owner_id=1,
         name="Biology notes"
     )
     notebook_3= Notebook(
-        owner_id=3,
+        owner_id=1,
         name="Chem notes"
     )
     notebook_4= Notebook(
-        owner_id=1,
+        owner_id=2,
         name="Math notes"
     )
     notebook_5= Notebook(
@@ -22,11 +22,11 @@ def seed_notebooks():
         name="My notes"
     )
     notebook_6= Notebook(
-        owner_id=1,
+        owner_id=3,
         name="Random notes"
     )
     notebook_7= Notebook(
-        owner_id=1,
+        owner_id=3,
         name="Physics notes"
     )
 

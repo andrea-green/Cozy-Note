@@ -27,13 +27,6 @@ export default function SingleNote() {
             <NavBar />
             <NotesList />
             <SingleNoteDetails />
-            {/* <div> */}
-                {/* style={{ padding: "11px", overflow: "auto",display:'flex' }} */}
-                {/* <AllNotes /> need to make a different all notes that displays differently
-            </div>
-            <div className="single-note-details">
-                <SingleNoteDetails />
-            </div> */}
         </div>
     )
 }
