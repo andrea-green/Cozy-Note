@@ -1,16 +1,34 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import './index.css';
 import logo from '../graphics/cozy-note2-logo.png'
-import notesHead from '../graphics/header1.png'
-import nbHead from '../graphics/header2.png'
-import listHead from '../graphics/header3.png'
 import LogoutButton from '../auth/LogoutButton';
 import cloud from '../graphics/cloud.png';
+import { useDispatch } from 'react-redux';
+import { getAllNotesThunk } from '../../store/note';
+import { getAllNtbksThunk } from '../../store/notebook';
+import { getAllListsThunk } from '../../store/list';
 
 export default function NavBar() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const noteClick = async (event) => {
+    await dispatch(getAllNotesThunk())
+    history.push(`/notes/`)
+  }
+
+  const nbClick = async (click) => {
+    await dispatch(getAllNtbksThunk())
+    history.push(`/notebooks/`)
+  }
+
+  const listClick = async (e) => {
+    await dispatch(getAllListsThunk())
+    history.push(`/lists/`)
+  }
   return (
     <nav className='nav-bar'>
       <ul>
@@ -30,17 +48,17 @@ export default function NavBar() {
         <div>
           <li className='notes-nav-button' >
             <NavLink to='/notes' exact={true} activeClassName='active'>
-              <img src={notesHead} alt='notes' />
+              <button className='nav-button' onClick={noteClick}>Notes</button>
             </NavLink>
           </li>
           <li className='notebook-nav-button' >
             <NavLink to='/notebooks' exact={true} activeClassName='active'>
-              <img src={nbHead} alt='notebooks' />
+              <button className='nav-button' onClick={nbClick}>Notebooks</button>
             </NavLink>
           </li>
           <li className='lists-nav-button' >
             <NavLink to='/lists' exact={true} activeClassName='active'>
-              <img src={listHead} alt='lists' />
+              <button className='nav-button' onClick={listClick}>Lists</button>
             </NavLink>
           </li>
           <LogoutButton />
