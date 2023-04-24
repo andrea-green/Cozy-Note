@@ -140,9 +140,10 @@
 }
 
 .form-header button{
-    cursor: pointer;
-    height: fit-content;
     width: fit-content;
-    margin-top: 1rem;
     margin-left: 2rem;
+    border: 2px solid black;
+    border-radius: 0.25rem;
+    font-weight: bolder;
+    cursor: pointer;
 }
