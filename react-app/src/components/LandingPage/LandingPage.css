@@ -108,10 +108,9 @@
 }
 
 .contact-input input{
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-    border: 1px solid gray;
     border-radius: 5px;
     height: 1.5rem;
+    border: 2px solid black;
 }
 
 .contact-input2 label{
@@ -119,10 +118,9 @@
 }
 
 .contact-input2 textarea{
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-    border: 1px solid gray;
     border-radius: 5px;
     height: 10rem;
+    border: 2px solid black;
 }
 
 .right-side h2{
